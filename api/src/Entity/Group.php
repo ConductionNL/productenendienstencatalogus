@@ -46,7 +46,18 @@ class Group
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+	private $id;
+	
+	/**
+	 * @var string The icon of this property
+	 *
+	 * @example My Property
+	 *
+	 * @Assert\Length(min = 15, max = 255)
+	 * @Groups({"read", "write"})
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $icon;
 
     /**
      * @var string The name of this product group
@@ -140,6 +151,18 @@ class Group
         $this->id = $id;
 
         return $this;
+    }
+    
+    public function getIcon(): ?string
+    {
+    	return $this->icon;
+    }
+    
+    public function setIcon(?string $icon): self
+    {
+    	$this->icon = $icon;
+    	
+    	return $this;
     }
 
     public function getName(): ?string
