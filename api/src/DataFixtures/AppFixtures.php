@@ -368,7 +368,7 @@ class AppFixtures extends Fixture
         $product = new Product();
         $product->setName(v);
         $product->setSourceOrganization('002220647');
-        $product->setDescription('U draagt zelf een trouwambtenaar voor en laat deze voor een dag beëdigd'));
+        $product->setDescription('U draagt zelf een trouwambtenaar voor en laat deze voor een dag beï¿½digd'));
         $product->setType('simple');
         $product->setCatalogue($utrecht);
         $product->setPrice('150.00');
@@ -505,6 +505,28 @@ class AppFixtures extends Fixture
         $manager->persist($product);
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+
+        $id = Uuid::fromString('1fa3fbbc-0dee-442a-8431-3381b8cbc78a');
+        $product = new Product();
+        $product->setName('Ringen');
+        $product->setSourceOrganization('002220647');
+        $product->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
+        $product->setType('simple');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('10.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
             $product->addGroup($group);
         }
