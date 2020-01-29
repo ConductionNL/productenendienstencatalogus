@@ -2416,29 +2416,31 @@ paths:
                   $ref: '#/components/schemas/Product-read'
       parameters:
         -
-          name: sku
+          name: 'order[type]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[sku]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: groups.id
           in: query
           required: false
           schema:
             type: string
         -
-          name: 'sku[]'
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-          style: form
-          explode: true
-        -
-          name: sourceOrganization
-          in: query
-          required: false
-          schema:
-            type: string
-        -
-          name: 'sourceOrganization[]'
+          name: 'groups.id[]'
           in: query
           required: false
           schema:
@@ -2464,14 +2466,33 @@ paths:
           style: form
           explode: true
         -
-          name: 'order[type]'
+          name: sku
           in: query
           required: false
           schema:
             type: string
-            enum:
-              - asc
-              - desc
+        -
+          name: 'sku[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: description
+          in: query
+          required: false
+          schema:
+            type: string
         -
           name: page
           in: query
@@ -4390,6 +4411,9 @@ components:
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
+        icon:
+          description: 'The icon of this property'
+          type: string
         name:
           description: 'The name of this product group'
           type: string
@@ -4420,10 +4444,10 @@ components:
     Group-write:
       type: object
       description: 'An entity representing a product group.'
-      required:
-        - name
-        - sourceOrganization
       properties:
+        icon:
+          description: 'The icon of this property'
+          type: string
         name:
           description: 'The name of this product group'
           type: string
@@ -4438,6 +4462,9 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue-write'
+      required:
+        - name
+        - sourceOrganization
     'Group:jsonld-read':
       type: object
       description: 'An entity representing a product group.'
@@ -4456,6 +4483,9 @@ components:
           description: 'The Uuid identifier of this group'
           externalDocs:
             url: 'http://schema.org/identifier'
+          type: string
+        icon:
+          description: 'The icon of this property'
           type: string
         name:
           description: 'The name of this product group'
@@ -4487,9 +4517,6 @@ components:
     'Group:jsonld-write':
       type: object
       description: 'An entity representing a product group.'
-      required:
-        - name
-        - sourceOrganization
       properties:
         '@context':
           readOnly: true
@@ -4499,6 +4526,9 @@ components:
           type: string
         '@type':
           readOnly: true
+          type: string
+        icon:
+          description: 'The icon of this property'
           type: string
         name:
           description: 'The name of this product group'
@@ -4514,6 +4544,9 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue:jsonld-write'
+      required:
+        - name
+        - sourceOrganization
     Offer-read:
       type: object
       description: 'An entity representing an offer.'
@@ -4536,11 +4569,13 @@ components:
         price:
           description: |
             The price of this product
+            
             @example 50.00
           type: string
         priceCurrency:
           description: |
             The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+            
             @example EUR
           externalDocs:
             url: 'http://schema.org/priceCurrency'
@@ -4602,11 +4637,13 @@ components:
         price:
           description: |
             The price of this product
+            
             @example 50.00
           type: string
         priceCurrency:
           description: |
             The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+            
             @example EUR
           externalDocs:
             url: 'http://schema.org/priceCurrency'
@@ -4669,11 +4706,13 @@ components:
         price:
           description: |
             The price of this product
+            
             @example 50.00
           type: string
         priceCurrency:
           description: |
             The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+            
             @example EUR
           externalDocs:
             url: 'http://schema.org/priceCurrency'
@@ -4744,11 +4783,13 @@ components:
         price:
           description: |
             The price of this product
+            
             @example 50.00
           type: string
         priceCurrency:
           description: |
             The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+            
             @example EUR
           externalDocs:
             url: 'http://schema.org/priceCurrency'
@@ -4877,6 +4918,9 @@ components:
           type: array
           items:
             type: string
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -4956,6 +5000,9 @@ components:
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5070,6 +5117,9 @@ components:
           type: array
           items:
             type: string
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5158,6 +5208,9 @@ components:
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5529,6 +5582,12 @@ definitions:
         type: string
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
+      icon:
+        description: 'The icon of this property'
+        type: string
+        example: 'My Property'
+        maxLength: 255
+        minLength: 15
       name:
         description: 'The name of this product group'
         type: string
@@ -5562,6 +5621,12 @@ definitions:
       - sourceOrganization
   Group-write:
     properties:
+      icon:
+        description: 'The icon of this property'
+        type: string
+        example: 'My Property'
+        maxLength: 255
+        minLength: 15
       name:
         description: 'The name of this product group'
         type: string
@@ -5602,11 +5667,13 @@ definitions:
       price:
         description: |
           The price of this product
+          
           @example 50.00
         type: string
       priceCurrency:
         description: |
           The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+          
           @example EUR
         type: string
       offeredBy:
@@ -5618,12 +5685,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-13'
+        example: '2020-01-29'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-13'
+        example: '2020-01-29'
         format: date
       product:
         description: 'The product that is sold via this offer'
@@ -5656,11 +5723,13 @@ definitions:
       price:
         description: |
           The price of this product
+          
           @example 50.00
         type: string
       priceCurrency:
         description: |
           The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+          
           @example EUR
         type: string
       offeredBy:
@@ -5672,12 +5741,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-13'
+        example: '2020-01-29'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-13'
+        example: '2020-01-29'
         format: date
       product:
         description: 'The product that is sold via this offer'
@@ -5747,8 +5816,7 @@ definitions:
         type: int
         example: '9'
       type:
-        description: 'The type of this product. **simple**: ,**set**: ,**virtual**: ,**external**: ,**ticket**: ,**variable**: ,**subscription**,**person**,**location**,**service**'
-
+        description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
         type: string
         example: simple
         maxLength: 15
@@ -5771,6 +5839,9 @@ definitions:
       externalDocs:
         description: 'An array of URLs pointing to external documents referred to from this product'
         type: array
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -5839,8 +5910,7 @@ definitions:
         type: int
         example: '9'
       type:
-        description: 'The type of this product. **simple**: ,**set**: ,**virtual**: ,**external**: ,**ticket**: ,**variable**: ,**subscription**,**person**,**location**,**service**'
-
+        description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
         type: string
         example: simple
         maxLength: 15
@@ -5854,6 +5924,9 @@ definitions:
         description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
         type: bool
         example: 'false'
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -5883,7 +5956,7 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       name:
-        description: 'The name of this RequestType'
+        description: 'The name of this Supplier'
         type: string
         example: 'My RequestType'
         maxLength: 255
@@ -5893,7 +5966,7 @@ definitions:
         example: '30280353'
         maxLength: 255
       logo:
-        description: 'The logo for this component'
+        description: 'The logo for this supplier'
         type: string
         example: 'https://www.my-organization.com/logo.png'
         format: url
@@ -5904,7 +5977,7 @@ definitions:
   Supplier-write:
     properties:
       name:
-        description: 'The name of this RequestType'
+        description: 'The name of this Supplier'
         type: string
         example: 'My RequestType'
         maxLength: 255
@@ -5914,7 +5987,7 @@ definitions:
         example: '30280353'
         maxLength: 255
       logo:
-        description: 'The logo for this component'
+        description: 'The logo for this supplier'
         type: string
         example: 'https://www.my-organization.com/logo.png'
         format: url
