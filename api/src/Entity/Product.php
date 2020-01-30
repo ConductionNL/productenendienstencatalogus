@@ -320,6 +320,11 @@ class Product
     private $audience = "internal";
 
     /**
+     * @Groups({"read","write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
+     */
+    private $additionalProperties;
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
@@ -345,6 +350,7 @@ class Product
         $this->groupedProducts = new ArrayCollection();
         $this->sets = new ArrayCollection();
         $this->offers = new ArrayCollection();
+        $this->additionalProperties = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -728,6 +734,36 @@ class Product
     {
         $this->audience = $audience;
 
+        return $this;
+    }
+
+    /**
+     * @return Collection|PropertyValue[]
+     */
+    public function getAdditionalProperties(): Collection
+    {
+        return $this->additionalProperties;
+    }
+
+    public function addAdditionalProperty(PropertyValue $additionalProperty): self
+    {
+        if (!$this->additionalProperties->contains($additionalProperty)) {
+            $this->additionalProperties[] = $additionalProperty;
+            $additionalProperty->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdditionalProperty(PropertyValue $additionalProperty): self
+    {
+        if ($this->additionalProperties->contains($additionalProperty)) {
+            $this->additionalProperties->removeElement($additionalProperty);
+            $additionalProperty->removeProduct($this);
+        }
+
+        return $this;
+    }
     public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
