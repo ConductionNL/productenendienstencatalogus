@@ -169,20 +169,6 @@ class Group
     private $dateModified;
 
     /**
-     * @Groups({"read", "write"})
-     * @MaxDepth(1)
-     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="parent")
-     */
-    private $children;
-
-    /**
-     * @Groups({"read", "write"})
-     * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
-     */
-    private $parent;
-
-    /**
      * @var Datetime $dateCreated The moment this request was created
      *
      * @Groups({"read"})
