@@ -210,6 +210,7 @@ class AppFixtures extends Fixture
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -234,6 +235,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
         $manager->persist($product);
+        $product->setAudience("public");
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
@@ -256,6 +258,7 @@ class AppFixtures extends Fixture
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -280,6 +283,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/erik.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -304,6 +308,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/ike.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -328,6 +333,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/rene.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -341,7 +347,7 @@ class AppFixtures extends Fixture
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Toegewezen Trouwamberbaar');
+        $product->setName('Toegewezen Trouwambtenaar');
         $product->setSourceOrganization('002220647');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
@@ -352,6 +358,26 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
+        $product->setAudience("public");
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+
+        $id = Uuid::fromString('ea984e7b-0d0d-48ff-86ea-bd5d15286ae7');
+        $product = new Product();
+        $product->setName('Stagair Trouwambtenaar');
+        $product->setSourceOrganization('002220647');
+        $product->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
+        $product->setType('simple');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
+        $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
+        $product->setAudience("internal");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -377,6 +403,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://utrecht.trouwplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -405,6 +432,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/Trouwzaal-Stadskantoor-Utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -429,6 +457,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/kleine-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->flush();
@@ -453,6 +482,7 @@ class AppFixtures extends Fixture
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/grote-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -477,6 +507,7 @@ class AppFixtures extends Fixture
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -500,6 +531,7 @@ class AppFixtures extends Fixture
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -521,6 +553,7 @@ class AppFixtures extends Fixture
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience("public");
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);

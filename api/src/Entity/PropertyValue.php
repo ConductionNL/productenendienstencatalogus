@@ -1,7 +1,5 @@
 <?php
 
-// src/entity/ExampleEntity.php
-
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -17,9 +15,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * An entity representing a type of customer.
+ * An entity representing a product property.
  *
- * This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
+ * This entity represents a product property that can be used to filter products.
  *
  * @author Robert Zondervan <robert@conduction.nl>
  *
@@ -31,17 +29,18 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
- * @ORM\Entity(repositoryClass="App\Repository\CustomerTypeRepository")
+ * @ApiResource()
+ * @ORM\Entity(repositoryClass="App\Repository\PropertyValueRepository")
  */
-class CustomerType
+class PropertyValue
 {
     /**
      * @var UuidInterface The UUID identifier of this object
      *
      * @example e2984465-190a-4562-829e-a8cca81aa35d
      *
-     * @Groups({"read"})
      * @Assert\Uuid
+     * @Groups({"read"})
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
@@ -50,41 +49,28 @@ class CustomerType
     private $id;
 
     /**
-     * @var string The name of this CustomerType
-     *
-     * @example My CustomerType
-     *
-     * @Groups({"read","write"})
-     * @ORM\Column(type="string", length=255)
+     * @Groups({"read", "write"})
      * @Assert\Length(
-     *     max = 255
+     *     max=255
      * )
      * @Assert\NotNull
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string The description for this CustomerType
      *
-     * @example this is the best customertype ever
-     *
-     * @Groups({"read","write"})
-     * @ORM\Column(type="string", length=2550)
-     * @Assert\Length(
-     *     max = 2550
-     * )
-     * @Assert\NotNull
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
-     * @var ArrayCollection The offers that this CustomerType is eligible for
-     *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", inversedBy="eligibleCustomerTypes")
-     * @MaxDepth(1)
      * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="additionalProperties")
      */
-    private $offers;
+    private $products;
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
@@ -105,19 +91,12 @@ class CustomerType
 
     public function __construct()
     {
-        $this->offers = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
-    public function getId(): Uuid
+    public function getId(): ?Uuid
     {
         return $this->id;
-    }
-
-    public function setId(Uuid $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -137,7 +116,7 @@ class CustomerType
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -145,26 +124,26 @@ class CustomerType
     }
 
     /**
-     * @return Collection|Offer[]
+     * @return Collection|Product[]
      */
-    public function getOffers(): Collection
+    public function getProducts(): Collection
     {
-        return $this->offers;
+        return $this->products;
     }
 
-    public function addOffer(Offer $offer): self
+    public function addProduct(Product $product): self
     {
-        if (!$this->offers->contains($offer)) {
-            $this->offers[] = $offer;
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
         }
 
         return $this;
     }
 
-    public function removeOffer(Offer $offer): self
+    public function removeProduct(Product $product): self
     {
-        if ($this->offers->contains($offer)) {
-            $this->offers->removeElement($offer);
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
         }
 
         return $this;
