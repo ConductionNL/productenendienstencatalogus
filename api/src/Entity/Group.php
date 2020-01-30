@@ -47,7 +47,7 @@ class Group
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
 	private $id;
-	
+
 	/**
 	 * @var string The icon of this property
 	 *
@@ -133,22 +133,22 @@ class Group
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $catalogue;       
-    
+    private $catalogue;
+
     /**
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="parent")
      */
     private $children;
-    
+
     /**
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
      */
     private $parent;
-    
+
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
@@ -157,7 +157,7 @@ class Group
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
-    
+
     /**
      * @var Datetime $dateModified  The moment this request last Modified
      *
@@ -184,16 +184,16 @@ class Group
 
         return $this;
     }
-    
+
     public function getIcon(): ?string
     {
     	return $this->icon;
     }
-    
+
     public function setIcon(?string $icon): self
     {
     	$this->icon = $icon;
-    	
+
     	return $this;
     }
 
@@ -282,19 +282,19 @@ class Group
 
         return $this;
     }
-    
+
     public function getParent(): ?self
     {
     	return $this->parent;
     }
-    
+
     public function setParent(?self $parent): self
     {
     	$this->parent = $parent;
-    	
+
     	return $this;
     }
-    
+
     /**
      * @return Collection|self[]
      */
@@ -302,17 +302,17 @@ class Group
     {
     	return $this->children;
     }
-    
+
     public function addChild(self $child): self
     {
     	if (!$this->children->contains($child)) {
     		$this->children[] = $child;
     		$child->setParent($this);
     	}
-    	
+
     	return $this;
     }
-    
+
     public function removeChild(self $child): self
     {
     	if ($this->children->contains($child)) {
@@ -322,31 +322,31 @@ class Group
     			$child->setParent(null);
     		}
     	}
-    	
+
     	return $this;
     }
-    
+
     public function getDateCreated(): ?\DateTimeInterface
     {
-    	return $this->dateModified;
+    	return $this->dateCreated;
     }
-    
+
     public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
     	$this->dateCreated= $dateCreated;
-    	
+
     	return $this;
     }
-    
+
     public function getDateModified(): ?\DateTimeInterface
     {
     	return $this->dateModified;
     }
-    
+
     public function setDateModified(\DateTimeInterface $dateModified): self
     {
     	$this->dateModified = $dateModified;
-    	
+
     	return $this;
     }
 }

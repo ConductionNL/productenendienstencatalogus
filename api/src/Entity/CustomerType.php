@@ -170,7 +170,7 @@ class CustomerType
     }
     public function getDateCreated(): ?\DateTimeInterface
     {
-        return $this->dateModified;
+        return $this->dateCreated;
     }
 
     public function setDateCreated(\DateTimeInterface $dateCreated): self
