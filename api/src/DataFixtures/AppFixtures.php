@@ -363,6 +363,11 @@ class AppFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
+        foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
 
         $id = Uuid::fromString('ea984e7b-0d0d-48ff-86ea-bd5d15286ae7');
         $product = new Product();
