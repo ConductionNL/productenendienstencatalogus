@@ -307,6 +307,15 @@ class Product
      */
     private $externalDocs = [];
 
+    /**
+     * @var string The audience this product is intended for
+     *
+     * @Groups({"read","write"})
+     * @Assert\Choice({"public", "internal"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $audience;
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -684,6 +693,18 @@ class Product
     public function setExternalDocs(?array $externalDocs): self
     {
         $this->externalDocs = $externalDocs;
+
+        return $this;
+    }
+
+    public function getAudience(): ?string
+    {
+        return $this->audience;
+    }
+
+    public function setAudience(?string $audience): self
+    {
+        $this->audience = $audience;
 
         return $this;
     }
