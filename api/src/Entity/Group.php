@@ -149,24 +149,6 @@ class Group
      * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
      */
     private $parent;
-    
-    /**
-     * @var Datetime $dateCreated The moment this request was created
-     *
-     * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $dateCreated;
-    
-    /**
-     * @var Datetime $dateModified  The moment this request last Modified
-     *
-     * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $dateModified;
 
     /**
      * @var Datetime $dateCreated The moment this request was created
