@@ -312,9 +312,10 @@ class Product
      *
      * @Groups({"read","write"})
      * @Assert\Choice({"public", "internal"})
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotNull
+     * @ORM\Column(type="string", length=255)
      */
-    private $audience;
+    private $audience = "internal";
 
     public function __construct()
     {
