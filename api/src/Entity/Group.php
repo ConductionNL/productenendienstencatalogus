@@ -3,17 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
-use Ramsey\Uuid\Uuid;
 
 /**
  * An entity representing a product group.
@@ -37,6 +36,7 @@ class Group
 {
     /**
      * @var UuidInterface The Uuid identifier of this group
+     *
      * @example e2984465-190a-4562-829e-a8cca81aa35d
      *
      * @Assert\Uuid
@@ -46,10 +46,22 @@ class Group
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+	private $id;
+	
+	/**
+	 * @var string The icon of this property
+	 *
+	 * @example My Property
+	 *
+	 * @Assert\Length(min = 15, max = 255)
+	 * @Groups({"read", "write"})
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $icon;
 
     /**
      * @var string The name of this product group
+     *
      * @example My Group
      *
      * @Assert\NotNull
@@ -63,6 +75,7 @@ class Group
 
     /**
      * @var string An short description of this product group
+     *
      * @example This is the best group ever
      *
      * @Assert\Length(
@@ -75,6 +88,7 @@ class Group
 
     /**
      * @var string The logo for this component
+     *
      * @example https://www.my-organization.com/logo.png
      *
      * @Assert\Url
@@ -97,6 +111,7 @@ class Group
 
     /**
      * @var string The RSIN of the organization that owns this group
+     *
      * @example 002851234
      *
      * @Assert\NotNull
@@ -125,15 +140,27 @@ class Group
         $this->products = new ArrayCollection();
         $this->services = new ArrayCollection();
     }
-    
+
     public function getId(): Uuid
     {
-    	return $this->id;
+        return $this->id;
     }
-    
+
     public function setId(Uuid $id): self
     {
-    	$this->id = $id;
+        $this->id = $id;
+
+        return $this;
+    }
+    
+    public function getIcon(): ?string
+    {
+    	return $this->icon;
+    }
+    
+    public function setIcon(?string $icon): self
+    {
+    	$this->icon = $icon;
     	
     	return $this;
     }

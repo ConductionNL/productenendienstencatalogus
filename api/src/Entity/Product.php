@@ -2,19 +2,18 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
-use Ramsey\Uuid\Uuid;
 
 /**
  * An entity representing a product.
@@ -32,13 +31,14 @@ use Ramsey\Uuid\Uuid;
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
  * )
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
- * @ApiFilter(SearchFilter::class, properties={"groups.id": "exact"})
- * @ApiFilter(SearchFilter::class, properties={"sourceOgranization.id": "exact"})
+ * @ApiFilter(OrderFilter::class, properties={"type","sku"})
+ * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial"})
  */
 class Product
 {
     /**
      * @var UuidInterface The UUID identifier of this object
+     *
      * @example e2984465-190a-4562-829e-a8cca81aa35d
      *
      * @Assert\Uuid
@@ -52,11 +52,11 @@ class Product
 
     /**
      * @var string The human readable reference for this product, also known as Stock Keeping Unit (SKU)
+     *
      * @example 6666-2019
      *
      * @Groups({"read","write"})
      * @ORM\Column(type="string", length=255, nullable=true) //, unique=true
-     * @ApiFilter(SearchFilter::class, strategy="exact")
      */
     private $sku;
 
@@ -70,6 +70,7 @@ class Product
 
     /**
      * @var string The name of this Product
+     *
      * @example My product
      *
      * @Assert\NotNull
@@ -83,6 +84,7 @@ class Product
 
     /**
      * @var string An short description of this Product
+     *
      * @example This is the best product ever
      *
      * @Assert\Length(
@@ -95,6 +97,7 @@ class Product
 
     /**
      * @var string The logo of this product
+     *
      * @example https://www.my-organization.com/logo.png
      *
      * @Assert\Url
@@ -108,6 +111,7 @@ class Product
 
     /**
      * @var string The movie for this product
+     *
      * @example https://www.youtube.com/embed/RkBZYoMnx5w
      *
      * @Assert\Url
@@ -121,6 +125,7 @@ class Product
 
     /**
      * @var string The RSIN of the organization that owns this product
+     *
      * @example 002851234
      *
      * @Assert\NotNull
@@ -130,7 +135,6 @@ class Product
      * )
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
-     * @ApiFilter(SearchFilter::class, strategy="exact")
      */
     private $sourceOrganization;
 
@@ -145,10 +149,11 @@ class Product
     private $groups;
 
     /**
-     *  @var string The price of this product
-     *  @example 50.00
+     * @var string The price of this product
      *
-     *  @ORM\Column(type="decimal", precision=8, scale=2)
+     * @example 50.00
+     *
+     * @ORM\Column(type="decimal", precision=8, scale=2)
      * @Assert\NotNull
      * @Groups({"read","write"})
      */
@@ -156,6 +161,7 @@ class Product
 
     /**
      *  @var string The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+     *
      * @example EUR
      *
      * @ORM\Column(type="string")
@@ -166,6 +172,7 @@ class Product
 
     /**
      * @var int The tax percentage for this product as an integer e.g. 9% makes 9
+     *
      * @example 9
      *
      * @Assert\NotBlank
@@ -194,7 +201,8 @@ class Product
     private $variations;
 
     /**
-     * @var string The type of this product. **simple**: ,**set**: ,**virtual**: ,**external**: ,**ticket**: ,**variable**: ,**subscription**,**person**,**location**,**service**
+     * @var string The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**
+     *
      * @example simple
      *
      * @ORM\Column
@@ -203,8 +211,9 @@ class Product
      *     choices = { "simple", "set", "virtual","external","ticket","variable","subscription","person","location","service" },
      *     message = "Choose either simple, set, virtual, external, ticket, variable, subscription, person, location or service, got {{ value }}"
      * )
-     * @ApiFilter(SearchFilter::class, strategy="exact")
-     * @ApiFilter(OrderFilter::class)
+     * @Assert\Length(
+     *     max = 15
+     * )
      * @Groups({"read", "write"})
      */
     private $type;
@@ -251,6 +260,7 @@ class Product
 
     /**
      * @var string The uri referring to the calendar of this product.
+     *
      * @example http://example.org/calendar/calendar
      *
      * @Assert\Url
@@ -264,6 +274,7 @@ class Product
 
     /**
      * @var bool If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms
+     *
      * @example false
      *
      * @ORM\Column(type="boolean")
@@ -296,6 +307,15 @@ class Product
      */
     private $externalDocs = [];
 
+    /**
+     * @var string The audience this product is intended for
+     *
+     * @Groups({"read","write"})
+     * @Assert\Choice({"public", "internal"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $audience;
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -304,17 +324,17 @@ class Product
         $this->sets = new ArrayCollection();
         $this->offers = new ArrayCollection();
     }
-    
+
     public function getId(): Uuid
     {
-    	return $this->id;
+        return $this->id;
     }
-    
+
     public function setId(Uuid $id): self
     {
-    	$this->id = $id;
-    	
-    	return $this;
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getSku(): ?string
@@ -673,6 +693,18 @@ class Product
     public function setExternalDocs(?array $externalDocs): self
     {
         $this->externalDocs = $externalDocs;
+
+        return $this;
+    }
+
+    public function getAudience(): ?string
+    {
+        return $this->audience;
+    }
+
+    public function setAudience(?string $audience): self
+    {
+        $this->audience = $audience;
 
         return $this;
     }
