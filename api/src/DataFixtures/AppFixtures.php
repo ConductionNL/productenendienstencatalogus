@@ -347,7 +347,7 @@ class AppFixtures extends Fixture
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Toegewezen Trouwambtenaar');
+        $product->setName('Geen voorkeur / Toegewezen Trouwambtenaar');
         $product->setSourceOrganization('002220647');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
