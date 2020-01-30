@@ -134,7 +134,39 @@ class Group
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $catalogue;
+    private $catalogue;       
+    
+    /**
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="parent")
+     */
+    private $children;
+    
+    /**
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
+     */
+    private $parent;
+    
+    /**
+     * @var Datetime $dateCreated The moment this request was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateCreated;
+    
+    /**
+     * @var Datetime $dateModified  The moment this request last Modified
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateModified;
 
     /**
      * @Groups({"read", "write"})
@@ -283,7 +315,7 @@ class Group
 
         return $this;
     }
-
+  
     public function getParent(): ?self
     {
     	return $this->parent;
@@ -303,7 +335,7 @@ class Group
     {
     	return $this->children;
     }
-
+  
     public function addChild(self $child): self
     {
     	if (!$this->children->contains($child)) {
@@ -338,6 +370,7 @@ class Group
 
     	return $this;
     }
+
 
     public function getDateModified(): ?\DateTimeInterface
     {
