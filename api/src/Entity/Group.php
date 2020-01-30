@@ -133,7 +133,39 @@ class Group
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $catalogue;
+    private $catalogue;       
+    
+    /**
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="parent")
+     */
+    private $children;
+    
+    /**
+     * @Groups({"read", "write"})
+     * @MaxDepth(1)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
+     */
+    private $parent;
+    
+    /**
+     * @var Datetime $dateCreated The moment this request was created
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateCreated;
+    
+    /**
+     * @var Datetime $dateModified  The moment this request last Modified
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateModified;
 
     public function __construct()
     {
@@ -249,5 +281,72 @@ class Group
         $this->catalogue = $catalogue;
 
         return $this;
+    }
+    
+    public function getParent(): ?self
+    {
+    	return $this->parent;
+    }
+    
+    public function setParent(?self $parent): self
+    {
+    	$this->parent = $parent;
+    	
+    	return $this;
+    }
+    
+    /**
+     * @return Collection|self[]
+     */
+    public function getChildren(): Collection
+    {
+    	return $this->children;
+    }
+    
+    public function addChild(self $child): self
+    {
+    	if (!$this->children->contains($child)) {
+    		$this->children[] = $child;
+    		$child->setParent($this);
+    	}
+    	
+    	return $this;
+    }
+    
+    public function removeChild(self $child): self
+    {
+    	if ($this->children->contains($child)) {
+    		$this->children->removeElement($child);
+    		// set the owning side to null (unless already changed)
+    		if ($child->getParent() === $this) {
+    			$child->setParent(null);
+    		}
+    	}
+    	
+    	return $this;
+    }
+    
+    public function getDateCreated(): ?\DateTimeInterface
+    {
+    	return $this->dateModified;
+    }
+    
+    public function setDateCreated(\DateTimeInterface $dateCreated): self
+    {
+    	$this->dateCreated= $dateCreated;
+    	
+    	return $this;
+    }
+    
+    public function getDateModified(): ?\DateTimeInterface
+    {
+    	return $this->dateModified;
+    }
+    
+    public function setDateModified(\DateTimeInterface $dateModified): self
+    {
+    	$this->dateModified = $dateModified;
+    	
+    	return $this;
     }
 }
