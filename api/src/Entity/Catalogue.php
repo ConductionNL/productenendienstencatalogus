@@ -121,7 +121,7 @@ class Catalogue
      * @MaxDepth(1)
      * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="catalogue", orphanRemoval=true)
      */
-
+    private $products;
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
@@ -138,7 +138,7 @@ class Catalogue
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $products;
+    private $dateModified;
 
     public function __construct()
     {

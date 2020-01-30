@@ -226,7 +226,7 @@ class Offer
         return $this;
     }
 
-    public function getProduct(): ?string
+    public function getProduct(): ?Product
     {
         return $this->product;
     }

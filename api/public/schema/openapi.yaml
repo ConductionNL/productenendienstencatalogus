@@ -4786,7 +4786,7 @@ components:
           description: 'The moment this request was created'
           type: string
           format: date-time
-        products:
+        dateModified:
           readOnly: true
           description: 'The moment this request last Modified'
           type: string
@@ -4859,7 +4859,7 @@ components:
           description: 'The moment this request was created'
           type: string
           format: date-time
-        products:
+        dateModified:
           readOnly: true
           description: 'The moment this request last Modified'
           type: string
@@ -6372,7 +6372,7 @@ definitions:
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
-      products:
+      dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
       groups:
