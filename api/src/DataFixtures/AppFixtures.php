@@ -48,7 +48,6 @@ class AppFixtures extends Fixture
             $catalogue->setLogo($logo);
         }
         $manager->persist($catalogue);
-        var_dump($catalogue);
         return $catalogue;
     }
 
