@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
             $catalogue->setLogo($logo);
         }
         $manager->persist($catalogue);
-
+        var_dump($catalogue);
         return $catalogue;
     }
 
@@ -104,7 +104,7 @@ class AppFixtures extends Fixture
         $manager->flush();
         $manager->refresh($burgerzakerEindhoven);
 
-        $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
+        $id = Uuid::fromString('1138c620-223e-4def-ac84-f21a46369d56');
         $burgerzakenUtrecht = new Group();
         $burgerzakenUtrecht->setName('Burgerzaken');
         $burgerzakenUtrecht->setDescription('Alle producten met betrekking tot burgerzaken');
@@ -197,7 +197,7 @@ class AppFixtures extends Fixture
         $trouwenLocatiesUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '170788e7-b238-4c28-8efc-97bdada02c2e']);
         $trouwenAmbtenarenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '7f4ff7ae-ed1b-45c9-9a73-3ed06a36b9cc']);
         $trouwenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '0c1f993d-f9e2-46c5-8d83-0b6dfb702069']);
-        $burgerzakenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> 'd1a8b316-5966-4a29-8cf7-be15b8302301']);
+        $burgerzakenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '1138c620-223e-4def-ac84-f21a46369d56']);
 
         $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
         $product = new Product();
@@ -347,7 +347,7 @@ class AppFixtures extends Fixture
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Geen voorkeur / Toegewezen Trouwambtenaar');
+        $product->setName('Toegewezen Trouwambtenaar');
         $product->setSourceOrganization('002220647');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
@@ -363,6 +363,7 @@ class AppFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -545,6 +546,8 @@ class AppFixtures extends Fixture
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
             $product->addGroup($group);
         }
+        $manager->persist($product);
+        $manager->flush();
 
         $id = Uuid::fromString('1fa3fbbc-0dee-442a-8431-3381b8cbc78a');
         $product = new Product();
