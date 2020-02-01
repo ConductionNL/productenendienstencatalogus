@@ -5617,6 +5617,9 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5704,6 +5707,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-write'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5836,6 +5842,9 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5932,6 +5941,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-write'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -6575,12 +6587,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-30'
+        example: '2020-01-31'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-30'
+        example: '2020-01-31'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6637,12 +6649,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-30'
+        example: '2020-01-31'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-30'
+        example: '2020-01-31'
         format: date
       product:
         description: 'The product that is sold via this offer'
@@ -6744,6 +6756,10 @@ definitions:
       dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
+      duration:
+        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -6831,6 +6847,10 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      duration:
+        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
