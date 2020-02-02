@@ -565,6 +565,30 @@ class AppFixtures extends Fixture
         }
         $manager->persist($product);
         $manager->flush();
+        
+        $id = Uuid::fromString('a6bbfcb3-e87d-4f6f-98da-821b71e45912');
+        $product = new Product();
+        $product->setName('Geen extra\'s');
+        $product->setSourceOrganization('002220647');
+        $product->setDescription('U wilt geen extra producten bij uw huwelijk');
+        $product->setType('simple');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        $product->setAudience("public");
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        
+        foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
+        	$product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
 
         $manager->flush();
     }
