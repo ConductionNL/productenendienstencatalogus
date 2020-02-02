@@ -343,6 +343,15 @@ class Product
      */
     private $dateModified;
 
+    /**
+     * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     * @example PT10M
+     *
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $duration;
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -784,6 +793,18 @@ class Product
     public function setDateModified(\DateTimeInterface $dateModified): self
     {
         $this->dateModified = $dateModified;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(?string $duration): self
+    {
+        $this->duration = $duration;
 
         return $this;
     }
