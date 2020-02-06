@@ -134,16 +134,20 @@ class Group
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $catalogue;       
-    
+    private $catalogue;
+
     /**
+     * @var ArrayCollection|Group[] The children of this group
+     *
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="parent")
      */
     private $children;
-    
+
     /**
+     * @var Group the parent of this group
+     *
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="children")
@@ -283,7 +287,7 @@ class Group
 
         return $this;
     }
-  
+
     public function getParent(): ?self
     {
     	return $this->parent;
@@ -303,7 +307,7 @@ class Group
     {
     	return $this->children;
     }
-  
+
     public function addChild(self $child): self
     {
     	if (!$this->children->contains($child)) {

@@ -5057,10 +5057,12 @@ components:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue-read'
         children:
+          description: 'The children of this group'
           type: array
           items:
             $ref: '#/components/schemas/Group-read'
         parent:
+          description: 'the parent of this group'
           $ref: '#/components/schemas/Group-read'
         dateCreated:
           readOnly: true
@@ -5097,10 +5099,12 @@ components:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue-write'
         children:
+          description: 'The children of this group'
           type: array
           items:
             $ref: '#/components/schemas/Group-write'
         parent:
+          description: 'the parent of this group'
           $ref: '#/components/schemas/Group-write'
       required:
         - name
@@ -5152,10 +5156,12 @@ components:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue:jsonld-read'
         children:
+          description: 'The children of this group'
           type: array
           items:
             $ref: '#/components/schemas/Group:jsonld-read'
         parent:
+          description: 'the parent of this group'
           $ref: '#/components/schemas/Group:jsonld-read'
         dateCreated:
           readOnly: true
@@ -5201,10 +5207,12 @@ components:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue:jsonld-write'
         children:
+          description: 'The children of this group'
           type: array
           items:
             $ref: '#/components/schemas/Group:jsonld-write'
         parent:
+          description: 'the parent of this group'
           $ref: '#/components/schemas/Group:jsonld-write'
       required:
         - name
@@ -6514,8 +6522,12 @@ definitions:
       catalogue:
         description: 'The Catalogue that this product group belongs to'
         type: \Catalogue
-      children: []
-      parent: []
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
     required:
       - name
       - sourceOrganization
@@ -6544,8 +6556,12 @@ definitions:
       catalogue:
         description: 'The Catalogue that this product group belongs to'
         type: \Catalogue
-      children: []
-      parent: []
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
     required:
       - name
       - sourceOrganization
@@ -6587,12 +6603,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-06'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-06'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6649,12 +6665,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-06'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-06'
         format: date
       product:
         description: 'The product that is sold via this offer'
