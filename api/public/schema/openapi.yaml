@@ -3015,6 +3015,584 @@ paths:
             schema:
               $ref: '#/components/schemas/Product-write'
         description: 'The updated Product resource'
+  /property_values:
+    get:
+      tags:
+        - PropertyValue
+      operationId: getPropertyValueCollection
+      summary: 'Retrieves the collection of PropertyValue resources.'
+      responses:
+        200:
+          description: 'PropertyValue collection response'
+          content:
+            application/hal+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/PropertyValue:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/vnd.api+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            application/x-yaml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PropertyValue-read'
+      parameters:
+        -
+          name: page
+          in: query
+          required: false
+          description: 'The collection page number'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      produces:
+        - application/health+json
+    post:
+      tags:
+        - PropertyValue
+      operationId: postPropertyValueCollection
+      summary: 'Creates a PropertyValue resource.'
+      responses:
+        201:
+          description: 'PropertyValue resource created'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+          links:
+            GetPropertyValueItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getPropertyValueItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /property_values/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue:jsonld-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+        description: 'The new PropertyValue resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/property_values/{id}':
+    get:
+      tags:
+        - PropertyValue
+      operationId: getPropertyValueItem
+      summary: 'Retrieves a PropertyValue resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'PropertyValue resource response'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+    delete:
+      tags:
+        - PropertyValue
+      operationId: deletePropertyValueItem
+      summary: 'Removes the PropertyValue resource.'
+      responses:
+        204:
+          description: 'PropertyValue resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+    put:
+      tags:
+        - PropertyValue
+      operationId: putPropertyValueItem
+      summary: 'Replaces the PropertyValue resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'PropertyValue resource updated'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue:jsonld-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+        description: 'The updated PropertyValue resource'
+    patch:
+      tags:
+        - PropertyValue
+      operationId: patchPropertyValueItem
+      summary: 'Updates the PropertyValue resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'PropertyValue resource updated'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue:jsonld-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/PropertyValue-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+        description: 'The updated PropertyValue resource'
   /suppliers:
     get:
       tags:
@@ -4203,6 +4781,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Group-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - sourceOrganization
@@ -4266,6 +4854,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Group:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - sourceOrganization
@@ -4320,6 +4918,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Offer-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - description
@@ -4371,6 +4979,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Offer:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - description
@@ -4438,6 +5056,24 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue-read'
+        children:
+          description: 'The children of this group'
+          type: array
+          items:
+            $ref: '#/components/schemas/Group-read'
+        parent:
+          description: 'the parent of this group'
+          $ref: '#/components/schemas/Group-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - sourceOrganization
@@ -4462,6 +5098,14 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue-write'
+        children:
+          description: 'The children of this group'
+          type: array
+          items:
+            $ref: '#/components/schemas/Group-write'
+        parent:
+          description: 'the parent of this group'
+          $ref: '#/components/schemas/Group-write'
       required:
         - name
         - sourceOrganization
@@ -4511,6 +5155,24 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue:jsonld-read'
+        children:
+          description: 'The children of this group'
+          type: array
+          items:
+            $ref: '#/components/schemas/Group:jsonld-read'
+        parent:
+          description: 'the parent of this group'
+          $ref: '#/components/schemas/Group:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - sourceOrganization
@@ -4544,6 +5206,14 @@ components:
         catalogue:
           description: 'The Catalogue that this product group belongs to'
           $ref: '#/components/schemas/Catalogue:jsonld-write'
+        children:
+          description: 'The children of this group'
+          type: array
+          items:
+            $ref: '#/components/schemas/Group:jsonld-write'
+        parent:
+          description: 'the parent of this group'
+          $ref: '#/components/schemas/Group:jsonld-write'
       required:
         - name
         - sourceOrganization
@@ -4607,6 +5277,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomerType-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - product
@@ -4744,6 +5424,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomerType:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - product
@@ -4921,6 +5611,23 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyValue-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -4929,6 +5636,7 @@ components:
         - type
         - catalogue
         - requiresAppointment
+        - audience
     Product-write:
       type: object
       description: 'An entity representing a product.'
@@ -5003,6 +5711,13 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyValue-write'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5011,6 +5726,7 @@ components:
         - type
         - catalogue
         - requiresAppointment
+        - audience
     'Product:jsonld-read':
       type: object
       description: 'An entity representing a product.'
@@ -5120,6 +5836,23 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyValue:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5128,6 +5861,7 @@ components:
         - type
         - catalogue
         - requiresAppointment
+        - audience
     'Product:jsonld-write':
       type: object
       description: 'An entity representing a product.'
@@ -5211,6 +5945,13 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyValue:jsonld-write'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
       required:
         - name
         - sourceOrganization
@@ -5219,6 +5960,113 @@ components:
         - type
         - catalogue
         - requiresAppointment
+        - audience
+    PropertyValue-read:
+      type: object
+      description: 'An entity representing a product property.'
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
+      required:
+        - name
+    PropertyValue-write:
+      type: object
+      description: 'An entity representing a product property.'
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
+    'PropertyValue:jsonld-read':
+      type: object
+      description: 'An entity representing a product property.'
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this object'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
+      required:
+        - name
+    'PropertyValue:jsonld-write':
+      type: object
+      description: 'An entity representing a product property.'
+      required:
+        - name
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
     Supplier-read:
       type: object
       description: 'An entity representing a supplier of products.'
@@ -5240,6 +6088,16 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - kvk
@@ -5291,6 +6149,16 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - kvk
@@ -5353,6 +6221,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Offer-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - price
@@ -5428,6 +6306,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Offer:jsonld-read'
+        dateCreated:
+          readOnly: true
+          description: 'The moment this request was created'
+          type: string
+          format: date-time
+        dateModified:
+          readOnly: true
+          description: 'The moment this request last Modified'
+          type: string
+          format: date-time
       required:
         - name
         - price
@@ -5501,6 +6389,12 @@ definitions:
         example: '002851234'
         maxLength: 11
         minLength: 8
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
       groups:
         description: 'The groups that are a part of this catalogue'
         type: \ArrayCollection
@@ -5551,6 +6445,12 @@ definitions:
         type: string
         example: 'this is the best customertype ever'
         maxLength: 2550
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
       offers:
         description: 'The offers that this CustomerType is eligible for'
         type: \ArrayCollection
@@ -5610,12 +6510,24 @@ definitions:
         example: '002851234'
         maxLength: 11
         minLength: 8
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
       products:
         description: 'The groups that are a part of this product group'
         type: \ArrayCollection
       catalogue:
         description: 'The Catalogue that this product group belongs to'
         type: \Catalogue
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
     required:
       - name
       - sourceOrganization
@@ -5644,6 +6556,12 @@ definitions:
       catalogue:
         description: 'The Catalogue that this product group belongs to'
         type: \Catalogue
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
     required:
       - name
       - sourceOrganization
@@ -5685,13 +6603,19 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-29'
+        example: '2020-02-06'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-29'
+        example: '2020-02-06'
         format: date
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
       product:
         description: 'The product that is sold via this offer'
         type: \Product
@@ -5741,12 +6665,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-29'
+        example: '2020-02-06'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-29'
+        example: '2020-02-06'
         format: date
       product:
         description: 'The product that is sold via this offer'
@@ -5842,6 +6766,16 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      duration:
+        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -5857,11 +6791,13 @@ definitions:
       offers:
         description: 'The offers that refer to this product'
         type: \ArrayCollection
+      additionalProperties: []
     required:
       - name
       - sourceOrganization
       - price
       - requiresAppointment
+      - audience
       - catalogue
   Product-write:
     properties:
@@ -5927,6 +6863,10 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      duration:
+        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -5942,12 +6882,41 @@ definitions:
       offers:
         description: 'The offers that refer to this product'
         type: \ArrayCollection
+      additionalProperties: []
     required:
       - name
       - sourceOrganization
       - price
       - requiresAppointment
+      - audience
       - catalogue
+  PropertyValue-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        maxLength: 255
+      description: []
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      products: []
+    required:
+      - name
+  PropertyValue-write:
+    properties:
+      name:
+        maxLength: 255
+      description: []
+      products: []
+    required:
+      - name
   Supplier-read:
     properties:
       id:
@@ -5971,6 +6940,12 @@ definitions:
         example: 'https://www.my-organization.com/logo.png'
         format: url
         maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
     required:
       - name
       - kvk
@@ -6024,6 +6999,12 @@ definitions:
         description: 'The tax percentage for this offer as an integer e.g. 9% makes 9'
         type: int
         example: '9'
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
       offers:
         description: 'The offers that use this tax'
         type: \ArrayCollection
@@ -6091,6 +7072,12 @@ tags:
       An entity representing a product.
       
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
+  -
+    name: PropertyValue
+    description: |
+      An entity representing a product property.
+      
+      This entity represents a product property that can be used to filter products.
   -
     name: Supplier
     description: |
