@@ -49,6 +49,9 @@ class PropertyValue
     private $id;
 
     /**
+     * @var string The name of this property
+     * @example my property
+     *
      * @Groups({"read", "write"})
      * @Assert\Length(
      *     max=255
@@ -59,6 +62,8 @@ class PropertyValue
     private $name;
 
     /**
+     * @var string The description of this property
+     * @example this is the best property ever
      *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
@@ -66,6 +71,8 @@ class PropertyValue
     private $description;
 
     /**
+     * @var ArrayCollection|Product[] The products this property relates to
+     *
      * @Groups({"read", "write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="additionalProperties")

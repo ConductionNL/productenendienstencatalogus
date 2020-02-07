@@ -5612,6 +5612,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'Additional properties for this product, for example for filtering.'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-read'
@@ -5712,6 +5713,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'Additional properties for this product, for example for filtering.'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-write'
@@ -5837,6 +5839,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'Additional properties for this product, for example for filtering.'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-read'
@@ -5946,6 +5949,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'Additional properties for this product, for example for filtering.'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-write'
@@ -5972,10 +5976,13 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         name:
+          description: 'The name of this property'
           type: string
         description:
+          description: 'The description of this property'
           type: string
         products:
+          description: 'The products this property relates to'
           type: array
           items:
             $ref: '#/components/schemas/Product-read'
@@ -5998,10 +6005,13 @@ components:
         - name
       properties:
         name:
+          description: 'The name of this property'
           type: string
         description:
+          description: 'The description of this property'
           type: string
         products:
+          description: 'The products this property relates to'
           type: array
           items:
             $ref: '#/components/schemas/Product-write'
@@ -6025,10 +6035,13 @@ components:
             url: 'http://schema.org/identifier'
           type: string
         name:
+          description: 'The name of this property'
           type: string
         description:
+          description: 'The description of this property'
           type: string
         products:
+          description: 'The products this property relates to'
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-read'
@@ -6060,10 +6073,13 @@ components:
           readOnly: true
           type: string
         name:
+          description: 'The name of this property'
           type: string
         description:
+          description: 'The description of this property'
           type: string
         products:
+          description: 'The products this property relates to'
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-write'
@@ -6603,12 +6619,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-07'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-07'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6665,12 +6681,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-07'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-07'
         format: date
       product:
         description: 'The product that is sold via this offer'
@@ -6791,7 +6807,9 @@ definitions:
       offers:
         description: 'The offers that refer to this product'
         type: \ArrayCollection
-      additionalProperties: []
+      additionalProperties:
+        description: 'Additional properties for this product, for example for filtering.'
+        type: '\ArrayCollection|\PropertyValue[]'
     required:
       - name
       - sourceOrganization
@@ -6882,7 +6900,9 @@ definitions:
       offers:
         description: 'The offers that refer to this product'
         type: \ArrayCollection
-      additionalProperties: []
+      additionalProperties:
+        description: 'Additional properties for this product, for example for filtering.'
+        type: '\ArrayCollection|\PropertyValue[]'
     required:
       - name
       - sourceOrganization
@@ -6898,23 +6918,39 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       name:
+        description: 'The name of this property'
+        type: string
+        example: 'my property'
         maxLength: 255
-      description: []
+      description:
+        description: 'The description of this property'
+        type: string
+        example: 'this is the best property ever'
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
       dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
-      products: []
+      products:
+        description: 'The products this property relates to'
+        type: '\ArrayCollection|\Product[]'
     required:
       - name
   PropertyValue-write:
     properties:
       name:
+        description: 'The name of this property'
+        type: string
+        example: 'my property'
         maxLength: 255
-      description: []
-      products: []
+      description:
+        description: 'The description of this property'
+        type: string
+        example: 'this is the best property ever'
+      products:
+        description: 'The products this property relates to'
+        type: '\ArrayCollection|\Product[]'
     required:
       - name
   Supplier-read:

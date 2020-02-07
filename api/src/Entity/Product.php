@@ -320,6 +320,8 @@ class Product
     private $audience = "internal";
 
     /**
+     * @var ArrayCollection|PropertyValue[] Additional properties for this product, for example for filtering.
+     *
      * @Groups({"read","write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
