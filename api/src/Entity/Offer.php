@@ -176,7 +176,7 @@ class Offer
      * @var ArrayCollection The products related to this offer
      * @Assert\NotNull
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      * @MaxDepth(1)
      * @Groups({"read", "write"})
