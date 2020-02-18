@@ -5233,9 +5233,6 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
-        product:
-          description: 'The product that is sold via this offer'
-          $ref: '#/components/schemas/Product-read'
         price:
           description: |
             The price of this product
@@ -5287,23 +5284,33 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+        products:
+          description: 'The products related to this offer'
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
-        - product
         - price
         - offeredBy
         - availabilityEnds
         - availabilityStarts
+        - products
+        - audience
     Offer-write:
       type: object
       description: 'An entity representing an offer.'
       required:
         - name
-        - product
         - price
         - offeredBy
         - availabilityEnds
         - availabilityStarts
+        - products
+        - audience
       properties:
         name:
           description: 'The name of this offer'
@@ -5311,9 +5318,6 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
-        product:
-          description: 'The product that is sold via this offer'
-          $ref: '#/components/schemas/Product-write'
         price:
           description: |
             The price of this product
@@ -5355,6 +5359,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomerType-write'
+        products:
+          description: 'The products related to this offer'
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
     'Offer:jsonld-read':
       type: object
       description: 'An entity representing an offer.'
@@ -5380,9 +5392,6 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
-        product:
-          description: 'The product that is sold via this offer'
-          $ref: '#/components/schemas/Product:jsonld-read'
         price:
           description: |
             The price of this product
@@ -5434,23 +5443,33 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+        products:
+          description: 'The products related to this offer'
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
       required:
         - name
-        - product
         - price
         - offeredBy
         - availabilityEnds
         - availabilityStarts
+        - products
+        - audience
     'Offer:jsonld-write':
       type: object
       description: 'An entity representing an offer.'
       required:
         - name
-        - product
         - price
         - offeredBy
         - availabilityEnds
         - availabilityStarts
+        - products
+        - audience
       properties:
         '@context':
           readOnly: true
@@ -5467,9 +5486,6 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
-        product:
-          description: 'The product that is sold via this offer'
-          $ref: '#/components/schemas/Product:jsonld-write'
         price:
           description: |
             The price of this product
@@ -5511,6 +5527,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomerType:jsonld-write'
+        products:
+          description: 'The products related to this offer'
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
+        audience:
+          description: 'The audience this product is intended for'
+          type: string
     Product-read:
       type: object
       description: 'An entity representing a product.'
@@ -5631,7 +5655,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - price
         - taxPercentage
         - type
         - catalogue
@@ -5721,7 +5744,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - price
         - taxPercentage
         - type
         - catalogue
@@ -5856,7 +5878,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - price
         - taxPercentage
         - type
         - catalogue
@@ -5955,7 +5976,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - price
         - taxPercentage
         - type
         - catalogue
@@ -6603,12 +6623,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-18'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6616,14 +6636,17 @@ definitions:
       dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
-      product:
-        description: 'The product that is sold via this offer'
-        type: \Product
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
       taxes:
         description: 'The taxdes that affect this offer'
         type: \ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
         type: \ArrayCollection
     required:
       - name
@@ -6631,7 +6654,8 @@ definitions:
       - offeredBy
       - availabilityEnds
       - availabilityStarts
-      - product
+      - audience
+      - products
   Offer-write:
     properties:
       name:
@@ -6665,21 +6689,24 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-06'
+        example: '2020-02-18'
         format: date
-      product:
-        description: 'The product that is sold via this offer'
-        type: \Product
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
       taxes:
         description: 'The taxdes that affect this offer'
         type: \ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
         type: \ArrayCollection
     required:
       - name
@@ -6687,7 +6714,8 @@ definitions:
       - offeredBy
       - availabilityEnds
       - availabilityStarts
-      - product
+      - audience
+      - products
   Product-read:
     properties:
       id:
@@ -6795,7 +6823,6 @@ definitions:
     required:
       - name
       - sourceOrganization
-      - price
       - requiresAppointment
       - audience
       - catalogue
@@ -6886,7 +6913,6 @@ definitions:
     required:
       - name
       - sourceOrganization
-      - price
       - requiresAppointment
       - audience
       - catalogue
