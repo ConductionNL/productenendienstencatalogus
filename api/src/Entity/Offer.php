@@ -75,18 +75,6 @@ class Offer
     private $description;
 
     /**
-     * @var Product The product that is sold via this offer
-     *
-     * @Assert\NotNull
-     * @Assert\Valid
-     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="offers")
-     * @ORM\JoinColumn(nullable=false)
-     * @MaxDepth(1)
-     * @Groups({"read", "write"})
-     */
-    private $product;
-
-    /**
      *  @var string The price of this product
      *
      *  @example 50.00
@@ -184,10 +172,32 @@ class Offer
      */
     private $dateModified;
 
+    /**
+     * @var ArrayCollection The products related to this offer
+     * @Assert\NotNull
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="offers")
+     * @ORM\JoinColumn(nullable=false)
+     * @MaxDepth(1)
+     * @Groups({"read", "write"})
+     */
+    private $products;
+
+    /**
+     * @var string The audience this product is intended for
+     *
+     * @Groups({"read","write"})
+     * @Assert\Choice({"public", "internal"})
+     * @Assert\NotNull
+     * @ORM\Column(type="string", length=255)
+     */
+    private $audience;
+
 
     public function __construct()
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -222,18 +232,6 @@ class Offer
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getProduct(): ?Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(Product $product): self
-    {
-        $this->product = $product;
 
         return $this;
     }
@@ -373,6 +371,44 @@ class Offer
     public function setDateModified(\DateTimeInterface $dateModified): self
     {
         $this->dateModified = $dateModified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+        }
+
+        return $this;
+    }
+
+    public function getAudience(): ?string
+    {
+        return $this->audience;
+    }
+
+    public function setAudience(string $audience): self
+    {
+        $this->audience = $audience;
 
         return $this;
     }

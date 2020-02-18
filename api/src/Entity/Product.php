@@ -155,8 +155,7 @@ class Product
      *
      * @example 50.00
      *
-     * @ORM\Column(type="decimal", precision=8, scale=2)
-     * @Assert\NotNull
+     * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      * @Groups({"read","write"})
      */
     private $price;
@@ -252,7 +251,7 @@ class Product
     /**
      * @var ArrayCollection The offers that refer to this product
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Offer", mappedBy="product", orphanRemoval=true, cascade="persist")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
      * @Assert\Valid
      *
      * @MaxDepth(1)
