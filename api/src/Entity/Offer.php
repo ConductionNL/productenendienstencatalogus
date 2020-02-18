@@ -137,7 +137,7 @@ class Offer
     private $availabilityStarts;
 
     /**
-     * @var ArrayCollection The taxdes that affect this offer
+     * @var ArrayCollection The taxes that affect this offer
      *
      *
      * @MaxDepth(1)

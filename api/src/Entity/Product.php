@@ -157,6 +157,7 @@ class Product
      *
      * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      * @Groups({"read","write"})
+     * @deprecated
      */
     private $price;
 
@@ -168,6 +169,7 @@ class Product
      * @ORM\Column(type="string")
      * @Assert\Currency
      * @Groups({"read","write"})
+     * @deprecated
      */
     private $priceCurrency = 'EUR';
 
@@ -176,10 +178,9 @@ class Product
      *
      * @example 9
      *
-     * @Assert\NotBlank
      * @Assert\PositiveOrZero
      * @Groups({"read", "write"})
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $taxPercentage;
 
