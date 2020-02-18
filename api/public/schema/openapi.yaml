@@ -605,7 +605,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Catalogue:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Catalogue-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Catalogue-write'
         description: 'The updated Catalogue resource'
@@ -1183,7 +1207,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/CustomerType:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/CustomerType-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/CustomerType-write'
         description: 'The updated CustomerType resource'
@@ -1777,7 +1825,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Group:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Group-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Group-write'
         description: 'The updated Group resource'
@@ -2355,7 +2427,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Offer:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Offer-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Offer-write'
         description: 'The updated Offer resource'
@@ -3011,7 +3107,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Product:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Product-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Product-write'
         description: 'The updated Product resource'
@@ -3589,7 +3709,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/PropertyValue-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/PropertyValue-write'
         description: 'The updated PropertyValue resource'
@@ -4167,7 +4311,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Supplier:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Supplier-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Supplier-write'
         description: 'The updated Supplier resource'
@@ -4745,7 +4913,31 @@ paths:
           description: 'Resource not found'
       requestBody:
         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Tax:jsonld-write'
           application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          applications/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Tax-write'
+          text/html:
             schema:
               $ref: '#/components/schemas/Tax-write'
         description: 'The updated Tax resource'
@@ -6587,12 +6779,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-18'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6649,12 +6841,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-01-31'
+        example: '2020-02-18'
         format: date
       product:
         description: 'The product that is sold via this offer'
