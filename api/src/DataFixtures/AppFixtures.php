@@ -346,7 +346,7 @@ class AppFixtures extends Fixture
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Toegewezen Trouwambtenaar');
+        $product->setName('Toegewezen Trouwambtenaar / Geen voorkeur');
         $product->setSourceOrganization('002220647');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
@@ -572,7 +572,7 @@ class AppFixtures extends Fixture
         }
         $manager->persist($product);
         $manager->flush();
-        
+
         $id = Uuid::fromString('a6bbfcb3-e87d-4f6f-98da-821b71e45912');
         $product = new Product();
         $product->setName('Geen extra\'s');
@@ -590,7 +590,7 @@ class AppFixtures extends Fixture
         $manager->persist($product);
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        
+
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
         	$product->addGroup($group);
         }
