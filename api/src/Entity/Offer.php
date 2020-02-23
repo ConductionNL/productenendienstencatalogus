@@ -79,7 +79,6 @@ class Offer
      *
      *  @example 50.00
      *
-     * @Groups({"read","write"})
      * @Assert\NotNull
      * @Groups({"read","write"})
      * @ORM\Column(type="decimal", precision=8, scale=2)

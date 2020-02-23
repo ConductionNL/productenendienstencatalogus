@@ -8,9 +8,9 @@ info:
     - Reference: pdc
     - Enviroment: dev
     - Version: V.0.1
-    - Repository: [online](https://github.com/ConductionNL/Proto-component-commonground) / [zip](https://github.com/ConductionNL/Proto-component-commonground/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pa-php) 
-    - Datamodel: [postman](/schema/pa.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
+    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
     
     'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
@@ -5457,7 +5457,7 @@ components:
           type: string
           format: date-time
         taxes:
-          description: 'The taxdes that affect this offer'
+          description: 'The taxes that affect this offer'
           type: array
           items:
             $ref: '#/components/schemas/Tax-read'
@@ -5542,7 +5542,7 @@ components:
           type: string
           format: date-time
         taxes:
-          description: 'The taxdes that affect this offer'
+          description: 'The taxes that affect this offer'
           type: array
           items:
             $ref: '#/components/schemas/Tax-write'
@@ -5616,7 +5616,7 @@ components:
           type: string
           format: date-time
         taxes:
-          description: 'The taxdes that affect this offer'
+          description: 'The taxes that affect this offer'
           type: array
           items:
             $ref: '#/components/schemas/Tax:jsonld-read'
@@ -5710,7 +5710,7 @@ components:
           type: string
           format: date-time
         taxes:
-          description: 'The taxdes that affect this offer'
+          description: 'The taxes that affect this offer'
           type: array
           items:
             $ref: '#/components/schemas/Tax:jsonld-write'
@@ -5847,7 +5847,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - taxPercentage
         - type
         - catalogue
         - requiresAppointment
@@ -5936,7 +5935,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - taxPercentage
         - type
         - catalogue
         - requiresAppointment
@@ -6070,7 +6068,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - taxPercentage
         - type
         - catalogue
         - requiresAppointment
@@ -6168,7 +6165,6 @@ components:
       required:
         - name
         - sourceOrganization
-        - taxPercentage
         - type
         - catalogue
         - requiresAppointment
@@ -6815,12 +6811,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-18'
+        example: '2020-02-23'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-18'
+        example: '2020-02-23'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -6832,7 +6828,7 @@ definitions:
         description: 'The audience this product is intended for'
         type: string
       taxes:
-        description: 'The taxdes that affect this offer'
+        description: 'The taxes that affect this offer'
         type: \ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
@@ -6881,18 +6877,18 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-18'
+        example: '2020-02-23'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-18'
+        example: '2020-02-23'
         format: date
       audience:
         description: 'The audience this product is intended for'
         type: string
       taxes:
-        description: 'The taxdes that affect this offer'
+        description: 'The taxes that affect this offer'
         type: \ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
