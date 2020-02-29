@@ -571,6 +571,7 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
+<<<<<<< HEAD
       responses:
         200:
           description: 'Catalogue resource updated'
@@ -4950,10 +4951,22 @@ components:
         id:
           readOnly: true
           description: 'The UUID identifier of this object'
+=======
+components:
+  schemas:
+    ExampleEntity-read:
+      type: object
+      description: 'This is an example entity.'
+      properties:
+        id:
+          readOnly: true
+          description: 'The id of this entity'
+>>>>>>> master
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
         name:
+<<<<<<< HEAD
           description: 'The name of this Catalogue'
           type: string
         description:
@@ -6476,6 +6489,36 @@ components:
     'Tax:jsonld-read':
       type: object
       description: 'An entity representing an tax.'
+=======
+          description: 'The name of this example property'
+          type: string
+        description:
+          description: 'The description of this example property'
+          type: string
+        camelCase:
+          description: 'Proof that we camel case our api'
+          type: string
+      required:
+        - name
+    ExampleEntity-write:
+      type: object
+      description: 'This is an example entity.'
+      required:
+        - name
+      properties:
+        name:
+          description: 'The name of this example property'
+          type: string
+        description:
+          description: 'The description of this example property'
+          type: string
+        camelCase:
+          description: 'Proof that we camel case our api'
+          type: string
+    'ExampleEntity:jsonld-read':
+      type: object
+      description: 'This is an example entity.'
+>>>>>>> master
       properties:
         '@context':
           readOnly: true
@@ -6488,11 +6531,16 @@ components:
           type: string
         id:
           readOnly: true
+<<<<<<< HEAD
           description: 'The UUID identifier of this object'
+=======
+          description: 'The id of this entity'
+>>>>>>> master
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
         name:
+<<<<<<< HEAD
           description: 'The name of this tax'
           type: string
         description:
@@ -6535,6 +6583,23 @@ components:
         - name
         - price
         - percentage
+=======
+          description: 'The name of this example property'
+          type: string
+        description:
+          description: 'The description of this example property'
+          type: string
+        camelCase:
+          description: 'Proof that we camel case our api'
+          type: string
+      required:
+        - name
+    'ExampleEntity:jsonld-write':
+      type: object
+      description: 'This is an example entity.'
+      required:
+        - name
+>>>>>>> master
       properties:
         '@context':
           readOnly: true
@@ -6546,6 +6611,7 @@ components:
           readOnly: true
           type: string
         name:
+<<<<<<< HEAD
           description: 'The name of this tax'
           type: string
         description:
@@ -6698,10 +6764,32 @@ definitions:
         minLength: 15
       name:
         description: 'The name of this product group'
+=======
+          description: 'The name of this example property'
+          type: string
+        description:
+          description: 'The description of this example property'
+          type: string
+        camelCase:
+          description: 'Proof that we camel case our api'
+          type: string
+definitions:
+  ExampleEntity-read:
+    properties:
+      id:
+        description: 'The id of this entity'
+        type: string
+        eaxample: '#/components/schemas/RamseyUuidUuidInterface-read'
+        format: uuid
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
+      name:
+        description: 'The name of this example property'
+>>>>>>> master
         type: string
         example: 'My Group'
         maxLength: 255
       description:
+<<<<<<< HEAD
         description: 'An short description of this product group'
         type: string
         example: 'This is the best group ever'
@@ -7304,25 +7392,75 @@ tags:
       An entity representing an tax.
       
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
+=======
+        description: 'The description of this example property'
+        type: string
+        example: 'Is the best group ever'
+        maxLength: 2555
+      camelCase:
+        description: 'Proof that we camel case our api'
+        type: string
+        example: 'Best api ever'
+        maxLength: 255
+    required:
+      - name
+  ExampleEntity-write:
+    properties:
+      name:
+        description: 'The name of this example property'
+        type: string
+        example: 'My Group'
+        maxLength: 255
+      description:
+        description: 'The description of this example property'
+        type: string
+        example: 'Is the best group ever'
+        maxLength: 2555
+      camelCase:
+        description: 'Proof that we camel case our api'
+        type: string
+        example: 'Best api ever'
+        maxLength: 255
+    required:
+      - name
+tags:
+  -
+    name: ExampleEntity
+    description: |
+      This is an example entity.
+      
+      With an adtional description, all in all its pritty nice [url](www.google.nl)
+>>>>>>> master
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
+<<<<<<< HEAD
       read: 'read right to the Tax resource'
       write: 'write right to the Tax resource'
+=======
+      read: 'read right to the ExampleEntity resource'
+      write: 'write right to the ExampleEntity resource'
+>>>>>>> master
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
+<<<<<<< HEAD
       read: 'read right to the Tax resource'
       write: 'write right to the Tax resource'
+=======
+      read: 'read right to the ExampleEntity resource'
+      write: 'write right to the ExampleEntity resource'
+>>>>>>> master
 host: irc.zaakonline.nl
 servers:
   -
     description: 'Demo Omgeving'
+<<<<<<< HEAD
     url: 'http://pdc.zaakonline.nl'
 externalDocs:
   -
@@ -7331,6 +7469,13 @@ externalDocs:
   -
     description: Repository
     url: 'https://github.com/ConductionNL/productenendienstencatalogus'
+=======
+    url: 'http://proto.demo.common-ground.dev'
+externalDocs:
+  -
+    description: 'OAS Documentatie'
+    url: 'http://proto.demo.common-ground.dev'
+>>>>>>> master
 x-commonground:
   type: service
   developers:
