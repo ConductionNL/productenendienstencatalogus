@@ -24,7 +24,8 @@ class LarpingFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
     	// Lets make sure we only run these fixtures on huwelijksplanner enviroments
-    	if(!in_array("larping.eu",$this->params->get('app_domains'))){
+    	if(!in_array("larping.eu", $this->params->get('app_domains'))){
+    		var_dump($this->params->get('app_domains'));
     		return false;
     	}
     	
