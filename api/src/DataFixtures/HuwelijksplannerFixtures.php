@@ -9,9 +9,17 @@ use App\Entity\Supplier;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
-class AppFixtures extends Fixture
+class HuwelijksplannerFixtures extends Fixture
 {
+	private $params;
+	
+	public function __construct(ParameterBagInterface $params)
+	{
+		$this->params = $params;
+	}
+	
     private function loadSupplier(
         string $name,
         string $sourceOrganisation,
@@ -53,6 +61,11 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+    	// Lets make sure we only run these fixtures on huwelijksplanner enviroments
+    	if(!in_array("huwelijksplanner.online",$this->params->get('app_domains'))){
+    		return false;
+    	}
+    	
         // Catalogi
         $vng = new Catalogue();
         $vng->setName('Vereniging Nederlandse Gemeenten');
