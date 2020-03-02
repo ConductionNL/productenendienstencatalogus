@@ -30,36 +30,37 @@ class LarpingFixtures extends Fixture
     	
     	// Catalogi
     	$catalogue= new Catalogue();
-    	$catalogue->setName('Vereniging Nederlandse Gemeenten');
-    	$catalogue->setSourceOrganization('0000'); // dit zou beter een wrc organisation kunnen zijn eigenlijk
+    	$catalogue->setName('VortexAventures2020');
+    	$catalogue->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
     	$manager->persist($vng);
     	
     	
     	// Productgroep
     	$group = new Group();
-    	$group->setName('Burgerzaken');
+    	$group->setName('Lidmaatschap');
     	$group->setDescription('Alle producten met betrekking tot burgerzaken');
-    	$group->setSourceOrganization('001709124'); // dit zou beter een wrc organisation kunnen zijn eigenlijk
+    	$group->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
     	$group->setCatalogue($catalogue);
     	$manager->persist($group);    	
     	
     	// Product
     	$product = new Product();
-    	$product->setName('Trouwen / Partnerschap');
-    	$product->setSourceOrganization('002220647'); // dit zou beter een wrc organisation kunnen zijn eigenlijk
-    	$product->setDescription('Trouwen');
-    	$product->setType('set');
+    	$product->setName('Evenementlidmaatschap Moots 2');
+    	$product->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
+    	$product->setDescription('Met dit product wordt je lid van Vortex Adventures voor Moots 2 2020 event');
+    	$product->setType('ticket');
+    	$product->setSku('Eventlid-moots2-2020');
     	$product->setCatalogue($catalogue);
+    	$product->addGroup($group);
     	$product->setRequiresAppointment(false);
-    	$product->setAudience("public");
     	$manager->persist($product);
     	
     	// Offer
     	$offer = new Offer();
-    	$offer->setName('Trouwen / Partnerschap');
-    	$offer->setOfferedBy('002220647'); // dit zou beter een wrc organisation kunnen zijn eigenlijk
-    	$offer->setDescription('Trouwen');    	
-    	$offer->setPrice('627.00');
+    	$offer->setName('Offer Eventlid Moots 1 2020');
+    	$offer->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
+    	$offer->setDescription('Evenementlidmaatschap Moots 1 2020');    	
+    	$offer->setPrice(500);
     	$offer->setPriceCurrency('EUR');
     	$offer->setAudience("public");
     	$offer->addProduct($product);
