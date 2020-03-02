@@ -12,11 +12,8 @@ settings:
   repro: 'https://github.com/ConductionNL/productenendienstencatalogus'
   subdomain: pc  
   domains:
-    - conduction.nl
-    - zaakonline.nl
-    - huwelijksplanner.online
-    - common-ground.dev
-  domainsJson: ["conduction.nl","zaakonline.nl","huwelijksplanner.online","common-ground.dev"]
+    - larping.eu
+  domainsJson: ["larpings.eu"]
   organisationName: Conduction
   email: info@conduction.nl
   country: Netherlands
