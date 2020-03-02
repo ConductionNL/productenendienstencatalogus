@@ -25,7 +25,6 @@ class LarpingFixtures extends Fixture
     {
     	// Lets make sure we only run these fixtures on huwelijksplanner enviroments
     	if(!in_array("larping.eu", $this->params->get('app_domains'))){
-    		var_dump($this->params->get('app_domains'));
     		return false;
     	}
     	
