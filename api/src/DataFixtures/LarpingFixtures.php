@@ -32,7 +32,7 @@ class LarpingFixtures extends Fixture
     	$catalogue= new Catalogue();
     	$catalogue->setName('VortexAventures2020');
     	$catalogue->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
-    	$manager->persist($vng);
+    	$manager->persist($catalogue);
     	
     	
     	// Productgroep
