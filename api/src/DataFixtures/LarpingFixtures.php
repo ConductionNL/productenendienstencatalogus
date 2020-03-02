@@ -23,14 +23,14 @@ class LarpingFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-    	// Lets make sure we only run these fixtures on huwelijksplanner enviroments
+    	// Lets make sure we only run these fixtures on Larping environments 
     	if(!in_array("larping.eu", $this->params->get('app_domains'))){
     		return false;
     	}
     	
     	// Catalogi
     	$catalogue= new Catalogue();
-    	$catalogue->setName('VortexAventures2020');
+    	$catalogue->setName('VortexAdventures2020');
     	$catalogue->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
     	$manager->persist($catalogue);
     	
@@ -38,7 +38,7 @@ class LarpingFixtures extends Fixture
     	// Productgroep
     	$group = new Group();
     	$group->setName('Lidmaatschap');
-    	$group->setDescription('Alle producten met betrekking tot burgerzaken');
+    	$group->setDescription('Alle producten met betrekking tot lidmaatschap');
     	$group->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
     	$group->setCatalogue($catalogue);
     	$manager->persist($group);    	
@@ -47,7 +47,7 @@ class LarpingFixtures extends Fixture
     	$product = new Product();
     	$product->setName('Evenementlidmaatschap Moots 2');
     	$product->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
-    	$product->setDescription('Met dit product wordt je lid van Vortex Adventures voor Moots 2 2020 event');
+    	$product->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 2 2020 event');
     	$product->setType('ticket');
     	$product->setSku('Eventlid-moots2-2020');
     	$product->setCatalogue($catalogue);
