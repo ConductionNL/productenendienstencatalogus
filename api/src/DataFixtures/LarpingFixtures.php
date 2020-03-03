@@ -154,7 +154,7 @@ class LarpingFixtures extends Fixture
     	$productJP2020->setCatalogue($catalogue);
     	$productJP2020->addGroup($groupEvent);
     	$productJP2020->setRequiresAppointment(false);
-		$manager->persist($productJP2020);		
+		$manager->persist($productJP2020);
 		
 		// Offer
 		$offerJP2020Crew = new Offer();
@@ -179,6 +179,40 @@ class LarpingFixtures extends Fixture
 		$manager->persist($offerJP2020Speler);
 
 		// Product
+		$productJP2020JL = new Product();
+		$productJP2020JL->setName('Jaarpakket 2020 exclusief Jaarlidmaatschap');
+		$productJP2020JL->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
+		$productJP2020JL->setDescription('Dit product is een klassiek jaarpakket en neem je deel aan Moots 1, Summoning en Moots 2 events van Vortex Adventures maar zonder jaarlidmaatschap.');
+		$productJP2020JL->setType('set');
+		$productJP2020JL->setSku('jaarpakket-2020-JL');
+		$productJP2020JL->setCatalogue($catalogue);
+		$productJP2020JL->addGroup($groupEvent);
+		$productJP2020JL->setRequiresAppointment(false);
+		$manager->persist($productJP2020JL);
+
+		// Offer
+		$offerJP2020Crew = new Offer();
+		$offerJP2020Crew->setName('Offer Jaarpakket 2020 Crew exclusief jaarlidmaatschap');
+		$offerJP2020Crew->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
+		$offerJP2020Crew->setDescription('Jaarpakket 2020 crew exclusief jaarlidmaatschap');    	
+		$offerJP2020Crew->setPrice(11000);
+		$offerJP2020Crew->setPriceCurrency('EUR');
+		$offerJP2020Crew->setAudience('public');
+		$offerJP2020Crew->addProduct($productJP2020JL);
+		$manager->persist($offerJP2020Crew);
+
+		// Offer
+		$offerJP2020Speler = new Offer();
+		$offerJP2020Speler->setName('Offer Jaarpakket 2020 Speler exclusief jaarlidmaatschap');
+		$offerJP2020Speler->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
+		$offerJP2020Speler->setDescription('Jaarpakket 2020 Speler exclusief jaarlidmaatschap');    	
+		$offerJP2020Speler->setPrice(16500);
+		$offerJP2020Speler->setPriceCurrency('EUR');
+		$offerJP2020Speler->setAudience('public');
+		$offerJP2020Speler->addProduct($productJP2020JL);
+		$manager->persist($offerJP2020Speler);
+
+		// Product
     	$productM12020 = new Product();
     	$productM12020->setName('Deelname Moots 1');
     	$productM12020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5'); 
@@ -188,6 +222,7 @@ class LarpingFixtures extends Fixture
     	$productM12020->setCatalogue($catalogue);
     	$productM12020->addGroup($groupEvent);
 		$productM12020->addSet($productJP2020);
+		$productJL->addSet($productJP2020JL);
 		$productM12020->setRequiresAppointment(false);
 		$manager->persist($productM12020);
 
@@ -322,6 +357,7 @@ class LarpingFixtures extends Fixture
 		$productM22020->setCatalogue($catalogue);
 		$productM22020->addGroup($groupEvent);
 		$productM22020->addSet($productJP2020);
+		$productJL->addSet($productJP2020JL);
 		$productM22020->setRequiresAppointment(false);
 		$manager->persist($productM22020);
 
@@ -456,6 +492,7 @@ class LarpingFixtures extends Fixture
 		$productS2020->setCatalogue($catalogue);
 		$productS2020->addGroup($groupEvent);
 		$productS2020->addSet($productJP2020);
+		$productJL->addSet($productJP2020JL);
 		$productS2020->setRequiresAppointment(false);
 		$manager->persist($productS2020);		
 		
