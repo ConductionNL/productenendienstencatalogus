@@ -13,20 +13,21 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class HuwelijksplannerFixtures extends Fixture
 {
-	private $params;
-	
-	public function __construct(ParameterBagInterface $params)
-	{
-		$this->params = $params;
-	}
-	
+    private $params;
+
+    public function __construct(ParameterBagInterface $params)
+    {
+        $this->params = $params;
+    }
+
     private function loadSupplier(
         string $name,
         string $sourceOrganisation,
         string $kvk,
         ?string $logo,
         ObjectManager $manager
-    ): Supplier {
+    ): Supplier
+    {
         $supplier = new Supplier();
         $supplier->setName($name);
         $supplier->setSourceOrganization($sourceOrganisation);
@@ -45,7 +46,8 @@ class HuwelijksplannerFixtures extends Fixture
         ?string $description,
         ?string $logo,
         ObjectManager $manager
-    ): Catalogue {
+    ): Catalogue
+    {
         $catalogue = new Catalogue();
         $catalogue->setName($name);
         $catalogue->setSourceOrganization($sourceOrganisation);
@@ -61,11 +63,11 @@ class HuwelijksplannerFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-    	// Lets make sure we only run these fixtures on huwelijksplanner enviroments
-    	if(!in_array("huwelijksplanner.online",$this->params->get('app_domains'))){
-    		return false;
-    	}
-    	
+        // Lets make sure we only run these fixtures on huwelijksplanner enviroments
+        if (!in_array("huwelijksplanner.online", $this->params->get('app_domains'))) {
+            return false;
+        }
+
         // Catalogi
         $vng = new Catalogue();
         $vng->setName('Vereniging Nederlandse Gemeenten');
@@ -204,18 +206,21 @@ class HuwelijksplannerFixtures extends Fixture
 
         $manager->clear();
 
-        $trouwenExtraUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> 'f8298a12-91eb-46d0-b8a9-e7095f81be6f']);
-        $trouwenCeremoniersUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '1cad775c-c2d0-48af-858f-a12029af24b3']);
-        $trouwenLocatiesUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '170788e7-b238-4c28-8efc-97bdada02c2e']);
-        $trouwenAmbtenarenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '7f4ff7ae-ed1b-45c9-9a73-3ed06a36b9cc']);
-        $trouwenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '0c1f993d-f9e2-46c5-8d83-0b6dfb702069']);
-        $burgerzakenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id'=> '1138c620-223e-4def-ac84-f21a46369d56']);
+        $trouwenExtraUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => 'f8298a12-91eb-46d0-b8a9-e7095f81be6f']);
+        $trouwenCeremoniersUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '1cad775c-c2d0-48af-858f-a12029af24b3']);
+        $trouwenLocatiesUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '170788e7-b238-4c28-8efc-97bdada02c2e']);
+        $trouwenAmbtenarenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '7f4ff7ae-ed1b-45c9-9a73-3ed06a36b9cc']);
+        $trouwenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '0c1f993d-f9e2-46c5-8d83-0b6dfb702069']);
+        $burgerzakenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '1138c620-223e-4def-ac84-f21a46369d56']);
 
         $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
         $product = new Product();
-        $product->setName('Trouwen / Partnerschap');
+        $product->setName('Uitgebreid trouwen');
         $product->setSourceOrganization('002220647');
-        $product->setDescription('Trouwen');
+        $product->setDescription('Mogelijk op een door u gekozen dag en tijdstip.<br>
+U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk.<br>
+De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
+Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,');
         $product->setType('set');
         $product->setCatalogue($utrecht);
         $product->setPrice('627.00');
@@ -227,7 +232,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -238,7 +243,13 @@ class HuwelijksplannerFixtures extends Fixture
         $product = new Product();
         $product->setName('Eenvoudig Trouwen');
         $product->setSourceOrganization('002220647');
-        $product->setDescription('Eenvoudig Trouwen');
+        $product->setDescription('Mogelijk op maandag 11.00 uur en 11.30 uur en dinsdag, woensdag en vrijdag om 10.00 uur, 10.30 uur, 11.00 uur of 11.30 uur.<br>
+U trouwt zonder ceremonie (5-10 minuten).<br>
+U trouwt in een kleine trouwruimte op de 6e etage van het stadskantoor.<br>
+Er kunnen maximaal 10 personen naar binnen, dit is inclusief het bruidspaar, de getuigen en een eventuele fotograaf.<br>
+De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
+De wachtlijst voor eenvoudig trouwen is ongeveer 3 maanden.<br>
+Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $product->setType('set');
         $product->setCatalogue($utrecht);
         $product->setPrice('163.00');
@@ -251,7 +262,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -262,7 +273,13 @@ class HuwelijksplannerFixtures extends Fixture
         $product = new Product();
         $product->setName('Gratis Trouwen');
         $product->setSourceOrganization('002220647');
-        $product->setDescription('Gratis Trouwen');
+        $product->setDescription('Maandagochtend om 10.00 uur of om 10.30 uur kunt u gratis trouwen op het stadskantoor.<br>
+De wachtlijst voor gratis trouwen is ongeveer 9 maanden.<br>
+U trouwt zonder ceremonie (5-10 minuten).<br>
+U trouwt in een kleine trouwruimte op de 6e etage van het stadskantoor.<br>
+Er kunnen maximaal 10 personen naar binnen, dit is inclusief het bruidspaar, de getuigen en een eventuele fotograaf.<br>
+De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
+Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $product->setType('set');
         $product->setCatalogue($utrecht);
         $product->setPrice('0.00');
@@ -275,7 +292,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -300,7 +317,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -325,7 +342,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -350,7 +367,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -375,7 +392,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -400,7 +417,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenAmbtenarenUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -455,7 +472,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -479,7 +496,7 @@ class HuwelijksplannerFixtures extends Fixture
         $manager->persist($product);
         $product->setId($id);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         $manager->persist($product);
         foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
             $product->addGroup($group);
@@ -506,7 +523,7 @@ class HuwelijksplannerFixtures extends Fixture
         $manager->persist($product);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -530,7 +547,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -554,7 +571,7 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
             $product->addGroup($group);
         }
@@ -578,14 +595,14 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
 
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
             $product->addGroup($group);
         }
         $manager->persist($product);
         $manager->flush();
-        
+
         $id = Uuid::fromString('a6bbfcb3-e87d-4f6f-98da-821b71e45912');
         $product = new Product();
         $product->setName('Geen extra\'s');
@@ -602,10 +619,10 @@ class HuwelijksplannerFixtures extends Fixture
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
+
         foreach ([$trouwenUtrecht, $trouwenExtraUtrecht] as $group) {
-        	$product->addGroup($group);
+            $product->addGroup($group);
         }
         $manager->persist($product);
         $manager->flush();
