@@ -571,7 +571,6 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
-<<<<<<< HEAD
       responses:
         200:
           description: 'Catalogue resource updated'
@@ -2586,6 +2585,54 @@ paths:
             type: string
         -
           name: description
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_after]'
           in: query
           required: false
           schema:
@@ -4951,22 +4998,10 @@ components:
         id:
           readOnly: true
           description: 'The UUID identifier of this object'
-=======
-components:
-  schemas:
-    ExampleEntity-read:
-      type: object
-      description: 'This is an example entity.'
-      properties:
-        id:
-          readOnly: true
-          description: 'The id of this entity'
->>>>>>> master
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
         name:
-<<<<<<< HEAD
           description: 'The name of this Catalogue'
           type: string
         description:
@@ -5841,9 +5876,13 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'The additional properties this product has'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-read'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
         dateCreated:
           readOnly: true
           description: 'The moment this request was created'
@@ -5854,9 +5893,6 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
-        duration:
-          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
-          type: string
       required:
         - name
         - sourceOrganization
@@ -5939,6 +5975,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'The additional properties this product has'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-write'
@@ -6062,9 +6099,13 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'The additional properties this product has'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-read'
+        duration:
+          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
         dateCreated:
           readOnly: true
           description: 'The moment this request was created'
@@ -6075,9 +6116,6 @@ components:
           description: 'The moment this request last Modified'
           type: string
           format: date-time
-        duration:
-          description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
-          type: string
       required:
         - name
         - sourceOrganization
@@ -6169,6 +6207,7 @@ components:
           description: 'The audience this product is intended for'
           type: string
         additionalProperties:
+          description: 'The additional properties this product has'
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-write'
@@ -6489,36 +6528,6 @@ components:
     'Tax:jsonld-read':
       type: object
       description: 'An entity representing an tax.'
-=======
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-      required:
-        - name
-    ExampleEntity-write:
-      type: object
-      description: 'This is an example entity.'
-      required:
-        - name
-      properties:
-        name:
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-    'ExampleEntity:jsonld-read':
-      type: object
-      description: 'This is an example entity.'
->>>>>>> master
       properties:
         '@context':
           readOnly: true
@@ -6531,16 +6540,11 @@ components:
           type: string
         id:
           readOnly: true
-<<<<<<< HEAD
           description: 'The UUID identifier of this object'
-=======
-          description: 'The id of this entity'
->>>>>>> master
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
         name:
-<<<<<<< HEAD
           description: 'The name of this tax'
           type: string
         description:
@@ -6583,23 +6587,6 @@ components:
         - name
         - price
         - percentage
-=======
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-      required:
-        - name
-    'ExampleEntity:jsonld-write':
-      type: object
-      description: 'This is an example entity.'
-      required:
-        - name
->>>>>>> master
       properties:
         '@context':
           readOnly: true
@@ -6611,7 +6598,6 @@ components:
           readOnly: true
           type: string
         name:
-<<<<<<< HEAD
           description: 'The name of this tax'
           type: string
         description:
@@ -6639,7 +6625,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         description: 'The name of this Catalogue'
@@ -6671,7 +6657,9 @@ definitions:
         type: \Datetime
       groups:
         description: 'The groups that are a part of this catalogue'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - sourceOrganization
@@ -6707,7 +6695,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         description: 'The name of this CustomerType'
@@ -6727,7 +6715,9 @@ definitions:
         type: \Datetime
       offers:
         description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - description
@@ -6745,7 +6735,9 @@ definitions:
         maxLength: 2550
       offers:
         description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - description
@@ -6754,7 +6746,7 @@ definitions:
       id:
         description: 'The Uuid identifier of this group'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       icon:
         description: 'The icon of this property'
@@ -6764,32 +6756,10 @@ definitions:
         minLength: 15
       name:
         description: 'The name of this product group'
-=======
-          description: 'The name of this example property'
-          type: string
-        description:
-          description: 'The description of this example property'
-          type: string
-        camelCase:
-          description: 'Proof that we camel case our api'
-          type: string
-definitions:
-  ExampleEntity-read:
-    properties:
-      id:
-        description: 'The id of this entity'
-        type: string
-        eaxample: '#/components/schemas/RamseyUuidUuidInterface-read'
-        format: uuid
-        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
-      name:
-        description: 'The name of this example property'
->>>>>>> master
         type: string
         example: 'My Group'
         maxLength: 255
       description:
-<<<<<<< HEAD
         description: 'An short description of this product group'
         type: string
         example: 'This is the best group ever'
@@ -6814,16 +6784,24 @@ definitions:
         type: \Datetime
       products:
         description: 'The groups that are a part of this product group'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       catalogue:
         description: 'The Catalogue that this product group belongs to'
-        type: \Catalogue
+        type: object
+        eaxample: '#/components/schemas/Catalogue-read'
+        format: Catalogue
       children:
         description: 'The children of this group'
-        type: '\ArrayCollection|\Group[]'
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection|Group-read'
+        format: ArrayCollection|Group
       parent:
         description: 'the parent of this group'
-        type: \Group
+        type: object
+        eaxample: '#/components/schemas/Group-read'
+        format: Group
     required:
       - name
       - sourceOrganization
@@ -6848,16 +6826,24 @@ definitions:
         minLength: 8
       products:
         description: 'The groups that are a part of this product group'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       catalogue:
         description: 'The Catalogue that this product group belongs to'
-        type: \Catalogue
+        type: object
+        eaxample: '#/components/schemas/Catalogue-read'
+        format: Catalogue
       children:
         description: 'The children of this group'
-        type: '\ArrayCollection|\Group[]'
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection|Group-read'
+        format: ArrayCollection|Group
       parent:
         description: 'the parent of this group'
-        type: \Group
+        type: object
+        eaxample: '#/components/schemas/Group-read'
+        format: Group
     required:
       - name
       - sourceOrganization
@@ -6866,7 +6852,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         description: 'The name of this offer'
@@ -6899,13 +6885,15 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-23'
+        eaxample: '#/components/schemas/DateTime-read'
         format: date
+        example: '2020-03-06'
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-23'
+        eaxample: '#/components/schemas/DateTime-read'
         format: date
+        example: '2020-03-06'
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
@@ -6917,13 +6905,19 @@ definitions:
         type: string
       taxes:
         description: 'The taxes that affect this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       products:
         description: 'The products related to this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - price
@@ -6965,25 +6959,33 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-02-23'
+        eaxample: '#/components/schemas/DateTime-read'
         format: date
+        example: '2020-03-06'
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-02-23'
+        eaxample: '#/components/schemas/DateTime-read'
         format: date
+        example: '2020-03-06'
       audience:
         description: 'The audience this product is intended for'
         type: string
       taxes:
         description: 'The taxes that affect this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       eligibleCustomerTypes:
         description: 'The customer types that are eligible for this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       products:
         description: 'The products related to this offer'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - price
@@ -6997,7 +6999,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       sku:
         description: 'The human readable reference for this product, also known as Stock Keeping Unit (SKU)'
@@ -7070,32 +7072,46 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      duration:
+        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
       dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
-      duration:
-        description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
-        type: string
-        example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       variations:
         description: 'The different variations that are available of this product'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       groupedProducts:
         description: 'If the product type is a **set** this contains the products that are part of that set'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
-        type: \Catalogue
+        type: object
+        eaxample: '#/components/schemas/Catalogue-read'
+        format: Catalogue
       offers:
         description: 'The offers that refer to this product'
-        type: \ArrayCollection
-      additionalProperties: []
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
+      additionalProperties:
+        description: 'The additional properties this product has'
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - sourceOrganization
@@ -7172,20 +7188,34 @@ definitions:
         example: PT10M
       groups:
         description: 'The product groups that this product is a part of'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       parent:
         description: 'The product that this product is a variation of'
-        type: \Product
+        type: object
+        eaxample: '#/components/schemas/Product-read'
+        format: Product
       sets:
         description: 'The sets thats this product is a part of'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
-        type: \Catalogue
+        type: object
+        eaxample: '#/components/schemas/Catalogue-read'
+        format: Catalogue
       offers:
         description: 'The offers that refer to this product'
-        type: \ArrayCollection
-      additionalProperties: []
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
+      additionalProperties:
+        description: 'The additional properties this product has'
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - sourceOrganization
@@ -7197,7 +7227,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         maxLength: 255
@@ -7224,7 +7254,7 @@ definitions:
       id:
         description: 'The Uuid identifier of this supplier'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         description: 'The name of this Supplier'
@@ -7277,7 +7307,7 @@ definitions:
       id:
         description: 'The UUID identifier of this object'
         type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
+        example: 9b9eea1a-ef04-427d-b8bd-7f5c24801874
         format: uuid
       name:
         description: 'The name of this tax'
@@ -7309,7 +7339,9 @@ definitions:
         type: \Datetime
       offers:
         description: 'The offers that use this tax'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - price
@@ -7339,7 +7371,9 @@ definitions:
         example: '9'
       offers:
         description: 'The offers that use this tax'
-        type: \ArrayCollection
+        type: object
+        eaxample: '#/components/schemas/ArrayCollection-read'
+        format: ArrayCollection
     required:
       - name
       - price
@@ -7392,75 +7426,25 @@ tags:
       An entity representing an tax.
       
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
-=======
-        description: 'The description of this example property'
-        type: string
-        example: 'Is the best group ever'
-        maxLength: 2555
-      camelCase:
-        description: 'Proof that we camel case our api'
-        type: string
-        example: 'Best api ever'
-        maxLength: 255
-    required:
-      - name
-  ExampleEntity-write:
-    properties:
-      name:
-        description: 'The name of this example property'
-        type: string
-        example: 'My Group'
-        maxLength: 255
-      description:
-        description: 'The description of this example property'
-        type: string
-        example: 'Is the best group ever'
-        maxLength: 2555
-      camelCase:
-        description: 'Proof that we camel case our api'
-        type: string
-        example: 'Best api ever'
-        maxLength: 255
-    required:
-      - name
-tags:
-  -
-    name: ExampleEntity
-    description: |
-      This is an example entity.
-      
-      With an adtional description, all in all its pritty nice [url](www.google.nl)
->>>>>>> master
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-<<<<<<< HEAD
       read: 'read right to the Tax resource'
       write: 'write right to the Tax resource'
-=======
-      read: 'read right to the ExampleEntity resource'
-      write: 'write right to the ExampleEntity resource'
->>>>>>> master
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-<<<<<<< HEAD
       read: 'read right to the Tax resource'
       write: 'write right to the Tax resource'
-=======
-      read: 'read right to the ExampleEntity resource'
-      write: 'write right to the ExampleEntity resource'
->>>>>>> master
 host: irc.zaakonline.nl
 servers:
   -
     description: 'Demo Omgeving'
-<<<<<<< HEAD
     url: 'http://pdc.zaakonline.nl'
 externalDocs:
   -
@@ -7469,13 +7453,6 @@ externalDocs:
   -
     description: Repository
     url: 'https://github.com/ConductionNL/productenendienstencatalogus'
-=======
-    url: 'http://proto.demo.common-ground.dev'
-externalDocs:
-  -
-    description: 'OAS Documentatie'
-    url: 'http://proto.demo.common-ground.dev'
->>>>>>> master
 x-commonground:
   type: service
   developers:

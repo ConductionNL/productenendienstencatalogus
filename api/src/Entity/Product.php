@@ -323,12 +323,14 @@ class Product
     private $audience = "internal";
 
     /**
+     * @var ArrayCollection The additional properties this product has
+     *
      * @Groups({"read","write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
      */
     private $additionalProperties;
-    
+
     /**
      * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      * @example PT10M
@@ -776,7 +778,7 @@ class Product
 
         return $this;
     }
-    
+
     public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
