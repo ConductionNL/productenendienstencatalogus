@@ -32,7 +32,28 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/products/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/products/{id}/audit_trial",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})

@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -27,9 +32,33 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/offers/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/offers/{id}/audit_trial",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\OfferRepository")
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})   
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  */
 class Offer
 {
@@ -94,7 +123,7 @@ class Offer
      * @Groups({"read","write"})
      * @ORM\Column(type="string")
      */
-    private $priceCurrency = 'EUR';
+    private $priceCurrency = 'EUR'; 
 
     /**
      * @var string The uri for the organisation that offers this offer
@@ -121,7 +150,7 @@ class Offer
      *
      * @Groups({"read","write"})
      */
-    private $availabilityEnds;
+    private $availabilityEnds; 
 
     /**
      * @var DateTime the date this offer has started
@@ -190,7 +219,7 @@ class Offer
      * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */
-    private $audience;
+    private $audience; 
 
 
     public function __construct()
