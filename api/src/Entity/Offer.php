@@ -115,7 +115,7 @@ class Offer
      *
      * @example 20191231
      *
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      * @Assert\NotNull
      * @Assert\Date
      *
@@ -130,7 +130,7 @@ class Offer
      *
      * @Assert\NotNull
      * @Assert\Date
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      * @Groups({"read","write"})
      */
     private $availabilityStarts;

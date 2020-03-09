@@ -6,8 +6,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
-
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -37,7 +35,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial"})
- * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
 {
@@ -323,22 +320,11 @@ class Product
     private $audience = "internal";
 
     /**
-     * @var ArrayCollection The additional properties this product has
-     *
      * @Groups({"read","write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
      */
     private $additionalProperties;
-
-    /**
-     * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-     * @example PT10M
-     *
-     * @Groups({"read","write"})
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $duration;
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
@@ -356,6 +342,15 @@ class Product
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
+
+    /**
+     * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     * @example PT10M
+     *
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $duration;
 
     public function __construct()
     {
@@ -778,7 +773,6 @@ class Product
 
         return $this;
     }
-
     public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
