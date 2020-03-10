@@ -360,17 +360,18 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $duration;
+    
     /**
-     * @var Datetime $dateCreated The moment this request was created
+     * @var Datetime $dateCreated The moment this resource was created
      *
      * @Groups({"read"})
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
-
+    
     /**
-     * @var Datetime $dateModified  The moment this request last Modified
+     * @var Datetime $dateModified  The moment this resource last Modified
      *
      * @Groups({"read"})
      * @Gedmo\Timestampable(on="create")
