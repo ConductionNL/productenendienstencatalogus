@@ -46,7 +46,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *              }
  *          },
  *          "get_audit_trail"={
- *              "path"="/catalogues/{id}/audit_trial",
+ *              "path"="/catalogues/{id}/audit_trail",
  *              "method"="get",
  *              "swagger_context" = {
  *                  "summary"="Audittrail",
@@ -56,6 +56,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CatalogueRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","logo": "exact","sourceOrganization": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -81,6 +83,7 @@ class Catalogue
      *
      * @example My Catalogue
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -95,6 +98,7 @@ class Catalogue
      *
      * @example This is the best catalogue ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -108,6 +112,7 @@ class Catalogue
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -122,6 +127,7 @@ class Catalogue
      *
      * @example 002851234
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      min = 8,

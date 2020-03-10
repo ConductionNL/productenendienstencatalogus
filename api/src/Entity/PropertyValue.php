@@ -46,7 +46,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *              }
  *          },
  *          "get_audit_trail"={
- *              "path"="/property_values/{id}/audit_trial",
+ *              "path"="/property_values/{id}/audit_trail",
  *              "method"="get",
  *              "swagger_context" = {
  *                  "summary"="Audittrail",
@@ -57,6 +57,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * )
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PropertyValueRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -78,6 +80,7 @@ class PropertyValue
     private $id;
 
     /**
+     * @Gedmo\Versioned
      * @Groups({"read", "write"})
      * @Assert\Length(
      *     max=255
@@ -89,6 +92,7 @@ class PropertyValue
 
     /**
      *
+     * @Gedmo\Versioned
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
@@ -100,6 +104,7 @@ class PropertyValue
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="additionalProperties")
      */
     private $products;
+    
     /**
      * @var Datetime $dateCreated The moment this request was created
      *
