@@ -53,6 +53,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\SupplierRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","kvk": "exact","logo": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -78,6 +80,7 @@ class Supplier
      *
      * @example My RequestType
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -92,6 +95,7 @@ class Supplier
      *
      * @example 30280353
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -106,6 +110,7 @@ class Supplier
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255

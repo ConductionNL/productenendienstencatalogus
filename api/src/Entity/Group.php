@@ -55,7 +55,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
  * @ORM\Table(name="productorservicegroup")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","icon": "exact","logo": "exact","sourceOrganization": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -81,6 +83,7 @@ class Group
 	 *
 	 * @example My Property
 	 *
+     * @Gedmo\Versioned
 	 * @Assert\Length(min = 15, max = 255)
 	 * @Groups({"read", "write"})
 	 * @ORM\Column(type="string", length=255, nullable=true)
@@ -92,6 +95,7 @@ class Group
      *
      * @example My Group
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -106,6 +110,7 @@ class Group
      *
      * @example This is the best group ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -119,6 +124,7 @@ class Group
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -142,6 +148,7 @@ class Group
      *
      * @example 002851234
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      min = 8,

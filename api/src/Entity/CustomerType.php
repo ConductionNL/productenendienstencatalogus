@@ -58,6 +58,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CustomerTypeRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -83,6 +85,7 @@ class CustomerType
      *
      * @example My CustomerType
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
@@ -97,6 +100,7 @@ class CustomerType
      *
      * @example this is the best customertype ever
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @ORM\Column(type="string", length=2550)
      * @Assert\Length(

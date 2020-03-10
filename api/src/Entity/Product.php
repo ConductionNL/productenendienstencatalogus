@@ -56,6 +56,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -81,6 +83,7 @@ class Product
      *
      * @example 6666-2019
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @ORM\Column(type="string", length=255, nullable=true) //, unique=true
      */
@@ -90,6 +93,8 @@ class Product
      * @var string The auto-incrementing id part of the reference, unique on a organization-year-id basis
      *
      * @example 000000000001
+     * 
+     * @Gedmo\Versioned
      * @ORM\Column(type="integer", length=11, nullable=true)
      */
     private $skuId;
@@ -99,6 +104,7 @@ class Product
      *
      * @example My product
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -113,6 +119,7 @@ class Product
      *
      * @example This is the best product ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -126,6 +133,7 @@ class Product
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -140,6 +148,7 @@ class Product
      *
      * @example https://www.youtube.com/embed/RkBZYoMnx5w
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -154,6 +163,7 @@ class Product
      *
      * @example 002851234
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      min = 8,
@@ -179,6 +189,7 @@ class Product
      *
      * @example 50.00
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="decimal", precision=8, scale=2, nullable=true)
      * @Groups({"read","write"})
      * @deprecated
@@ -190,6 +201,7 @@ class Product
      *
      * @example EUR
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="string")
      * @Assert\Currency
      * @Groups({"read","write"})
@@ -202,6 +214,7 @@ class Product
      *
      * @example 9
      *
+     * @Gedmo\Versioned
      * @Assert\PositiveOrZero
      * @Groups({"read", "write"})
      * @ORM\Column(type="integer", nullable=true)
@@ -231,6 +244,7 @@ class Product
      *
      * @example simple
      *
+     * @Gedmo\Versioned
      * @ORM\Column
      * @Assert\NotBlank
      * @Assert\Choice(
@@ -276,11 +290,11 @@ class Product
     /**
      * @var ArrayCollection The offers that refer to this product
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
-     * @Assert\Valid
      *
      * @MaxDepth(1)
      * @Groups({"read", "write"})
+     * @Assert\Valid
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
      */
     private $offers;
 
@@ -289,6 +303,7 @@ class Product
      *
      * @example http://example.org/calendar/calendar
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *     max = 255
@@ -303,6 +318,7 @@ class Product
      *
      * @example false
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="boolean")
      * @Assert\NotNull
      * @Groups({"read", "write"})
@@ -312,6 +328,7 @@ class Product
     /**
      * @var array An array of URLs pointing to documents related to this product
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="simple_array", nullable=true)
      * @Groups({"read"})
      */
@@ -320,6 +337,7 @@ class Product
     /**
      * @var array An array of URLs pointing to images related to this product
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="simple_array", nullable=true)
      * @Groups({"read"})
      */
@@ -328,6 +346,7 @@ class Product
     /**
      * @var array An array of URLs pointing to external documents referred to from this product
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="simple_array", nullable=true)
      * @Groups({"read"})
      */
@@ -336,6 +355,7 @@ class Product
     /**
      * @var string The audience this product is intended for
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @Assert\Choice({"public", "internal"})
      * @Assert\NotNull
@@ -346,6 +366,7 @@ class Product
     /**
      * @var ArrayCollection The additional properties this product has
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
@@ -356,6 +377,7 @@ class Product
      * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      * @example PT10M
      *
+     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
