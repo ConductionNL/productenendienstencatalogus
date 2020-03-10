@@ -57,7 +57,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * )
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
- * 
+ *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
@@ -93,7 +93,7 @@ class Product
      * @var string The auto-incrementing id part of the reference, unique on a organization-year-id basis
      *
      * @example 000000000001
-     * 
+     *
      * @Gedmo\Versioned
      * @ORM\Column(type="integer", length=11, nullable=true)
      */
@@ -366,7 +366,6 @@ class Product
     /**
      * @var ArrayCollection The additional properties this product has
      *
-     * @Gedmo\Versioned
      * @Groups({"read","write"})
      * @MaxDepth(1)
      * @ORM\ManyToMany(targetEntity="App\Entity\PropertyValue", mappedBy="products")
@@ -382,7 +381,7 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $duration;
-    
+
     /**
      * @var Datetime $dateCreated The moment this resource was created
      *
@@ -391,7 +390,7 @@ class Product
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
-    
+
     /**
      * @var Datetime $dateModified  The moment this resource last Modified
      *
