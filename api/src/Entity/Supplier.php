@@ -43,7 +43,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *              }
  *          },
  *          "get_audit_trail"={
- *              "path"="/suppliers/{id}/audit_trial",
+ *              "path"="/suppliers/{id}/audit_trail",
  *              "method"="get",
  *              "swagger_context" = {
  *                  "summary"="Audittrail",
