@@ -57,8 +57,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CatalogueRepository")
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
- * 
- * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","logo": "exact","sourceOrganization": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
@@ -123,16 +123,13 @@ class Catalogue
     private $logo;
 
     /**
-     * @var string The RSIN of the organization that provides this catalogue
+     * @var string The WRC url of the organization that provides this catalogue
      *
      * @example 002851234
      *
      * @Gedmo\Versioned
      * @Assert\NotNull
-     * @Assert\Length(
-     *      min = 8,
-     *      max = 11
-     * )
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      * @ApiFilter(SearchFilter::class, strategy="exact")
