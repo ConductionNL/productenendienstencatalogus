@@ -128,6 +128,7 @@ class LarpingFixtures extends Fixture
         $productJP2020->setDescription('Met dit product neem je deel aan Moots 1, Summoning en Moots 2 events van Vortex Adventures');
         $productJP2020->setType('set');
         $productJP2020->setSku('jaarpakket-2020');
+        $productJP2020->setAudience("public");
         $productJP2020->setCatalogue($catalogue);
         $productJP2020->addGroup($groupEvent);
         $productJP2020->setRequiresAppointment(false);
@@ -162,6 +163,7 @@ class LarpingFixtures extends Fixture
         $productJL->setDescription('Met dit product word je lid van Vortex Adventures voor 2020');
         $productJL->setType('subscription');
         $productJL->setSku('Jaarlid-2020');
+        $productJL->setAudience("public");
         $productJL->setCatalogue($catalogue);
         $productJL->addGroup($groupSubs);
         $productJL->addSet($productJP2020);

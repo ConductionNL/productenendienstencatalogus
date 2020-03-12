@@ -159,16 +159,13 @@ class Product
     private $movie;
 
     /**
-     * @var string The RSIN of the organization that owns this product
+     * @var string The WRC Url of the organization that owns this product
      *
      * @example 002851234
      *
      * @Gedmo\Versioned
      * @Assert\NotNull
-     * @Assert\Length(
-     *      min = 8,
-     *      max = 11
-     * )
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */

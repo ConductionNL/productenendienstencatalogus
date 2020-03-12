@@ -57,8 +57,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * )
  * @ORM\Entity(repositoryClass="App\Repository\OfferRepository")
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
- * 
- * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})   
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  */
@@ -129,11 +129,11 @@ class Offer
      * @Groups({"read","write"})
      * @ORM\Column(type="string")
      */
-    private $priceCurrency = 'EUR'; 
+    private $priceCurrency = 'EUR';
 
     /**
      * @var string The uri for the organisation that offers this offer
-     * 
+     *
      * @example(http://example.org/example/1)
      *
      * @Gedmo\Versioned
@@ -154,12 +154,11 @@ class Offer
      *
      * @Gedmo\Versioned
      * @ORM\Column(type="datetime", nullable=true)
-     * @Assert\NotNull
      * @Assert\Date
      *
      * @Groups({"read","write"})
      */
-    private $availabilityEnds; 
+    private $availabilityEnds;
 
     /**
      * @var DateTime the date this offer has started
@@ -167,7 +166,6 @@ class Offer
      * @example 20190101
      *
      * @Gedmo\Versioned
-     * @Assert\NotNull
      * @Assert\Date
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups({"read","write"})
@@ -229,7 +227,7 @@ class Offer
      * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */
-    private $audience; 
+    private $audience;
 
 
     public function __construct()
