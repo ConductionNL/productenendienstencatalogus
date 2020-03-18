@@ -808,7 +808,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Trouwboekje');
         $offer->setDescription('Een mooi in leer gebonden herinnering aan uw huwelijk');
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -849,7 +849,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Ringen');
         $offer->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('10.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -889,7 +889,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Geen extra\'s');
         $offer->setDescription('U wilt geen extra producten bij uw huwelijk');
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
