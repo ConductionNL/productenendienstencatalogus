@@ -240,7 +240,7 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,'
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('bfeb9399-fce6-49b8-a047-70928f3611fb');
         $offer = new Offer();
         $offer->setName('Uitgebreid Trouwen in Utrecht');
         $offer->setDescription('Mogelijk op een door u gekozen dag en tijdstip.<br>
@@ -288,7 +288,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('2b9ba0a9-376d-45e2-aa83-809ef07fa104');
         $offer = new Offer();
         $offer->setName('Eenvoudig Trouwen in Utrecht');
         $offer->setDescription('Mogelijk op maandag 11.00 uur en 11.30 uur en dinsdag, woensdag en vrijdag om 10.00 uur, 10.30 uur, 11.00 uur of 11.30 uur.<br>
@@ -341,7 +341,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('77f6419d-b264-4898-8229-9916d9deccee');
         $offer = new Offer();
         $offer->setName('Gratis Trouwen in Utrecht');
         $offer->setDescription('Maandagochtend om 10.00 uur of om 10.30 uur kunt u gratis trouwen op het stadskantoor.<br>
@@ -387,7 +387,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('25e0d4a7-a0d0-46ed-bc32-830ea755501c');
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Dhr Erik Hendrik');
         $offer->setDescription('<p>Als Buitengewoon Ambtenaar van de Burgerlijke Stand geef ik, in overleg met het bruidspaar, invulling aan de huwelijksceremonie.</p>');
@@ -427,7 +427,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('0a12d9da-22cb-4be6-b98f-728070293d7f');
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Mvr Ike van den Pol');
         $offer->setDescription('<p>Elkaar het Ja-woord geven, de officiële ceremonie. Vaak is dit het romantische hoogtepunt van de trouwdag. Een bijzonder moment, gedeeld met de mensen die je lief zijn. Een persoonlijke ceremonie, passend bij jullie relatie. Alles is bespreekbaar en maatwerk. Een originele trouwplechtigheid waar muziek, sprekers en kinderen een rol kunnen spelen. Een ceremonie met inhoud, ernst en humor, een traan en een lach, stijlvol, spontaan en ontspannen.</p>');
@@ -467,7 +467,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('67ec0c4f-e9ea-4ec7-866d-729b67276333');
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Dhr Rene Gulje');
         $offer->setDescription('<p>Ik ben Rene Gulje, in 1949 in Amsterdam geboren. Ik studeerde Nederlands aan de UVA en journalistiek aan de HU.</p>');
@@ -507,7 +507,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('d5a657ff-846f-4d75-880c-abf4e9cb0c27');
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Geen voorkeur');
         $offer->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
@@ -547,7 +547,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('eaff9ee8-a715-4dfc-86ce-12d0df248cbb');
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Stagair');
         $offer->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
@@ -617,7 +617,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('3a32750c-f901-4c99-adea-d211b96cbf48');
         $offer = new Offer();
         $offer->setName('Trouwlocatie: Stadskantoor');
         $offer->setDescription('Deze locatie is speciaal voor eenvoudige en gratis huwelijken.
@@ -660,7 +660,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e7450609-61d2-4c23-b04f-699edf7c36b8');
         $offer = new Offer();
         $offer->setName('Locatie: Stadhuis kleine zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
@@ -701,7 +701,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('bbbe74d8-ffea-459a-b31a-bd7267d4fa97');
         $offer = new Offer();
         $offer->setName('Locatie: Stadhuis grote zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
@@ -740,7 +740,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('54fdad70-2ab7-4d17-bc53-444f8879cceb');
         $offer = new Offer();
         $offer->setName('Locatie: Vrije locatie');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
@@ -779,7 +779,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('039e1ac4-1f02-401a-aba5-31da1c3cc626');
         $offer = new Offer();
         $offer->setName('Extra: Trouwboekje');
         $offer->setDescription('Een mooi in leer gebonden herinnering aan uw huwelijk');
@@ -818,7 +818,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('38cc7d94-3438-490a-808c-f076f52aadbb');
         $offer = new Offer();
         $offer->setName('Extra: Ringen');
         $offer->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
@@ -856,7 +856,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('d685bfeb-caa2-423f-a767-ae4203459dee');
         $offer = new Offer();
         $offer->setName('Extra: Geen extra\'s');
         $offer->setDescription('U wilt geen extra producten bij uw huwelijk');
