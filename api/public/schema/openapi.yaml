@@ -10174,7 +10174,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that provides this catalogue'
+          description: 'The WRC url of the organization that provides this catalogue'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           readOnly: true
@@ -10214,7 +10216,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that provides this catalogue'
+          description: 'The WRC url of the organization that provides this catalogue'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
     'Catalogue:jsonld-read':
       type: object
@@ -10247,7 +10251,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that provides this catalogue'
+          description: 'The WRC url of the organization that provides this catalogue'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           readOnly: true
@@ -10296,7 +10302,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that provides this catalogue'
+          description: 'The WRC url of the organization that provides this catalogue'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
     ChangeLog-read:
       type: object
@@ -10573,7 +10581,9 @@ components:
           items:
             $ref: '#/components/schemas/Product-read'
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this group'
+          description: 'The WRC url of the organization that owns this group'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         catalogue:
           description: 'The Catalogue that this product group belongs to'
@@ -10615,7 +10625,9 @@ components:
           items:
             $ref: '#/components/schemas/Product-write'
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this group'
+          description: 'The WRC url of the organization that owns this group'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         catalogue:
           description: 'The Catalogue that this product group belongs to'
@@ -10672,7 +10684,9 @@ components:
           items:
             $ref: '#/components/schemas/Product:jsonld-read'
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this group'
+          description: 'The WRC url of the organization that owns this group'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         catalogue:
           description: 'The Catalogue that this product group belongs to'
@@ -10723,7 +10737,9 @@ components:
           items:
             $ref: '#/components/schemas/Product:jsonld-write'
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this group'
+          description: 'The WRC url of the organization that owns this group'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         catalogue:
           description: 'The Catalogue that this product group belongs to'
@@ -10812,8 +10828,6 @@ components:
         - name
         - price
         - offeredBy
-        - availabilityEnds
-        - availabilityStarts
         - products
         - audience
     Offer-write:
@@ -10823,8 +10837,6 @@ components:
         - name
         - price
         - offeredBy
-        - availabilityEnds
-        - availabilityStarts
         - products
         - audience
       properties:
@@ -10959,8 +10971,6 @@ components:
         - name
         - price
         - offeredBy
-        - availabilityEnds
-        - availabilityStarts
         - products
         - audience
     'Offer:jsonld-write':
@@ -10970,8 +10980,6 @@ components:
         - name
         - price
         - offeredBy
-        - availabilityEnds
-        - availabilityStarts
         - products
         - audience
       properties:
@@ -11063,7 +11071,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this product'
+          description: 'The WRC Url of the organization that owns this product'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           description: 'The product groups that this product is a part of'
@@ -11182,7 +11192,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this product'
+          description: 'The WRC Url of the organization that owns this product'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           description: 'The product groups that this product is a part of'
@@ -11286,7 +11298,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this product'
+          description: 'The WRC Url of the organization that owns this product'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           description: 'The product groups that this product is a part of'
@@ -11414,7 +11428,9 @@ components:
             url: 'http://schema.org/url'
           type: string
         sourceOrganization:
-          description: 'The RSIN of the organization that owns this product'
+          description: 'The WRC Url of the organization that owns this product'
+          externalDocs:
+            url: 'http://schema.org/url'
           type: string
         groups:
           description: 'The product groups that this product is a part of'
@@ -11982,12 +11998,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-11 07:52:34'
+        example: '2020-03-12 09:31:30'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-11 07:52:34'
+        example: '2020-03-12 09:31:30'
     required: []
   AuditTrail-write:
     properties:
@@ -12021,11 +12037,10 @@ definitions:
         format: url
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that provides this catalogue'
+        description: 'The WRC url of the organization that provides this catalogue'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
@@ -12057,11 +12072,10 @@ definitions:
         format: url
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that provides this catalogue'
+        description: 'The WRC url of the organization that provides this catalogue'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
     required:
       - name
       - sourceOrganization
@@ -12103,12 +12117,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-11 07:52:34'
+        example: '2020-03-12 09:31:30'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-11 07:52:34'
+        example: '2020-03-12 09:31:30'
     required: []
   ChangeLog-write:
     properties:
@@ -12195,11 +12209,10 @@ definitions:
         format: url
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that owns this group'
+        description: 'The WRC url of the organization that owns this group'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
@@ -12235,11 +12248,10 @@ definitions:
         example: 'My Group'
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that owns this group'
+        description: 'The WRC url of the organization that owns this group'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
       products:
         description: 'The groups that are a part of this product group'
         type: \ArrayCollection
@@ -12289,12 +12301,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-11'
+        example: '2020-03-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-11'
+        example: '2020-03-12'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12318,8 +12330,6 @@ definitions:
       - name
       - price
       - offeredBy
-      - availabilityEnds
-      - availabilityStarts
       - audience
       - products
   Offer-write:
@@ -12351,12 +12361,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-11'
+        example: '2020-03-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-11'
+        example: '2020-03-12'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12374,8 +12384,6 @@ definitions:
       - name
       - price
       - offeredBy
-      - availabilityEnds
-      - availabilityStarts
       - audience
       - products
   Product-read:
@@ -12412,11 +12420,10 @@ definitions:
         format: url
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that owns this product'
+        description: 'The WRC Url of the organization that owns this product'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
       price:
         description: 'The price of this product'
         type: string
@@ -12519,11 +12526,10 @@ definitions:
         format: url
         maxLength: 255
       sourceOrganization:
-        description: 'The RSIN of the organization that owns this product'
+        description: 'The WRC Url of the organization that owns this product'
         type: string
         example: '002851234'
-        maxLength: 11
-        minLength: 8
+        format: url
       price:
         description: 'The price of this product'
         type: string

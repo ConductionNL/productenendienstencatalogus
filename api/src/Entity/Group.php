@@ -57,8 +57,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
  * @ORM\Table(name="productorservicegroup")
- * 
- * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","icon": "exact","logo": "exact","sourceOrganization": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
@@ -144,21 +144,18 @@ class Group
     private $products;
 
     /**
-     * @var string The RSIN of the organization that owns this group
+     * @var string The WRC url of the organization that owns this group
      *
      * @example 002851234
      *
      * @Gedmo\Versioned
      * @Assert\NotNull
-     * @Assert\Length(
-     *      min = 8,
-     *      max = 11
-     * )
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      * @ApiFilter(SearchFilter::class, strategy="exact")
      */
-    private $sourceOrganization; 
+    private $sourceOrganization;
 
     /**
      * @var Catalogue The Catalogue that this product group belongs to
