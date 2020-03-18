@@ -247,7 +247,6 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,'
 U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk.<br>
 De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
 Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('627.00');
@@ -257,6 +256,9 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.'
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('16353702-4614-42ff-92af-7dd11c8eef9f');
         $product = new Product();
@@ -298,7 +300,6 @@ Er kunnen maximaal 10 personen naar binnen, dit is inclusief het bruidspaar, de 
 De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
 De wachtlijst voor eenvoudig trouwen is ongeveer 3 maanden.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('163.00');
@@ -308,6 +309,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
 
 
@@ -351,7 +355,6 @@ U trouwt in een kleine trouwruimte op de 6e etage van het stadskantoor.<br>
 Er kunnen maximaal 10 personen naar binnen, dit is inclusief het bruidspaar, de getuigen en een eventuele fotograaf.<br>
 De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -361,6 +364,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('1edd4d62-d778-452a-8b2a-ac22f3dcdf4d');
         $product = new Product();
@@ -391,7 +397,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Dhr Erik Hendrik');
         $offer->setDescription('<p>Als Buitengewoon Ambtenaar van de Burgerlijke Stand geef ik, in overleg met het bruidspaar, invulling aan de huwelijksceremonie.</p>');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -401,6 +406,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('477ea744-47b1-4690-bd2e-c9c15d5cf2d4');
         $product = new Product();
@@ -431,7 +439,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Mvr Ike van den Pol');
         $offer->setDescription('<p>Elkaar het Ja-woord geven, de officiële ceremonie. Vaak is dit het romantische hoogtepunt van de trouwdag. Een bijzonder moment, gedeeld met de mensen die je lief zijn. Een persoonlijke ceremonie, passend bij jullie relatie. Alles is bespreekbaar en maatwerk. Een originele trouwplechtigheid waar muziek, sprekers en kinderen een rol kunnen spelen. Een ceremonie met inhoud, ernst en humor, een traan en een lach, stijlvol, spontaan en ontspannen.</p>');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -441,6 +448,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('4f7c5d73-0fcb-4363-9ebb-fd47e2209148');
         $product = new Product();
@@ -471,7 +481,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Dhr Rene Gulje');
         $offer->setDescription('<p>Ik ben Rene Gulje, in 1949 in Amsterdam geboren. Ik studeerde Nederlands aan de UVA en journalistiek aan de HU.</p>');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -481,6 +490,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
@@ -511,7 +523,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Geen voorkeur');
         $offer->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -521,6 +532,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('ea984e7b-0d0d-48ff-86ea-bd5d15286ae7');
         $product = new Product();
@@ -551,7 +565,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwambtenaar: Stagair');
         $offer->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
-        $offer->addProduct($product);
         $offer->setAudience('internal');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -561,6 +574,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         /*
         $id = Uuid::fromString('5a0ad366-9f10-4002-adcb-bac47143b93b');
@@ -624,7 +640,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
  De zaal ligt op de 6e etage van het Stadskantoor.
  De ruimte is eenvoudig en toch heel intiem.
  Het licht is in te stellen op een kleur die jullie graag willen.');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -634,6 +649,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('7ebcc7a9-ce12-401b-b3a1-18497c54d79d');
         $product = new Product();
@@ -664,7 +682,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Locatie: Stadhuis kleine zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -674,6 +691,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('9d7c1c5b-3e65-4429-90ec-16e7371f2360');
         $product = new Product();
@@ -705,7 +725,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Locatie: Stadhuis grote zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -715,6 +734,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('c7b556bb-a2f0-471c-9ff9-37543bc4d843');
         $product = new Product();
@@ -743,8 +765,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('54fdad70-2ab7-4d17-bc53-444f8879cceb');
         $offer = new Offer();
         $offer->setName('Locatie: Vrije locatie');
-        $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
-        $offer->addProduct($product);
+        $offer->setDescription('Vrije locatie');
         $offer->setAudience('public');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
@@ -754,6 +775,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('d7bd202b-27ae-4c09-aeb9-3806c5fba504');
         $product = new Product();
@@ -783,7 +807,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Extra: Trouwboekje');
         $offer->setDescription('Een mooi in leer gebonden herinnering aan uw huwelijk');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy();
         $offer->setPrice('0.00');
@@ -793,6 +816,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('1fa3fbbc-0dee-442a-8431-3381b8cbc78a');
         $product = new Product();
@@ -822,7 +848,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Extra: Ringen');
         $offer->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy();
         $offer->setPrice('10.00');
@@ -832,6 +857,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('a6bbfcb3-e87d-4f6f-98da-821b71e45912');
         $product = new Product();
@@ -860,7 +888,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Extra: Geen extra\'s');
         $offer->setDescription('U wilt geen extra producten bij uw huwelijk');
-        $offer->addProduct($product);
         $offer->setAudience('public');
         $offer->setOfferedBy();
         $offer->setPrice('0.00');
@@ -870,6 +897,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $manager->flush();
     }
