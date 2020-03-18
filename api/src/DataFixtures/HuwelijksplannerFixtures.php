@@ -249,7 +249,7 @@ De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
 Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('627.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -300,7 +300,7 @@ De wachtlijst voor eenvoudig trouwen is ongeveer 3 maanden.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('163.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -353,7 +353,7 @@ De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -393,7 +393,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('<p>Als Buitengewoon Ambtenaar van de Burgerlijke Stand geef ik, in overleg met het bruidspaar, invulling aan de huwelijksceremonie.</p>');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -433,7 +433,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('<p>Elkaar het Ja-woord geven, de officiële ceremonie. Vaak is dit het romantische hoogtepunt van de trouwdag. Een bijzonder moment, gedeeld met de mensen die je lief zijn. Een persoonlijke ceremonie, passend bij jullie relatie. Alles is bespreekbaar en maatwerk. Een originele trouwplechtigheid waar muziek, sprekers en kinderen een rol kunnen spelen. Een ceremonie met inhoud, ernst en humor, een traan en een lach, stijlvol, spontaan en ontspannen.</p>');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -473,7 +473,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('<p>Ik ben Rene Gulje, in 1949 in Amsterdam geboren. Ik studeerde Nederlands aan de UVA en journalistiek aan de HU.</p>');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -513,7 +513,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -553,7 +553,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
         $offer->addProduct($product);
         $offer->setAudience('internal');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -626,7 +626,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
  Het licht is in te stellen op een kleur die jullie graag willen.');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -666,7 +666,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -707,7 +707,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -746,7 +746,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $offer->addProduct($product);
         $offer->setAudience('public');
-        $offer->setOfferedBy();
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
