@@ -59,7 +59,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
- * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial"})
+ * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
