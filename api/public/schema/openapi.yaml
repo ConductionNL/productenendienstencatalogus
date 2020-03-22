@@ -10609,6 +10609,7 @@ components:
       required:
         - name
         - sourceOrganization
+        - catalogue
     Group-write:
       type: object
       description: 'An entity representing a product group.'
@@ -10643,6 +10644,7 @@ components:
       required:
         - name
         - sourceOrganization
+        - catalogue
     'Group:jsonld-read':
       type: object
       description: 'An entity representing a product group.'
@@ -10712,6 +10714,7 @@ components:
       required:
         - name
         - sourceOrganization
+        - catalogue
     'Group:jsonld-write':
       type: object
       description: 'An entity representing a product group.'
@@ -10755,6 +10758,7 @@ components:
       required:
         - name
         - sourceOrganization
+        - catalogue
     Offer-read:
       type: object
       description: 'An entity representing an offer.'
@@ -11998,12 +12002,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-12 09:31:30'
+        example: '2020-03-22 08:26:09'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-12 09:31:30'
+        example: '2020-03-22 08:26:09'
     required: []
   AuditTrail-write:
     properties:
@@ -12117,12 +12121,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-12 09:31:30'
+        example: '2020-03-22 08:26:09'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-12 09:31:30'
+        example: '2020-03-22 08:26:09'
     required: []
   ChangeLog-write:
     properties:
@@ -12234,6 +12238,7 @@ definitions:
     required:
       - name
       - sourceOrganization
+      - catalogue
   Group-write:
     properties:
       icon:
@@ -12267,6 +12272,7 @@ definitions:
     required:
       - name
       - sourceOrganization
+      - catalogue
   Offer-read:
     properties:
       id:
@@ -12301,12 +12307,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-12'
+        example: '2020-03-22'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-12'
+        example: '2020-03-22'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12361,12 +12367,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-12'
+        example: '2020-03-22'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-12'
+        example: '2020-03-22'
         format: date
       audience:
         description: 'The audience this product is intended for'
