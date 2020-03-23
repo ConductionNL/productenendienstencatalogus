@@ -5071,6 +5071,22 @@ paths:
           style: form
           explode: true
         -
+          name: products.id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'products.id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: 'dateCreated[before]'
           in: query
           required: false
@@ -6110,6 +6126,22 @@ paths:
           required: false
           schema:
             type: string
+        -
+          name: id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
         -
           name: 'dateCreated[before]'
           in: query
@@ -12223,12 +12255,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-18'
+        example: '2020-03-19'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-18'
+        example: '2020-03-19'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12283,12 +12315,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-03-18'
+        example: '2020-03-19'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-03-18'
+        example: '2020-03-19'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12610,12 +12642,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-18 13:09:12'
+        example: '2020-03-19 08:06:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-18 13:09:12'
+        example: '2020-03-19 08:06:49'
     required: []
   AuditTrail-write:
     properties:
@@ -12663,12 +12695,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-03-18 13:09:12'
+        example: '2020-03-19 08:06:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-03-18 13:09:12'
+        example: '2020-03-19 08:06:49'
     required: []
   ChangeLog-write:
     properties:
