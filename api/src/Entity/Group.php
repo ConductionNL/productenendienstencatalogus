@@ -160,6 +160,7 @@ class Group
     /**
      * @var Catalogue The Catalogue that this product group belongs to
      *
+     * @Assert\NotNull
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")
