@@ -24,7 +24,7 @@ class LarpingFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
     	// Lets make sure we only run these fixtures on Larping environments
-    	if(!in_array("larping.eu", $this->params->get('app_domains'))){
+    	if (strpos($this->params->get('app_domain'), "larping.eu") == false) {
     		return false;
     	}
 
