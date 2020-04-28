@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -28,10 +31,36 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/groups/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/groups/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
  * @ORM\Table(name="productorservicegroup")
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","icon": "exact","logo": "exact","sourceOrganization": "exact"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Group
 {
@@ -54,6 +83,7 @@ class Group
 	 *
 	 * @example My Property
 	 *
+     * @Gedmo\Versioned
 	 * @Assert\Length(min = 15, max = 255)
 	 * @Groups({"read", "write"})
 	 * @ORM\Column(type="string", length=255, nullable=true)
@@ -65,6 +95,7 @@ class Group
      *
      * @example My Group
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -79,6 +110,7 @@ class Group
      *
      * @example This is the best group ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -92,6 +124,7 @@ class Group
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -111,15 +144,13 @@ class Group
     private $products;
 
     /**
-     * @var string The RSIN of the organization that owns this group
+     * @var string The WRC url of the organization that owns this group
      *
      * @example 002851234
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
-     * @Assert\Length(
-     *      min = 8,
-     *      max = 11
-     * )
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      * @ApiFilter(SearchFilter::class, strategy="exact")
@@ -129,6 +160,7 @@ class Group
     /**
      * @var Catalogue The Catalogue that this product group belongs to
      *
+     * @Assert\NotNull
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="groups")

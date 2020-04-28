@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
@@ -24,9 +29,35 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/suppliers/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/suppliers/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\SupplierRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","kvk": "exact","logo": "exact"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Supplier
 {
@@ -49,6 +80,7 @@ class Supplier
      *
      * @example My RequestType
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -63,6 +95,7 @@ class Supplier
      *
      * @example 30280353
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -77,6 +110,7 @@ class Supplier
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255

@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -29,9 +32,35 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/catalogues/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/catalogues/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CatalogueRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","logo": "exact","sourceOrganization": "exact"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Catalogue
 {
@@ -54,6 +83,7 @@ class Catalogue
      *
      * @example My Catalogue
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Assert\Length(
      *      max = 255
@@ -68,6 +98,7 @@ class Catalogue
      *
      * @example This is the best catalogue ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -81,6 +112,7 @@ class Catalogue
      *
      * @example https://www.my-organization.com/logo.png
      *
+     * @Gedmo\Versioned
      * @Assert\Url
      * @Assert\Length(
      *      max = 255
@@ -91,15 +123,13 @@ class Catalogue
     private $logo;
 
     /**
-     * @var string The RSIN of the organization that provides this catalogue
+     * @var string The WRC url of the organization that provides this catalogue
      *
      * @example 002851234
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
-     * @Assert\Length(
-     *      min = 8,
-     *      max = 11
-     * )
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      * @ApiFilter(SearchFilter::class, strategy="exact")

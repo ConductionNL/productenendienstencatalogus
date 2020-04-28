@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -27,10 +32,36 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/property_values/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/property_values/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\PropertyValueRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * 
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class PropertyValue
 {
@@ -49,6 +80,7 @@ class PropertyValue
     private $id;
 
     /**
+     * @Gedmo\Versioned
      * @Groups({"read", "write"})
      * @Assert\Length(
      *     max=255
@@ -60,6 +92,7 @@ class PropertyValue
 
     /**
      *
+     * @Gedmo\Versioned
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
@@ -71,6 +104,7 @@ class PropertyValue
      * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="additionalProperties")
      */
     private $products;
+    
     /**
      * @var Datetime $dateCreated The moment this request was created
      *

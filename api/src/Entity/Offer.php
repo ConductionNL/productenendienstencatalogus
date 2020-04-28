@@ -3,6 +3,11 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -27,9 +32,35 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
- *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true}
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/offers/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/offers/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\OfferRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id"})
+ * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  */
 class Offer
 {
@@ -52,6 +83,7 @@ class Offer
      *
      * @example my offer
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull
      * @Assert\Length(
@@ -66,6 +98,7 @@ class Offer
      *
      * @example This is the best product ever
      *
+     * @Gedmo\Versioned
      * @Assert\Length(
      *      max = 2550
      * )
@@ -75,10 +108,11 @@ class Offer
     private $description;
 
     /**
-     *  @var string The price of this product
+     * @var string The price of this product
      *
-     *  @example 50.00
+     * @example 50.00
      *
+     * @Gedmo\Versioned
      * @Assert\NotNull
      * @Groups({"read","write"})
      * @ORM\Column(type="decimal", precision=8, scale=2)
@@ -86,10 +120,11 @@ class Offer
     private $price;
 
     /**
-     *  @var string The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
+     * @var string The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format
      *
-     *  @example EUR
+     * @example EUR
      *
+     * @Gedmo\Versioned
      * @Assert\Currency
      * @Groups({"read","write"})
      * @ORM\Column(type="string")
@@ -98,8 +133,10 @@ class Offer
 
     /**
      * @var string The uri for the organisation that offers this offer
+     *
      * @example(http://example.org/example/1)
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull
      * @Assert\Url
@@ -115,8 +152,8 @@ class Offer
      *
      * @example 20191231
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="datetime", nullable=true)
-     * @Assert\NotNull
      * @Assert\Date
      *
      * @Groups({"read","write"})
@@ -128,7 +165,7 @@ class Offer
      *
      * @example 20190101
      *
-     * @Assert\NotNull
+     * @Gedmo\Versioned
      * @Assert\Date
      * @ORM\Column(type="datetime", nullable=true)
      * @Groups({"read","write"})
