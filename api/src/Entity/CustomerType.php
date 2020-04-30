@@ -59,8 +59,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CustomerTypeRepository")
  * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
- * 
- * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"}) 
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
@@ -131,7 +131,7 @@ class CustomerType
      * @var Datetime $dateModified  The moment this request last Modified
      *
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
