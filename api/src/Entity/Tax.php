@@ -253,7 +253,7 @@ class Tax
      */
     public function getOffers(): Collection
     {
-        return $this->products;
+        return $this->offers;
     }
 
     public function addOffer(Offer $offer): self
@@ -265,7 +265,7 @@ class Tax
         return $this;
     }
 
-    public function removeOffer(Offer $product): self
+    public function removeOffer(Offer $offer): self
     {
         if ($this->offers->contains($offer)) {
             $this->offers->removeElement($offer);
