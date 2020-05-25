@@ -58,7 +58,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\CustomerTypeRepository")
- * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial"})
