@@ -71,7 +71,7 @@ class HuwelijksplannerFixtures extends Fixture
 
         // Catalogi
         $vng = new Catalogue();
-        $vng->setName('Vereniging Nederlandse Gemeenten'); 
+        $vng->setName('Vereniging Nederlandse Gemeenten');
         $vng->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/b61326d6-c801-4e73-b341-405a55d99c8a');
         $manager->persist($vng);
 
@@ -743,6 +743,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setName('Vrije locatie');
         $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Vrije locatie');
+        $product->setLogo('https://user-images.githubusercontent.com/49227194/80487135-9baca180-895c-11ea-82a4-92967a1551c2.png');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
         $product->setPrice('0.00');

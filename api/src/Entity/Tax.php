@@ -56,9 +56,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\TaxRepository")
- * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
- * 
- * @ApiFilter(OrderFilter::class, properties={"name","price","percentage","dateCreated","dateModified"}) 
+ * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
+ *
+ * @ApiFilter(OrderFilter::class, properties={"name","price","percentage","dateCreated","dateModified"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","percentage": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
@@ -166,7 +166,7 @@ class Tax
      * @var Datetime $dateModified  The moment this request last Modified
      *
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
@@ -253,7 +253,7 @@ class Tax
      */
     public function getOffers(): Collection
     {
-        return $this->products;
+        return $this->offers;
     }
 
     public function addOffer(Offer $offer): self
@@ -265,7 +265,7 @@ class Tax
         return $this;
     }
 
-    public function removeOffer(Offer $product): self
+    public function removeOffer(Offer $offer): self
     {
         if ($this->offers->contains($offer)) {
             $this->offers->removeElement($offer);

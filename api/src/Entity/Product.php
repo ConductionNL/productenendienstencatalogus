@@ -56,7 +56,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
- * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
@@ -392,7 +392,7 @@ class Product
      * @var Datetime $dateModified  The moment this resource last Modified
      *
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
