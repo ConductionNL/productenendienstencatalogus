@@ -27,8 +27,7 @@ class HuwelijksplannerFixtures extends Fixture
         string $kvk,
         ?string $logo,
         ObjectManager $manager
-    ): Supplier
-    {
+    ): Supplier {
         $supplier = new Supplier();
         $supplier->setName($name);
         $supplier->setSourceOrganization($sourceOrganisation);
@@ -47,8 +46,7 @@ class HuwelijksplannerFixtures extends Fixture
         ?string $description,
         ?string $logo,
         ObjectManager $manager
-    ): Catalogue
-    {
+    ): Catalogue {
         $catalogue = new Catalogue();
         $catalogue->setName($name);
         $catalogue->setSourceOrganization($sourceOrganisation);
@@ -59,13 +57,14 @@ class HuwelijksplannerFixtures extends Fixture
             $catalogue->setLogo($logo);
         }
         $manager->persist($catalogue);
+
         return $catalogue;
     }
 
     public function load(ObjectManager $manager)
     {
         // Lets make sure we only run these fixtures on huwelijksplanner enviroments
-        if (strpos($this->params->get('app_domain'), "huwelijksplanner.online") == false) {
+        if (strpos($this->params->get('app_domain'), 'huwelijksplanner.online') == false) {
             return false;
         }
 
@@ -228,7 +227,7 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,'
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -279,7 +278,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
         $manager->persist($product);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
@@ -313,8 +312,6 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
 
-
-
         $id = Uuid::fromString('190c3611-010d-4b0e-a31c-60dadf4d1c62');
         $product = new Product();
         $product->setName('Gratis Trouwen');
@@ -333,7 +330,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -381,7 +378,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/erik.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -423,7 +420,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/ike.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -465,7 +462,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/rene.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -507,7 +504,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -549,7 +546,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setAudience("internal");
+        $product->setAudience('internal');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -621,7 +618,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/Trouwzaal-Stadskantoor-Utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -666,7 +663,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/kleine-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->flush();
@@ -708,7 +705,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/grote-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -751,7 +748,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -792,7 +789,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -833,7 +830,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -873,7 +870,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
