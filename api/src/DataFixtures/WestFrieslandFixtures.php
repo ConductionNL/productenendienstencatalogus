@@ -2,9 +2,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Cemetery;
-use App\Entity\Grave;
-use App\Entity\GraveType;
+use App\Entity\Group;
+use App\Entity\Product;
+use App\Entity\Offer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
@@ -154,7 +154,7 @@ class WestFrieslandFixtures extends Fixture
         $Bijzettingsartikelen->setDescription('Een groep voor Bijzettingsartikelen');
         $Bijzettingsartikelen->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
         $Bijzettingsartikelen->setSourceOrganization('002851234');
-        $Bijzettingsartikelen->setProducts([$BijzettingsartikelenProduct);
+        $Bijzettingsartikelen->setProducts($BijzettingsartikelenProduct);
         $manager->persist($Bijzettingsartikelen);
         $Bijzettingsartikelen->setId($id);
         $manager->persist($Bijzettingsartikelen);
