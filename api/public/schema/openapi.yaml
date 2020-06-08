@@ -12255,12 +12255,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-06-04'
+        example: '2020-06-08'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-06-04'
+        example: '2020-06-08'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12315,12 +12315,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-06-04'
+        example: '2020-06-08'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-06-04'
+        example: '2020-06-08'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12797,12 +12797,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-06-04 19:05:23'
+        example: '2020-06-08 10:33:42'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-06-04 19:05:23'
+        example: '2020-06-08 10:33:42'
     required: []
   AuditTrail-write:
     properties:
@@ -12850,12 +12850,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-06-04 19:05:23'
+        example: '2020-06-08 10:33:42'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-06-04 19:05:23'
+        example: '2020-06-08 10:33:42'
     required: []
   ChangeLog-write:
     properties:
