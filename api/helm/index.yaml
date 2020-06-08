@@ -3,16 +3,16 @@ entries:
   pdc:
   - apiVersion: v1
     appVersion: V.0.1
-    created: "2020-05-25T11:57:00.2966906Z"
+    created: "2020-06-08T10:31:33.04009333Z"
     description: '&#039;This component provides a products and services catalogue
       that can be used by a order component in order to provide the products in the
       orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)&#039;'
-    digest: 2adf61239aa612aa75995c0ce56a4d79b79eb9fcfccd00e2f312cbb4af4f11bd
+    digest: 13f5535c257e7ab14dd390615bf2e6cb3c6a1a0a3f55b410b04f1d3048d02a83
     home: pdc.zaakonline.nl
     icon: pdc.zaakonline.nl
     name: pdc
     urls:
     - pdc-0.1.0.tgz
     version: 0.1.0
-generated: "2020-05-25T11:57:00.2711692Z"
+generated: "2020-06-08T10:31:33.03747143Z"
