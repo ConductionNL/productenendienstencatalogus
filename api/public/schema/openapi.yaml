@@ -10,7 +10,7 @@ info:
     - Version: V.0.1
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
     'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
@@ -12018,125 +12018,6 @@ components:
           items:
             $ref: '#/components/schemas/Offer:jsonld-write'
 definitions:
-  AuditTrail-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-      application:
-        description: 'The application that made the request'
-        type: string
-        format: url
-        maxLength: 255
-      request:
-        description: 'The id of the request within that application'
-        type: string
-        format: url
-        maxLength: 255
-      user:
-        description: 'The user on behalf of wich the request was made'
-        type: string
-        format: url
-        maxLength: 255
-      subject:
-        description: '???'
-        type: \sting
-        maxLength: 255
-      process:
-        description: 'The procces on behalf of wich the request was made'
-        type: \sting
-        maxLength: 255
-      dataElements:
-        description: 'The moment this request was created'
-        type: array
-      dataSubjects:
-        description: 'The moment this request was created'
-        type: array
-      resource:
-        description: 'The resource that was requested'
-        type: \sting
-        maxLength: 255
-      resourceType:
-        description: 'The type of the resource that was requested'
-        type: \sting
-        maxLength: 255
-      route:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      endpoint:
-        description: 'The endpoint that the request was made to'
-        type: \sting
-        maxLength: 255
-      method:
-        description: 'The method that was used'
-        type: \sting
-        maxLength: 255
-      accept:
-        description: 'The contentType that was reqousted'
-        type: \sting
-        maxLength: 255
-      contentType:
-        description: 'The contentType that was suplieds'
-        type: \sting
-        maxLength: 255
-      content:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 2555
-      ip:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      session:
-        description: 'The moment this request was created'
-        type: string
-        maxLength: 255
-      headers:
-        description: 'The headers supplied by client'
-        type: array
-      statusCode:
-        description: 'The status code returned to client'
-        type: int
-        example: '200'
-      notFound:
-        description: 'Whether or not the reqousted endpoint was found'
-        type: bool
-        example: 'false'
-      forbidden:
-        description: 'Whether or not the client was allowed to the reqousted endpoint'
-        type: bool
-        example: 'false'
-      ok:
-        description: 'Whether or not there where any problems'
-        type: bool
-        example: 'true'
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-04-21 20:35:03'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-04-21 20:35:03'
-    required: []
-  AuditTrail-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-    required: []
   Catalogue-read:
     properties:
       id:
@@ -12203,54 +12084,6 @@ definitions:
     required:
       - name
       - sourceOrganization
-  Group-read:
-    properties:
-      id:
-        description: 'The Uuid identifier of this group'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      icon:
-        description: 'The icon of this property'
-        type: string
-      objectId:
-        description: ''
-        type: string
-      objectClass:
-        description: ''
-        type: string
-      version:
-        description: ''
-        type: int
-      data:
-        description: ''
-        type: array
-      username:
-        description: ''
-        type: string
-      session:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-04-21 20:35:03'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-04-21 20:35:03'
-    required: []
-  ChangeLog-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-    required: []
   CustomerType-read:
     properties:
       id:
@@ -12388,6 +12221,125 @@ definitions:
       - name
       - sourceOrganization
       - catalogue
+  Offer-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        description: 'The name of this offer'
+        type: string
+        example: 'my offer'
+        maxLength: 255
+      description:
+        description: 'An short description of this offer'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this product'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      offeredBy:
+        description: 'The uri for the organisation that offers this offer'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      availabilityEnds:
+        description: 'the date this offer ends'
+        type: string
+        example: '2020-06-04'
+        format: date
+      availabilityStarts:
+        description: 'the date this offer has started'
+        type: string
+        example: '2020-06-04'
+        format: date
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
+      taxes:
+        description: 'The taxes that affect this offer'
+        type: \ArrayCollection
+      eligibleCustomerTypes:
+        description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
+      - offeredBy
+      - audience
+      - products
+  Offer-write:
+    properties:
+      name:
+        description: 'The name of this offer'
+        type: string
+        example: 'my offer'
+        maxLength: 255
+      description:
+        description: 'An short description of this offer'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this product'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      offeredBy:
+        description: 'The uri for the organisation that offers this offer'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      availabilityEnds:
+        description: 'the date this offer ends'
+        type: string
+        example: '2020-06-04'
+        format: date
+      availabilityStarts:
+        description: 'the date this offer has started'
+        type: string
+        example: '2020-06-04'
+        format: date
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
+      taxes:
+        description: 'The taxes that affect this offer'
+        type: \ArrayCollection
+      eligibleCustomerTypes:
+        description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
+      - offeredBy
+      - audience
+      - products
   Product-read:
     properties:
       id:
@@ -12590,243 +12542,6 @@ definitions:
       - requiresAppointment
       - audience
       - catalogue
-  Offer-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        description: 'The name of this offer'
-        type: string
-        example: 'my offer'
-        maxLength: 255
-      description:
-        description: 'An short description of this offer'
-        type: string
-        example: 'This is the best product ever'
-        maxLength: 2550
-      price:
-        description: 'The price of this product'
-        type: string
-        example: '50.00'
-      priceCurrency:
-        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
-        type: string
-        example: EUR
-      offeredBy:
-        description: 'The uri for the organisation that offers this offer'
-        type: string
-        example: '(http://example.org/example/1)'
-        format: url
-        maxLength: 255
-      availabilityEnds:
-        description: 'the date this offer ends'
-        type: string
-        example: '2020-05-25'
-        format: date
-      availabilityStarts:
-        description: 'the date this offer has started'
-        type: string
-        example: '2020-05-25'
-        format: date
-      dateCreated:
-        description: 'The moment this request was created'
-        type: \Datetime
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: \Datetime
-      audience:
-        description: 'The audience this product is intended for'
-        type: string
-      taxes:
-        description: 'The taxes that affect this offer'
-        type: \ArrayCollection
-      eligibleCustomerTypes:
-        description: 'The customer types that are eligible for this offer'
-        type: \ArrayCollection
-      products:
-        description: 'The products related to this offer'
-        type: \ArrayCollection
-    required:
-      - name
-      - price
-      - offeredBy
-      - audience
-      - products
-  Offer-write:
-    properties:
-      name:
-        description: 'The name of this offer'
-        type: string
-        example: 'my offer'
-        maxLength: 255
-      description:
-        description: 'An short description of this offer'
-        type: string
-        example: 'This is the best product ever'
-        maxLength: 2550
-      price:
-        description: 'The price of this product'
-        type: string
-        example: '50.00'
-      priceCurrency:
-        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
-        type: string
-        example: EUR
-      offeredBy:
-        description: 'The uri for the organisation that offers this offer'
-        type: string
-        example: '(http://example.org/example/1)'
-        format: url
-        maxLength: 255
-      availabilityEnds:
-        description: 'the date this offer ends'
-        type: string
-        example: '2020-05-25'
-        format: date
-      availabilityStarts:
-        description: 'the date this offer has started'
-        type: string
-        example: '2020-05-25'
-        format: date
-      audience:
-        description: 'The audience this product is intended for'
-        type: string
-      taxes:
-        description: 'The taxes that affect this offer'
-        type: \ArrayCollection
-      eligibleCustomerTypes:
-        description: 'The customer types that are eligible for this offer'
-        type: \ArrayCollection
-      products:
-        description: 'The products related to this offer'
-        type: \ArrayCollection
-    required:
-      - name
-      - price
-      - offeredBy
-      - audience
-      - products
-  Tax-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        description: 'The name of this tax'
-        type: string
-        example: 'my offer'
-        maxLength: 255
-      description:
-        description: 'An short description of this tax'
-        type: string
-        example: 'This is the best product ever'
-        maxLength: 2550
-      price:
-        description: 'The price of this tax'
-        type: string
-        example: '50.00'
-      priceCurrency:
-        description: 'The currency of this tax in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
-        type: string
-        example: EUR
-      percentage:
-        description: 'The tax percentage for this offer as an integer e.g. 9% makes 9'
-        type: int
-        example: '9'
-      dateCreated:
-        description: 'The moment this request was created'
-        type: \Datetime
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: \Datetime
-      offers:
-        description: 'The offers that use this tax'
-        type: \ArrayCollection
-    required:
-      - name
-      - price
-  Tax-write:
-    properties:
-      name:
-        description: 'The name of this tax'
-        type: string
-        example: 'my offer'
-        maxLength: 255
-      description:
-        description: 'An short description of this tax'
-        type: string
-        example: 'This is the best product ever'
-        maxLength: 2550
-      price:
-        description: 'The price of this tax'
-        type: string
-        example: '50.00'
-      priceCurrency:
-        description: 'The currency of this tax in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
-        type: string
-        example: EUR
-      percentage:
-        description: 'The tax percentage for this offer as an integer e.g. 9% makes 9'
-        type: int
-        example: '9'
-      offers:
-        description: 'The offers that use this tax'
-        type: \ArrayCollection
-    required:
-      - name
-      - price
-  CustomerType-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        description: 'The name of this CustomerType'
-        type: string
-        example: 'My CustomerType'
-        maxLength: 255
-      description:
-        description: 'The description for this CustomerType'
-        type: string
-        example: 'this is the best customertype ever'
-        maxLength: 2550
-      dateCreated:
-        description: 'The moment this request was created'
-        type: \Datetime
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: \Datetime
-      offers:
-        description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
-    required:
-      - name
-      - description
-  CustomerType-write:
-    properties:
-      name:
-        description: 'The name of this CustomerType'
-        type: string
-        example: 'My CustomerType'
-        maxLength: 255
-      description:
-        description: 'The description for this CustomerType'
-        type: string
-        example: 'this is the best customertype ever'
-        maxLength: 2550
-      offers:
-        description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
-    required:
-      - name
-      - description
   PropertyValue-read:
     properties:
       id:
@@ -12907,59 +12622,77 @@ definitions:
     required:
       - name
       - kvk
-  ChangeLog-read:
+  Tax-read:
     properties:
       id:
         description: 'The UUID identifier of this object'
         type: string
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
-      note:
-        description: 'A note conserning this log lin'
+      name:
+        description: 'The name of this tax'
         type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-      action:
-        description: ''
-        type: string
-      objectId:
-        description: ''
-        type: string
-      objectClass:
-        description: ''
-        type: string
-      version:
-        description: ''
-        type: int
-      data:
-        description: ''
-        type: array
-      username:
-        description: ''
-        type: string
-      session:
-        description: 'The moment this request was created'
-        type: string
+        example: 'my offer'
         maxLength: 255
+      description:
+        description: 'An short description of this tax'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this tax'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this tax in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      percentage:
+        description: 'The tax percentage for this offer as an integer e.g. 9% makes 9'
+        type: int
+        example: '9'
       dateCreated:
         description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-05-25 11:57:28'
+        type: \Datetime
       dateModified:
         description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-05-25 11:57:28'
-    required: []
-  ChangeLog-write:
+        type: \Datetime
+      offers:
+        description: 'The offers that use this tax'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
+  Tax-write:
     properties:
-      note:
-        description: 'A note conserning this log lin'
+      name:
+        description: 'The name of this tax'
         type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-    required: []
+        example: 'my offer'
+        maxLength: 255
+      description:
+        description: 'An short description of this tax'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this tax'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this tax in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      percentage:
+        description: 'The tax percentage for this offer as an integer e.g. 9% makes 9'
+        type: int
+        example: '9'
+      offers:
+        description: 'The offers that use this tax'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
   AuditTrail-read:
     properties:
       id:
@@ -13064,12 +12797,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-05-25 11:57:28'
+        example: '2020-06-04 19:05:23'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-05-25 11:57:28'
+        example: '2020-06-04 19:05:23'
     required: []
   AuditTrail-write:
     properties:
@@ -13077,6 +12810,59 @@ definitions:
         description: 'A note conserning this log lin'
         type: string
         example: 'This log line looks suspicius'
+        maxLength: 2555
+    required: []
+  ChangeLog-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+      action:
+        description: ''
+        type: string
+      objectId:
+        description: ''
+        type: string
+      objectClass:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: int
+      data:
+        description: ''
+        type: array
+      username:
+        description: ''
+        type: string
+      session:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-06-04 19:05:23'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-06-04 19:05:23'
+    required: []
+  ChangeLog-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
         maxLength: 2555
     required: []
 tags:
@@ -13087,17 +12873,17 @@ tags:
       
       This entity represents a product catalogue that contains all products that can be ordered in a single point.
   -
+    name: CustomerType
+    description: |
+      An entity representing a type of customer.
+      
+      This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
+  -
     name: Group
     description: |
       An entity representing a product group.
       
       This entity represents a product group to differ between various product types.
-  -
-    name: Product
-    description: |
-      An entity representing a product.
-      
-      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: Offer
     description: |
@@ -13105,17 +12891,11 @@ tags:
       
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
   -
-    name: Tax
+    name: Product
     description: |
-      An entity representing an tax.
+      An entity representing a product.
       
-      This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
-  -
-    name: CustomerType
-    description: |
-      An entity representing a type of customer.
-      
-      This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
+      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: PropertyValue
     description: |
@@ -13129,13 +12909,19 @@ tags:
       
       This entity represents a supplier that delivers products to the seller. For example: if we are a municipality we sell passports to our inhabitants, but these passports are made by the ministry of internal affairs.
   -
-    name: ChangeLog
+    name: Tax
+    description: |
+      An entity representing an tax.
+      
+      This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
+  -
+    name: AuditTrail
     description: |
       An resource representing a log line.
       
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
-    name: AuditTrail
+    name: ChangeLog
     description: |
       An resource representing a log line.
       
@@ -13146,15 +12932,15 @@ securityDefinitions:
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the AuditTrail resource'
-      write: 'write right to the AuditTrail resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the AuditTrail resource'
-      write: 'write right to the AuditTrail resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
 host: irc.zaakonline.nl
 servers:
   -
