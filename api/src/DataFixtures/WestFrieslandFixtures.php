@@ -30,72 +30,6 @@ class WestFrieslandFixtures extends Fixture
             return false;
         }
 
-        // Offers Cemetery 1, Wognum Kreekland
-        // Gebruik Orgel
-        $id = Uuid::fromString('f791ae50-c471-40e9-8ac9-53975c89b328');
-        $WognumKreeklandGebruikOrgel = new Offer();
-        $WognumKreeklandGebruikOrgel->setName('Gebruik Orgel');
-        $WognumKreeklandGebruikOrgel->setDescription('Gebruik van een orgel tijdens een begrafenis');
-        $WognumKreeklandGebruikOrgel->setPrice('100.00');
-        $WognumKreeklandGebruikOrgel->setPriceCurrency('EUR');
-        $manager->persist($WognumKreeklandGebruikOrgel);
-        $WognumKreeklandGebruikOrgel->setId($id);
-        $manager->persist($WognumKreeklandGebruikOrgel);
-        $manager->flush();
-        $WognumKreeklandGebruikOrgel = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Gebruik Koffiekamer
-        $id = Uuid::fromString('576550f6-aca2-42e0-a994-7625f427d0e1');
-        $WognumKreeklandGebruikKoffiekamer = new Offer();
-        $WognumKreeklandGebruikKoffiekamer->setName('Gebruik Koffiekamer');
-        $WognumKreeklandGebruikKoffiekamer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
-        $WognumKreeklandGebruikKoffiekamer->setPrice('45.00');
-        $WognumKreeklandGebruikKoffiekamer->setPriceCurrency('EUR');
-        $manager->persist($WognumKreeklandGebruikKoffiekamer);
-        $WognumKreeklandGebruikKoffiekamer->setId($id);
-        $manager->persist($WognumKreeklandGebruikKoffiekamer);
-        $manager->flush();
-        $WognumKreeklandGebruikKoffiekamer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Gebruik CD speler
-        $id = Uuid::fromString('3a7f1f81-94d3-49f6-86d3-3d1479277632');
-        $WognumKreeklandGebruikCDSpeler = new Offer();
-        $WognumKreeklandGebruikCDSpeler->setName('Gebruik CD speler');
-        $WognumKreeklandGebruikCDSpeler->setDescription('Gebruik van een CD speler tijdens een begrafenis');
-        $WognumKreeklandGebruikCDSpeler->setPrice('40.00');
-        $WognumKreeklandGebruikCDSpeler->setPriceCurrency('EUR');
-        $manager->persist($WognumKreeklandGebruikCDSpeler);
-        $WognumKreeklandGebruikCDSpeler->setId($id);
-        $manager->persist($WognumKreeklandGebruikCDSpeler);
-        $manager->flush();
-        $WognumKreeklandGebruikCDSpeler = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Bijzetting Urn
-        $id = Uuid::fromString('b385925a-0b44-45f1-9ac2-930329b00916');
-        $WognumKreeklandBijzettingUrn = new Offer();
-        $WognumKreeklandBijzettingUrn->setName('Bijzetting Urn');
-        $WognumKreeklandBijzettingUrn->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
-        $WognumKreeklandBijzettingUrn->setPrice('50.00');
-        $WognumKreeklandBijzettingUrn->setPriceCurrency('EUR');
-        $manager->persist($WognumKreeklandBijzettingUrn);
-        $WognumKreeklandBijzettingUrn->setId($id);
-        $manager->persist($WognumKreeklandBijzettingUrn);
-        $manager->flush();
-        $WognumKreeklandBijzettingUrn = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Bijzetting Asbus
-        $id = Uuid::fromString('ccaae856-1060-4d25-8537-b4ac11fd06c3');
-        $WognumKreeklandBijzettingAsbus = new Offer();
-        $WognumKreeklandBijzettingAsbus->setName('Bijzetting Asbus');
-        $WognumKreeklandBijzettingAsbus->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
-        $WognumKreeklandBijzettingAsbus->setPrice('50.00');
-        $WognumKreeklandBijzettingAsbus->setPriceCurrency('EUR');
-        $manager->persist($WognumKreeklandBijzettingAsbus);
-        $WognumKreeklandBijzettingAsbus->setId($id);
-        $manager->persist($WognumKreeklandBijzettingAsbus);
-        $manager->flush();
-        $WognumKreeklandBijzettingAsbus = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
 
         // Products Cemetery 1, Wognum Kreekland
         // BijzettingsartikelenProduct
@@ -114,7 +48,6 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreeklandBijzettingsartikelenProduct->setRequiresAppointment('false');
         $WognumKreeklandBijzettingsartikelenProduct->setAudience('string');
         $WognumKreeklandBijzettingsartikelenProduct->setDuration('PT10M');
-        $WognumKreeklandBijzettingsartikelenProduct->setOffers([$WognumKreeklandBijzettingAsbus,$WognumKreeklandBijzettingUrn]);
         $manager->persist($WognumKreeklandBijzettingsartikelenProduct);
         $WognumKreeklandBijzettingsartikelenProduct->setId($id);
         $manager->persist($WognumKreeklandBijzettingsartikelenProduct);
@@ -137,13 +70,88 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreeklandDiversenProduct->setRequiresAppointment('false');
         $WognumKreeklandDiversenProduct->setAudience('string');
         $WognumKreeklandDiversenProduct->setDuration('PT10M');
-        $WognumKreeklandDiversenProduct->setOffers([$WognumKreeklandGebruikOrgel,$WognumKreeklandGebruikKoffiekamer,$WognumKreeklandGebruikCDSpeler]);
         $manager->persist($WognumKreeklandDiversenProduct);
         $WognumKreeklandDiversenProduct->setId($id);
         $manager->persist($WognumKreeklandDiversenProduct);
         $manager->flush();
         $WognumKreeklandDiversenProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
 
+
+        // Offers Cemetery 1, Wognum Kreekland
+        // Gebruik Orgel
+        $id = Uuid::fromString('f791ae50-c471-40e9-8ac9-53975c89b328');
+        $WognumKreeklandGebruikOrgel = new Offer();
+        $WognumKreeklandGebruikOrgel->setName('Gebruik Orgel');
+        $WognumKreeklandGebruikOrgel->setDescription('Gebruik van een orgel tijdens een begrafenis');
+        $WognumKreeklandGebruikOrgel->setPrice('100.00');
+        $WognumKreeklandGebruikOrgel->setPriceCurrency('EUR');
+        $WognumKreeklandGebruikOrgel->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $WognumKreeklandGebruikOrgel->addProduct($WognumKreeklandDiversenProduct);
+        $manager->persist($WognumKreeklandGebruikOrgel);
+        $WognumKreeklandGebruikOrgel->setId($id);
+        $manager->persist($WognumKreeklandGebruikOrgel);
+        $manager->flush();
+        $WognumKreeklandGebruikOrgel = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Gebruik Koffiekamer
+        $id = Uuid::fromString('576550f6-aca2-42e0-a994-7625f427d0e1');
+        $WognumKreeklandGebruikKoffiekamer = new Offer();
+        $WognumKreeklandGebruikKoffiekamer->setName('Gebruik Koffiekamer');
+        $WognumKreeklandGebruikKoffiekamer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
+        $WognumKreeklandGebruikKoffiekamer->setPrice('45.00');
+        $WognumKreeklandGebruikKoffiekamer->setPriceCurrency('EUR');
+        $WognumKreeklandGebruikKoffiekamer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $WognumKreeklandGebruikKoffiekamer->addProduct($WognumKreeklandDiversenProduct);
+        $manager->persist($WognumKreeklandGebruikKoffiekamer);
+        $WognumKreeklandGebruikKoffiekamer->setId($id);
+        $manager->persist($WognumKreeklandGebruikKoffiekamer);
+        $manager->flush();
+        $WognumKreeklandGebruikKoffiekamer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Gebruik CD speler
+        $id = Uuid::fromString('3a7f1f81-94d3-49f6-86d3-3d1479277632');
+        $WognumKreeklandGebruikCDSpeler = new Offer();
+        $WognumKreeklandGebruikCDSpeler->setName('Gebruik CD speler');
+        $WognumKreeklandGebruikCDSpeler->setDescription('Gebruik van een CD speler tijdens een begrafenis');
+        $WognumKreeklandGebruikCDSpeler->setPrice('40.00');
+        $WognumKreeklandGebruikCDSpeler->setPriceCurrency('EUR');
+        $WognumKreeklandGebruikCDSpeler->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $WognumKreeklandGebruikCDSpeler->addProduct($WognumKreeklandDiversenProduct);
+        $manager->persist($WognumKreeklandGebruikCDSpeler);
+        $WognumKreeklandGebruikCDSpeler->setId($id);
+        $manager->persist($WognumKreeklandGebruikCDSpeler);
+        $manager->flush();
+        $WognumKreeklandGebruikCDSpeler = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Bijzetting Urn
+        $id = Uuid::fromString('b385925a-0b44-45f1-9ac2-930329b00916');
+        $WognumKreeklandBijzettingUrn = new Offer();
+        $WognumKreeklandBijzettingUrn->setName('Bijzetting Urn');
+        $WognumKreeklandBijzettingUrn->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
+        $WognumKreeklandBijzettingUrn->setPrice('50.00');
+        $WognumKreeklandBijzettingUrn->setPriceCurrency('EUR');
+        $WognumKreeklandBijzettingUrn->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $WognumKreeklandBijzettingUrn->addProduct($WognumKreeklandBijzettingsartikelenProduct);
+        $manager->persist($WognumKreeklandBijzettingUrn);
+        $WognumKreeklandBijzettingUrn->setId($id);
+        $manager->persist($WognumKreeklandBijzettingUrn);
+        $manager->flush();
+        $WognumKreeklandBijzettingUrn = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Bijzetting Asbus
+        $id = Uuid::fromString('ccaae856-1060-4d25-8537-b4ac11fd06c3');
+        $WognumKreeklandBijzettingAsbus = new Offer();
+        $WognumKreeklandBijzettingAsbus->setName('Bijzetting Asbus');
+        $WognumKreeklandBijzettingAsbus->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
+        $WognumKreeklandBijzettingAsbus->setPrice('50.00');
+        $WognumKreeklandBijzettingAsbus->setPriceCurrency('EUR');
+        $WognumKreeklandBijzettingAsbus->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $WognumKreeklandBijzettingAsbus->addProduct($WognumKreeklandBijzettingsartikelenProduct);
+        $manager->persist($WognumKreeklandBijzettingAsbus);
+        $WognumKreeklandBijzettingAsbus->setId($id);
+        $manager->persist($WognumKreeklandBijzettingAsbus);
+        $manager->flush();
+        $WognumKreeklandBijzettingAsbus = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
 
         // Groups Cemetery 1, Wognum Kreekland
         // Bijzettingsartikelen
@@ -154,7 +162,7 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreeklandBijzettingsartikelen->setDescription('Een groep voor Bijzettingsartikelen');
         $WognumKreeklandBijzettingsartikelen->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
         $WognumKreeklandBijzettingsartikelen->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
-        $WognumKreeklandBijzettingsartikelen->setProducts($WognumKreeklandBijzettingsartikelenProduct);
+        $WognumKreeklandBijzettingsartikelen->addProduct($WognumKreeklandBijzettingsartikelenProduct);
         $manager->persist($WognumKreeklandBijzettingsartikelen);
         $WognumKreeklandBijzettingsartikelen->setId($id);
         $manager->persist($WognumKreeklandBijzettingsartikelen);
@@ -169,65 +177,12 @@ class WestFrieslandFixtures extends Fixture
         $WognumKreeklandDiversen->setDescription('Een groep voor Diversen');
         $WognumKreeklandDiversen->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $WognumKreeklandDiversen->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
-        $WognumKreeklandDiversen->setProducts($WognumKreeklandDiversenProduct);
+        $WognumKreeklandDiversen->addProduct($WognumKreeklandDiversenProduct);
         $manager->persist($WognumKreeklandDiversen);
         $WognumKreeklandDiversen->setId($id);
         $manager->persist($WognumKreeklandDiversen);
         $manager->flush();
         $WognumKreeklandDiversen = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
-
-        // Offers Cemetery 2, Opperdoes Oud
-        // Gebruik Orgel
-        $id = Uuid::fromString('72183cad-0023-44f5-b743-d0c7eb8f3745');
-        $OpperdoesOudGebruikOrgel = new Offer();
-        $OpperdoesOudGebruikOrgel->setName('Gebruik Orgel');
-        $OpperdoesOudGebruikOrgel->setDescription('Gebruik van een orgel tijdens een begrafenis');
-        $OpperdoesOudGebruikOrgel->setPrice('100.00');
-        $OpperdoesOudGebruikOrgel->setPriceCurrency('EUR');
-        $manager->persist($OpperdoesOudGebruikOrgel);
-        $OpperdoesOudGebruikOrgel->setId($id);
-        $manager->persist($OpperdoesOudGebruikOrgel);
-        $manager->flush();
-        $OpperdoesOudGebruikOrgel = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Gebruik Koffiekamer
-        $id = Uuid::fromString('940a4bc2-f7c1-4d39-9764-32d36aa0c26a');
-        $OpperdoesOudGebruikKoffiekamer = new Offer();
-        $OpperdoesOudGebruikKoffiekamer->setName('Gebruik Koffiekamer');
-        $OpperdoesOudGebruikKoffiekamer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
-        $OpperdoesOudGebruikKoffiekamer->setPrice('45.00');
-        $OpperdoesOudGebruikKoffiekamer->setPriceCurrency('EUR');
-        $manager->persist($OpperdoesOudGebruikKoffiekamer);
-        $OpperdoesOudGebruikKoffiekamer->setId($id);
-        $manager->persist($OpperdoesOudGebruikKoffiekamer);
-        $manager->flush();
-        $OpperdoesOudGebruikKoffiekamer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Gebruik CD speler
-        $id = Uuid::fromString('61ced7cd-1b30-444b-b46d-d1fa49b05ab1');
-        $OpperdoesOudGebruikCDSpeler = new Offer();
-        $OpperdoesOudGebruikCDSpeler->setName('Gebruik CD speler');
-        $OpperdoesOudGebruikCDSpeler->setDescription('Gebruik van een CD speler tijdens een begrafenis');
-        $OpperdoesOudGebruikCDSpeler->setPrice('40.00');
-        $OpperdoesOudGebruikCDSpeler->setPriceCurrency('EUR');
-        $manager->persist($OpperdoesOudGebruikCDSpeler);
-        $OpperdoesOudGebruikCDSpeler->setId($id);
-        $manager->persist($OpperdoesOudGebruikCDSpeler);
-        $manager->flush();
-        $OpperdoesOudGebruikCDSpeler = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
-
-        // Asverstrooiing
-        $id = Uuid::fromString('5bbe119d-718c-4b04-82df-63495854b4f4');
-        $OpperdoesOudAsverstrooiing = new Offer();
-        $OpperdoesOudAsverstrooiing->setName('Asverstrooiing');
-        $OpperdoesOudAsverstrooiing->setDescription('De toepassing van asverstrooiing tijdens een begrafenis');
-        $OpperdoesOudAsverstrooiing->setPrice('50.00');
-        $OpperdoesOudAsverstrooiing->setPriceCurrency('EUR');
-        $manager->persist($OpperdoesOudAsverstrooiing);
-        $OpperdoesOudAsverstrooiing->setId($id);
-        $manager->persist($OpperdoesOudAsverstrooiing);
-        $manager->flush();
-        $OpperdoesOudAsverstrooiing = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
 
 
         // Products Cemetery 2, Opperdoes Oud
@@ -247,7 +202,6 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOudAsartikelenProduct->setRequiresAppointment('false');
         $OpperdoesOudAsartikelenProduct->setAudience('string');
         $OpperdoesOudAsartikelenProduct->setDuration('PT10M');
-        $OpperdoesOudAsartikelenProduct->setOffers($OpperdoesOudAsverstrooiing);
         $manager->persist($OpperdoesOudAsartikelenProduct);
         $OpperdoesOudAsartikelenProduct->setId($id);
         $manager->persist($OpperdoesOudAsartikelenProduct);
@@ -270,12 +224,72 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOudDiversenProduct->setRequiresAppointment('false');
         $OpperdoesOudDiversenProduct->setAudience('string');
         $OpperdoesOudDiversenProduct->setDuration('PT10M');
-        $OpperdoesOudDiversenProduct->setOffers([$OpperdoesOudGebruikOrgel,$OpperdoesOudGebruikKoffiekamer,$OpperdoesOudGebruikCDSpeler]);
         $manager->persist($OpperdoesOudDiversenProduct);
         $OpperdoesOudDiversenProduct->setId($id);
         $manager->persist($OpperdoesOudDiversenProduct);
         $manager->flush();
         $OpperdoesOudDiversenProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Offers Cemetery 2, Opperdoes Oud
+        // Gebruik Orgel
+        $id = Uuid::fromString('72183cad-0023-44f5-b743-d0c7eb8f3745');
+        $OpperdoesOudGebruikOrgel = new Offer();
+        $OpperdoesOudGebruikOrgel->setName('Gebruik Orgel');
+        $OpperdoesOudGebruikOrgel->setDescription('Gebruik van een orgel tijdens een begrafenis');
+        $OpperdoesOudGebruikOrgel->setPrice('100.00');
+        $OpperdoesOudGebruikOrgel->setPriceCurrency('EUR');
+        $OpperdoesOudGebruikOrgel->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $OpperdoesOudGebruikOrgel->addProduct($OpperdoesOudDiversenProduct);
+        $manager->persist($OpperdoesOudGebruikOrgel);
+        $OpperdoesOudGebruikOrgel->setId($id);
+        $manager->persist($OpperdoesOudGebruikOrgel);
+        $manager->flush();
+        $OpperdoesOudGebruikOrgel = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Gebruik Koffiekamer
+        $id = Uuid::fromString('940a4bc2-f7c1-4d39-9764-32d36aa0c26a');
+        $OpperdoesOudGebruikKoffiekamer = new Offer();
+        $OpperdoesOudGebruikKoffiekamer->setName('Gebruik Koffiekamer');
+        $OpperdoesOudGebruikKoffiekamer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
+        $OpperdoesOudGebruikKoffiekamer->setPrice('45.00');
+        $OpperdoesOudGebruikKoffiekamer->setPriceCurrency('EUR');
+        $OpperdoesOudGebruikKoffiekamer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $OpperdoesOudGebruikKoffiekamer->addProduct($OpperdoesOudDiversenProduct);
+        $manager->persist($OpperdoesOudGebruikKoffiekamer);
+        $OpperdoesOudGebruikKoffiekamer->setId($id);
+        $manager->persist($OpperdoesOudGebruikKoffiekamer);
+        $manager->flush();
+        $OpperdoesOudGebruikKoffiekamer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Gebruik CD speler
+        $id = Uuid::fromString('61ced7cd-1b30-444b-b46d-d1fa49b05ab1');
+        $OpperdoesOudGebruikCDSpeler = new Offer();
+        $OpperdoesOudGebruikCDSpeler->setName('Gebruik CD speler');
+        $OpperdoesOudGebruikCDSpeler->setDescription('Gebruik van een CD speler tijdens een begrafenis');
+        $OpperdoesOudGebruikCDSpeler->setPrice('40.00');
+        $OpperdoesOudGebruikCDSpeler->setPriceCurrency('EUR');
+        $OpperdoesOudGebruikCDSpeler->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $OpperdoesOudGebruikCDSpeler->addProduct($OpperdoesOudDiversenProduct);
+        $manager->persist($OpperdoesOudGebruikCDSpeler);
+        $OpperdoesOudGebruikCDSpeler->setId($id);
+        $manager->persist($OpperdoesOudGebruikCDSpeler);
+        $manager->flush();
+        $OpperdoesOudGebruikCDSpeler = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+
+        // Asverstrooiing
+        $id = Uuid::fromString('5bbe119d-718c-4b04-82df-63495854b4f4');
+        $OpperdoesOudAsverstrooiing = new Offer();
+        $OpperdoesOudAsverstrooiing->setName('Asverstrooiing');
+        $OpperdoesOudAsverstrooiing->setDescription('De toepassing van asverstrooiing tijdens een begrafenis');
+        $OpperdoesOudAsverstrooiing->setPrice('50.00');
+        $OpperdoesOudAsverstrooiing->setPriceCurrency('EUR');
+        $OpperdoesOudAsverstrooiing->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $OpperdoesOudAsverstrooiing->addProduct($OpperdoesOudAsartikelenProduct);
+        $manager->persist($OpperdoesOudAsverstrooiing);
+        $OpperdoesOudAsverstrooiing->setId($id);
+        $manager->persist($OpperdoesOudAsverstrooiing);
+        $manager->flush();
+        $OpperdoesOudAsverstrooiing = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
 
 
         // Groups Cemetery 2, Opperdoes Oud
@@ -287,7 +301,7 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOudAsartikelen->setDescription('Een groep voor as artikelen');
         $OpperdoesOudAsartikelen->setLogo('https://www.my-organization.com/Aslogo.png');
         $OpperdoesOudAsartikelen->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $OpperdoesOudAsartikelen->setProducts($OpperdoesOudAsartikelenProduct);
+        $OpperdoesOudAsartikelen->addProduct($OpperdoesOudAsartikelenProduct);
         $manager->persist($OpperdoesOudAsartikelen);
         $OpperdoesOudAsartikelen->setId($id);
         $manager->persist($OpperdoesOudAsartikelen);
@@ -302,13 +316,13 @@ class WestFrieslandFixtures extends Fixture
         $OpperdoesOudDiversen->setDescription('Een groep voor Diversen');
         $OpperdoesOudDiversen->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $OpperdoesOudDiversen->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $OpperdoesOudDiversen->setProducts($OpperdoesOudDiversenProduct);
+        $OpperdoesOudDiversen->addProduct($OpperdoesOudDiversenProduct);
         $manager->persist($OpperdoesOudDiversen);
         $OpperdoesOudDiversen->setId($id);
         $manager->persist($OpperdoesOudDiversen);
         $manager->flush();
         $OpperdoesOudDiversen = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
-        
+
         $manager->flush();
     }
 }
