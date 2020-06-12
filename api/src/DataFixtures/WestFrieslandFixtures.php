@@ -51,7 +51,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor Diversen');
         $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -120,7 +120,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $group->setCatalogue($medemblik);
         $group->addProduct($product);
         $manager->persist($group);
@@ -138,7 +138,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor Bijzettingsartikelen');
         $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -192,7 +192,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Bijzettingsartikelen');
         $group->setDescription('Een groep voor Bijzettingsartikelen');
         $group->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $group->setCatalogue($medemblik);
         $group->addProduct($product);
         $manager->persist($group);
@@ -211,7 +211,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een product voor Diversen');
         $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -281,7 +281,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $group->addProduct($product);
         $manager->persist($group);
         $group->setId($id);
@@ -298,7 +298,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor as artikelen');
         $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -337,7 +337,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('As artikelen');
         $group->setDescription('Een groep voor as artikelen');
         $group->setLogo('https://www.my-organization.com/Aslogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $group->setCatalogue($medemblik);
         $group->addProduct($product);
         $manager->persist($group);
