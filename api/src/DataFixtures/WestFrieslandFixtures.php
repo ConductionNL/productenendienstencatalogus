@@ -298,7 +298,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
