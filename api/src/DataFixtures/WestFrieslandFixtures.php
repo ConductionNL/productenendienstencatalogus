@@ -23,10 +23,12 @@ class WestFrieslandFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         if (
-            $this->params->get('app_domain') != 'begraven.zaakonline.nl' &&
-            strpos($this->params->get('app_domain'), 'begraven.zaakonline.nl') == false &&
-            $this->params->get('app_domain') != 'westfriesland.commonground.nu' &&
-            strpos($this->params->get('app_domain'), 'westfriesland.commonground.nu') == false
+            // If build all fixtures is true we build all the fixtures
+            !$this->params->get('app_build_all_fixtures') &&
+            // Specific domain names
+            $this->params->get('app_domain') != 'begraven.zaakonline.nl' && strpos($this->params->get('app_domain'), 'begraven.zaakonline.nl') == false &&
+            $this->params->get('app_domain') != 'westfriesland.commonground.nu' && strpos($this->params->get('app_domain'), 'westfriesland.commonground.nu') == false &&
+            $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
             return false;
         }
@@ -51,7 +53,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor Diversen');
         $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -75,12 +77,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('100.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
-        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('576550f6-aca2-42e0-a994-7625f427d0e1');
@@ -90,12 +93,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('45.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
-        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Gebruik CD speler
         $id = Uuid::fromString('3a7f1f81-94d3-49f6-86d3-3d1479277632');
@@ -105,12 +109,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('40.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
-        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Group WognumKreekland
         // Diversen
@@ -120,14 +125,15 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $group->setCatalogue($medemblik);
-        $group->addProduct($product);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
 
         //Product WognumKreekland
         // BijzettingsartikelenProduct
@@ -138,7 +144,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor Bijzettingsartikelen');
         $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -162,12 +168,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Bijzetting Asbus
         $id = Uuid::fromString('ccaae856-1060-4d25-8537-b4ac11fd06c3');
@@ -177,12 +185,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Group WognumKreekland
         // Bijzettingsartikelen
@@ -192,14 +202,15 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Bijzettingsartikelen');
         $group->setDescription('Een groep voor Bijzettingsartikelen');
         $group->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
         $group->setCatalogue($medemblik);
-        $group->addProduct($product);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
 
 
         // Product Opperdoes Oud
@@ -211,7 +222,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een product voor Diversen');
         $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -235,12 +246,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('100.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('940a4bc2-f7c1-4d39-9764-32d36aa0c26a');
@@ -250,13 +263,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('45.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setAudience('public');
         $group->setCatalogue($medemblik);
-        $offer->addProduct($product);
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Gebruik CD speler
         $id = Uuid::fromString('61ced7cd-1b30-444b-b46d-d1fa49b05ab1');
@@ -266,12 +281,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('40.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Group Opperdoes Oud
         // Diversen
@@ -281,13 +298,15 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $group->addProduct($product);
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
 
         // Product Opperdoes Oud
         // AsartikelenProduct
@@ -298,7 +317,7 @@ class WestFrieslandFixtures extends Fixture
         $product->setDescription('Een Product voor as artikelen');
         $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $product->setPrice('1.00');
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage('9');
@@ -322,12 +341,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
-        $offer->addProduct($product);
+        $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
         // Group Opperdoes Oud
         // Asartikelen
@@ -337,14 +358,15 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('As artikelen');
         $group->setDescription('Een groep voor as artikelen');
         $group->setLogo('https://www.my-organization.com/Aslogo.png');
-        $group->setSourceOrganization('grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
         $group->setCatalogue($medemblik);
-        $group->addProduct($product);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
 
 
         $manager->flush();
