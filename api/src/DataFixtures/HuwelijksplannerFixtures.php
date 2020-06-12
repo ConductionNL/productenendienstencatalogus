@@ -65,12 +65,14 @@ class HuwelijksplannerFixtures extends Fixture
     {
         // Lets make sure we only run these fixtures on huwelijksplanner enviroments
         if (
-            $this->params->get('app_domain') != 'huwelijksplanner.online' &&
-            strpos($this->params->get('app_domain'), 'huwelijksplanner.online') == false &&
-            $this->params->get('app_domain') != 'utrecht.commonground.nu' &&
-            strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false
+            // If build all fixtures is true we build all the fixtures
+            !$this->params->get('app_build_all_fixtures') &&
+            // Specific domain names
+            $this->params->get('app_domain') != 'huwelijksplanner.online' && strpos($this->params->get('app_domain'), 'huwelijksplanner.online') == false &&
+            $this->params->get('app_domain') != 'utrecht.commonground.nu' && strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false &&
+            $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
-            return false;
+           return false;
         }
 
         // Catalogi
