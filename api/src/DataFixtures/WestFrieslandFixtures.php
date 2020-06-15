@@ -153,7 +153,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
 
         // Grafsoorten group begraafplaats Zuiderveld in gemeente Hoorn
-        $id = Uuid::fromString('17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc');
+        $id = Uuid::fromString('baf448a2-671e-481b-88b8-34f9598b5d8b');
         $group = new Group();
         $group->setIcon('My Icon');
         $group->setName('Grafsoorten begraafplaats Zuiderveld');
