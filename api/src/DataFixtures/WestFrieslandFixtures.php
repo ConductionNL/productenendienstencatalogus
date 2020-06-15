@@ -74,26 +74,166 @@ class WestFrieslandFixtures extends Fixture
         $opmeer->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
         $manager->persist($opmeer);
 
+        // Gemeente Westfriesland
+        $westfriesland = new Catalogue();
+        $westfriesland->setName('Gemeente Westfriesland');
+        $westfriesland->setDescription('De catalogus van de Gemeente Westfriesland');
+        $westfriesland->setLogo('https://www.my-organization.com/GemeenteWestfrieslandlogo.png');
+        $westfriesland->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $manager->persist($westfriesland);
+
         $manager->flush();
 
+        // Grafsoorten
+        // Grafsoort product Koopgraf
+        $id = Uuid::fromString('e8cd45f7-350e-408d-8266-153e9395a755');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Koopgraf');
+        $koopgrafProduct->setDescription('Een Product voor grafsoort Koopgraf');
+        $koopgrafProduct->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($westfriesland);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Koopgraf
+        $id = Uuid::fromString('8e182a66-7037-41f3-8f91-25d263fe239b');
+        $koopgrafOffer = new Offer();
+        $koopgrafOffer->setName('Koopgraf');
+        $koopgrafOffer->setDescription('Een Offer voor grafsoort Koopgraf');
+        $koopgrafOffer->setPrice('99.99');
+        $koopgrafOffer->setPriceCurrency('EUR');
+        $koopgrafOffer->setOfferedBy('https://wrc.dev.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $koopgrafOffer->setAudience('public');
+        $manager->persist($koopgrafOffer);
+        $koopgrafOffer->setId($id);
+        $manager->flush();
+        $koopgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $koopgrafOffer->addProduct($koopgrafProduct);
+        $manager->persist($koopgrafOffer);
+
+        // Grafsoorten group gemeente SED
+        $id = Uuid::fromString('58298393-2682-4412-9fca-a03170592610');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($kist);
+        $group->addProduct($urn);
+        $manager->persist($group);
+
+        // Grafsoorten group gemeente Hoorn
+        $id = Uuid::fromString('17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Hoorn');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente Hoorn');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $group->setCatalogue($hoorn);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($koopgrafProduct);
+        $manager->persist($group);
+
+        // Grafsoorten group begraafplaats Zuiderveld in gemeente Hoorn
+        $id = Uuid::fromString('17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten begraafplaats Zuiderveld');
+        $group->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $group->setCatalogue($hoorn);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($koopgrafProduct);
+        $manager->persist($group);
+
+        // Grafsoorten group gemeente Medemblik
+        $id = Uuid::fromString('9ed30829-4e38-43a1-a497-c47f7bc54124');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Medemblik');
+        $group->setDescription('Een groep voor grafsoorten van de gemeente Medemblik');
+        $group->setLogo('https://www.my-organization.com/GrafsoortenMedembliklogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $group->setCatalogue($medemblik);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+
+        // Grafsoorten group gemeente Koggenland
+        $id = Uuid::fromString('4bc89791-dd77-479f-8df0-3fd10ce47839');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Koggenland');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente Koggenland');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15');
+        $group->setCatalogue($koggenland);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($kist);
+        $group->addProduct($urn);
+        $manager->persist($group);
+
+        // Grafsoorten group gemeente Opmeer
+        $id = Uuid::fromString('c0379617-0d36-406b-8a99-e230aad496bf');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Opmeer');
+        $group->setDescription('Een groep voor grafsoorten van de gemeente Opmeer');
+        $group->setLogo('https://www.my-organization.com/GrafsoortenOpmeerlogo.png');
+        $group->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
+        $group->setCatalogue($opmeer);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+
+
+        //Artikelen
         //Product WognumKreekland
         // DiversenProduct
         $id = Uuid::fromString('29c81fb5-3df5-48a3-80a2-e52480983e56');
         $product = new Product();
-        $product->setSku('69667-2020');
         $product->setName('Diversen Product');
         $product->setDescription('Een Product voor Diversen');
-        $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
-        $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
-        $product->setPrice('1.00');
-        $product->setPriceCurrency('EUR');
-        $product->setTaxPercentage('9');
         $product->setType('simple');
         $product->setRequiresAppointment('false');
-        $product->setAudience('string');
-        $product->setDuration('PT10M');
         $product->setCatalogue($medemblik);
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -171,20 +311,13 @@ class WestFrieslandFixtures extends Fixture
         // BijzettingsartikelenProduct
         $id = Uuid::fromString('1b775822-7a8d-4848-a455-408a0365a9bf');
         $product = new Product();
-        $product->setSku('69666-2020');
         $product->setName('Bijzettingsartikelen Product');
         $product->setDescription('Een Product voor Bijzettingsartikelen');
-        $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
-        $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
-        $product->setPrice('1.00');
-        $product->setPriceCurrency('EUR');
-        $product->setTaxPercentage('9');
         $product->setType('simple');
         $product->setRequiresAppointment('false');
-        $product->setAudience('string');
-        $product->setDuration('PT10M');
         $product->setCatalogue($medemblik);
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -249,20 +382,13 @@ class WestFrieslandFixtures extends Fixture
         // DiversenProduct
         $id = Uuid::fromString('32ccfa18-4dbc-4895-8d5a-b25a982c28e3');
         $product = new Product();
-        $product->setSku('69667-2020');
         $product->setName('Diversen Product');
         $product->setDescription('Een product voor Diversen');
-        $product->setLogo('https://www.my-organization.com/DiversenProductlogo.png');
-        $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $product->setPrice('1.00');
-        $product->setPriceCurrency('EUR');
-        $product->setTaxPercentage('9');
         $product->setType('simple');
         $product->setRequiresAppointment('false');
-        $product->setAudience('string');
-        $product->setDuration('PT10M');
         $product->setCatalogue($medemblik);
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -344,20 +470,13 @@ class WestFrieslandFixtures extends Fixture
         // AsartikelenProduct
         $id = Uuid::fromString('aa995cc0-d3fd-4869-9d04-07be32ab172f');
         $product = new Product();
-        $product->setSku('69666-2020');
         $product->setName('As artikelen Product');
         $product->setDescription('Een Product voor as artikelen');
-        $product->setLogo('https://www.my-organization.com/BijzettingsartikelenProductlogo.png');
-        $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setSourceOrganization('https://grc.dev.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
-        $product->setPrice('1.00');
-        $product->setPriceCurrency('EUR');
-        $product->setTaxPercentage('9');
         $product->setType('simple');
         $product->setRequiresAppointment('false');
-        $product->setAudience('string');
-        $product->setDuration('PT10M');
         $product->setCatalogue($medemblik);
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
