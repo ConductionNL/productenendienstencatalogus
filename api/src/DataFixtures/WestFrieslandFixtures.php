@@ -34,6 +34,22 @@ class WestFrieslandFixtures extends Fixture
         }
 
         // Catalogi
+        // Gemeente SED
+        $sed = new Catalogue();
+        $sed->setName('Gemeente SED');
+        $sed->setDescription('De catalogus van de Gemeente Stede Broec, Enkhuizen en Drechterland');
+        $sed->setLogo('https://www.my-organization.com/GemeenteSEDlogo.png');
+        $sed->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
+        $manager->persist($sed);
+
+        // Gemeente Hoorn
+        $hoorn = new Catalogue();
+        $hoorn->setName('Gemeente Hoorn');
+        $hoorn->setDescription('De catalogus van de Gemeente Hoorn');
+        $hoorn->setLogo('https://www.my-organization.com/GemeenteHoornlogo.png');
+        $hoorn->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $manager->persist($hoorn);
+
         // Gemeente Medemblik
         $medemblik = new Catalogue();
         $medemblik->setName('Gemeente Medemblik');
@@ -41,6 +57,22 @@ class WestFrieslandFixtures extends Fixture
         $medemblik->setLogo('https://www.my-organization.com/GemeenteMedembliklogo.png');
         $medemblik->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
         $manager->persist($medemblik);
+
+        // Gemeente Koggenland
+        $koggenland = new Catalogue();
+        $koggenland->setName('Gemeente Koggenland');
+        $koggenland->setDescription('De catalogus van de Gemeente Koggenland');
+        $koggenland->setLogo('https://www.my-organization.com/GemeenteKoggenlandlogo.png');
+        $koggenland->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15');
+        $manager->persist($koggenland);
+
+        // Gemeente Opmeer
+        $opmeer = new Catalogue();
+        $opmeer->setName('Gemeente Opmeer');
+        $opmeer->setDescription('De catalogus van de Gemeente Opmeer');
+        $opmeer->setLogo('https://www.my-organization.com/GemeenteOpmeerlogo.png');
+        $opmeer->setSourceOrganization('https://wrc.dev.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
+        $manager->persist($opmeer);
 
         $manager->flush();
 
