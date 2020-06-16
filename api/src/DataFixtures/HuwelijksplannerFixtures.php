@@ -551,7 +551,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
+        $product->setLogo('https://dev.huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setAudience('public');
         $manager->persist($product);
