@@ -72,7 +72,7 @@ class HuwelijksplannerFixtures extends Fixture
             $this->params->get('app_domain') != 'utrecht.commonground.nu' && strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false &&
             $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
-           return false;
+           //return false;
         }
 
         // Catalogi
@@ -266,52 +266,7 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.'
         $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
-        $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
-        $product = new Product();
-        $product->setName('Uitgebreid trouwen');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
-        $product->setDescription('Mogelijk op een door u gekozen dag en tijdstip.<br>
-U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk.<br>
-De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
-Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,');
-        $product->setType('set');
-        $product->setCatalogue($utrecht);
-        $product->setPrice('627.00');
-        $product->setPriceCurrency('EUR');
-        $product->setTaxPercentage(0);
-        $product->setRequiresAppointment(false);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
-        foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
-            $product->addGroup($group);
-        }
-        $manager->persist($product);
-        $manager->flush();
-
-        $id = Uuid::fromString('bfeb9399-fce6-49b8-a047-70928f3611fb');
-        $offer = new Offer();
-        $offer->setName('Uitgebreid Trouwen in Utrecht');
-        $offer->setDescription('Mogelijk op een door u gekozen dag en tijdstip.<br>
-U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk.<br>
-De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
-Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.');
-        $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
-        $offer->setPrice('627.00');
-        $offer->setPriceCurrency('EUR');
-        $manager->persist($offer);
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
-        $offer->addProduct($product);
-        $manager->persist($offer);
-        $manager->flush();
-
+        
         $id = Uuid::fromString('16353702-4614-42ff-92af-7dd11c8eef9f');
         $product = new Product();
         $product->setName('Eenvoudig Trouwen');

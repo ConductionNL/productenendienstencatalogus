@@ -30,7 +30,7 @@ class WestFrieslandFixtures extends Fixture
             $this->params->get('app_domain') != 'westfriesland.commonground.nu' && strpos($this->params->get('app_domain'), 'westfriesland.commonground.nu') == false &&
             $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
-            return false;
+            //return false;
         }
 
         // Catalogi
