@@ -266,7 +266,7 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.'
         $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
-        
+
         $id = Uuid::fromString('16353702-4614-42ff-92af-7dd11c8eef9f');
         $product = new Product();
         $product->setName('Eenvoudig Trouwen');
@@ -680,7 +680,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwlocatie: Balie');
         $offer->setDescription('');
-        $offer->setAudience('public');
+        $offer->setAudience('internal');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
