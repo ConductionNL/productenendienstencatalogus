@@ -680,7 +680,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer = new Offer();
         $offer->setName('Trouwlocatie: Balie');
         $offer->setDescription('');
-        $offer->setAudience('public');
+        $offer->setAudience('internal');
         $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
