@@ -112,6 +112,7 @@ class WestFrieslandFixtures extends Fixture
         $koopgrafOffer->setAudience('public');
         $manager->persist($koopgrafOffer);
         $koopgrafOffer->setId($id);
+        $manager->persist($koopgrafOffer);
         $manager->flush();
         $koopgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $koopgrafOffer->addProduct($koopgrafProduct);
@@ -144,6 +145,7 @@ class WestFrieslandFixtures extends Fixture
         $urngrafOffer->setAudience('public');
         $manager->persist($urngrafOffer);
         $urngrafOffer->setId($id);
+        $manager->persist($urngrafOffer);
         $manager->flush();
         $urngrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $urngrafOffer->addProduct($urngrafProduct);
@@ -176,6 +178,7 @@ class WestFrieslandFixtures extends Fixture
         $urnennisOffer->setAudience('public');
         $manager->persist($urnennisOffer);
         $urnennisOffer->setId($id);
+        $manager->persist($urnennisOffer);
         $manager->flush();
         $urnennisOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $urnennisOffer->addProduct($urnennisProduct);
