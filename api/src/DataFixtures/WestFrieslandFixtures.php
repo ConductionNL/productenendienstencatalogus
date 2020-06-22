@@ -208,7 +208,8 @@ class WestFrieslandFixtures extends Fixture
         $huurgrafOffer->setAudience('public');
         $manager->persist($huurgrafOffer);
         $huurgrafOffer->setId($id);
-        $huurgrafOffer->flush();
+        $manager->persist($huurgrafOffer);
+        $manager->flush();
         $huurgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $huurgrafOffer->addProduct($huurgrafProduct);
         $manager->persist($huurgrafOffer);
