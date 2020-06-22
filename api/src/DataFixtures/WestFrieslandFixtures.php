@@ -208,7 +208,8 @@ class WestFrieslandFixtures extends Fixture
         $huurgrafOffer->setAudience('public');
         $manager->persist($huurgrafOffer);
         $huurgrafOffer->setId($id);
-        $huurgrafOffer->flush();
+        $manager->persist($huurgrafOffer);
+        $manager->flush();
         $huurgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $huurgrafOffer->addProduct($huurgrafProduct);
         $manager->persist($huurgrafOffer);
@@ -240,7 +241,8 @@ class WestFrieslandFixtures extends Fixture
         $particulierGrafOffer->setAudience('public');
         $manager->persist($particulierGrafOffer);
         $particulierGrafOffer->setId($id);
-        $particulierGrafOffer->flush();
+        $manager->persist($particulierGrafOffer);
+        $manager->flush();
         $particulierGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $particulierGrafOffer->addProduct($particulierGrafProduct);
         $manager->persist($particulierGrafOffer);
@@ -272,7 +274,8 @@ class WestFrieslandFixtures extends Fixture
         $algemeenGrafOffer->setAudience('public');
         $manager->persist($algemeenGrafOffer);
         $algemeenGrafOffer->setId($id);
-        $algemeenGrafOffer->flush();
+        $manager->persist($algemeenGrafOffer);
+        $manager->flush();
         $algemeenGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $algemeenGrafOffer->addProduct($algemeenGrafProduct);
         $manager->persist($algemeenGrafOffer);
@@ -304,7 +307,8 @@ class WestFrieslandFixtures extends Fixture
         $kinderGrafOffer->setAudience('public');
         $manager->persist($kinderGrafOffer);
         $kinderGrafOffer->setId($id);
-        $kinderGrafOffer->flush();
+        $manager->persist($kinderGrafOffer);
+        $manager->flush();
         $kinderGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $kinderGrafOffer->addProduct($kinderGrafProduct);
         $manager->persist($kinderGrafOffer);
@@ -336,7 +340,8 @@ class WestFrieslandFixtures extends Fixture
         $grafKelderOffer->setAudience('public');
         $manager->persist($grafKelderOffer);
         $grafKelderOffer->setId($id);
-        $grafKelderOffer->flush();
+        $manager->persist($grafKelderOffer);
+        $manager->flush();
         $grafKelderOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $grafKelderOffer->addProduct($grafKelderProduct);
         $manager->persist($grafKelderOffer);
@@ -368,7 +373,8 @@ class WestFrieslandFixtures extends Fixture
         $calamiteitenGrafOffer->setAudience('public');
         $manager->persist($calamiteitenGrafOffer);
         $calamiteitenGrafOffer->setId($id);
-        $calamiteitenGrafOffer->flush();
+        $manager->persist($calamiteitenGrafOffer);
+        $manager->flush();
         $calamiteitenGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $calamiteitenGrafOffer->addProduct($calamiteitenGrafProduct);
         $manager->persist($calamiteitenGrafOffer);
@@ -400,7 +406,8 @@ class WestFrieslandFixtures extends Fixture
         $strooiveldOffer->setAudience('public');
         $manager->persist($strooiveldOffer);
         $strooiveldOffer->setId($id);
-        $strooiveldOffer->flush();
+        $manager->persist($strooiveldOffer);
+        $manager->flush();
         $strooiveldOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $strooiveldOffer->addProduct($strooiveldProduct);
         $manager->persist($strooiveldOffer);
@@ -432,7 +439,8 @@ class WestFrieslandFixtures extends Fixture
         $babygrafOffer->setAudience('public');
         $manager->persist($babygrafOffer);
         $babygrafOffer->setId($id);
-        $babygrafOffer->flush();
+        $manager->persist($babygrafOffer);
+        $manager->flush();
         $babygrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $babygrafOffer->addProduct($babygrafProduct);
         $manager->persist($babygrafOffer);
@@ -464,7 +472,8 @@ class WestFrieslandFixtures extends Fixture
         $oorlogsgrafOffer->setAudience('public');
         $manager->persist($oorlogsgrafOffer);
         $oorlogsgrafOffer->setId($id);
-        $oorlogsgrafOffer->flush();
+        $manager->persist($oorlogsgrafOffer);
+        $manager->flush();
         $oorlogsgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $oorlogsgrafOffer->addProduct($oorlogsgrafProduct);
         $manager->persist($oorlogsgrafOffer);
@@ -496,7 +505,8 @@ class WestFrieslandFixtures extends Fixture
         $cultuurHistorischGrafOffer->setAudience('public');
         $manager->persist($cultuurHistorischGrafOffer);
         $cultuurHistorischGrafOffer->setId($id);
-        $cultuurHistorischGrafOffer->flush();
+        $manager->persist($cultuurHistorischGrafOffer);
+        $manager->flush();
         $cultuurHistorischGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $cultuurHistorischGrafOffer->addProduct($cultuurHistorischGrafProduct);
         $manager->persist($cultuurHistorischGrafOffer);
@@ -528,7 +538,8 @@ class WestFrieslandFixtures extends Fixture
         $gedenktekenOffer->setAudience('public');
         $manager->persist($gedenktekenOffer);
         $gedenktekenOffer->setId($id);
-        $gedenktekenOffer->flush();
+        $manager->persist($gedenktekenOffer);
+        $manager->flush();
         $gedenktekenOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $gedenktekenOffer->addProduct($gedenktekenProduct);
         $manager->persist($gedenktekenOffer);
@@ -695,6 +706,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
+        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
@@ -711,6 +723,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
+        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
@@ -727,6 +740,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
+        $manager->persist($offer);
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
