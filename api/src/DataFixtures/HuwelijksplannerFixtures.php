@@ -72,7 +72,7 @@ class HuwelijksplannerFixtures extends Fixture
             $this->params->get('app_domain') != 'utrecht.commonground.nu' && strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false &&
             $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
-           return false;
+           //return false;
         }
 
         // Catalogi
@@ -219,6 +219,7 @@ class HuwelijksplannerFixtures extends Fixture
         $trouwenAmbtenarenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '7f4ff7ae-ed1b-45c9-9a73-3ed06a36b9cc']);
         $trouwenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '0c1f993d-f9e2-46c5-8d83-0b6dfb702069']);
         $burgerzakenUtrecht = $manager->getRepository('App:Group')->findOneBy(['id' => '1138c620-223e-4def-ac84-f21a46369d56']);
+
 
         $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
         $product = new Product();
@@ -372,6 +373,47 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
 
+        $id = Uuid::fromString('3a5caf2b-ec68-48e1-a0b5-d221f84631e3');
+        $product = new Product();
+        $product->setName('Flitshuwelijk');
+        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setDescription('');
+        $product->setType('set');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        //$product->setParent($trouwen);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
+        foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
+
+        $id = Uuid::fromString('1ba1772b-cc8a-4808-ad1e-f9b3c93bdebf');
+        $offer = new Offer();
+        $offer->setName('Flitshuwelijk');
+        $offer->setDescription('');
+        $offer->setAudience('public');
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
         $id = Uuid::fromString('1edd4d62-d778-452a-8b2a-ac22f3dcdf4d');
         $product = new Product();
         $product->setName('Dhr Erik Hendrik');
@@ -500,7 +542,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Geen Voorkeur / Toegewezen Trouwambtenaar');
+        $product->setName('Toegewezen Trouwambtenaar');
         $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
@@ -509,7 +551,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
+        $product->setLogo('https://dev.huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
         $product->setAudience('public');
         $manager->persist($product);
@@ -608,6 +650,48 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($product);
         $manager->flush();
         */
+
+        $id = Uuid::fromString('c59ed965-d0b3-40a6-bd16-7f3cab78b42e');
+        $product = new Product();
+        $product->setName('Balie');
+        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setDescription('');
+        $product->setType('simple');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/Trouwzaal-Stadskantoor-Utrecht.jpg');
+        $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
+        foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
+
+        $id = Uuid::fromString('9aef22c4-0c35-4615-ab0e-251585442b55');
+        $offer = new Offer();
+        $offer->setName('Trouwlocatie: Balie');
+        $offer->setDescription('');
+        $offer->setAudience('internal');
+        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('7a3489d5-2d2c-454b-91c9-caff4fed897f');
         $product = new Product();
