@@ -14,7 +14,7 @@ settings:
   repro: https://github.com/ConductionNL/productenendienstencatalogus
   demo: pc.zaakonline.nl
   container: https://hub.docker.com/repository/docker/conduction/pdc-php
-  domain: conduction.nl
+  domain: zuid-drecht.nl
   subdomain: pdc
   organisationName: Conduction
   email: info@conduction.nl
