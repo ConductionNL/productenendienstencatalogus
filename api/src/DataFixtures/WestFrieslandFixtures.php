@@ -9,15 +9,18 @@ use App\Entity\Offer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class WestFrieslandFixtures extends Fixture
 {
     private $params;
+    private $commonGroundService;
 
-    public function __construct(ParameterBagInterface $params)
+    public function __construct(ParameterBagInterface $params, CommonGroundService $commonGroundService)
     {
         $this->params = $params;
+        $this->commonGroundService = $commonGroundService;
     }
 
     public function load(ObjectManager $manager)
@@ -30,7 +33,7 @@ class WestFrieslandFixtures extends Fixture
             $this->params->get('app_domain') != 'westfriesland.commonground.nu' && strpos($this->params->get('app_domain'), 'westfriesland.commonground.nu') == false &&
             $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
         ) {
-            //return false;
+            return false;
         }
 
         // Catalogi
@@ -39,7 +42,7 @@ class WestFrieslandFixtures extends Fixture
         $sed->setName('Gemeente SED');
         $sed->setDescription('De catalogus van de Gemeente Stede Broec, Enkhuizen en Drechterland');
         $sed->setLogo('https://www.my-organization.com/GemeenteSEDlogo.png');
-        $sed->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
+        $sed->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"7033eeb4-5c77-4d88-9f40-303b538f176f"])); // SED
         $manager->persist($sed);
 
         // Gemeente Hoorn
@@ -47,7 +50,7 @@ class WestFrieslandFixtures extends Fixture
         $hoorn->setName('Gemeente Hoorn');
         $hoorn->setDescription('De catalogus van de Gemeente Hoorn');
         $hoorn->setLogo('https://www.my-organization.com/GemeenteHoornlogo.png');
-        $hoorn->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $hoorn->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d736013f-ad6d-4885-b816-ce72ac3e1384"])); // Hoorn
         $manager->persist($hoorn);
 
         // Gemeente Medemblik
@@ -55,7 +58,7 @@ class WestFrieslandFixtures extends Fixture
         $medemblik->setName('Gemeente Medemblik');
         $medemblik->setDescription('De catalogus van de Gemeente Medemblik');
         $medemblik->setLogo('https://www.my-organization.com/GemeenteMedembliklogo.png');
-        $medemblik->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $medemblik->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $manager->persist($medemblik);
 
         // Gemeente Koggenland
@@ -63,7 +66,7 @@ class WestFrieslandFixtures extends Fixture
         $koggenland->setName('Gemeente Koggenland');
         $koggenland->setDescription('De catalogus van de Gemeente Koggenland');
         $koggenland->setLogo('https://www.my-organization.com/GemeenteKoggenlandlogo.png');
-        $koggenland->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15');
+        $koggenland->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"f050292c-973d-46ab-97ae-9d8830a59d15"])); // Koggenland
         $manager->persist($koggenland);
 
         // Gemeente Opmeer
@@ -71,7 +74,7 @@ class WestFrieslandFixtures extends Fixture
         $opmeer->setName('Gemeente Opmeer');
         $opmeer->setDescription('De catalogus van de Gemeente Opmeer');
         $opmeer->setLogo('https://www.my-organization.com/GemeenteOpmeerlogo.png');
-        $opmeer->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
+        $opmeer->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"16fd1092-c4d3-4011-8998-0e15e13239cf"])); // Opmeer
         $manager->persist($opmeer);
 
         // Gemeente Westfriesland
@@ -79,7 +82,7 @@ class WestFrieslandFixtures extends Fixture
         $westfriesland->setName('Gemeente Westfriesland');
         $westfriesland->setDescription('De catalogus van de Gemeente Westfriesland');
         $westfriesland->setLogo('https://www.my-organization.com/GemeenteWestfrieslandlogo.png');
-        $westfriesland->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $westfriesland->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $manager->persist($westfriesland);
 
         $manager->flush();
@@ -90,7 +93,7 @@ class WestFrieslandFixtures extends Fixture
         $koopgrafProduct = new Product();
         $koopgrafProduct->setName('Koopgraf');
         $koopgrafProduct->setDescription('Een Product voor grafsoort Koopgraf');
-        $koopgrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $koopgrafProduct->setType('simple');
         $koopgrafProduct->setRequiresAppointment('false');
         $koopgrafProduct->setCatalogue($westfriesland);
@@ -108,7 +111,7 @@ class WestFrieslandFixtures extends Fixture
         $koopgrafOffer->setDescription('Een Offer voor grafsoort Koopgraf');
         $koopgrafOffer->setPrice('99.99');
         $koopgrafOffer->setPriceCurrency('EUR');
-        $koopgrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $koopgrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $koopgrafOffer->setAudience('public');
         $manager->persist($koopgrafOffer);
         $koopgrafOffer->setId($id);
@@ -123,7 +126,7 @@ class WestFrieslandFixtures extends Fixture
         $urngrafProduct = new Product();
         $urngrafProduct->setName('Urngraf');
         $urngrafProduct->setDescription('Een Product voor grafsoort Urngraf');
-        $urngrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $urngrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $urngrafProduct->setType('simple');
         $urngrafProduct->setRequiresAppointment('false');
         $urngrafProduct->setCatalogue($westfriesland);
@@ -141,7 +144,7 @@ class WestFrieslandFixtures extends Fixture
         $urngrafOffer->setDescription('Een Offer voor grafsoort Urngraf');
         $urngrafOffer->setPrice('99.99');
         $urngrafOffer->setPriceCurrency('EUR');
-        $urngrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $urngrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $urngrafOffer->setAudience('public');
         $manager->persist($urngrafOffer);
         $urngrafOffer->setId($id);
@@ -156,7 +159,7 @@ class WestFrieslandFixtures extends Fixture
         $urnennisProduct = new Product();
         $urnennisProduct->setName('Urnennis');
         $urnennisProduct->setDescription('Een Product voor grafsoort Urnennis');
-        $urnennisProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $urnennisProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $urnennisProduct->setType('simple');
         $urnennisProduct->setRequiresAppointment('false');
         $urnennisProduct->setCatalogue($westfriesland);
@@ -174,7 +177,7 @@ class WestFrieslandFixtures extends Fixture
         $urnennisOffer->setDescription('Een Offer voor grafsoort Urnennis');
         $urnennisOffer->setPrice('99.99');
         $urnennisOffer->setPriceCurrency('EUR');
-        $urnennisOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $urnennisOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $urnennisOffer->setAudience('public');
         $manager->persist($urnennisOffer);
         $urnennisOffer->setId($id);
@@ -189,7 +192,7 @@ class WestFrieslandFixtures extends Fixture
         $huurgrafProduct = new Product();
         $huurgrafProduct->setName('Huurgraf');
         $huurgrafProduct->setDescription('Een Product voor grafsoort Huurgraf');
-        $huurgrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $huurgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $huurgrafProduct->setType('simple');
         $huurgrafProduct->setRequiresAppointment('false');
         $huurgrafProduct->setCatalogue($westfriesland);
@@ -207,7 +210,7 @@ class WestFrieslandFixtures extends Fixture
         $huurgrafOffer->setDescription('Een Offer voor grafsoort Huurgraf');
         $huurgrafOffer->setPrice('99.99');
         $huurgrafOffer->setPriceCurrency('EUR');
-        $huurgrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $huurgrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $huurgrafOffer->setAudience('public');
         $manager->persist($huurgrafOffer);
         $huurgrafOffer->setId($id);
@@ -222,7 +225,7 @@ class WestFrieslandFixtures extends Fixture
         $particulierGrafProduct = new Product();
         $particulierGrafProduct->setName('Particulier graf');
         $particulierGrafProduct->setDescription('Een Product voor grafsoort particulier graf');
-        $particulierGrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $particulierGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $particulierGrafProduct->setType('simple');
         $particulierGrafProduct->setRequiresAppointment('false');
         $particulierGrafProduct->setCatalogue($westfriesland);
@@ -240,7 +243,7 @@ class WestFrieslandFixtures extends Fixture
         $particulierGrafOffer->setDescription('Een Offer voor grafsoort particulier graf');
         $particulierGrafOffer->setPrice('99.99');
         $particulierGrafOffer->setPriceCurrency('EUR');
-        $particulierGrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $particulierGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $particulierGrafOffer->setAudience('public');
         $manager->persist($particulierGrafOffer);
         $particulierGrafOffer->setId($id);
@@ -255,7 +258,7 @@ class WestFrieslandFixtures extends Fixture
         $algemeenGrafProduct = new Product();
         $algemeenGrafProduct->setName('Algemeen graf');
         $algemeenGrafProduct->setDescription('Een Product voor grafsoort algemeen graf');
-        $algemeenGrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $algemeenGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $algemeenGrafProduct->setType('simple');
         $algemeenGrafProduct->setRequiresAppointment('false');
         $algemeenGrafProduct->setCatalogue($westfriesland);
@@ -273,7 +276,7 @@ class WestFrieslandFixtures extends Fixture
         $algemeenGrafOffer->setDescription('Een Offer voor grafsoort algemeen graf');
         $algemeenGrafOffer->setPrice('99.99');
         $algemeenGrafOffer->setPriceCurrency('EUR');
-        $algemeenGrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $algemeenGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $algemeenGrafOffer->setAudience('public');
         $manager->persist($algemeenGrafOffer);
         $algemeenGrafOffer->setId($id);
@@ -288,7 +291,7 @@ class WestFrieslandFixtures extends Fixture
         $kinderGrafProduct = new Product();
         $kinderGrafProduct->setName('Kindergraf');
         $kinderGrafProduct->setDescription('Een Product voor grafsoort kindergraf');
-        $kinderGrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $kinderGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $kinderGrafProduct->setType('simple');
         $kinderGrafProduct->setRequiresAppointment('false');
         $kinderGrafProduct->setCatalogue($westfriesland);
@@ -306,7 +309,7 @@ class WestFrieslandFixtures extends Fixture
         $kinderGrafOffer->setDescription('Een Offer voor grafsoort kindergraf');
         $kinderGrafOffer->setPrice('99.99');
         $kinderGrafOffer->setPriceCurrency('EUR');
-        $kinderGrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $kinderGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $kinderGrafOffer->setAudience('public');
         $manager->persist($kinderGrafOffer);
         $kinderGrafOffer->setId($id);
@@ -321,7 +324,7 @@ class WestFrieslandFixtures extends Fixture
         $grafKelderProduct = new Product();
         $grafKelderProduct->setName('Grafkelder');
         $grafKelderProduct->setDescription('Een Product voor grafsoort grafkelder');
-        $grafKelderProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $grafKelderProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $grafKelderProduct->setType('simple');
         $grafKelderProduct->setRequiresAppointment('false');
         $grafKelderProduct->setCatalogue($westfriesland);
@@ -339,7 +342,7 @@ class WestFrieslandFixtures extends Fixture
         $grafKelderOffer->setDescription('Een Offer voor grafsoort grafkelder');
         $grafKelderOffer->setPrice('99.99');
         $grafKelderOffer->setPriceCurrency('EUR');
-        $grafKelderOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $grafKelderOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $grafKelderOffer->setAudience('public');
         $manager->persist($grafKelderOffer);
         $grafKelderOffer->setId($id);
@@ -354,7 +357,7 @@ class WestFrieslandFixtures extends Fixture
         $calamiteitenGrafProduct = new Product();
         $calamiteitenGrafProduct->setName('Calamiteitengraf');
         $calamiteitenGrafProduct->setDescription('Een Product voor grafsoort calamiteiten graf');
-        $calamiteitenGrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $calamiteitenGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $calamiteitenGrafProduct->setType('simple');
         $calamiteitenGrafProduct->setRequiresAppointment('false');
         $calamiteitenGrafProduct->setCatalogue($westfriesland);
@@ -372,7 +375,7 @@ class WestFrieslandFixtures extends Fixture
         $calamiteitenGrafOffer->setDescription('Een Offer voor grafsoort calamiteiten graf');
         $calamiteitenGrafOffer->setPrice('99.99');
         $calamiteitenGrafOffer->setPriceCurrency('EUR');
-        $calamiteitenGrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $calamiteitenGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $calamiteitenGrafOffer->setAudience('public');
         $manager->persist($calamiteitenGrafOffer);
         $calamiteitenGrafOffer->setId($id);
@@ -387,7 +390,7 @@ class WestFrieslandFixtures extends Fixture
         $strooiveldProduct = new Product();
         $strooiveldProduct->setName('Strooiveld');
         $strooiveldProduct->setDescription('Een Product voor grafsoort strooiveld');
-        $strooiveldProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $strooiveldProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $strooiveldProduct->setType('simple');
         $strooiveldProduct->setRequiresAppointment('false');
         $strooiveldProduct->setCatalogue($westfriesland);
@@ -405,7 +408,7 @@ class WestFrieslandFixtures extends Fixture
         $strooiveldOffer->setDescription('Een Offer voor grafsoort strooiveld');
         $strooiveldOffer->setPrice('99.99');
         $strooiveldOffer->setPriceCurrency('EUR');
-        $strooiveldOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $strooiveldOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $strooiveldOffer->setAudience('public');
         $manager->persist($strooiveldOffer);
         $strooiveldOffer->setId($id);
@@ -420,7 +423,7 @@ class WestFrieslandFixtures extends Fixture
         $babygrafProduct = new Product();
         $babygrafProduct->setName('Babygraf');
         $babygrafProduct->setDescription('Een Product voor grafsoort babygraf');
-        $babygrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $babygrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $babygrafProduct->setType('simple');
         $babygrafProduct->setRequiresAppointment('false');
         $babygrafProduct->setCatalogue($westfriesland);
@@ -438,7 +441,7 @@ class WestFrieslandFixtures extends Fixture
         $babygrafOffer->setDescription('Een Offer voor grafsoort babygraf');
         $babygrafOffer->setPrice('99.99');
         $babygrafOffer->setPriceCurrency('EUR');
-        $babygrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $babygrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $babygrafOffer->setAudience('public');
         $manager->persist($babygrafOffer);
         $babygrafOffer->setId($id);
@@ -453,7 +456,7 @@ class WestFrieslandFixtures extends Fixture
         $oorlogsgrafProduct = new Product();
         $oorlogsgrafProduct->setName('Oorlogsgraf');
         $oorlogsgrafProduct->setDescription('Een Product voor grafsoort oorlogsgraf');
-        $oorlogsgrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $oorlogsgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $oorlogsgrafProduct->setType('simple');
         $oorlogsgrafProduct->setRequiresAppointment('false');
         $oorlogsgrafProduct->setCatalogue($westfriesland);
@@ -471,7 +474,7 @@ class WestFrieslandFixtures extends Fixture
         $oorlogsgrafOffer->setDescription('Een Offer voor grafsoort oorlogsgraf');
         $oorlogsgrafOffer->setPrice('99.99');
         $oorlogsgrafOffer->setPriceCurrency('EUR');
-        $oorlogsgrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $oorlogsgrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $oorlogsgrafOffer->setAudience('public');
         $manager->persist($oorlogsgrafOffer);
         $oorlogsgrafOffer->setId($id);
@@ -486,7 +489,7 @@ class WestFrieslandFixtures extends Fixture
         $cultuurHistorischGrafProduct = new Product();
         $cultuurHistorischGrafProduct->setName('Cultuur historisch graf');
         $cultuurHistorischGrafProduct->setDescription('Een Product voor grafsoort cultuur historisch graf');
-        $cultuurHistorischGrafProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $cultuurHistorischGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $cultuurHistorischGrafProduct->setType('simple');
         $cultuurHistorischGrafProduct->setRequiresAppointment('false');
         $cultuurHistorischGrafProduct->setCatalogue($westfriesland);
@@ -504,7 +507,7 @@ class WestFrieslandFixtures extends Fixture
         $cultuurHistorischGrafOffer->setDescription('Een Offer voor grafsoort cultuur historisch graf');
         $cultuurHistorischGrafOffer->setPrice('99.99');
         $cultuurHistorischGrafOffer->setPriceCurrency('EUR');
-        $cultuurHistorischGrafOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $cultuurHistorischGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $cultuurHistorischGrafOffer->setAudience('public');
         $manager->persist($cultuurHistorischGrafOffer);
         $cultuurHistorischGrafOffer->setId($id);
@@ -519,7 +522,7 @@ class WestFrieslandFixtures extends Fixture
         $gedenktekenProduct = new Product();
         $gedenktekenProduct->setName('Gedenkteken');
         $gedenktekenProduct->setDescription('Een Product voor grafsoort gedenkteken');
-        $gedenktekenProduct->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $gedenktekenProduct->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $gedenktekenProduct->setType('simple');
         $gedenktekenProduct->setRequiresAppointment('false');
         $gedenktekenProduct->setCatalogue($westfriesland);
@@ -537,7 +540,7 @@ class WestFrieslandFixtures extends Fixture
         $gedenktekenOffer->setDescription('Een Offer voor grafsoort gedenkteken');
         $gedenktekenOffer->setPrice('99.99');
         $gedenktekenOffer->setPriceCurrency('EUR');
-        $gedenktekenOffer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/d280c4d3-6310-46db-9934-5285ec7d0d5e');
+        $gedenktekenOffer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d280c4d3-6310-46db-9934-5285ec7d0d5e"])); // West Friesland
         $gedenktekenOffer->setAudience('public');
         $manager->persist($gedenktekenOffer);
         $gedenktekenOffer->setId($id);
@@ -554,7 +557,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten SED');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente SED');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/7033eeb4-5c77-4d88-9f40-303b538f176f');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"7033eeb4-5c77-4d88-9f40-303b538f176f"])); // SED
         $group->setCatalogue($sed);
         $manager->persist($group);
         $group->setId($id);
@@ -574,7 +577,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten Hoorn');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente Hoorn');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d736013f-ad6d-4885-b816-ce72ac3e1384"])); // Hoorn
         $group->setCatalogue($hoorn);
         $manager->persist($group);
         $group->setId($id);
@@ -597,7 +600,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten begraafplaats Zuiderveld');
         $group->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/d736013f-ad6d-4885-b816-ce72ac3e1384');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"d736013f-ad6d-4885-b816-ce72ac3e1384"])); // Hoorn
         $group->setCatalogue($hoorn);
         $manager->persist($group);
         $group->setId($id);
@@ -618,7 +621,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten Medemblik');
         $group->setDescription('Een groep voor grafsoorten van de gemeente Medemblik');
         $group->setLogo('https://www.my-organization.com/GrafsoortenMedembliklogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
@@ -644,7 +647,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten Koggenland');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente Koggenland');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/f050292c-973d-46ab-97ae-9d8830a59d15');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"f050292c-973d-46ab-97ae-9d8830a59d15"])); // Koggenland
         $group->setCatalogue($koggenland);
         $manager->persist($group);
         $group->setId($id);
@@ -667,7 +670,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten Opmeer');
         $group->setDescription('Een groep voor grafsoorten van de gemeente Opmeer');
         $group->setLogo('https://www.my-organization.com/GrafsoortenOpmeerlogo.png');
-        $group->setSourceOrganization('https://wrc.westfriesland.commonground.nu/organizations/16fd1092-c4d3-4011-8998-0e15e13239cf');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"16fd1092-c4d3-4011-8998-0e15e13239cf"])); // Opmeer
         $group->setCatalogue($opmeer);
         $manager->persist($group);
         $group->setId($id);
@@ -686,7 +689,7 @@ class WestFrieslandFixtures extends Fixture
         $product = new Product();
         $product->setName('Diversen Product');
         $product->setDescription('Een Product voor Diversen');
-        $product->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"2556c084-0687-4ca1-b098-e4f0a7292ae8"])); // Wognum (Kreekland)
         $product->setType('simple');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($medemblik);
@@ -705,7 +708,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
         $offer->setPrice('100.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -722,7 +725,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
         $offer->setPrice('45.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -739,7 +742,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
         $offer->setPrice('40.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -757,7 +760,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"2556c084-0687-4ca1-b098-e4f0a7292ae8"])); // Wognum (Kreekland)
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
@@ -773,7 +776,7 @@ class WestFrieslandFixtures extends Fixture
         $product = new Product();
         $product->setName('Bijzettingsartikelen Product');
         $product->setDescription('Een Product voor Bijzettingsartikelen');
-        $product->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"2556c084-0687-4ca1-b098-e4f0a7292ae8"])); // Wognum (Kreekland)
         $product->setType('simple');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($medemblik);
@@ -792,7 +795,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -809,7 +812,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -827,7 +830,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Bijzettingsartikelen');
         $group->setDescription('Een groep voor Bijzettingsartikelen');
         $group->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
-        $group->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/2556c084-0687-4ca1-b098-e4f0a7292ae8');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"2556c084-0687-4ca1-b098-e4f0a7292ae8"])); // Wognum (Kreekland)
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
@@ -838,13 +841,13 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
 
 
-        // Product Opperdoes Oud
+        // Product Opperdoes Nieuw
         // DiversenProduct
         $id = Uuid::fromString('32ccfa18-4dbc-4895-8d5a-b25a982c28e3');
         $product = new Product();
         $product->setName('Diversen Product');
         $product->setDescription('Een product voor Diversen');
-        $product->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"074defab-e2eb-4eeb-a22f-caf082502db6"])); // Opperdoes Nieuw
         $product->setType('simple');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($medemblik);
@@ -855,7 +858,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
 
-        // Offers Opperdoes Oud
+        // Offers Opperdoes Nieuw
         // Gebruik Orgel
         $id = Uuid::fromString('72183cad-0023-44f5-b743-d0c7eb8f3745');
         $offer = new Offer();
@@ -863,7 +866,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
         $offer->setPrice('100.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -880,7 +883,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
         $offer->setPrice('45.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $group->setCatalogue($medemblik);
         $manager->persist($offer);
@@ -898,7 +901,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
         $offer->setPrice('40.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -908,7 +911,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
 
-        // Group Opperdoes Oud
+        // Group Opperdoes Nieuw
         // Diversen
         $id = Uuid::fromString('fa842893-8c8b-4acf-b1eb-284e3ea34083');
         $group = new Group();
@@ -916,7 +919,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Diversen');
         $group->setDescription('Een groep voor Diversen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"074defab-e2eb-4eeb-a22f-caf082502db6"])); // Opperdoes Nieuw
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
@@ -926,13 +929,13 @@ class WestFrieslandFixtures extends Fixture
         $group->addProduct($product);
         $manager->persist($group);
 
-        // Product Opperdoes Oud
+        // Product Opperdoes Nieuw
         // AsartikelenProduct
         $id = Uuid::fromString('aa995cc0-d3fd-4869-9d04-07be32ab172f');
         $product = new Product();
         $product->setName('As artikelen Product');
         $product->setDescription('Een Product voor as artikelen');
-        $product->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"074defab-e2eb-4eeb-a22f-caf082502db6"])); // Opperdoes Nieuw
         $product->setType('simple');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($medemblik);
@@ -943,7 +946,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
 
-        // Offers Opperdoes Oud
+        // Offers Opperdoes Nieuw
         // Asverstrooiing
         $id = Uuid::fromString('5bbe119d-718c-4b04-82df-63495854b4f4');
         $offer = new Offer();
@@ -951,7 +954,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setDescription('De toepassing van asverstrooiing tijdens een begrafenis');
         $offer->setPrice('50.00');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy('https://wrc.westfriesland.commonground.nu/organizations/429e66ef-4411-4ddb-8b83-c637b37e88b5');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"429e66ef-4411-4ddb-8b83-c637b37e88b5"])); // Medemblik
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -961,7 +964,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
 
-        // Group Opperdoes Oud
+        // Group Opperdoes Nieuw
         // Asartikelen
         $id = Uuid::fromString('bae59b6b-4866-4476-ad87-6246f488c1b4');
         $group = new Group();
@@ -969,7 +972,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('As artikelen');
         $group->setDescription('Een groep voor as artikelen');
         $group->setLogo('https://www.my-organization.com/Aslogo.png');
-        $group->setSourceOrganization('https://grc.westfriesland.commonground.nu/cemeteries/074defab-e2eb-4eeb-a22f-caf082502db6');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"grc","type"=>"cemeteries","id"=>"074defab-e2eb-4eeb-a22f-caf082502db6"])); // Opperdoes Nieuw
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
