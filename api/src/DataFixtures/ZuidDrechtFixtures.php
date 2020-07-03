@@ -99,6 +99,38 @@ class ZuidDrechtFixtures extends Fixture
         $product->addGroup($groupDiensten);
         $manager->persist($product);
 
+        $id = Uuid::fromString('840df85b-638d-4e97-928f-30d0aa010982');
+        $offer = new Offer();
+        $offer->setName('Paspoort aanvragen/vernieuwen');
+        $offer->setDescription('Verniewen of aanvragen van een paspoort');
+        $offer->setPrice('99.99');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('1b899d19-9e66-4b31-ad12-bf581d50ca6f');
+        $offer = new Offer();
+        $offer->setName('Paspoort gestolen/veloren');
+        $offer->setDescription('Verniewen of aanvragen van een paspoort');
+        $offer->setPrice('150.0');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
         $product = new Product();
         $product->setName('Rijbewijs');
         $product->setDescription('Verniewen of aanvragen van een rijbewijs');
@@ -106,30 +138,94 @@ class ZuidDrechtFixtures extends Fixture
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
-        $product->createOffer('99.99','EUR','Rijbewijs aanvragen of verlenengen');
+        $product->createOffer('99.99','EUR','Rijbewijs aanvragen of verlengen');
         $product->createOffer('150.0','EUR','Rijbewijs gestolen of verloren');
         $product->addGroup($groupBallie);
         $product->addGroup($groupId);
         $product->addGroup($groupDiensten);
         $manager->persist($product);
 
+        $id = Uuid::fromString('b409aba2-1cf4-48a3-a934-e168e26e5f09');
+        $offer = new Offer();
+        $offer->setName('Rijbewijs aanvragen/verlengen');
+        $offer->setDescription('Verniewen of aanvragen van een rijbewijs');
+        $offer->setPrice('99.99');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('7607b93d-c743-46ab-9314-e38dafa577c1');
+        $offer = new Offer();
+        $offer->setName('Rijbewijs gestolen/veloren');
+        $offer->setDescription('Verniewen of aanvragen van een rijbewijs');
+        $offer->setPrice('150.0');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
         $product = new Product();
-        $product->setName('Identiets Kaart');
-        $product->setDescription('Verniewen of aanvragen van een rijbewijs');
+        $product->setName('Identiteitskaart');
+        $product->setDescription('Verniewen of aanvragen van een Identiteitskaart');
         $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
-        $product->createOffer('99.99','EUR','Identiets Kaart aanvragen of verlenengen');
-        $product->createOffer('150.0','EUR','Identiets Kaart gestolen of verloren');
+        $product->createOffer('99.99','EUR','identiteitskaart aanvragen of verlengen');
+        $product->createOffer('150.0','EUR','identiteitskaart gestolen of verloren');
         $product->addGroup($groupBallie);
         $product->addGroup($groupId);
         $product->addGroup($groupDiensten);
         $manager->persist($product);
 
+        $id = Uuid::fromString('4c264c6d-1048-41e8-8cd8-b9eb1e65973a');
+        $offer = new Offer();
+        $offer->setName('Identiteitskaart aanvragen/verlengen');
+        $offer->setDescription('Verniewen of aanvragen van een Identiteitskaart');
+        $offer->setPrice('99.99');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('d6bb4e1f-dbfb-4199-a398-2c754d051416');
+        $offer = new Offer();
+        $offer->setName('Identiteitskaart gestolen/veloren');
+        $offer->setDescription('Verniewen of aanvragen van een Identiteitskaart');
+        $offer->setPrice('150.0');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
         $product = new Product();
         $product->setName('Geboorte Aangifte');
-        $product->setDescription('Verniewen of aanvragen van een rijbewijs');
+        $product->setDescription('Verniewen of aanvragen van een geboorte aangifte');
         $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
@@ -137,6 +233,22 @@ class ZuidDrechtFixtures extends Fixture
         $product->createOffer();
         $product->addGroup($groupDiensten);
         $manager->persist($product);
+
+        $id = Uuid::fromString('ff0d3a09-5d50-4133-b0b1-c434900a83e2');
+        $offer = new Offer();
+        $offer->setName('Geboorte Aangifte');
+        $offer->setDescription('Verniewen of aanvragen van een geboorte aangifte');
+        $offer->setPrice('99.99');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
 
 
         $manager->flush();
