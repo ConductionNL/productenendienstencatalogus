@@ -6,16 +6,19 @@ use App\Entity\Catalogue;
 use App\Entity\Group;
 use App\Entity\Offer;
 use App\Entity\Product;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class LarpingFixtures extends Fixture
 {
+    private $commonGroundService;
     private $params;
 
-    public function __construct(ParameterBagInterface $params)
+    public function __construct(CommonGroundService $commonGroundService, ParameterBagInterface $params)
     {
+        $this->commonGroundService = $commonGroundService;
         $this->params = $params;
     }
 
@@ -33,14 +36,16 @@ class LarpingFixtures extends Fixture
         // Catalogi
         $catalogue = new Catalogue();
         $catalogue->setName('VortexAdventures2020');
-        $catalogue->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $catalogue->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$catalogue->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $manager->persist($catalogue);
 
         // Productgroep
         $groupSubs = new Group();
         $groupSubs->setName('Lidmaatschap');
         $groupSubs->setDescription('Alle producten met betrekking tot lidmaatschap');
-        $groupSubs->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $groupSubs->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$groupSubs->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $groupSubs->setCatalogue($catalogue);
         $manager->persist($groupSubs);
 
@@ -48,14 +53,16 @@ class LarpingFixtures extends Fixture
         $groupEvent = new Group();
         $groupEvent->setName('Evenementen');
         $groupEvent->setDescription('Alle producten met betrekking tot events');
-        $groupEvent->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $groupEvent->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$groupEvent->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $groupEvent->setCatalogue($catalogue);
         $manager->persist($groupEvent);
 
         // Product
         $productELM2 = new Product();
         $productELM2->setName('Evenementlidmaatschap Moots 2');
-        $productELM2->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELM2->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productELM2->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productELM2->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 2 2020 event');
         $productELM2->setType('subscription');
         $productELM2->setSku('Eventlid-moots2-2020');
@@ -78,7 +85,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productELM1 = new Product();
         $productELM1->setName('Evenementlidmaatschap Moots 1');
-        $productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productELM1->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
         $productELM1->setType('subscription');
         $productELM1->setSku('Eventlid-moots1-2020');
@@ -101,7 +109,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productELS = new Product();
         $productELS->setName('Evenementlidmaatschap Summoning 2020');
-        $productELS->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELS->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productELS->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productELS->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Summoning 2020 event');
         $productELS->setType('subscription');
         $productELS->setSku('Eventlid-Summoning-2020');
@@ -124,7 +133,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productJP2020 = new Product();
         $productJP2020->setName('Jaarpakket 2020');
-        $productJP2020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productJP2020->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productJP2020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productJP2020->setDescription('Met dit product neem je deel aan Moots 1, Summoning en Moots 2 events van Vortex Adventures');
         $productJP2020->setType('set');
         $productJP2020->setSku('jaarpakket-2020');
@@ -159,7 +169,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productJL = new Product();
         $productJL->setName('Jaarlidmaatschap 2020');
-        $productJL->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productJL->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productJL->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productJL->setDescription('Met dit product word je lid van Vortex Adventures voor 2020');
         $productJL->setType('subscription');
         $productJL->setSku('Jaarlid-2020');
@@ -184,7 +195,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productM12020 = new Product();
         $productM12020->setName('Deelname Moots 1');
-        $productM12020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productM12020->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productM12020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productM12020->setDescription('Met dit product neem je deel aan het Moots 1 2020 event van Vortex Adventures');
         $productM12020->setType('ticket');
         $productM12020->setSku('Moots1-2020');
@@ -318,7 +330,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productM22020 = new Product();
         $productM22020->setName('Deelname Moots 2');
-        $productM22020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productM22020->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productM22020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productM22020->setDescription('Met dit product neem je deel aan het Moots 2 2020 event van Vortex Adventures');
         $productM22020->setType('ticket');
         $productM22020->setSku('Moots2-2020');
@@ -452,7 +465,8 @@ class LarpingFixtures extends Fixture
         // Product
         $productS2020 = new Product();
         $productS2020->setName('Deelname Summoning 2020');
-        $productS2020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productS2020->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$productS2020->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productS2020->setDescription('Met dit product neem je deel aan het summoning 2020 event van Vortex Adventures');
         $productS2020->setType('ticket');
         $productS2020->setSku('summoning-2020');
@@ -465,7 +479,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerPSS = new Offer();
         $offerPSS->setName('Offer Poortinschrijving Summoning 2020 Speler');
-        $offerPSS->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerPSS->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerPSS->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerPSS->setDescription('Poortinschrijving Summoning 2020 Speler');
         $offerPSS->setPrice(6500);
         $offerPSS->setPriceCurrency('EUR');
@@ -476,7 +491,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerPSF = new Offer();
         $offerPSF->setName('Offer Poortinschrijving Summoning 2020 Figurant');
-        $offerPSF->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerPSF->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        // $offerPSF->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerPSF->setDescription('Poortinschrijving Summoning 2020 Figurant');
         $offerPSF->setPrice(0);
         $offerPSF->setPriceCurrency('EUR');
@@ -487,7 +503,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerPSC = new Offer();
         $offerPSC->setName('Offer Poortinschrijving Summoning 2020 Crew');
-        $offerPSC->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerPSC->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        // $offerPSC->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerPSC->setDescription('Poortinschrijving Summoning 2020 Crew');
         $offerPSC->setPrice(3500);
         $offerPSC->setPriceCurrency('EUR');
@@ -498,7 +515,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerPS1215 = new Offer();
         $offerPS1215->setName('Offer Poortinschrijving Summoning 2020 12-15 jaar');
-        $offerPS1215->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerPS1215->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerPS1215->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerPS1215->setDescription('Poortinschrijving Summoning 2020 12-15 jaar');
         $offerPS1215->setPrice(3250);
         $offerPS1215->setPriceCurrency('EUR');
@@ -509,7 +527,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerPS12 = new Offer();
         $offerPS12->setName('Offer Poortinschrijving Summoning 2020 >12');
-        $offerPS12->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerPS12->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerPS12->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerPS12->setDescription('Poortinschrijving Summoning 2020 >12');
         $offerPS12->setPrice(1500);
         $offerPS12->setPriceCurrency('EUR');
@@ -520,7 +539,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerVSS = new Offer();
         $offerVSS->setName('Offer Voorinschrijving Summoning 2020 Speler');
-        $offerVSS->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerVSS->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerVSS->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerVSS->setDescription('Voorinschrijving Summoning 2020 Speler');
         $offerVSS->setPrice(5500);
         $offerVSS->setPriceCurrency('EUR');
@@ -531,7 +551,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerVSF = new Offer();
         $offerVSF->setName('Offer Voorinschrijving Summoning 2020 Figurant');
-        $offerVSF->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerVSF->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerVSF->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerVSF->setDescription('Voorinschrijving Summoning 2020 Figurant');
         $offerVSF->setPrice(0);
         $offerVSF->setPriceCurrency('EUR');
@@ -542,7 +563,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerVSC = new Offer();
         $offerVSC->setName('Offer Voorinschrijving Summoning 2020 Crew');
-        $offerVSC->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerVSC->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerVSC->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerVSC->setDescription('Voorinschrijving Summoning 2020 Crew');
         $offerVSC->setPrice(2500);
         $offerVSC->setPriceCurrency('EUR');
@@ -553,7 +575,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerVS1215 = new Offer();
         $offerVS1215->setName('Offer Voorinschrijving Summoning 2020 12-15 jaar');
-        $offerVS1215->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerVS1215->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerVS1215->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerVS1215->setDescription('Voorinschrijving Summoning 2020 12-15 jaar');
         $offerVS1215->setPrice(2750);
         $offerVS1215->setPriceCurrency('EUR');
@@ -564,7 +587,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerVS12 = new Offer();
         $offerVS12->setName('Offer Voorinschrijving Summoning 2020 >12');
-        $offerVS12->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerVS12->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerVS12->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerVS12->setDescription('Voorinschrijving Summoning 2020 >12');
         $offerVS12->setPrice(1500);
         $offerVS12->setPriceCurrency('EUR');
@@ -575,7 +599,8 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerSH = new Offer();
         $offerSH->setName('Offer handelaar Summoning 2020');
-        $offerSH->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $offerSH->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"0972a00f-1893-4e9b-ac13-0e43f225eca5"]));
+        //$offerSH->setOfferedBy('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $offerSH->setDescription('Inschrijving handelaar Summoning 2020');
         $offerSH->setPrice(5000);
         $offerSH->setPriceCurrency('EUR');
