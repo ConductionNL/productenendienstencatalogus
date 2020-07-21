@@ -4,12 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Catalogue;
 use App\Entity\Group;
-use App\Entity\Product;
 use App\Entity\Offer;
+use App\Entity\Product;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
-use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ZuidDrechtFixtures extends Fixture
@@ -29,7 +29,7 @@ class ZuidDrechtFixtures extends Fixture
             // If build all fixtures is true we build all the fixtures
             !$this->params->get('app_build_all_fixtures') &&
             // Specific domain names
-            $this->params->get('app_domain') != "zuid-drecht.nl" && strpos($this->params->get('app_domain'), "zuid-drecht.nl") == false
+            $this->params->get('app_domain') != 'zuid-drecht.nl' && strpos($this->params->get('app_domain'), 'zuid-drecht.nl') == false
         ) {
             return false;
         }
@@ -39,7 +39,7 @@ class ZuidDrechtFixtures extends Fixture
         $catalogue->setName('Gemeente Zuid Drecht');
         $catalogue->setDescription('De catalogus van de Gemeente zuid Drecht');
         $catalogue->setLogo('https://www.my-organization.com/GemeenteSEDlogo.png');
-        $catalogue->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $catalogue->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $manager->persist($catalogue);
 
         // Ballie Producten
@@ -49,7 +49,7 @@ class ZuidDrechtFixtures extends Fixture
         $groupBallie->setName('Ballie producten');
         $groupBallie->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
         $groupBallie->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $groupBallie->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $groupBallie->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupBallie->setCatalogue($catalogue);
         $manager->persist($groupBallie);
         $groupBallie->setId($id);
@@ -63,7 +63,7 @@ class ZuidDrechtFixtures extends Fixture
         $groupId->setName('Identietis Bewijzen');
         $groupId->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
         $groupId->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $groupId->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $groupId->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupId->setCatalogue($catalogue);
         $manager->persist($groupId);
         $groupId->setId($id);
@@ -77,7 +77,7 @@ class ZuidDrechtFixtures extends Fixture
         $groupDiensten->setName('Diensten');
         $groupDiensten->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
         $groupDiensten->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $groupDiensten->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $groupDiensten->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupDiensten->setCatalogue($catalogue);
         $manager->persist($groupDiensten);
         $groupDiensten->setId($id);
@@ -88,12 +88,12 @@ class ZuidDrechtFixtures extends Fixture
         $product = new Product();
         $product->setName('Paspoort');
         $product->setDescription('Verniewen of aanvragen van een paspoort');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
-        $product->createOffer('99.99','EUR','Paspoort aanvragen of verlenengen');
-        $product->createOffer('150.0','EUR','Paspoort gestolen of verloren');
+        $product->createOffer('99.99', 'EUR', 'Paspoort aanvragen of verlenengen');
+        $product->createOffer('150.0', 'EUR', 'Paspoort gestolen of verloren');
         $product->addGroup($groupBallie);
         $product->addGroup($groupId);
         $product->addGroup($groupDiensten);
@@ -105,7 +105,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een paspoort');
         $offer->setPrice('99.99');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -121,7 +121,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een paspoort');
         $offer->setPrice('150.0');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -134,12 +134,12 @@ class ZuidDrechtFixtures extends Fixture
         $product = new Product();
         $product->setName('Rijbewijs');
         $product->setDescription('Verniewen of aanvragen van een rijbewijs');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
-        $product->createOffer('99.99','EUR','Rijbewijs aanvragen of verlengen');
-        $product->createOffer('150.0','EUR','Rijbewijs gestolen of verloren');
+        $product->createOffer('99.99', 'EUR', 'Rijbewijs aanvragen of verlengen');
+        $product->createOffer('150.0', 'EUR', 'Rijbewijs gestolen of verloren');
         $product->addGroup($groupBallie);
         $product->addGroup($groupId);
         $product->addGroup($groupDiensten);
@@ -151,7 +151,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een rijbewijs');
         $offer->setPrice('99.99');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -167,7 +167,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een rijbewijs');
         $offer->setPrice('150.0');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -180,12 +180,12 @@ class ZuidDrechtFixtures extends Fixture
         $product = new Product();
         $product->setName('Identiteitskaart');
         $product->setDescription('Verniewen of aanvragen van een Identiteitskaart');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
-        $product->createOffer('99.99','EUR','identiteitskaart aanvragen of verlengen');
-        $product->createOffer('150.0','EUR','identiteitskaart gestolen of verloren');
+        $product->createOffer('99.99', 'EUR', 'identiteitskaart aanvragen of verlengen');
+        $product->createOffer('150.0', 'EUR', 'identiteitskaart gestolen of verloren');
         $product->addGroup($groupBallie);
         $product->addGroup($groupId);
         $product->addGroup($groupDiensten);
@@ -197,7 +197,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een Identiteitskaart');
         $offer->setPrice('99.99');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -213,7 +213,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een Identiteitskaart');
         $offer->setPrice('150.0');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -226,7 +226,7 @@ class ZuidDrechtFixtures extends Fixture
         $product = new Product();
         $product->setName('Geboorte Aangifte');
         $product->setDescription('Verniewen of aanvragen van een geboorte aangifte');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); // Zuid Drecht
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $product->setType('simple');
         $product->setRequiresAppointment('true');
         $product->setCatalogue($catalogue);
@@ -240,7 +240,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->setDescription('Verniewen of aanvragen van een geboorte aangifte');
         $offer->setPrice('99.99');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(["component"=>"wrc","type"=>"organizations","id"=>"4d1eded3-fbdf-438f-9536-8747dd8ab591"])); //Zuid drecht
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
         $manager->persist($offer);
         $offer->setId($id);
@@ -249,7 +249,6 @@ class ZuidDrechtFixtures extends Fixture
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
         $manager->persist($offer);
-
 
         $manager->flush();
     }

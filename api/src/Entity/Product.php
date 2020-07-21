@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Offer;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
@@ -861,8 +860,16 @@ class Product
     public function createOffer(?string $price = '0.00', ?string $priceCurrency = 'EUR', ?string $name = null, ?string $description = null): self
     {
         $offer = new Offer();
-        if($name){$offer->setName($name);} else{ $offer->setName($this->getName());}
-        if($description){$offer->setDescription($description);} else{ $offer->setDescription($this->getDescription());}
+        if ($name) {
+            $offer->setName($name);
+        } else {
+            $offer->setName($this->getName());
+        }
+        if ($description) {
+            $offer->setDescription($description);
+        } else {
+            $offer->setDescription($this->getDescription());
+        }
         $offer->setPrice($price);
         $offer->setPriceCurrency($priceCurrency);
         $offer->setOfferedBy($this->getSourceOrganization());
