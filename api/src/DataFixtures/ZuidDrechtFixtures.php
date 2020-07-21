@@ -250,6 +250,125 @@ class ZuidDrechtFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
 
+        // trouwen / plechtigheden
+        $id = Uuid::fromString('ea494037-773c-4a32-a363-76857e5f0c46');
+        $groupPlechtigheden = new Group();
+        $groupPlechtigheden->setIcon('My Icon');
+        $groupPlechtigheden->setName('Plechtigheden');
+        $groupPlechtigheden->setDescription('groep voor de beschikbare plechtigheden');
+        $groupPlechtigheden->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $groupPlechtigheden->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $groupPlechtigheden->setCatalogue($catalogue);
+        $manager->persist($groupPlechtigheden);
+        $groupPlechtigheden->setId($id);
+        $manager->persist($groupPlechtigheden);
+        $manager->flush();
+        $groupPlechtigheden = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+
+        $product = new Product();
+        $product->setName('Flitshuwelijk');
+        $product->setDescription('Flitshuwelijk');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $product->setType('simple');
+        $product->setRequiresAppointment('true');
+        $product->setCatalogue($catalogue);
+        $product->addGroup($groupPlechtigheden);
+        $manager->persist($product);
+
+        $id = Uuid::fromString('5e129ca9-0990-4cb3-840f-09c1a64f87d8');
+        $offer = new Offer();
+        $offer->setName('Flitshuwelijk');
+        $offer->setDescription('Flitshuwelijk');
+        $offer->setPrice('163.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $product = new Product();
+        $product->setName('Eenvoudig trouwen');
+        $product->setDescription('Eenvoudig trouwen');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $product->setType('simple');
+        $product->setRequiresAppointment('true');
+        $product->setCatalogue($catalogue);
+        $product->addGroup($groupPlechtigheden);
+        $manager->persist($product);
+
+        $id = Uuid::fromString('8df73d6b-c048-4017-8acd-725a2d41be38');
+        $offer = new Offer();
+        $offer->setName('Eenvoudig trouwen');
+        $offer->setDescription('Eenvoudig trouwen');
+        $offer->setPrice('163.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $product = new Product();
+        $product->setName('Gratis trouwen');
+        $product->setDescription('Gratis trouwen');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $product->setType('simple');
+        $product->setRequiresAppointment('true');
+        $product->setCatalogue($catalogue);
+        $product->addGroup($groupPlechtigheden);
+        $manager->persist($product);
+
+        $id = Uuid::fromString('efca77f9-816b-42b2-a9d7-122d3719bb18');
+        $offer = new Offer();
+        $offer->setName('Gratis trouwen');
+        $offer->setDescription('Gratis trouwen');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $product = new Product();
+        $product->setName('Uitgebreid trouwen');
+        $product->setDescription('Uitgebreid trouwen');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $product->setType('simple');
+        $product->setRequiresAppointment('true');
+        $product->setCatalogue($catalogue);
+        $product->addGroup($groupPlechtigheden);
+        $manager->persist($product);
+
+        $id = Uuid::fromString('afacea10-40b1-47d5-bf64-c544afa1dfa0');
+        $offer = new Offer();
+        $offer->setName('Uitgebreid trouwen');
+        $offer->setDescription('Uitgebreid trouwen');
+        $offer->setPrice('627.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
         $manager->flush();
     }
 }
