@@ -10,7 +10,7 @@ info:
     - Version: V.0.1
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
     'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
@@ -399,6 +399,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -1240,6 +1249,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -2282,6 +2300,15 @@ paths:
             type: integer
             default: 1
         -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
+        -
           name: Authorization
           description: 'The JWT of the entity performing the request'
           in: header
@@ -3090,6 +3117,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -4092,6 +4128,15 @@ paths:
             type: integer
             default: 1
         -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
+        -
           name: Authorization
           description: 'The JWT of the entity performing the request'
           in: header
@@ -5087,6 +5132,22 @@ paths:
           style: form
           explode: true
         -
+          name: products.groups.id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'products.groups.id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: 'dateCreated[before]'
           in: query
           required: false
@@ -5190,6 +5251,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -6199,6 +6269,15 @@ paths:
             type: integer
             default: 1
         -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
+        -
           name: Authorization
           description: 'The JWT of the entity performing the request'
           in: header
@@ -7151,6 +7230,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -8130,6 +8218,15 @@ paths:
           schema:
             type: integer
             default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
         -
           name: Authorization
           description: 'The JWT of the entity performing the request'
@@ -9150,6 +9247,15 @@ paths:
             type: integer
             default: 1
         -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
+        -
           name: Authorization
           description: 'The JWT of the entity performing the request'
           in: header
@@ -9934,114 +10040,113 @@ components:
             url: 'http://schema.org/identifier'
           type: string
           format: uuid
+        application:
+          writeOnly: true
+          description: 'The application that made the request'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         request:
-          readOnly: true
           description: 'The id of the request within that application'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         user:
-          readOnly: true
           description: 'The user on behalf of wich the request was made'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         subject:
-          readOnly: true
           description: '???'
           type: string
+          nullable: true
         process:
-          readOnly: true
           description: 'The procces on behalf of wich the request was made'
           type: string
+          nullable: true
         dataElements:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         dataSubjects:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         resource:
-          readOnly: true
           description: 'The resource that was requested'
           type: string
+          nullable: true
         resourceType:
-          readOnly: true
           description: 'The type of the resource that was requested'
           type: string
+          nullable: true
         route:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         endpoint:
-          readOnly: true
           description: 'The endpoint that the request was made to'
           type: string
         method:
-          readOnly: true
           description: 'The method that was used'
           type: string
         accept:
-          readOnly: true
           description: 'The contentType that was reqousted'
           type: string
         contentType:
-          readOnly: true
           description: 'The contentType that was suplieds'
           type: string
         content:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         ip:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         headers:
-          readOnly: true
           description: 'The headers supplied by client'
           type: array
           items:
             type: string
         statusCode:
-          readOnly: true
           description: 'The status code returned to client'
           type: integer
+          nullable: true
         notFound:
-          readOnly: true
           description: 'Whether or not the reqousted endpoint was found'
           type: boolean
+          nullable: true
         forbidden:
-          readOnly: true
           description: 'Whether or not the client was allowed to the reqousted endpoint'
           type: boolean
+          nullable: true
         ok:
-          readOnly: true
           description: 'Whether or not there where any problems'
           type: boolean
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     AuditTrail-write:
       type: object
       description: 'An resource representing a log line.'
@@ -10065,114 +10170,113 @@ components:
             url: 'http://schema.org/identifier'
           type: string
           format: uuid
+        application:
+          writeOnly: true
+          description: 'The application that made the request'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         request:
-          readOnly: true
           description: 'The id of the request within that application'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         user:
-          readOnly: true
           description: 'The user on behalf of wich the request was made'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         subject:
-          readOnly: true
           description: '???'
           type: string
+          nullable: true
         process:
-          readOnly: true
           description: 'The procces on behalf of wich the request was made'
           type: string
+          nullable: true
         dataElements:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         dataSubjects:
-          readOnly: true
           description: 'The moment this request was created'
           type: array
           items:
             type: string
+          nullable: true
         resource:
-          readOnly: true
           description: 'The resource that was requested'
           type: string
+          nullable: true
         resourceType:
-          readOnly: true
           description: 'The type of the resource that was requested'
           type: string
+          nullable: true
         route:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         endpoint:
-          readOnly: true
           description: 'The endpoint that the request was made to'
           type: string
         method:
-          readOnly: true
           description: 'The method that was used'
           type: string
         accept:
-          readOnly: true
           description: 'The contentType that was reqousted'
           type: string
         contentType:
-          readOnly: true
           description: 'The contentType that was suplieds'
           type: string
         content:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         ip:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
         headers:
-          readOnly: true
           description: 'The headers supplied by client'
           type: array
           items:
             type: string
         statusCode:
-          readOnly: true
           description: 'The status code returned to client'
           type: integer
+          nullable: true
         notFound:
-          readOnly: true
           description: 'Whether or not the reqousted endpoint was found'
           type: boolean
+          nullable: true
         forbidden:
-          readOnly: true
           description: 'Whether or not the client was allowed to the reqousted endpoint'
           type: boolean
+          nullable: true
         ok:
-          readOnly: true
           description: 'Whether or not there where any problems'
           type: boolean
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     'AuditTrail:jsonld-write':
       type: object
       description: 'An resource representing a log line.'
@@ -10203,32 +10307,33 @@ components:
         description:
           description: 'An short description of this Catalogue'
           type: string
+          nullable: true
         logo:
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC url of the organization that provides this catalogue'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
         groups:
-          readOnly: true
           description: 'The groups that are a part of this catalogue'
           type: array
           items:
             $ref: '#/components/schemas/Group-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -10245,11 +10350,13 @@ components:
         description:
           description: 'An short description of this Catalogue'
           type: string
+          nullable: true
         logo:
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC url of the organization that provides this catalogue'
           externalDocs:
@@ -10281,32 +10388,33 @@ components:
         description:
           description: 'An short description of this Catalogue'
           type: string
+          nullable: true
         logo:
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC url of the organization that provides this catalogue'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
         groups:
-          readOnly: true
           description: 'The groups that are a part of this catalogue'
           type: array
           items:
             $ref: '#/components/schemas/Group:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -10332,11 +10440,13 @@ components:
         description:
           description: 'An short description of this Catalogue'
           type: string
+          nullable: true
         logo:
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC url of the organization that provides this catalogue'
           externalDocs:
@@ -10354,43 +10464,40 @@ components:
           type: string
           format: uuid
         action:
-          readOnly: true
           type: string
         objectId:
-          readOnly: true
           type: string
+          nullable: true
         objectClass:
-          readOnly: true
           type: string
         version:
-          readOnly: true
           type: integer
         data:
-          readOnly: true
           type: array
           items:
             type: string
+          nullable: true
         username:
-          readOnly: true
           type: string
+          nullable: true
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     ChangeLog-write:
       type: object
       description: 'An resource representing a log line.'
@@ -10415,43 +10522,40 @@ components:
           type: string
           format: uuid
         action:
-          readOnly: true
           type: string
         objectId:
-          readOnly: true
           type: string
+          nullable: true
         objectClass:
-          readOnly: true
           type: string
         version:
-          readOnly: true
           type: integer
         data:
-          readOnly: true
           type: array
           items:
             type: string
+          nullable: true
         username:
-          readOnly: true
           type: string
+          nullable: true
         session:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           externalDocs:
             url: 'http://schema.org/DateTime'
           type: string
           format: date-time
+          nullable: true
     'ChangeLog:jsonld-write':
       type: object
       description: 'An resource representing a log line.'
@@ -10488,15 +10592,15 @@ components:
           items:
             $ref: '#/components/schemas/Offer-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - description
@@ -10550,15 +10654,15 @@ components:
           items:
             $ref: '#/components/schemas/Offer:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - description
@@ -10603,19 +10707,20 @@ components:
         icon:
           description: 'The icon of this property'
           type: string
+          nullable: true
         name:
           description: 'The name of this product group'
           type: string
         description:
-          readOnly: true
           description: 'An short description of this product group'
           type: string
+          nullable: true
         logo:
-          readOnly: true
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         products:
           description: 'The groups that are a part of this product group'
           type: array
@@ -10636,17 +10741,20 @@ components:
             $ref: '#/components/schemas/Group-read'
         parent:
           description: 'the parent of this group'
-          $ref: '#/components/schemas/Group-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Group-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -10658,6 +10766,7 @@ components:
         icon:
           description: 'The icon of this property'
           type: string
+          nullable: true
         name:
           description: 'The name of this product group'
           type: string
@@ -10681,7 +10790,10 @@ components:
             $ref: '#/components/schemas/Group-write'
         parent:
           description: 'the parent of this group'
-          $ref: '#/components/schemas/Group-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Group-write'
       required:
         - name
         - sourceOrganization
@@ -10709,19 +10821,20 @@ components:
         icon:
           description: 'The icon of this property'
           type: string
+          nullable: true
         name:
           description: 'The name of this product group'
           type: string
         description:
-          readOnly: true
           description: 'An short description of this product group'
           type: string
+          nullable: true
         logo:
-          readOnly: true
           description: 'The logo for this component'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         products:
           description: 'The groups that are a part of this product group'
           type: array
@@ -10742,17 +10855,20 @@ components:
             $ref: '#/components/schemas/Group:jsonld-read'
         parent:
           description: 'the parent of this group'
-          $ref: '#/components/schemas/Group:jsonld-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Group:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -10773,6 +10889,7 @@ components:
         icon:
           description: 'The icon of this property'
           type: string
+          nullable: true
         name:
           description: 'The name of this product group'
           type: string
@@ -10796,7 +10913,10 @@ components:
             $ref: '#/components/schemas/Group:jsonld-write'
         parent:
           description: 'the parent of this group'
-          $ref: '#/components/schemas/Group:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Group:jsonld-write'
       required:
         - name
         - sourceOrganization
@@ -10818,6 +10938,7 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
+          nullable: true
         price:
           description: 'The price of this product'
           type: string
@@ -10837,12 +10958,14 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         availabilityStarts:
           description: 'the date this offer has started'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         taxes:
           description: 'The taxes that affect this offer'
           type: array
@@ -10854,15 +10977,15 @@ components:
           items:
             $ref: '#/components/schemas/CustomerType-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
         products:
           description: 'The products related to this offer'
           type: array
@@ -10893,6 +11016,7 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
+          nullable: true
         price:
           description: 'The price of this product'
           type: string
@@ -10912,12 +11036,14 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         availabilityStarts:
           description: 'the date this offer has started'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         taxes:
           description: 'The taxes that affect this offer'
           type: array
@@ -10962,6 +11088,7 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
+          nullable: true
         price:
           description: 'The price of this product'
           type: string
@@ -10981,12 +11108,14 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         availabilityStarts:
           description: 'the date this offer has started'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         taxes:
           description: 'The taxes that affect this offer'
           type: array
@@ -10998,15 +11127,15 @@ components:
           items:
             $ref: '#/components/schemas/CustomerType:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
         products:
           description: 'The products related to this offer'
           type: array
@@ -11046,6 +11175,7 @@ components:
         description:
           description: 'An short description of this offer'
           type: string
+          nullable: true
         price:
           description: 'The price of this product'
           type: string
@@ -11065,12 +11195,14 @@ components:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         availabilityStarts:
           description: 'the date this offer has started'
           externalDocs:
             url: 'http://schema.org/Date'
           type: string
           format: date-time
+          nullable: true
         taxes:
           description: 'The taxes that affect this offer'
           type: array
@@ -11103,22 +11235,26 @@ components:
         sku:
           description: 'The human readable reference for this product, also known as Stock Keeping Unit (SKU)'
           type: string
+          nullable: true
         name:
           description: 'The name of this Product'
           type: string
         description:
           description: 'An short description of this Product'
           type: string
+          nullable: true
         logo:
           description: 'The logo of this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         movie:
           description: 'The movie for this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC Url of the organization that owns this product'
           externalDocs:
@@ -11132,6 +11268,7 @@ components:
         price:
           description: 'The price of this product'
           type: string
+          nullable: true
         priceCurrency:
           description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
           externalDocs:
@@ -11140,8 +11277,8 @@ components:
         taxPercentage:
           description: 'The tax percentage for this product as an integer e.g. 9% makes 9'
           type: integer
+          nullable: true
         variations:
-          readOnly: true
           description: 'The different variations that are available of this product'
           type: array
           items:
@@ -11150,7 +11287,6 @@ components:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
         groupedProducts:
-          readOnly: true
           description: 'If the product type is a **set** this contains the products that are part of that set'
           type: array
           items:
@@ -11168,27 +11304,28 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
         documents:
-          readOnly: true
           description: 'An array of URLs pointing to documents related to this product'
           type: array
           items:
             type: string
+          nullable: true
         images:
-          readOnly: true
           description: 'An array of URLs pointing to images related to this product'
           type: array
           items:
             type: string
+          nullable: true
         externalDocs:
-          readOnly: true
           description: 'An array of URLs pointing to external documents referred to from this product'
           type: array
           items:
             type: string
+          nullable: true
         audience:
           description: 'The audience this product is intended for'
           type: string
@@ -11200,16 +11337,17 @@ components:
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this resource was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this resource last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11224,22 +11362,26 @@ components:
         sku:
           description: 'The human readable reference for this product, also known as Stock Keeping Unit (SKU)'
           type: string
+          nullable: true
         name:
           description: 'The name of this Product'
           type: string
         description:
           description: 'An short description of this Product'
           type: string
+          nullable: true
         logo:
           description: 'The logo of this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         movie:
           description: 'The movie for this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC Url of the organization that owns this product'
           externalDocs:
@@ -11253,6 +11395,7 @@ components:
         price:
           description: 'The price of this product'
           type: string
+          nullable: true
         priceCurrency:
           description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
           externalDocs:
@@ -11261,15 +11404,17 @@ components:
         taxPercentage:
           description: 'The tax percentage for this product as an integer e.g. 9% makes 9'
           type: integer
+          nullable: true
         parent:
-          writeOnly: true
           description: 'The product that this product is a variation of'
-          $ref: '#/components/schemas/Product-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Product-write'
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
         sets:
-          writeOnly: true
           description: 'The sets thats this product is a part of'
           type: array
           items:
@@ -11287,6 +11432,7 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
@@ -11301,6 +11447,7 @@ components:
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11331,22 +11478,26 @@ components:
         sku:
           description: 'The human readable reference for this product, also known as Stock Keeping Unit (SKU)'
           type: string
+          nullable: true
         name:
           description: 'The name of this Product'
           type: string
         description:
           description: 'An short description of this Product'
           type: string
+          nullable: true
         logo:
           description: 'The logo of this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         movie:
           description: 'The movie for this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC Url of the organization that owns this product'
           externalDocs:
@@ -11360,6 +11511,7 @@ components:
         price:
           description: 'The price of this product'
           type: string
+          nullable: true
         priceCurrency:
           description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
           externalDocs:
@@ -11368,8 +11520,8 @@ components:
         taxPercentage:
           description: 'The tax percentage for this product as an integer e.g. 9% makes 9'
           type: integer
+          nullable: true
         variations:
-          readOnly: true
           description: 'The different variations that are available of this product'
           type: array
           items:
@@ -11378,7 +11530,6 @@ components:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
         groupedProducts:
-          readOnly: true
           description: 'If the product type is a **set** this contains the products that are part of that set'
           type: array
           items:
@@ -11396,27 +11547,28 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
         documents:
-          readOnly: true
           description: 'An array of URLs pointing to documents related to this product'
           type: array
           items:
             type: string
+          nullable: true
         images:
-          readOnly: true
           description: 'An array of URLs pointing to images related to this product'
           type: array
           items:
             type: string
+          nullable: true
         externalDocs:
-          readOnly: true
           description: 'An array of URLs pointing to external documents referred to from this product'
           type: array
           items:
             type: string
+          nullable: true
         audience:
           description: 'The audience this product is intended for'
           type: string
@@ -11428,16 +11580,17 @@ components:
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this resource was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this resource last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11461,22 +11614,26 @@ components:
         sku:
           description: 'The human readable reference for this product, also known as Stock Keeping Unit (SKU)'
           type: string
+          nullable: true
         name:
           description: 'The name of this Product'
           type: string
         description:
           description: 'An short description of this Product'
           type: string
+          nullable: true
         logo:
           description: 'The logo of this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         movie:
           description: 'The movie for this product'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         sourceOrganization:
           description: 'The WRC Url of the organization that owns this product'
           externalDocs:
@@ -11490,6 +11647,7 @@ components:
         price:
           description: 'The price of this product'
           type: string
+          nullable: true
         priceCurrency:
           description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
           externalDocs:
@@ -11498,15 +11656,17 @@ components:
         taxPercentage:
           description: 'The tax percentage for this product as an integer e.g. 9% makes 9'
           type: integer
+          nullable: true
         parent:
-          writeOnly: true
           description: 'The product that this product is a variation of'
-          $ref: '#/components/schemas/Product:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Product:jsonld-write'
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
         sets:
-          writeOnly: true
           description: 'The sets thats this product is a part of'
           type: array
           items:
@@ -11524,6 +11684,7 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
@@ -11538,6 +11699,7 @@ components:
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11560,20 +11722,21 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         products:
           type: array
           items:
             $ref: '#/components/schemas/Product-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
     PropertyValue-write:
@@ -11586,6 +11749,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         products:
           type: array
           items:
@@ -11614,20 +11778,21 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         products:
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
     'PropertyValue:jsonld-write':
@@ -11649,6 +11814,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         products:
           type: array
           items:
@@ -11675,16 +11841,17 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - kvk
@@ -11706,6 +11873,7 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
     'Supplier:jsonld-read':
       type: object
       description: 'An entity representing a supplier of products.'
@@ -11737,16 +11905,17 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - kvk
@@ -11777,6 +11946,7 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+          nullable: true
     Tax-read:
       type: object
       description: 'An entity representing an tax.'
@@ -11794,6 +11964,7 @@ components:
         description:
           description: 'An short description of this tax'
           type: string
+          nullable: true
         price:
           description: 'The price of this tax'
           type: string
@@ -11811,15 +11982,15 @@ components:
           items:
             $ref: '#/components/schemas/Offer-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - price
@@ -11838,6 +12009,7 @@ components:
         description:
           description: 'An short description of this tax'
           type: string
+          nullable: true
         price:
           description: 'The price of this tax'
           type: string
@@ -11880,6 +12052,7 @@ components:
         description:
           description: 'An short description of this tax'
           type: string
+          nullable: true
         price:
           description: 'The price of this tax'
           type: string
@@ -11897,15 +12070,15 @@ components:
           items:
             $ref: '#/components/schemas/Offer:jsonld-read'
         dateCreated:
-          readOnly: true
           description: 'The moment this request was created'
           type: string
           format: date-time
+          nullable: true
         dateModified:
-          readOnly: true
           description: 'The moment this request last Modified'
           type: string
           format: date-time
+          nullable: true
       required:
         - name
         - price
@@ -11933,6 +12106,7 @@ components:
         description:
           description: 'An short description of this tax'
           type: string
+          nullable: true
         price:
           description: 'The price of this tax'
           type: string
@@ -11950,125 +12124,6 @@ components:
           items:
             $ref: '#/components/schemas/Offer:jsonld-write'
 definitions:
-  AuditTrail-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-      application:
-        description: 'The application that made the request'
-        type: string
-        format: url
-        maxLength: 255
-      request:
-        description: 'The id of the request within that application'
-        type: string
-        format: url
-        maxLength: 255
-      user:
-        description: 'The user on behalf of wich the request was made'
-        type: string
-        format: url
-        maxLength: 255
-      subject:
-        description: '???'
-        type: \sting
-        maxLength: 255
-      process:
-        description: 'The procces on behalf of wich the request was made'
-        type: \sting
-        maxLength: 255
-      dataElements:
-        description: 'The moment this request was created'
-        type: array
-      dataSubjects:
-        description: 'The moment this request was created'
-        type: array
-      resource:
-        description: 'The resource that was requested'
-        type: \sting
-        maxLength: 255
-      resourceType:
-        description: 'The type of the resource that was requested'
-        type: \sting
-        maxLength: 255
-      route:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      endpoint:
-        description: 'The endpoint that the request was made to'
-        type: \sting
-        maxLength: 255
-      method:
-        description: 'The method that was used'
-        type: \sting
-        maxLength: 255
-      accept:
-        description: 'The contentType that was reqousted'
-        type: \sting
-        maxLength: 255
-      contentType:
-        description: 'The contentType that was suplieds'
-        type: \sting
-        maxLength: 255
-      content:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 2555
-      ip:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      session:
-        description: 'The moment this request was created'
-        type: string
-        maxLength: 255
-      headers:
-        description: 'The headers supplied by client'
-        type: array
-      statusCode:
-        description: 'The status code returned to client'
-        type: int
-        example: '200'
-      notFound:
-        description: 'Whether or not the reqousted endpoint was found'
-        type: bool
-        example: 'false'
-      forbidden:
-        description: 'Whether or not the client was allowed to the reqousted endpoint'
-        type: bool
-        example: 'false'
-      ok:
-        description: 'Whether or not there where any problems'
-        type: bool
-        example: 'true'
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-04-21 13:28:58'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-04-21 13:28:58'
-    required: []
-  AuditTrail-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line looks suspicius'
-        maxLength: 2555
-    required: []
   Catalogue-read:
     properties:
       id:
@@ -12135,59 +12190,6 @@ definitions:
     required:
       - name
       - sourceOrganization
-  ChangeLog-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-      action:
-        description: ''
-        type: string
-      objectId:
-        description: ''
-        type: string
-      objectClass:
-        description: ''
-        type: string
-      version:
-        description: ''
-        type: int
-      data:
-        description: ''
-        type: array
-      username:
-        description: ''
-        type: string
-      session:
-        description: 'The moment this request was created'
-        type: \sting
-        maxLength: 255
-      dateCreated:
-        description: 'The moment this request was created'
-        type: string
-        format: date-time
-        example: '2020-04-21 13:28:58'
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: string
-        format: date-time
-        example: '2020-04-21 13:28:58'
-    required: []
-  ChangeLog-write:
-    properties:
-      note:
-        description: 'A note conserning this log lin'
-        type: string
-        example: 'This log line is suspicius'
-        maxLength: 2555
-    required: []
   CustomerType-read:
     properties:
       id:
@@ -12359,12 +12361,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-04-21'
+        example: '2020-07-03'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-04-21'
+        example: '2020-07-03'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12419,12 +12421,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-04-21'
+        example: '2020-07-03'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-04-21'
+        example: '2020-07-03'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12797,25 +12799,185 @@ definitions:
     required:
       - name
       - price
+  AuditTrail-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line looks suspicius'
+        maxLength: 2555
+      application:
+        description: 'The application that made the request'
+        type: string
+        format: url
+        maxLength: 255
+      request:
+        description: 'The id of the request within that application'
+        type: string
+        format: url
+        maxLength: 255
+      user:
+        description: 'The user on behalf of wich the request was made'
+        type: string
+        format: url
+        maxLength: 255
+      subject:
+        description: '???'
+        type: string
+        maxLength: 255
+      process:
+        description: 'The procces on behalf of wich the request was made'
+        type: string
+        maxLength: 255
+      dataElements:
+        description: 'The moment this request was created'
+        type: array
+      dataSubjects:
+        description: 'The moment this request was created'
+        type: array
+      resource:
+        description: 'The resource that was requested'
+        type: string
+        maxLength: 255
+      resourceType:
+        description: 'The type of the resource that was requested'
+        type: string
+        maxLength: 255
+      route:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      endpoint:
+        description: 'The endpoint that the request was made to'
+        type: string
+        maxLength: 255
+      method:
+        description: 'The method that was used'
+        type: string
+        maxLength: 255
+      accept:
+        description: 'The contentType that was reqousted'
+        type: string
+        maxLength: 255
+      contentType:
+        description: 'The contentType that was suplieds'
+        type: string
+        maxLength: 255
+      content:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 2555
+      ip:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      session:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      headers:
+        description: 'The headers supplied by client'
+        type: array
+      statusCode:
+        description: 'The status code returned to client'
+        type: int
+        example: '200'
+      notFound:
+        description: 'Whether or not the reqousted endpoint was found'
+        type: bool
+        example: 'false'
+      forbidden:
+        description: 'Whether or not the client was allowed to the reqousted endpoint'
+        type: bool
+        example: 'false'
+      ok:
+        description: 'Whether or not there where any problems'
+        type: bool
+        example: 'true'
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-07-03 09:03:39'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-07-03 09:03:39'
+    required: []
+  AuditTrail-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line looks suspicius'
+        maxLength: 2555
+    required: []
+  ChangeLog-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+      action:
+        description: ''
+        type: string
+      objectId:
+        description: ''
+        type: string
+      objectClass:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: int
+      data:
+        description: ''
+        type: array
+      username:
+        description: ''
+        type: string
+      session:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-07-03 09:03:39'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-07-03 09:03:39'
+    required: []
+  ChangeLog-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+    required: []
 tags:
-  -
-    name: AuditTrail
-    description: |
-      An resource representing a log line.
-      
-      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: Catalogue
     description: |
       An entity representing a product catalogue.
       
       This entity represents a product catalogue that contains all products that can be ordered in a single point.
-  -
-    name: ChangeLog
-    description: |
-      An resource representing a log line.
-      
-      This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: CustomerType
     description: |
@@ -12858,33 +13020,42 @@ tags:
       An entity representing an tax.
       
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
+  -
+    name: AuditTrail
+    description: |
+      An resource representing a log line.
+      
+      This entity represents a product that can be ordered via the OrderRegistratieComponent.
+  -
+    name: ChangeLog
+    description: |
+      An resource representing a log line.
+      
+      This entity represents a product that can be ordered via the OrderRegistratieComponent.
 securityDefinitions:
   JWT-Oauth:
     type: oauth2
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the Tax resource'
-      write: 'write right to the Tax resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the Tax resource'
-      write: 'write right to the Tax resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
 host: irc.zaakonline.nl
 servers:
   -
-    name: conduction.nl
-    url: pdc.dev.conduction.nl
+    name: zuid-drecht.nl
+    url: pdc.dev.zuid-drecht.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
-    url: 'http://pdc.zaakonline.nl'
-  -
-    description: Repository
-    url: 'https://github.com/ConductionNL/productenendienstencatalogus'
+    url: 'http://proto.demo.common-ground.dev'
 x-commonground:
   type: service
   developers:
@@ -12893,7 +13064,7 @@ x-commonground:
       url: 'https://github.com/ConductionNL'
       email: info@conduction.nl
     -
-      name: 'Gemeente ''s-Hertogenbosch'
+      name: 'Gemeente "s-Hertogenbosch'
       url: 'https://github.com/gemeenteshertogenbosch'
       email: info@s-hertogenbosch.nl/
     -

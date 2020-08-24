@@ -2,21 +2,20 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * An entity representing a product group.
@@ -55,7 +54,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
- * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  * @ORM\Table(name="productorservicegroup")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
@@ -76,19 +75,19 @@ class Group
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-	private $id;
+    private $id;
 
-	/**
-	 * @var string The icon of this property
-	 *
-	 * @example My Property
-	 *
+    /**
+     * @var string The icon of this property
+     *
+     * @example My Property
+     *
      * @Gedmo\Versioned
-	 * @Assert\Length(min = 15, max = 255)
-	 * @Groups({"read", "write"})
-	 * @ORM\Column(type="string", length=255, nullable=true)
-	 */
-	private $icon;
+     * @Assert\Length(min = 15, max = 255)
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $icon;
 
     /**
      * @var string The name of this product group
@@ -187,7 +186,7 @@ class Group
     private $parent;
 
     /**
-     * @var Datetime $dateCreated The moment this request was created
+     * @var Datetime The moment this request was created
      *
      * @Groups({"read"})
      * @Gedmo\Timestampable(on="create")
@@ -196,10 +195,10 @@ class Group
     private $dateCreated;
 
     /**
-     * @var Datetime $dateModified  The moment this request last Modified
+     * @var Datetime The moment this request last Modified
      *
      * @Groups({"read"})
-     * @Gedmo\Timestampable(on="create")
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
@@ -224,14 +223,14 @@ class Group
 
     public function getIcon(): ?string
     {
-    	return $this->icon;
+        return $this->icon;
     }
 
     public function setIcon(?string $icon): self
     {
-    	$this->icon = $icon;
+        $this->icon = $icon;
 
-    	return $this;
+        return $this;
     }
 
     public function getName(): ?string
@@ -322,14 +321,14 @@ class Group
 
     public function getParent(): ?self
     {
-    	return $this->parent;
+        return $this->parent;
     }
 
     public function setParent(?self $parent): self
     {
-    	$this->parent = $parent;
+        $this->parent = $parent;
 
-    	return $this;
+        return $this;
     }
 
     /**
@@ -337,54 +336,53 @@ class Group
      */
     public function getChildren(): Collection
     {
-    	return $this->children;
+        return $this->children;
     }
 
     public function addChild(self $child): self
     {
-    	if (!$this->children->contains($child)) {
-    		$this->children[] = $child;
-    		$child->setParent($this);
-    	}
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+            $child->setParent($this);
+        }
 
-    	return $this;
+        return $this;
     }
 
     public function removeChild(self $child): self
     {
-    	if ($this->children->contains($child)) {
-    		$this->children->removeElement($child);
-    		// set the owning side to null (unless already changed)
-    		if ($child->getParent() === $this) {
-    			$child->setParent(null);
-    		}
-    	}
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
+            // set the owning side to null (unless already changed)
+            if ($child->getParent() === $this) {
+                $child->setParent(null);
+            }
+        }
 
-    	return $this;
+        return $this;
     }
 
     public function getDateCreated(): ?\DateTimeInterface
     {
-    	return $this->dateCreated;
+        return $this->dateCreated;
     }
 
     public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
-    	$this->dateCreated= $dateCreated;
+        $this->dateCreated = $dateCreated;
 
-    	return $this;
+        return $this;
     }
-
 
     public function getDateModified(): ?\DateTimeInterface
     {
-    	return $this->dateModified;
+        return $this->dateModified;
     }
 
     public function setDateModified(\DateTimeInterface $dateModified): self
     {
-    	$this->dateModified = $dateModified;
+        $this->dateModified = $dateModified;
 
-    	return $this;
+        return $this;
     }
 }

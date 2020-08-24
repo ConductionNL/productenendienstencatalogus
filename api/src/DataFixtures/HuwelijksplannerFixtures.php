@@ -6,7 +6,7 @@ use App\Entity\Catalogue;
 use App\Entity\Group;
 use App\Entity\Offer;
 use App\Entity\Product;
-use App\Entity\Supplier;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Ramsey\Uuid\Uuid;
@@ -14,80 +14,51 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class HuwelijksplannerFixtures extends Fixture
 {
+    private $commonGroundService;
     private $params;
 
-    public function __construct(ParameterBagInterface $params)
+    public function __construct(CommonGroundService $commonGroundService, ParameterBagInterface $params)
     {
+        $this->commonGroundService = $commonGroundService;
         $this->params = $params;
-    }
-
-    private function loadSupplier(
-        string $name,
-        string $sourceOrganisation,
-        string $kvk,
-        ?string $logo,
-        ObjectManager $manager
-    ): Supplier
-    {
-        $supplier = new Supplier();
-        $supplier->setName($name);
-        $supplier->setSourceOrganization($sourceOrganisation);
-        $supplier->setKvk($kvk);
-        if ($logo) {
-            $supplier->setLogo($logo);
-        }
-        $manager->persist($supplier);
-
-        return $supplier;
-    }
-
-    private function loadCatalogue(
-        string $name,
-        string $sourceOrganisation,
-        ?string $description,
-        ?string $logo,
-        ObjectManager $manager
-    ): Catalogue
-    {
-        $catalogue = new Catalogue();
-        $catalogue->setName($name);
-        $catalogue->setSourceOrganization($sourceOrganisation);
-        if ($description) {
-            $catalogue->setDescription($description);
-        }
-        if ($logo) {
-            $catalogue->setLogo($logo);
-        }
-        $manager->persist($catalogue);
-        return $catalogue;
     }
 
     public function load(ObjectManager $manager)
     {
         // Lets make sure we only run these fixtures on huwelijksplanner enviroments
-        if (strpos($this->params->get('app_domain'), "huwelijksplanner.online") == false) {
-            return false;
+        if (
+            // If build all fixtures is true we build all the fixtures
+            !$this->params->get('app_build_all_fixtures') &&
+            // Specific domain names
+            $this->params->get('app_domain') != 'huwelijksplanner.online' && strpos($this->params->get('app_domain'), 'huwelijksplanner.online') == false &&
+            $this->params->get('app_domain') != 'utrecht.commonground.nu' && strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false &&
+            $this->params->get('app_domain') != 'zuid-drecht.nl' && strpos($this->params->get('app_domain'), 'zuid-drecht.nl') == false
+        ) {
+            //return false;
         }
 
         // Catalogi
         $vng = new Catalogue();
         $vng->setName('Vereniging Nederlandse Gemeenten');
-        $vng->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/b61326d6-c801-4e73-b341-405a55d99c8a');
+        $vng->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'b61326d6-c801-4e73-b341-405a55d99c8a'])); // VNG
         $manager->persist($vng);
 
         $denbosch = new Catalogue();
         $denbosch->setName('Gemeente \'s-Hertogenbosch');
-        $denbosch->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/fed9339e-57d5-4f63-ab68-694759705c19');
+        $denbosch->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'fed9339e-57d5-4f63-ab68-694759705c19'])); // VNG
+        //$denbosch->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/fed9339e-57d5-4f63-ab68-694759705c19');
         $manager->persist($denbosch);
 
         $eindhoven = new Catalogue();
         $eindhoven->setName('Gemeente Eindhoven');
-        $eindhoven->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/1802c00b-c3d9-46a5-848c-5846bca29345');
+        $eindhoven->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'1802c00b-c3d9-46a5-848c-5846bca29345'])); // VNG
+        //$eindhoven->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/1802c00b-c3d9-46a5-848c-5846bca29345');
         $manager->persist($eindhoven);
 
         $utrecht = new Catalogue();
         $utrecht->setName('Gemeente Utrecht');
-        $utrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8'); //
+        $utrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$utrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8'); //
         $manager->persist($utrecht);
 
         $manager->flush();
@@ -97,7 +68,8 @@ class HuwelijksplannerFixtures extends Fixture
         $burgerzakenDenBosh = new Group();
         $burgerzakenDenBosh->setName('Burgerzaken');
         $burgerzakenDenBosh->setDescription('Alle producten met betrekking tot burgerzaken');
-        $burgerzakenDenBosh->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/fed9339e-57d5-4f63-ab68-694759705c19');
+        $burgerzakenDenBosh->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'fed9339e-57d5-4f63-ab68-694759705c19'])); // VNG
+        //$burgerzakenDenBosh->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/fed9339e-57d5-4f63-ab68-694759705c19');
         $burgerzakenDenBosh->setCatalogue($denbosch);
         $manager->persist($burgerzakenDenBosh);
         //
@@ -110,7 +82,8 @@ class HuwelijksplannerFixtures extends Fixture
         $burgerzakerEindhoven = new Group();
         $burgerzakerEindhoven->setName('Burgerzaken');
         $burgerzakerEindhoven->setDescription('Alle producten met betrekking tot burgerzaken');
-        $burgerzakerEindhoven->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/b61326d6-c801-4e73-b341-405a55d99c8a');
+        $burgerzakerEindhoven->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'b61326d6-c801-4e73-b341-405a55d99c8a'])); // VNG
+        //$burgerzakerEindhoven->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/b61326d6-c801-4e73-b341-405a55d99c8a');
         $burgerzakerEindhoven->setCatalogue($eindhoven);
         $manager->persist($burgerzakerEindhoven);
         //
@@ -123,7 +96,8 @@ class HuwelijksplannerFixtures extends Fixture
         $burgerzakenUtrecht = new Group();
         $burgerzakenUtrecht->setName('Burgerzaken');
         $burgerzakenUtrecht->setDescription('Alle producten met betrekking tot burgerzaken');
-        $burgerzakenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $burgerzakenUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$burgerzakenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $burgerzakenUtrecht->setCatalogue($utrecht);
         $manager->persist($burgerzakenUtrecht);
         //
@@ -136,7 +110,8 @@ class HuwelijksplannerFixtures extends Fixture
         $trouwenUtrecht = new Group();
         $trouwenUtrecht->setName('Trouwproducten');
         $trouwenUtrecht->setDescription('Alle producten met betrekking tot burgerzaken');
-        $trouwenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $trouwenUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$trouwenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $trouwenUtrecht->setCatalogue($utrecht);
         $manager->persist($trouwenUtrecht);
         //
@@ -153,7 +128,8 @@ class HuwelijksplannerFixtures extends Fixture
     <p>Kiest u liever voor een babs uit een andere gemeente? Of voor een vriend of familielid als trouwambtenaar? Dan kunt u hem of haar laten benoemen tot trouwambtenaar voor 1 dag bij de gemeente Utrecht. Dit kunt u hier ook opgeven.</p>
 
     <p>Bij een gratis of een eenvoudig huwelijk of geregistreerd partnerschap kunt u niet zelf een babs kiezen, de gemeente wijst er een toe.</p>');
-        $trouwenAmbtenarenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $trouwenAmbtenarenUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$trouwenAmbtenarenUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $trouwenAmbtenarenUtrecht->setCatalogue($utrecht);
         $manager->persist($trouwenAmbtenarenUtrecht);
 
@@ -170,7 +146,8 @@ class HuwelijksplannerFixtures extends Fixture
 <p>Daarnaast zijn er verschillende andere vaste trouwlocaties. Deze trouwlocaties zijn door de gemeente Utrecht al goedgekeurd. Hieronder vindt u het overzicht van deze trouwlocaties. Heeft u een keuze gemaakt uit een van de vaste trouwlocaties? Maak dan eerst een afspraak met de locatie en geef dan aan ons door waar en wanneer u wilt trouwen.</p>
 
 <p>Maar misschien wilt u een heel andere locatie. Bijvoorbeeld het caf&eacute; om de hoek, bij u thuis of in uw favoriete restaurant. Zo\'n locatie heet een vrije locatie. Een aanvraag voor een vrije locatie kunt u hier ook doen.</p>');
-        $trouwenLocatiesUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $trouwenLocatiesUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$trouwenLocatiesUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $trouwenLocatiesUtrecht->setCatalogue($utrecht);
         $manager->persist($trouwenLocatiesUtrecht);
 
@@ -183,7 +160,8 @@ class HuwelijksplannerFixtures extends Fixture
         $trouwenCeremoniersUtrecht = new Group();
         $trouwenCeremoniersUtrecht->setName('Ceremonies');
         $trouwenCeremoniersUtrecht->setDescription('Verschillende ceremonies voor uw huwelijk / partnerschap');
-        $trouwenCeremoniersUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $trouwenCeremoniersUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$trouwenCeremoniersUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $trouwenCeremoniersUtrecht->setCatalogue($utrecht);
         $manager->persist($trouwenCeremoniersUtrecht);
         //
@@ -196,7 +174,8 @@ class HuwelijksplannerFixtures extends Fixture
         $trouwenExtraUtrecht = new Group();
         $trouwenExtraUtrecht->setName('Extra producten');
         $trouwenExtraUtrecht->setDescription('Extra producten voor bij uw huwelijk');
-        $trouwenExtraUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $trouwenExtraUtrecht->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$trouwenExtraUtrecht->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $trouwenExtraUtrecht->setCatalogue($utrecht);
         $manager->persist($trouwenExtraUtrecht);
         //
@@ -217,7 +196,8 @@ class HuwelijksplannerFixtures extends Fixture
         $id = Uuid::fromString('d1a8b316-5966-4a29-8cf7-be15b8302301');
         $product = new Product();
         $product->setName('Uitgebreid trouwen');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Mogelijk op een door u gekozen dag en tijdstip.<br>
 U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk.<br>
 De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
@@ -228,7 +208,7 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk,'
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -248,7 +228,8 @@ U trouwt in één van de beschikbare locaties. Een eigen locatie is ook mogelijk
 De trouwambtenaar houdt een toespraak en heeft vooraf contact met u.<br>
 Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('627.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -263,7 +244,8 @@ Een eigen trouwambtenaar (reeds beëdigd of nog niet beëdigd) is ook mogelijk.'
         $id = Uuid::fromString('16353702-4614-42ff-92af-7dd11c8eef9f');
         $product = new Product();
         $product->setName('Eenvoudig Trouwen');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Mogelijk op maandag 11.00 uur en 11.30 uur en dinsdag, woensdag en vrijdag om 10.00 uur, 10.30 uur, 11.00 uur of 11.30 uur.<br>
 U trouwt zonder ceremonie (5-10 minuten).<br>
 U trouwt in een kleine trouwruimte op de 6e etage van het stadskantoor.<br>
@@ -279,7 +261,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
         $manager->persist($product);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $product->setId($id);
         $manager->persist($product);
         $manager->flush();
@@ -301,7 +283,8 @@ De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
 De wachtlijst voor eenvoudig trouwen is ongeveer 3 maanden.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('163.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -313,12 +296,11 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->persist($offer);
         $manager->flush();
 
-
-
         $id = Uuid::fromString('190c3611-010d-4b0e-a31c-60dadf4d1c62');
         $product = new Product();
         $product->setName('Gratis Trouwen');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Maandagochtend om 10.00 uur of om 10.30 uur kunt u gratis trouwen op het stadskantoor.<br>
 De wachtlijst voor gratis trouwen is ongeveer 9 maanden.<br>
 U trouwt zonder ceremonie (5-10 minuten).<br>
@@ -333,7 +315,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         //$product->setParent($trouwen);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -356,7 +338,51 @@ Er kunnen maximaal 10 personen naar binnen, dit is inclusief het bruidspaar, de 
 De trouwambtenaar houdt geen toespraak en heeft vooraf geen contact met u.<br>
 Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw voorgenomen huwelijk al gemeld hebt.');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('3a5caf2b-ec68-48e1-a0b5-d221f84631e3');
+        $product = new Product();
+        $product->setName('Flitshuwelijk');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setDescription('');
+        $product->setType('set');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        //$product->setParent($trouwen);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
+        foreach ([$trouwenUtrecht, $trouwenCeremoniersUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
+
+        $id = Uuid::fromString('1ba1772b-cc8a-4808-ad1e-f9b3c93bdebf');
+        $offer = new Offer();
+        $offer->setName('Flitshuwelijk');
+        $offer->setDescription('');
+        $offer->setAudience('public');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -371,7 +397,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('1edd4d62-d778-452a-8b2a-ac22f3dcdf4d');
         $product = new Product();
         $product->setName('Dhr Erik Hendrik');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('<p>Als Buitengewoon Ambtenaar van de Burgerlijke Stand geef ik, in overleg met het bruidspaar, invulling aan de huwelijksceremonie.</p>');
         $product->setType('person');
         $product->setCatalogue($utrecht);
@@ -381,7 +408,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/erik.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -398,7 +425,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Trouwambtenaar: Dhr Erik Hendrik');
         $offer->setDescription('<p>Als Buitengewoon Ambtenaar van de Burgerlijke Stand geef ik, in overleg met het bruidspaar, invulling aan de huwelijksceremonie.</p>');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -413,7 +441,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('477ea744-47b1-4690-bd2e-c9c15d5cf2d4');
         $product = new Product();
         $product->setName('Mvr Ike van den Pol');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('<p>Elkaar het Ja-woord geven, de officiële ceremonie. Vaak is dit het romantische hoogtepunt van de trouwdag. Een bijzonder moment, gedeeld met de mensen die je lief zijn. Een persoonlijke ceremonie, passend bij jullie relatie. Alles is bespreekbaar en maatwerk. Een originele trouwplechtigheid waar muziek, sprekers en kinderen een rol kunnen spelen. Een ceremonie met inhoud, ernst en humor, een traan en een lach, stijlvol, spontaan en ontspannen.</p>');
         $product->setType('person');
         $product->setCatalogue($utrecht);
@@ -423,7 +452,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/ike.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -440,7 +469,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Trouwambtenaar: Mvr Ike van den Pol');
         $offer->setDescription('<p>Elkaar het Ja-woord geven, de officiële ceremonie. Vaak is dit het romantische hoogtepunt van de trouwdag. Een bijzonder moment, gedeeld met de mensen die je lief zijn. Een persoonlijke ceremonie, passend bij jullie relatie. Alles is bespreekbaar en maatwerk. Een originele trouwplechtigheid waar muziek, sprekers en kinderen een rol kunnen spelen. Een ceremonie met inhoud, ernst en humor, een traan en een lach, stijlvol, spontaan en ontspannen.</p>');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -455,7 +485,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('4f7c5d73-0fcb-4363-9ebb-fd47e2209148');
         $product = new Product();
         $product->setName('Dhr. Rene Gulje');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('<p>Ik ben Rene Gulje, in 1949 in Amsterdam geboren. Ik studeerde Nederlands aan de UVA en journalistiek aan de HU.</p>');
         $product->setType('person');
         $product->setCatalogue($utrecht);
@@ -465,7 +496,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/rene.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -482,7 +513,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Trouwambtenaar: Dhr Rene Gulje');
         $offer->setDescription('<p>Ik ben Rene Gulje, in 1949 in Amsterdam geboren. Ik studeerde Nederlands aan de UVA en journalistiek aan de HU.</p>');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -496,8 +528,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
 
         $id = Uuid::fromString('55af09c8-361b-418a-af87-df8f8827984b');
         $product = new Product();
-        $product->setName('Geen Voorkeur / Toegewezen Trouwambtenaar');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setName('Toegewezen Trouwambtenaar');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -505,9 +538,9 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
+        $product->setLogo('https://dev.huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -524,7 +557,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Trouwambtenaar: Geen voorkeur');
         $offer->setDescription('Uw trouwambtenaar wordt toegewezen, over enkele dagen krijgt u bericht van uw toegewezen trouwambtenaar!');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        ///$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -539,7 +573,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('ea984e7b-0d0d-48ff-86ea-bd5d15286ae7');
         $product = new Product();
         $product->setName('Stagair Trouwambtenaar');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -549,7 +584,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://huwelijksplanner.online/images/content/ambtenaar/trouwambtenaar.jpg');
         $product->setMovie('https://www.youtube.com/embed/RkBZYoMnx5w');
-        $product->setAudience("internal");
+        $product->setAudience('internal');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -566,7 +601,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Trouwambtenaar: Stagair');
         $offer->setDescription('Een stagair trouwambtenaar wordt aan uw huwelijk toegewezen.');
         $offer->setAudience('internal');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -605,10 +641,55 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $manager->flush();
         */
 
+        $id = Uuid::fromString('c59ed965-d0b3-40a6-bd16-7f3cab78b42e');
+        $product = new Product();
+        $product->setName('Balie');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setDescription('');
+        $product->setType('simple');
+        $product->setCatalogue($utrecht);
+        $product->setPrice('0.00');
+        $product->setPriceCurrency('EUR');
+        $product->setTaxPercentage(0);
+        $product->setRequiresAppointment(false);
+        $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/Trouwzaal-Stadskantoor-Utrecht.jpg');
+        $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id' => $id]);
+        foreach ([$trouwenUtrecht, $trouwenLocatiesUtrecht] as $group) {
+            $product->addGroup($group);
+        }
+        $manager->persist($product);
+        $manager->flush();
+
+        $id = Uuid::fromString('9aef22c4-0c35-4615-ab0e-251585442b55');
+        $offer = new Offer();
+        $offer->setName('Trouwlocatie: Balie');
+        $offer->setDescription('');
+        $offer->setAudience('internal');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=>$id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
         $id = Uuid::fromString('7a3489d5-2d2c-454b-91c9-caff4fed897f');
         $product = new Product();
         $product->setName('Stadskantoor');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Deze locatie is speciaal voor eenvoudige en gratis huwelijken.
  De zaal ligt op de 6e etage van het Stadskantoor.
  De ruimte is eenvoudig en toch heel intiem.
@@ -621,7 +702,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/Trouwzaal-Stadskantoor-Utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -641,7 +722,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
  De ruimte is eenvoudig en toch heel intiem.
  Het licht is in te stellen op een kleur die jullie graag willen.');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -656,7 +738,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('7ebcc7a9-ce12-401b-b3a1-18497c54d79d');
         $product = new Product();
         $product->setName('Stadhuis kleine zaal');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -666,7 +749,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/kleine-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->flush();
@@ -683,7 +766,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Locatie: Stadhuis kleine zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -698,7 +782,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('9d7c1c5b-3e65-4429-90ec-16e7371f2360');
         $product = new Product();
         $product->setName('Stadhuis grote zaal');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -708,7 +793,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setRequiresAppointment(false);
         $product->setLogo('https://www.utrecht.nl/fileadmin/uploads/documenten/9.digitaalloket/Burgerzaken/grote-trouwzaal-stadhuis-utrecht.jpg');
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -726,7 +811,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Locatie: Stadhuis grote zaal');
         $offer->setDescription('Deze uiterst sfeervolle trouwzaal maakt de dag compleet');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -741,7 +827,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('c7b556bb-a2f0-471c-9ff9-37543bc4d843');
         $product = new Product();
         $product->setName('Vrije locatie');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Vrije locatie');
         $product->setLogo('https://user-images.githubusercontent.com/49227194/80487135-9baca180-895c-11ea-82a4-92967a1551c2.png');
         $product->setType('simple');
@@ -751,7 +838,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -768,7 +855,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Locatie: Vrije locatie');
         $offer->setDescription('Vrije locatie');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -783,7 +871,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('d7bd202b-27ae-4c09-aeb9-3806c5fba504');
         $product = new Product();
         $product->setName('Trouwboekje');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Een mooi in leer gebonden herinnering aan uw huwelijk');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -792,7 +881,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -809,7 +898,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Trouwboekje');
         $offer->setDescription('Een mooi in leer gebonden herinnering aan uw huwelijk');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -824,7 +914,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('1fa3fbbc-0dee-442a-8431-3381b8cbc78a');
         $product = new Product();
         $product->setName('Ringen');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -833,7 +924,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
         $product->setMovie('https://www.youtube.com/embed/DAaoMvj1Qbs');
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -850,7 +941,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Ringen');
         $offer->setDescription('Het uitwisselen van ringen tijdens de huwelijksceremonie');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('10.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
@@ -865,7 +957,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $id = Uuid::fromString('a6bbfcb3-e87d-4f6f-98da-821b71e45912');
         $product = new Product();
         $product->setName('Geen extra\'s');
-        $product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$product->setSourceOrganization('https://wrc.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $product->setDescription('U wilt geen extra producten bij uw huwelijk');
         $product->setType('simple');
         $product->setCatalogue($utrecht);
@@ -873,7 +966,7 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $product->setPriceCurrency('EUR');
         $product->setTaxPercentage(0);
         $product->setRequiresAppointment(false);
-        $product->setAudience("public");
+        $product->setAudience('public');
         $manager->persist($product);
         $product->setId($id);
         $manager->persist($product);
@@ -890,7 +983,8 @@ Een afspraak voor eenvoudig en gratis trouwen kan pas worden gemaakt als u uw vo
         $offer->setName('Extra: Geen extra\'s');
         $offer->setDescription('U wilt geen extra producten bij uw huwelijk');
         $offer->setAudience('public');
-        $offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'68b64145-0740-46df-a65a-9d3259c2fec8'])); // VNG
+        //$offer->setOfferedBy('https://wrc.dev.huwelijksplanner.online/organizations/68b64145-0740-46df-a65a-9d3259c2fec8');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $manager->persist($offer);
