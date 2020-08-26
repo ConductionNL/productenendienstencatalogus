@@ -806,7 +806,6 @@ class WestFrieslandFixtures extends Fixture
         $group->addProduct($urngrafProduct);
         $group->addProduct($urnennisProduct);
         $group->addProduct($strooiveldProduct);
-        $group->addProduct($oorlogsgrafProduct);
         $group->addProduct($kinderGrafProduct);
         $group->addProduct($monumentProduct);
         $group->addProduct($oorlogsGrafProduct);
