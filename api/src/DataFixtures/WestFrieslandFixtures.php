@@ -77,6 +77,14 @@ class WestFrieslandFixtures extends Fixture
         $opmeer->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf'])); // Opmeer
         $manager->persist($opmeer);
 
+        // Gemeente Hogeland
+        $hogeland = new Catalogue();
+        $hogeland->setName('Gemeente Hogeland');
+        $hogeland->setDescription('De catalogus van de Gemeente Hogeland');
+        $hogeland->setLogo('https://www.my-organization.com/GemeenteHogelandlogo.png');
+        $hogeland->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); // Hogeland
+        $manager->persist($hogeland);
+
         // Gemeente Westfriesland
         $westfriesland = new Catalogue();
         $westfriesland->setName('Gemeente Westfriesland');
@@ -517,6 +525,105 @@ class WestFrieslandFixtures extends Fixture
         $cultuurHistorischGrafOffer->addProduct($cultuurHistorischGrafProduct);
         $manager->persist($cultuurHistorischGrafOffer);
 
+        // Grafsoort product Monument
+        $id = Uuid::fromString('ec6e4f0b-2838-4a82-b78c-5f992cb6f8e2');
+        $monumentProduct = new Product();
+        $monumentProduct->setName('Monument');
+        $monumentProduct->setDescription('Een Product voor grafsoort monument');
+        $monumentProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $monumentProduct->setType('simple');
+        $monumentProduct->setRequiresAppointment('false');
+        $monumentProduct->setCatalogue($westfriesland);
+        $monumentProduct->setAudience('public');
+        $manager->persist($monumentProduct);
+        $monumentProduct->setId($id);
+        $manager->persist($monumentProduct);
+        $manager->flush();
+        $monumentProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Monument
+        $id = Uuid::fromString('246dc8fd-6df9-4b67-b12a-a1fff1a85084');
+        $monumentOffer = new Offer();
+        $monumentOffer->setName('Monument');
+        $monumentOffer->setDescription('Een Offer voor grafsoort monument');
+        $monumentOffer->setPrice('99.99');
+        $monumentOffer->setPriceCurrency('EUR');
+        $monumentOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $monumentOffer->setAudience('public');
+        $manager->persist($monumentOffer);
+        $monumentOffer->setId($id);
+        $manager->persist($monumentOffer);
+        $manager->flush();
+        $monumentOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $monumentOffer->addProduct($monumentProduct);
+        $manager->persist($monumentOffer);
+
+        // Grafsoort product Familiegraf
+        $id = Uuid::fromString('66ad365c-ba4c-4246-8b3d-717045122108');
+        $familieGrafProduct = new Product();
+        $familieGrafProduct->setName('Familiegraf');
+        $familieGrafProduct->setDescription('Een Product voor grafsoort familiegraf');
+        $familieGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $familieGrafProduct->setType('simple');
+        $familieGrafProduct->setRequiresAppointment('false');
+        $familieGrafProduct->setCatalogue($westfriesland);
+        $familieGrafProduct->setAudience('public');
+        $manager->persist($familieGrafProduct);
+        $familieGrafProduct->setId($id);
+        $manager->persist($familieGrafProduct);
+        $manager->flush();
+        $familieGrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Familiegraf
+        $id = Uuid::fromString('0d4d1faf-0339-4578-bbe0-b1f5e1c4baeb');
+        $familieGrafOffer = new Offer();
+        $familieGrafOffer->setName('Familiegraf');
+        $familieGrafOffer->setDescription('Een Offer voor grafsoort familiegraf');
+        $familieGrafOffer->setPrice('99.99');
+        $familieGrafOffer->setPriceCurrency('EUR');
+        $familieGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $familieGrafOffer->setAudience('public');
+        $manager->persist($familieGrafOffer);
+        $familieGrafOffer->setId($id);
+        $manager->persist($familieGrafOffer);
+        $manager->flush();
+        $familieGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $familieGrafOffer->addProduct($familieGrafProduct);
+        $manager->persist($familieGrafOffer);
+
+        // Grafsoort product Oorlogsgraf
+        $id = Uuid::fromString('c658a713-5dcf-44c8-b10c-795b0f58241e');
+        $oorlogsGrafProduct = new Product();
+        $oorlogsGrafProduct->setName('Oorlogsgraf');
+        $oorlogsGrafProduct->setDescription('Een Product voor grafsoort oorlogsgraf');
+        $oorlogsGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $oorlogsGrafProduct->setType('simple');
+        $oorlogsGrafProduct->setRequiresAppointment('false');
+        $oorlogsGrafProduct->setCatalogue($westfriesland);
+        $oorlogsGrafProduct->setAudience('public');
+        $manager->persist($oorlogsGrafProduct);
+        $oorlogsGrafProduct->setId($id);
+        $manager->persist($oorlogsGrafProduct);
+        $manager->flush();
+        $oorlogsGrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Oorlogsgraf
+        $id = Uuid::fromString('ce3c79df-f626-4c74-afde-38d054880ca3');
+        $oorlogsGrafOffer = new Offer();
+        $oorlogsGrafOffer->setName('Oorlogsgraf');
+        $oorlogsGrafOffer->setDescription('Een Offer voor grafsoort oorlogsgraf');
+        $oorlogsGrafOffer->setPrice('99.99');
+        $oorlogsGrafOffer->setPriceCurrency('EUR');
+        $oorlogsGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d280c4d3-6310-46db-9934-5285ec7d0d5e'])); // West Friesland
+        $oorlogsGrafOffer->setAudience('public');
+        $manager->persist($oorlogsGrafOffer);
+        $oorlogsGrafOffer->setId($id);
+        $manager->persist($oorlogsGrafOffer);
+        $manager->flush();
+        $oorlogsGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $oorlogsGrafOffer->addProduct($oorlogsGrafProduct);
+        $manager->persist($oorlogsGrafOffer);
+
         // Grafsoort product Gedenkteken
         $id = Uuid::fromString('0cfd03a7-917d-4df3-8687-9488560411ce');
         $gedenktekenProduct = new Product();
@@ -681,6 +788,30 @@ class WestFrieslandFixtures extends Fixture
         $group->addProduct($urngrafProduct);
         $manager->persist($group);
 
+        // Grafsoorten group gemeente Hogeland
+        $id = Uuid::fromString('02211125-c441-4c1c-bbd1-37c86aa5fc79');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Hogeland');
+        $group->setDescription('Een groep voor grafsoorten van de gemeente Hogeland');
+        $group->setLogo('https://www.my-organization.com/GrafsoortenHogelandlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); // Hogeland
+        $group->setCatalogue($hogeland);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($algemeenGrafProduct);
+        $group->addProduct($urngrafProduct);
+        $group->addProduct($urnennisProduct);
+        $group->addProduct($strooiveldProduct);
+        $group->addProduct($kinderGrafProduct);
+        $group->addProduct($monumentProduct);
+        $group->addProduct($oorlogsGrafProduct);
+        $group->addProduct($familieGrafProduct);
+        $manager->persist($group);
+
         //Artikelen
         //Product WognumKreekland
         // DiversenProduct
@@ -831,6 +962,76 @@ class WestFrieslandFixtures extends Fixture
         $group->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
         $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'grc', 'type'=>'cemeteries', 'id'=>'2556c084-0687-4ca1-b098-e4f0a7292ae8'])); // Wognum (Kreekland)
         $group->setCatalogue($medemblik);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+
+        //Product Hogeland
+        // BijzettingsartikelenProduct
+        $id = Uuid::fromString('fdab3885-2975-4336-bdb6-31f4b70bba69');
+        $product = new Product();
+        $product->setName('Bijzettingsartikelen Product');
+        $product->setDescription('Een Product voor Bijzettingsartikelen');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'grc', 'type'=>'cemeteries', 'id'=>'2556c084-0687-4ca1-b098-e4f0a7292ae8'])); // Wognum (Kreekland)
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($medemblik);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Offers Hogeland
+        // Bijzetting Urn
+        $id = Uuid::fromString('ee69099b-d5db-43d9-9ac2-1cc338654a84');
+        $offer = new Offer();
+        $offer->setName('Bijzetting Urn');
+        $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
+        $offer->setPrice('50.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        // Bijzetting Asbus
+        $id = Uuid::fromString('9145ae9c-3b8f-452e-bc39-731c31450275');
+        $offer = new Offer();
+        $offer->setName('Bijzetting Asbus');
+        $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
+        $offer->setPrice('50.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        // Group Hogeland
+        // Bijzettingsartikelen
+        $id = Uuid::fromString('8135397c-b2ca-413c-ad76-3b3d011cf2f6');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Bijzettingsartikelen');
+        $group->setDescription('Een groep voor Bijzettingsartikelen');
+        $group->setLogo('https://www.my-organization.com/Bijzettingslogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'grc', 'type'=>'cemeteries', 'id'=>'2556c084-0687-4ca1-b098-e4f0a7292ae8'])); // Wognum (Kreekland)
+        $group->setCatalogue($hogeland);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
