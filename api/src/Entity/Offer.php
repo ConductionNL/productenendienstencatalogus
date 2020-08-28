@@ -147,6 +147,21 @@ class Offer
     private $offeredBy;
 
     /**
+     * @var string The optional proccces for ordering this product
+     *
+     * @example(http://example.org/example/1)
+     *
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read","write"})
+     */
+    private $processType;
+
+    /**
      * @var DateTime the date this offer ends
      *
      * @example 20191231
@@ -302,6 +317,18 @@ class Offer
     public function setOfferedBy(string $offeredBy): self
     {
         $this->offeredBy = $offeredBy;
+
+        return $this;
+    }
+
+    public function getProcessType(): ?string
+    {
+        return $this->processType;
+    }
+
+    public function setProcessType(string $processType): self
+    {
+        $this->processType = $processType;
 
         return $this;
     }
