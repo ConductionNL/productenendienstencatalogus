@@ -369,7 +369,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
 
-               // Grafsoort product Strooiveld
+        // Grafsoort product Strooiveld
         $id = Uuid::fromString('0982ee23-8a3b-4163-9888-b2d0bfbd1b0d');
         $strooiveldProduct = new Product();
         $strooiveldProduct->setName('Strooiveld');
