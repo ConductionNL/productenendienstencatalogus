@@ -58,7 +58,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  */
 class Offer
@@ -145,6 +145,21 @@ class Offer
      * @Groups({"read","write"})
      */
     private $offeredBy;
+
+    /**
+     * @var string The optional proccces for ordering this product
+     *
+     * @example(http://example.org/example/1)
+     *
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read","write"})
+     */
+    private $processType;
 
     /**
      * @var DateTime the date this offer ends
@@ -302,6 +317,18 @@ class Offer
     public function setOfferedBy(string $offeredBy): self
     {
         $this->offeredBy = $offeredBy;
+
+        return $this;
+    }
+
+    public function getProcessType(): ?string
+    {
+        return $this->processType;
+    }
+
+    public function setProcessType(string $processType): self
+    {
+        $this->processType = $processType;
 
         return $this;
     }
