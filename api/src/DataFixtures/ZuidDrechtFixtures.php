@@ -65,21 +65,21 @@ class ZuidDrechtFixtures extends Fixture
         $groupCheckin = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
 
         $product = new Product();
-        $product->setName('Abbonnement');
-        $product->setDescription('Kiezen van een abbonnement');
+        $product->setName('Abonnement');
+        $product->setDescription('Kiezen van een abonnement');
         $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $product->setType('subscription');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($catalogueCheckin);
-        $product->createOffer('0.00', 'EUR', 'Normaal abbonnement');
-        $product->createOffer('0.00', 'EUR', 'KHN lid abbonnement');
+        $product->createOffer('0.00', 'EUR', 'Normaal abonnement');
+        $product->createOffer('0.00', 'EUR', 'KHN lid abonnement');
         $product->addGroup($groupCheckin);
         $manager->persist($product);
 
         $id = Uuid::fromString('eb491ee9-ad8c-456d-92b2-c297a6a2b3e5');
         $offer = new Offer();
-        $offer->setName('Normaal abbonnement');
-        $offer->setDescription('Een normaal abbonnement');
+        $offer->setName('Normaal abonnement');
+        $offer->setDescription('Een normaal abonnement');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
@@ -94,8 +94,8 @@ class ZuidDrechtFixtures extends Fixture
 
         $id = Uuid::fromString('2a3cc560-f36d-4cbd-937f-8504d0e5b486');
         $offer = new Offer();
-        $offer->setName('KHN lid abbonnement');
-        $offer->setDescription('Een abbonnement voor KHN leden');
+        $offer->setName('KHN lid abonnement');
+        $offer->setDescription('Een abonnement voor KHN leden');
         $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
