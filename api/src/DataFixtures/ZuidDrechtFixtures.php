@@ -71,8 +71,8 @@ class ZuidDrechtFixtures extends Fixture
         $product->setType('subscription');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($catalogueCheckin);
-        $product->createOffer('35.00', 'EUR', 'Normaal abbonnement');
-        $product->createOffer('30.00', 'EUR', 'KHN lid abbonnement');
+        $product->createOffer('0.00', 'EUR', 'Normaal abbonnement');
+        $product->createOffer('0.00', 'EUR', 'KHN lid abbonnement');
         $product->addGroup($groupCheckin);
         $manager->persist($product);
 
@@ -80,7 +80,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer = new Offer();
         $offer->setName('Normaal abbonnement');
         $offer->setDescription('Een normaal abbonnement');
-        $offer->setPrice('35.00');
+        $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
@@ -96,7 +96,7 @@ class ZuidDrechtFixtures extends Fixture
         $offer = new Offer();
         $offer->setName('KHN lid abbonnement');
         $offer->setDescription('Een abbonnement voor KHN leden');
-        $offer->setPrice('30.00');
+        $offer->setPrice('0.00');
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
         $offer->setAudience('public');
