@@ -42,6 +42,72 @@ class ZuidDrechtFixtures extends Fixture
         $catalogue->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $manager->persist($catalogue);
 
+        $catalogueCheckin = new Catalogue();
+        $catalogueCheckin->setName('Checkin Zuid Drecht');
+        $catalogueCheckin->setDescription('De catalogus voor de checkin van zuid Drecht');
+        $catalogueCheckin->setLogo('https://www.my-organization.com/GemeenteSEDlogo.png');
+        $catalogueCheckin->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $manager->persist($catalogueCheckin);
+
+        // Checkin Producten (abbonnementen)
+        $id = Uuid::fromString('21c7f76b-066f-4361-a5ee-c8a3bdf8947f');
+        $groupCheckin = new Group();
+        $groupCheckin->setIcon('My Icon');
+        $groupCheckin->setName('Checkin Producten');
+        $groupCheckin->setDescription('Een groep voor de producten die beschikbaar zijn bij de checkin van zuid Drecht');
+        $groupCheckin->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $groupCheckin->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $groupCheckin->setCatalogue($catalogueCheckin);
+        $manager->persist($groupCheckin);
+        $groupCheckin->setId($id);
+        $manager->persist($groupCheckin);
+        $manager->flush();
+        $groupCheckin = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+
+        $product = new Product();
+        $product->setName('Abonnement');
+        $product->setDescription('Kiezen van een abonnement');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
+        $product->setType('subscription');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($catalogueCheckin);
+        $product->createOffer('0.00', 'EUR', 'Normaal abonnement');
+        $product->createOffer('0.00', 'EUR', 'KHN lid abonnement');
+        $product->addGroup($groupCheckin);
+        $manager->persist($product);
+
+        $id = Uuid::fromString('eb491ee9-ad8c-456d-92b2-c297a6a2b3e5');
+        $offer = new Offer();
+        $offer->setName('Normaal abonnement');
+        $offer->setDescription('Een normaal abonnement');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('2a3cc560-f36d-4cbd-937f-8504d0e5b486');
+        $offer = new Offer();
+        $offer->setName('KHN lid abonnement');
+        $offer->setDescription('Een abonnement voor KHN leden');
+        $offer->setPrice('0.00');
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+
         // Ballie Producten
         $id = Uuid::fromString('1baea858-1512-454b-ad58-0d30ac5ef10e');
         $groupBallie = new Group();
