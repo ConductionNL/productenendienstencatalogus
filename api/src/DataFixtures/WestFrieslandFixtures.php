@@ -1805,7 +1805,22 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $offer->addProduct($product);
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+
+        // Graf artikelen group gemeente Hoorn
+        $id = Uuid::fromString('a61128bb-4b98-44b8-8262-48ebe123e550');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafartikelen Hoorn');
+        $group->setDescription('Een groep voor de artikelen van de gemeente Hoorn');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384'])); // Hoorn
+        $group->setCatalogue($hoorn);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
 
         $id = Uuid::fromString('493e2096-5607-4c79-89e8-955850a6cc79');
         $product = new Product();
@@ -2128,7 +2143,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $offer->addProduct($product);
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
 
         $id = Uuid::fromString('5bb23945-53e4-403e-bbd4-d28781b4aa60');
         $product = new Product();
@@ -2156,7 +2171,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $offer->addProduct($product);
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
 
         $id = Uuid::fromString('9d6ef33e-be37-47aa-9c3f-8a7494058bcb');
         $product = new Product();
@@ -2184,7 +2199,7 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $offer->addProduct($product);
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
 
         $id = Uuid::fromString('b9e860fa-953f-4970-b064-b4c4261329a3');
         $product = new Product();
@@ -2212,7 +2227,23 @@ class WestFrieslandFixtures extends Fixture
         $offer->setAudience('public');
         $offer->addProduct($product);
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+
+        // Grafartikelen group gemeente Koggenland
+        $id = Uuid::fromString('5e8e7223-e490-4e81-8f95-a3181b164a87');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafartikelen Koggenland');
+        $group->setDescription('Een groep voor de grafartikelen van de gemeente Koggenland');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15'])); // Koggenland
+        $group->setCatalogue($koggenland);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+
 
         $id = Uuid::fromString('241721ca-a387-450f-bf29-6e125fa0d357');
         $product = new Product();
@@ -2703,6 +2734,21 @@ class WestFrieslandFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
+
+        //Grafartikelen Medemblik
+        $id = Uuid::fromString('be1c4617-0fb4-4c20-a759-cd9d230463f1');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafartikelen Medemblik');
+        $group->setDescription('Een groep voor de grafartikelen van de gemeente Medemblik');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384'])); // Hoorn
+        $group->setCatalogue($medemblik);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
 
         $id = Uuid::fromString('6eea0cf3-8985-42a3-8dfd-3af131544375');
         $product = new Product();
@@ -3502,6 +3548,22 @@ class WestFrieslandFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
+
+        //Grafartikelen group gemeente Opmeer
+        $id = Uuid::fromString('04c9ff43-286a-48db-b0db-6afe32bdddb0');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafartikelen Opmeer');
+        $group->setDescription('Een groep voor grafartikelen van de gemeente Opmeer');
+        $group->setLogo('https://www.my-organization.com/GrafsoortenOpmeerlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf'])); // Opmeer
+        $group->setCatalogue($opmeer);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+
 
         $id = Uuid::fromString('720b3974-9085-4616-b470-e68503c1855a');
         $product = new Product();
