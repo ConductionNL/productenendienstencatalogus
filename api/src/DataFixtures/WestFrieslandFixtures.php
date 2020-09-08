@@ -95,6 +95,7 @@ class WestFrieslandFixtures extends Fixture
 
         $manager->flush();
 
+        /*
         // Grafsoorten
         // Grafsoort product Koopgraf
         $id = Uuid::fromString('e8cd45f7-350e-408d-8266-153e9395a755');
@@ -1180,6 +1181,396 @@ class WestFrieslandFixtures extends Fixture
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
         $manager->persist($group);
+
+        $manager->flush();
+        */
+
+
+        */
+
+        $id = Uuid::fromString('14569bf0-8f5e-4799-bdc5-376e71c620d0');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 2 grafruimten 10 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 2 grafruimten 10 jaar');
+        $offer->setPrice(1149);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('81424ab3-9421-45b7-974d-5b2b84f47fcf');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 2 grafruimten 15 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 2 grafruimten 15 jaar');
+        $offer->setPrice(1695);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('d0979ef3-c5cf-42c4-972a-8b76b8fff572');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 2 grafruimten 20 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 2 grafruimten 20 jaar');
+        $offer->setPrice(2241);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('a8fdf11d-beca-4264-aefd-179e6e6f7d3a');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 2 grafruimten 25 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 2 grafruimten 25 jaar');
+        $offer->setPrice(2787);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('89859e91-b3be-4bfd-813e-4f713aba7fa1');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 2 grafruimten 30 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 2 grafruimten 30 jaar');
+        $offer->setPrice(3333);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('c372a1ee-5fcd-4da2-8234-19fe6880e268');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 3 grafruimten 10 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 3 grafruimten 10 jaar');
+        $offer->setPrice(1412);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('6127942a-786c-41ea-9066-dcb3051eb6ca');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 3 grafruimten 15 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 3 grafruimten 15 jaar');
+        $offer->setPrice(2082);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('5a0f892f-ffb5-4ee0-a936-9ac807daa0b9');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 3 grafruimten 20 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 3 grafruimten 20 jaar');
+        $offer->setPrice(2753);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('882e89c2-969e-4814-9713-e5e9fa786ba3');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 3 grafruimten 25 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 3 grafruimten 25 jaar');
+        $offer->setPrice(3423);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('aa65666f-5fda-43dc-a6ae-5e188372b553');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier graf 3 grafruimten 30 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier graf 3 grafruimten 30 jaar');
+        $offer->setPrice(4094);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('94fb8fca-5a69-40b1-a95f-5a7530628253');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Algemeen graf');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Algemeen graf');
+        $offer->setPrice(756);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('18f63ee7-9ef0-4592-ba14-da3536ed63fc');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier kindergraf  10 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf  10 jaar');
+        $offer->setPrice(787);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('08772c67-c5f7-485b-9edd-6ac49b345da6');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier kindergraf  15 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf  15 jaar');
+        $offer->setPrice(1160,5);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('983447d0-0291-4d84-b52f-f8712b2753cb');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier kindergraf 20 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 20 jaar');
+        $offer->setPrice(1534);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('9c110578-0af2-4ecf-8bc7-d06c75974676');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier kindergraf  25 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf  25 jaar');
+        $offer->setPrice(1907,5);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
+
+        $id = Uuid::fromString('202306da-bd92-4546-aa11-231fad7a4ea4');
+        $koopgrafProduct = new Product();
+        $koopgrafProduct->setName('Particulier kindergraf 30 jaar');
+        $koopgrafProduct->setDescription('');
+        $koopgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $koopgrafProduct->setType('simple');
+        $koopgrafProduct->setRequiresAppointment('false');
+        $koopgrafProduct->setCatalogue($hoorn);
+        $koopgrafProduct->setAudience('public');
+        $manager->persist($koopgrafProduct);
+        $koopgrafProduct->setId($id);
+        $manager->persist($koopgrafProduct);
+        $manager->flush();
+        $koopgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 30 jaar');
+        $offer->setPrice(2281);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        $offer->setAudience('public');
+        $offer->addProduct($koopgrafProduct);
+        $manager->persist($offer);
 
         $manager->flush();
     }
