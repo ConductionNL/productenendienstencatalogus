@@ -113,7 +113,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Grafsoort offer Koopgraf
@@ -834,7 +834,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Offers WognumKreekland
@@ -924,7 +924,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Offers WognumKreekland
@@ -997,7 +997,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Offers Hogeland
@@ -1070,7 +1070,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Offers Opperdoes Nieuw
@@ -1161,7 +1161,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         // Offers Opperdoes Nieuw
@@ -1217,7 +1217,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
-        
+     
         $id = Uuid::fromString('14569bf0-8f5e-4799-bdc5-376e71c620d0');
         $product = new Product();
         $product->setName('Particulier graf 2 grafruimten 10 jaar');
@@ -1233,7 +1233,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1261,7 +1261,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1289,7 +1289,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1317,7 +1317,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1345,7 +1345,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1373,7 +1373,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1401,7 +1401,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1429,7 +1429,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1457,7 +1457,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1485,7 +1485,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1513,7 +1513,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1541,7 +1541,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1569,7 +1569,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1597,7 +1597,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1625,7 +1625,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1653,7 +1653,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1682,7 +1682,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1710,7 +1710,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1738,7 +1738,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1766,7 +1766,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1794,7 +1794,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1822,7 +1822,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1850,7 +1850,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1878,7 +1878,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1906,7 +1906,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1934,7 +1934,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1962,7 +1962,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -1990,7 +1990,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2018,7 +2018,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2061,7 +2061,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2089,7 +2089,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2117,7 +2117,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2145,7 +2145,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2173,7 +2173,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2201,7 +2201,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2229,7 +2229,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2257,7 +2257,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2285,7 +2285,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2327,7 +2327,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2355,7 +2355,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2383,7 +2383,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2411,7 +2411,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2439,7 +2439,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2467,7 +2467,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2495,7 +2495,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2523,7 +2523,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2551,7 +2551,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2579,7 +2579,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2607,7 +2607,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2635,7 +2635,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2663,7 +2663,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2691,7 +2691,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2719,7 +2719,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2747,7 +2747,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2775,7 +2775,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2803,7 +2803,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2831,7 +2831,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2859,7 +2859,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2887,7 +2887,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2915,7 +2915,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2958,7 +2958,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -2986,7 +2986,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3014,7 +3014,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3042,7 +3042,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3070,7 +3070,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3098,7 +3098,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3126,7 +3126,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3154,7 +3154,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3182,7 +3182,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3210,7 +3210,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3238,7 +3238,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3266,7 +3266,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3294,7 +3294,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3322,7 +3322,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3350,7 +3350,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3378,7 +3378,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3406,7 +3406,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3434,7 +3434,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3462,7 +3462,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3490,7 +3490,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3518,10 +3518,10 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3549,7 +3549,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3577,7 +3577,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3605,7 +3605,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3633,7 +3633,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3661,7 +3661,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3689,7 +3689,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
@@ -3717,7 +3717,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $group->addProduct($product);
-        $manager->persist($product);
+        $manager->persist($group);
         $manager->flush();
 
         $offer = new Offer();
