@@ -34,7 +34,7 @@ class HuwelijksplannerFixtures extends Fixture
             $this->params->get('app_domain') != 'utrecht.commonground.nu' && strpos($this->params->get('app_domain'), 'utrecht.commonground.nu') == false &&
             $this->params->get('app_domain') != 'zuid-drecht.nl' && strpos($this->params->get('app_domain'), 'zuid-drecht.nl') == false
         ) {
-            //return false;
+            return false;
         }
 
         // Catalogi
