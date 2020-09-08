@@ -1812,7 +1812,7 @@ class WestFrieslandFixtures extends Fixture
         $group = new Group();
         $group->setIcon('My Icon');
         $group->setName('Grafartikelen Hoorn');
-        $group->setDescription('Een groep voor de artikelen van de gemeente Hoorn');
+        $group->setDescription('Een groep voor de grafartikelen van de gemeente Hoorn');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384'])); // Hoorn
         $group->setCatalogue($hoorn);
@@ -2335,7 +2335,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafsoorten Medemblik');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente Medemblik');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Hoorn
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
