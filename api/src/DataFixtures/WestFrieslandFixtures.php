@@ -1203,6 +1203,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->flush();
         */
 
+        // Grafsoorten group gemeente Hogeland
+        $id = Uuid::fromString('02211125-c441-4c1c-bbd1-37c86aa5fc79');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Hogeland');
+        $group->setDescription('Een groep voor grafsoorten van de gemeente Hogeland');
+        $group->setLogo('https://www.my-organization.com/GrafsoortenHogelandlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'79ad319b-1ff6-4e21-919b-4ea002b5f233'])); // Hogeland
+        $group->setCatalogue($hogeland);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        
         $id = Uuid::fromString('14569bf0-8f5e-4799-bdc5-376e71c620d0');
         $product = new Product();
         $product->setName('Particulier graf 2 grafruimten 10 jaar');
