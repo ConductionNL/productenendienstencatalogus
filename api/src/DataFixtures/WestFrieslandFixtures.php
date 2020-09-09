@@ -840,6 +840,7 @@ class WestFrieslandFixtures extends Fixture
         // Offers WognumKreekland
         // Gebruik Orgel
         $id = Uuid::fromString('f791ae50-c471-40e9-8ac9-53975c89b328');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Orgel');
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
@@ -847,16 +848,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('576550f6-aca2-42e0-a994-7625f427d0e1');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Koffiekamer');
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
@@ -864,16 +884,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Gebruik CD speler
         $id = Uuid::fromString('3a7f1f81-94d3-49f6-86d3-3d1479277632');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik CD speler');
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
@@ -881,13 +920,31 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Group WognumKreekland
         // Diversen
@@ -930,6 +987,7 @@ class WestFrieslandFixtures extends Fixture
         // Offers WognumKreekland
         // Bijzetting Urn
         $id = Uuid::fromString('b385925a-0b44-45f1-9ac2-930329b00916');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Urn');
         $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
@@ -937,16 +995,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Bijzetting Asbus
         $id = Uuid::fromString('ccaae856-1060-4d25-8537-b4ac11fd06c3');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Asbus');
         $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
@@ -954,13 +1031,31 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Group WognumKreekland
         // Bijzettingsartikelen
@@ -1003,6 +1098,7 @@ class WestFrieslandFixtures extends Fixture
         // Offers Hogeland
         // Bijzetting Urn
         $id = Uuid::fromString('ee69099b-d5db-43d9-9ac2-1cc338654a84');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Urn');
         $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
@@ -1010,16 +1106,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Bijzetting Asbus
         $id = Uuid::fromString('9145ae9c-3b8f-452e-bc39-731c31450275');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Asbus');
         $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
@@ -1027,13 +1142,31 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Group Hogeland
         // Bijzettingsartikelen
@@ -1076,6 +1209,7 @@ class WestFrieslandFixtures extends Fixture
         // Offers Opperdoes Nieuw
         // Gebruik Orgel
         $id = Uuid::fromString('72183cad-0023-44f5-b743-d0c7eb8f3745');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Orgel');
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
@@ -1083,16 +1217,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('940a4bc2-f7c1-4d39-9764-32d36aa0c26a');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Koffiekamer');
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
@@ -1101,16 +1254,35 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
         $group->setCatalogue($medemblik);
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Gebruik CD speler
         $id = Uuid::fromString('61ced7cd-1b30-444b-b46d-d1fa49b05ab1');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik CD speler');
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
@@ -1118,13 +1290,31 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Group Opperdoes Nieuw
         // Diversen
@@ -1167,6 +1357,7 @@ class WestFrieslandFixtures extends Fixture
         // Offers Opperdoes Nieuw
         // Asverstrooiing
         $id = Uuid::fromString('5bbe119d-718c-4b04-82df-63495854b4f4');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Asverstrooiing');
         $offer->setDescription('De toepassing van asverstrooiing tijdens een begrafenis');
@@ -1174,13 +1365,31 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5'])); // Medemblik
         $offer->setAudience('public');
+        $manager->flush();
         $manager->persist($offer);
-        $offer->setId($id);
+        $product->setId($id);
         $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);$manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
+        $manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
 
         // Group Opperdoes Nieuw
         // Asartikelen
@@ -1217,7 +1426,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
-     
+
         $id = Uuid::fromString('14569bf0-8f5e-4799-bdc5-376e71c620d0');
         $product = new Product();
         $product->setName('Particulier graf 2 grafruimten 10 jaar');
@@ -1236,13 +1445,17 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 10 jaar');
         $offer->setPrice(1149);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1264,15 +1477,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 15 jaar');
         $offer->setPrice(1695);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('d0979ef3-c5cf-42c4-972a-8b76b8fff572');
         $product = new Product();
@@ -1292,15 +1510,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 20 jaar');
         $offer->setPrice(2241);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('a8fdf11d-beca-4264-aefd-179e6e6f7d3a');
         $product = new Product();
@@ -1320,13 +1543,17 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 25 jaar');
         $offer->setPrice(2787);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1348,15 +1575,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 30 jaar');
         $offer->setPrice(3333);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c372a1ee-5fcd-4da2-8234-19fe6880e268');
         $product = new Product();
@@ -1376,15 +1608,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 10 jaar');
         $offer->setPrice(1412);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('6127942a-786c-41ea-9066-dcb3051eb6ca');
         $product = new Product();
@@ -1404,15 +1641,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 15 jaar');
         $offer->setPrice(2082);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('5a0f892f-ffb5-4ee0-a936-9ac807daa0b9');
         $product = new Product();
@@ -1432,15 +1674,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 20 jaar');
         $offer->setPrice(2753);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('882e89c2-969e-4814-9713-e5e9fa786ba3');
         $product = new Product();
@@ -1460,15 +1707,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 25 jaar');
         $offer->setPrice(3423);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('aa65666f-5fda-43dc-a6ae-5e188372b553');
         $product = new Product();
@@ -1488,15 +1740,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 30 jaar');
         $offer->setPrice(4094);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('94fb8fca-5a69-40b1-a95f-5a7530628253');
         $product = new Product();
@@ -1516,13 +1773,17 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Algemeen graf');
         $offer->setPrice(756);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1544,15 +1805,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  10 jaar');
         $offer->setPrice(787);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('08772c67-c5f7-485b-9edd-6ac49b345da6');
         $product = new Product();
@@ -1572,15 +1838,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  15 jaar');
         $offer->setPrice(1160,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('983447d0-0291-4d84-b52f-f8712b2753cb');
         $product = new Product();
@@ -1600,15 +1871,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 20 jaar');
         $offer->setPrice(1534);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('9c110578-0af2-4ecf-8bc7-d06c75974676');
         $product = new Product();
@@ -1628,15 +1904,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  25 jaar');
         $offer->setPrice(1907,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('202306da-bd92-4546-aa11-231fad7a4ea4');
         $product = new Product();
@@ -1656,15 +1937,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 30 jaar');
         $offer->setPrice(2281);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
 
         $id = Uuid::fromString('aa7a8089-84bb-4244-ab07-9dee2049c026');
@@ -1685,15 +1971,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 10 jaar');
         $offer->setPrice(793);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('f3384bf5-0aca-49c8-b81c-a69f561b08c4');
         $product = new Product();
@@ -1713,15 +2004,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 15 jaar');
         $offer->setPrice(1169,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('cae5e495-7f6b-4c88-91e0-2acdad4b70e8');
         $product = new Product();
@@ -1741,15 +2037,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 20 jaar');
         $offer->setPrice(1546);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('26f87465-f524-4ccb-af1b-9bf868f67e76');
         $product = new Product();
@@ -1769,15 +2070,26 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 25 jaar');
         $offer->setPrice(1922);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
 
         $id = Uuid::fromString('fe1c661d-ef25-4a7c-8440-96dbe7321d23');
         $product = new Product();
@@ -1797,15 +2109,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 30 jaar');
         $offer->setPrice(2299);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         // Graf artikelen group gemeente Hoorn
         $id = Uuid::fromString('a61128bb-4b98-44b8-8262-48ebe123e550');
@@ -1840,15 +2157,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Afnemen en herplaatsen grafbedekking');
         $offer->setPrice(111,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('423a964e-04e4-43bf-b6e6-74967ce21a3e');
         $product = new Product();
@@ -1868,15 +2190,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Achterlaten grafhout');
         $offer->setPrice(325);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('f3b54f7c-c641-41ea-8d25-8c6df96978c7');
         $product = new Product();
@@ -1896,15 +2223,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik wachtruimte');
         $offer->setPrice(300);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('8fa619a6-6e31-4083-baa5-1925e059779a');
         $product = new Product();
@@ -1924,15 +2256,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Rijdende baar');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('665dc285-bba4-421e-95e6-6fc90155b611');
         $product = new Product();
@@ -1952,15 +2289,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik touwen');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c55dc922-9ee5-40e8-adbd-479737a32f6c');
         $product = new Product();
@@ -1980,15 +2322,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik graflift');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('e92d6f87-f47b-4101-b6e3-809aca834706');
         $product = new Product();
@@ -2008,15 +2355,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Zand & schepje');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('3d970bf1-8122-44df-8dc0-8665b08b6536');
         $product = new Product();
@@ -2036,15 +2388,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Vergunning voor grafsteen');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         // Grafsoorten group gemeente Koggenland
         $id = Uuid::fromString('4bc89791-dd77-479f-8df0-3fd10ce47839');
@@ -2079,15 +2436,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(1477,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('01cc9b07-0bc5-4083-871e-f70be493fa06');
         $product = new Product();
@@ -2107,15 +2469,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(738,9);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('ce26db3d-f632-4cb4-8883-48acbaaa7344');
         $product = new Product();
@@ -2135,15 +2502,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Grafkelder 20 jaar');
         $offer->setPrice(1477,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('5bb23945-53e4-403e-bbd4-d28781b4aa60');
         $product = new Product();
@@ -2163,15 +2535,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Huurgraf 20 jaar');
         $offer->setPrice(1477,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('9d6ef33e-be37-47aa-9c3f-8a7494058bcb');
         $product = new Product();
@@ -2191,15 +2568,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kindergraf 20 jaar');
         $offer->setPrice(814,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('b9e860fa-953f-4970-b064-b4c4261329a3');
         $product = new Product();
@@ -2219,15 +2601,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnengraf 20 jaar');
         $offer->setPrice(814,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         // Grafartikelen group gemeente Koggenland
         $id = Uuid::fromString('5e8e7223-e490-4e81-8f95-a3181b164a87');
@@ -2263,15 +2650,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kist dalen');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('fb10d945-599c-4680-b1b8-7438c819748a');
         $product = new Product();
@@ -2291,15 +2683,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kist dalen maaiveld');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('b0749172-9dd1-473a-89f6-e960b1a9730b');
         $product = new Product();
@@ -2319,15 +2716,21 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Klok luiden ');
         $offer->setPrice(32,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('75f09934-f21a-11ea-adc1-0242ac120002');
         $group = new Group();
@@ -2361,15 +2764,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Algemeen graf');
         $offer->setPrice(984,96);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
-            $manager->flush();
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('84dd1cc8-9e10-438b-87bc-ad4bd80b068a');
         $product = new Product();
@@ -2389,15 +2797,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Babygraf < 1 jaar 10 jaar');
         $offer->setPrice(508,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('da52c9c6-8d4c-4fff-a2cf-1d044f790645');
         $product = new Product();
@@ -2417,15 +2830,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gedenkteken');
         $offer->setPrice(66,3);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('0fee28df-6d93-4111-abb2-6e2fb30b2ff8');
         $product = new Product();
@@ -2445,15 +2863,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kindergraf > 1 jaar en < 12 jaar 10 jaar');
         $offer->setPrice(939,31);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('1d1d9eee-e939-4407-8f9e-6ce187b58e13');
         $product = new Product();
@@ -2473,15 +2896,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 10 jaar');
         $offer->setPrice(1662,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c7922bd1-7c13-4c94-a07c-85558ba2db4f');
         $product = new Product();
@@ -2501,15 +2929,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 20 jaar');
         $offer->setPrice(2656,74);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('87a23e89-d675-4cbc-bbd5-57256c76a96f');
         $product = new Product();
@@ -2529,15 +2962,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 30 jaar');
         $offer->setPrice(4066,83);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('f50b77d2-b6bd-4d9b-aa0e-8d576cdd800f');
         $product = new Product();
@@ -2557,15 +2995,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 10 jaar');
         $offer->setPrice(939,31);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('fe965b3c-11d9-46db-ae3b-78eeab89c2cc');
         $product = new Product();
@@ -2585,15 +3028,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 20 jaar');
         $offer->setPrice(1500,73);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c5e6452b-1c70-4906-b6a4-0b03a3ee27fd');
         $product = new Product();
@@ -2613,15 +3061,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 30 jaar');
         $offer->setPrice(2297,26);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('76c57d0b-d161-4ac5-80c4-cfed2ebbcf02');
         $product = new Product();
@@ -2641,15 +3094,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnengraf 10 jaar');
         $offer->setPrice(514,52);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('f3db6929-d2a7-4edd-855b-cdf883f88125');
         $product = new Product();
@@ -2669,15 +3127,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnengraf 20 jaar');
         $offer->setPrice(897,27);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c60a85a3-4c0f-46df-845b-f4f37a970298');
         $product = new Product();
@@ -2697,15 +3160,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnennis 10 jaar');
         $offer->setPrice(530,42);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('9a6ac934-ae25-4140-b7ab-100f3cc23a2a');
         $product = new Product();
@@ -2725,15 +3193,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnennis 20 jaar');
         $offer->setPrice(925,67);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         //Grafartikelen Medemblik
         $id = Uuid::fromString('be1c4617-0fb4-4c20-a759-cd9d230463f1');
@@ -2768,15 +3241,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Afwijkende maten kist ');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('ffa3dc42-ab1c-42b7-a27b-68407be78853');
         $product = new Product();
@@ -2796,15 +3274,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Geluidsinstallatie');
         $offer->setPrice(30);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('cc6d92a8-d5cd-484e-90ed-9ba5665f555e');
         $product = new Product();
@@ -2824,15 +3307,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kist dalen');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('b77371e9-adcf-4dff-8a35-d5cdb3d5f1a4');
         $product = new Product();
@@ -2852,15 +3340,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kist dalen i.a.v. familie');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('6be20b4b-6e7e-4d6b-b6be-f108b2125258');
         $product = new Product();
@@ -2880,15 +3373,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Rijdende baar ');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('7036af99-b4b2-4999-9591-a22e62e621cd');
         $product = new Product();
@@ -2908,15 +3406,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Tijdelijke grafmarkering');
         $offer->setPrice(34,64);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('dcf921d1-512e-4f6d-8bcd-1973d191592d');
         $product = new Product();
@@ -2936,15 +3439,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Verwijderd de familie zelf linten, kruisjes e.d. binnen 2 weken');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('a2ce90f5-e8ed-4425-b7b3-8d26c547925e');
         $product = new Product();
@@ -2964,15 +3472,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Zand & schepje');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         // Grafsoorten group gemeente Opmeer
         $id = Uuid::fromString('c0379617-0d36-406b-8a99-e230aad496bf');
@@ -3007,15 +3520,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <1 jaar algemeen graf');
         $offer->setPrice(124,6);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('6b0650c1-7588-4d40-b1aa-aa6dc769d69b');
         $product = new Product();
@@ -3035,15 +3553,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <1 jaar particulier graf');
         $offer->setPrice(124,6);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('68b5f51d-4d0c-4849-aba3-73074bc7ca36');
         $product = new Product();
@@ -3063,15 +3586,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <12 jaar algemeen graf');
         $offer->setPrice(377,75);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('338a0b96-b884-48fa-8240-17a5d3df0951');
         $product = new Product();
@@ -3091,15 +3619,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <12 jaar particulier graf');
         $offer->setPrice(377,75);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('a39ef8c2-c5f2-4b08-9e26-a9d02b073dbc');
         $product = new Product();
@@ -3119,15 +3652,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot >12 jaar algemeen graf');
         $offer->setPrice(755,45);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('b300fc37-15fa-4353-9bc3-aa7c770ca90c');
         $product = new Product();
@@ -3147,15 +3685,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot >12 jaar particulier graf');
         $offer->setPrice(755,45);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('3f8b6545-4712-4cfe-abaa-251acc6f9f5d');
         $product = new Product();
@@ -3175,15 +3718,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kindergraf <12 jaar 20 jaar');
         $offer->setPrice(436,25);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('d9d90f9d-84e0-444b-9c02-7f3eaadfbee5');
         $product = new Product();
@@ -3203,15 +3751,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Kindergraf <12 jaar 30 jaar');
         $offer->setPrice(655,65);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('0afc4ba0-8d7a-4cce-8e13-1dbd82385ecb');
         $product = new Product();
@@ -3231,15 +3784,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 10 jaar');
         $offer->setPrice(825,2);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('32a240fe-7878-4f39-b074-8e8d493ba4c4');
         $product = new Product();
@@ -3259,15 +3817,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 20 jaar');
         $offer->setPrice(1635);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('2efd849f-f6e8-470f-a76e-7c03954d127f');
         $product = new Product();
@@ -3287,15 +3850,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 30 jaar');
         $offer->setPrice(2468,8);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('b33d40f9-4279-4bf9-9319-f1742e4cde09');
         $product = new Product();
@@ -3315,15 +3883,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf bestaand 20 jaar');
         $offer->setPrice(873,85);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c1ac39a5-3646-4e33-b611-1f90f547e292');
         $product = new Product();
@@ -3343,15 +3916,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf bestaand 30 jaar');
         $offer->setPrice(1311,4);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('4fc37b50-41b1-439d-bcc7-2d1b22c3f80b');
         $product = new Product();
@@ -3371,15 +3949,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf nieuw 20 jaar');
         $offer->setPrice(873,85);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('2d08e8d7-9775-491e-8001-6d3e2742d413');
         $product = new Product();
@@ -3399,15 +3982,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Particulier graf nieuw 30 jaar');
         $offer->setPrice(1311,4);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('13120bee-b3a8-4f63-b8b6-54710659073f');
         $product = new Product();
@@ -3427,14 +4015,25 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnengraf  20 jaar');
         $offer->setPrice(654,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $manager->flush();
+        $product->setId($id);
+        $manager->flush();
+        $manager->persist($offer);
+        $product->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
         $manager->flush();
 
         $id = Uuid::fromString('9fc308bb-68f5-420c-aa13-5e7eb892d694');
@@ -3455,15 +4054,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Urnengraf  30 jaar');
         $offer->setPrice(983,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('45e0ff56-d133-4e6f-ae65-40133796c344');
         $product = new Product();
@@ -3483,15 +4087,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Verlengen kindergraf 10 jaar');
         $offer->setPrice(218,15);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('e00fea20-9031-4074-8dd9-ac4e8a3ae6fd');
         $product = new Product();
@@ -3511,15 +4120,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Verlengen particulier grafrecht 10 jaar');
         $offer->setPrice(436,25);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('9699098d-fbca-4118-a0c1-43ceb5eeb5e0');
         $product = new Product();
@@ -3539,15 +4153,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Verlengen urnengraf 10 jaar');
         $offer->setPrice(329,9);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         //Grafartikelen group gemeente Opmeer
         $id = Uuid::fromString('04c9ff43-286a-48db-b0db-6afe32bdddb0');
@@ -3586,15 +4205,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Afwijkende maten kist');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('6c740f8b-ff40-46be-aa39-44b6bce90bb5');
         $product = new Product();
@@ -3614,15 +4238,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Draagbaar');
         $offer->setPrice(60,5);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('55d3b52f-4ea6-40f0-97a5-4dacda0d715b');
         $product = new Product();
@@ -3642,15 +4271,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Grafgroen');
         $offer->setPrice(108,9);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('c4b10806-ceb0-4fac-9113-64400165eab9');
         $product = new Product();
@@ -3670,15 +4304,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik graflift');
         $offer->setPrice(82,85);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('6847c5c4-d709-4cdb-b877-19b4390011f9');
         $product = new Product();
@@ -3698,15 +4337,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Klok luiden');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('668782fa-532b-4a37-99f2-31b8e03d882a');
         $product = new Product();
@@ -3726,15 +4370,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Rijdende baar');
         $offer->setPrice(110,4);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('56864733-617d-4d51-ae97-207c38f05174');
         $product = new Product();
@@ -3754,15 +4403,20 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Touwen & balkjes');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
 
         $id = Uuid::fromString('df84eadb-4539-47ae-aa76-1250ca1a423c');
         $product = new Product();
@@ -3782,14 +4436,19 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
+        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Zelf afrollen steen bestaand graf');
         $offer->setPrice(0);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);
+        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+
     }
 }
