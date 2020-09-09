@@ -840,7 +840,6 @@ class WestFrieslandFixtures extends Fixture
         // Offers WognumKreekland
         // Gebruik Orgel
         $id = Uuid::fromString('f791ae50-c471-40e9-8ac9-53975c89b328');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Orgel');
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
@@ -876,7 +875,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('576550f6-aca2-42e0-a994-7625f427d0e1');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Koffiekamer');
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
@@ -912,7 +910,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Gebruik CD speler
         $id = Uuid::fromString('3a7f1f81-94d3-49f6-86d3-3d1479277632');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik CD speler');
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
@@ -987,7 +984,6 @@ class WestFrieslandFixtures extends Fixture
         // Offers WognumKreekland
         // Bijzetting Urn
         $id = Uuid::fromString('b385925a-0b44-45f1-9ac2-930329b00916');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Urn');
         $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
@@ -1023,7 +1019,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Bijzetting Asbus
         $id = Uuid::fromString('ccaae856-1060-4d25-8537-b4ac11fd06c3');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Asbus');
         $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
@@ -1098,7 +1093,6 @@ class WestFrieslandFixtures extends Fixture
         // Offers Hogeland
         // Bijzetting Urn
         $id = Uuid::fromString('ee69099b-d5db-43d9-9ac2-1cc338654a84');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Urn');
         $offer->setDescription('De toepassing van een bijzetting urn tijdens een begrafenis');
@@ -1134,7 +1128,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Bijzetting Asbus
         $id = Uuid::fromString('9145ae9c-3b8f-452e-bc39-731c31450275');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Bijzetting Asbus');
         $offer->setDescription('De toepassing van een bijzetting asbus tijdens een begrafenis');
@@ -1209,7 +1202,6 @@ class WestFrieslandFixtures extends Fixture
         // Offers Opperdoes Nieuw
         // Gebruik Orgel
         $id = Uuid::fromString('72183cad-0023-44f5-b743-d0c7eb8f3745');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Orgel');
         $offer->setDescription('Gebruik van een orgel tijdens een begrafenis');
@@ -1245,7 +1237,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Gebruik Koffiekamer
         $id = Uuid::fromString('940a4bc2-f7c1-4d39-9764-32d36aa0c26a');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik Koffiekamer');
         $offer->setDescription('Gebruik van een koffiekamer tijdens een begrafenis');
@@ -1282,7 +1273,6 @@ class WestFrieslandFixtures extends Fixture
 
         // Gebruik CD speler
         $id = Uuid::fromString('61ced7cd-1b30-444b-b46d-d1fa49b05ab1');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Gebruik CD speler');
         $offer->setDescription('Gebruik van een CD speler tijdens een begrafenis');
@@ -1357,7 +1347,6 @@ class WestFrieslandFixtures extends Fixture
         // Offers Opperdoes Nieuw
         // Asverstrooiing
         $id = Uuid::fromString('5bbe119d-718c-4b04-82df-63495854b4f4');
-        $id = Uuid::fromString('');
         $offer = new Offer();
         $offer->setName('Asverstrooiing');
         $offer->setDescription('De toepassing van asverstrooiing tijdens een begrafenis');
@@ -1445,7 +1434,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('d4b24164-d9b1-4ba2-88d0-8b6fa824e4e1');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 10 jaar');
         $offer->setPrice(1149);
@@ -1477,7 +1466,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('7b5fce93-74e0-4c76-8cbc-e15ace38550b');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 15 jaar');
         $offer->setPrice(1695);
@@ -1510,7 +1499,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('1acceb68-093a-4748-b789-943fa28e7f1d');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 20 jaar');
         $offer->setPrice(2241);
@@ -1543,7 +1532,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('3927b4af-7d17-468c-8b68-61f9353767e5');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 25 jaar');
         $offer->setPrice(2787);
@@ -1575,7 +1564,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('d47ef66d-da4d-4f5d-8a92-80fdfae344c4');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 30 jaar');
         $offer->setPrice(3333);
@@ -1608,7 +1597,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('8b1c0ee7-370e-4bb7-8008-5065448bd9c8');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 10 jaar');
         $offer->setPrice(1412);
@@ -1641,7 +1630,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c889d2bb-f45f-46df-bfc5-156ca38c38cd');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 15 jaar');
         $offer->setPrice(2082);
@@ -1674,7 +1663,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('937cc468-6adf-439d-83bd-685e4624e7f6');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 20 jaar');
         $offer->setPrice(2753);
@@ -1707,7 +1696,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('9f1aadd7-3a5c-42b6-9779-e6b00d755274');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 25 jaar');
         $offer->setPrice(3423);
@@ -1740,7 +1729,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('4bef2a5a-55ae-46a0-8d33-22d7d44ce6ca');
         $offer = new Offer();
         $offer->setName('Particulier graf 3 grafruimten 30 jaar');
         $offer->setPrice(4094);
@@ -1773,7 +1762,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('52d8d8cd-6d0a-4a0e-b9c2-fc9fcf115889');
         $offer = new Offer();
         $offer->setName('Algemeen graf');
         $offer->setPrice(756);
@@ -1805,7 +1794,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('53a25564-0a5a-41b4-a007-1c9936b605ed');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  10 jaar');
         $offer->setPrice(787);
@@ -1838,7 +1827,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('39bdd6b4-105e-431d-9a8e-f6651610fd9a');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  15 jaar');
         $offer->setPrice(1160,5);
@@ -1871,7 +1860,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e3fda824-14c0-42e9-8f75-b0a6f4bdb55a');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 20 jaar');
         $offer->setPrice(1534);
@@ -1904,7 +1893,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('99521839-d9c4-474e-8c06-34d10c5167d6');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf  25 jaar');
         $offer->setPrice(1907,5);
@@ -1937,7 +1926,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('d1d15849-17a8-4bd1-afd1-f698c225aaa1');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 30 jaar');
         $offer->setPrice(2281);
@@ -1971,7 +1960,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('5bfc2ebd-4be6-4865-919d-9e4cc6a3a7dc');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 10 jaar');
         $offer->setPrice(793);
@@ -2004,7 +1993,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('45372a08-fa3a-4f1e-8fb2-cc3df2ece350');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 15 jaar');
         $offer->setPrice(1169,5);
@@ -2037,7 +2026,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('80a93f9c-6a4d-4092-afa9-325c7785cf7d');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 20 jaar');
         $offer->setPrice(1546);
@@ -2070,7 +2059,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('6d907b40-ff9d-43f6-ae99-689cb4af9eaf');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 25 jaar');
         $offer->setPrice(1922);
@@ -2109,7 +2098,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('9194af3a-f947-4187-9c9b-9ceb16760ae8');
         $offer = new Offer();
         $offer->setName('Particuliere urnennis of urnengraf 30 jaar');
         $offer->setPrice(2299);
@@ -2157,7 +2146,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e9b22b3b-bd7d-4eef-bcd3-d7f72f301380');
         $offer = new Offer();
         $offer->setName('Afnemen en herplaatsen grafbedekking');
         $offer->setPrice(111,5);
@@ -2190,7 +2179,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('0079a7e0-890d-48f0-88ef-4f94f4229fbf');
         $offer = new Offer();
         $offer->setName('Achterlaten grafhout');
         $offer->setPrice(325);
@@ -2223,7 +2212,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('24ae9a41-f85f-4a29-9aad-b0c36e9b142f');
         $offer = new Offer();
         $offer->setName('Gebruik wachtruimte');
         $offer->setPrice(300);
@@ -2256,7 +2245,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('8cd7c828-23cf-4276-bc3e-0cda20317548');
         $offer = new Offer();
         $offer->setName('Rijdende baar');
         $offer->setPrice(0);
@@ -2289,7 +2278,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('b2db3a15-ee6e-4513-b44f-f126370a5ef7');
         $offer = new Offer();
         $offer->setName('Gebruik touwen');
         $offer->setPrice(0);
@@ -2322,7 +2311,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('387b9afd-b7eb-4a42-98fb-e2369bb9bb42');
         $offer = new Offer();
         $offer->setName('Gebruik graflift');
         $offer->setPrice(0);
@@ -2355,7 +2344,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('323ba791-e842-4e84-a54a-b5e4c6020198');
         $offer = new Offer();
         $offer->setName('Zand & schepje');
         $offer->setPrice(0);
@@ -2388,7 +2377,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('697b6cb7-fd30-4f06-8dfd-98b2d0d6adcc');
         $offer = new Offer();
         $offer->setName('Vergunning voor grafsteen');
         $offer->setPrice(0);
@@ -2436,7 +2425,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('3df3a061-4e6b-4c80-832f-6199a19c0fad');
         $offer = new Offer();
         $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(1477,8);
@@ -2469,7 +2458,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('87ac4ab3-1e14-4494-b016-b61fb9ce3683');
         $offer = new Offer();
         $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(738,9);
@@ -2502,7 +2491,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('56f59acc-badd-4337-b318-5f492d6d407b');
         $offer = new Offer();
         $offer->setName('Grafkelder 20 jaar');
         $offer->setPrice(1477,8);
@@ -2535,7 +2524,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e628b6e6-1ab4-4ae7-ab05-b52e62289527');
         $offer = new Offer();
         $offer->setName('Huurgraf 20 jaar');
         $offer->setPrice(1477,8);
@@ -2568,7 +2557,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('bde4ef6a-705d-415b-99e8-d50ab7a55784');
         $offer = new Offer();
         $offer->setName('Kindergraf 20 jaar');
         $offer->setPrice(814,5);
@@ -2601,7 +2590,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('90e9471e-149d-4d6d-b2bb-8b448e129564');
         $offer = new Offer();
         $offer->setName('Urnengraf 20 jaar');
         $offer->setPrice(814,5);
@@ -2650,7 +2639,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('fef7d24b-c4fb-484b-b589-4e879e2525cc');
         $offer = new Offer();
         $offer->setName('Kist dalen');
         $offer->setPrice(0);
@@ -2683,7 +2672,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('9d774b26-bef3-44f0-bf3d-619b83bc8627');
         $offer = new Offer();
         $offer->setName('Kist dalen maaiveld');
         $offer->setPrice(0);
@@ -2716,8 +2705,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e3c842f2-10c0-476a-93fa-7f3a350424df');
         $offer = new Offer();
         $offer->setName('Klok luiden ');
         $offer->setPrice(32,8);
@@ -2764,7 +2752,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('824c2257-ec40-4d83-a6b1-55aacf3cea8e');
         $offer = new Offer();
         $offer->setName('Algemeen graf');
         $offer->setPrice(984,96);
@@ -2797,7 +2785,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c5e5f264-33d5-403b-8627-12805db71977');
         $offer = new Offer();
         $offer->setName('Babygraf < 1 jaar 10 jaar');
         $offer->setPrice(508,5);
@@ -2830,7 +2818,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c46852a7-7360-45d7-b1b8-d7c8db280554');
         $offer = new Offer();
         $offer->setName('Gedenkteken');
         $offer->setPrice(66,3);
@@ -2863,7 +2851,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('192df091-8996-46ef-8404-878c9353f6f3');
         $offer = new Offer();
         $offer->setName('Kindergraf > 1 jaar en < 12 jaar 10 jaar');
         $offer->setPrice(939,31);
@@ -2896,7 +2884,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('b2a6c2b7-90af-489b-b74b-26cf23315edf');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 10 jaar');
         $offer->setPrice(1662,8);
@@ -2929,7 +2917,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('5aea83ac-730a-41a0-bda6-78bd18657a8c');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 20 jaar');
         $offer->setPrice(2656,74);
@@ -2962,7 +2950,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('f7e12f65-3fd4-4e9f-a243-63bce5c68bf7');
         $offer = new Offer();
         $offer->setName('Particulier graf 2 grafruimten 30 jaar');
         $offer->setPrice(4066,83);
@@ -2995,7 +2983,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('aff6f5de-3b84-4c01-9dc7-7901acd3bd69');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 10 jaar');
         $offer->setPrice(939,31);
@@ -3028,7 +3016,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('0648fe93-3191-4709-81ac-88ced7900bc3');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 20 jaar');
         $offer->setPrice(1500,73);
@@ -3061,7 +3049,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('4b224844-75c5-4901-a845-d8372dc3f5c9');
         $offer = new Offer();
         $offer->setName('Particulier kindergraf 30 jaar');
         $offer->setPrice(2297,26);
@@ -3094,7 +3082,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('a7fa5932-4f47-4821-915d-80dc5f39321b');
         $offer = new Offer();
         $offer->setName('Urnengraf 10 jaar');
         $offer->setPrice(514,52);
@@ -3127,7 +3115,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('661ad4b2-d795-47bd-8084-8506bb7351c2');
         $offer = new Offer();
         $offer->setName('Urnengraf 20 jaar');
         $offer->setPrice(897,27);
@@ -3160,7 +3148,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('9f81edef-089f-45a9-88b6-4651154ca09c');
         $offer = new Offer();
         $offer->setName('Urnennis 10 jaar');
         $offer->setPrice(530,42);
@@ -3193,7 +3181,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('ac610563-d854-44f7-b28c-7f5361d1e630');
         $offer = new Offer();
         $offer->setName('Urnennis 20 jaar');
         $offer->setPrice(925,67);
@@ -3241,7 +3229,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c1339e71-229b-47d0-b9f0-be547f181227');
         $offer = new Offer();
         $offer->setName('Afwijkende maten kist ');
         $offer->setPrice(0);
@@ -3274,7 +3262,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('58a31d95-2e7b-45c0-8348-f970d9cb43cf');
         $offer = new Offer();
         $offer->setName('Geluidsinstallatie');
         $offer->setPrice(30);
@@ -3307,7 +3295,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('564b84f2-88fe-4855-b96a-e6bacedde520');
         $offer = new Offer();
         $offer->setName('Kist dalen');
         $offer->setPrice(0);
@@ -3340,7 +3328,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('52afd0b6-026c-4954-80dd-a6c50f25d80d');
         $offer = new Offer();
         $offer->setName('Kist dalen i.a.v. familie');
         $offer->setPrice(0);
@@ -3373,7 +3361,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('7be99fe5-d0a4-4b8b-8294-820b60ae9342');
         $offer = new Offer();
         $offer->setName('Rijdende baar ');
         $offer->setPrice(0);
@@ -3406,7 +3394,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('0c491259-dd4d-4d8b-9394-b751ff552809');
         $offer = new Offer();
         $offer->setName('Tijdelijke grafmarkering');
         $offer->setPrice(34,64);
@@ -3439,7 +3427,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('bc985d99-b1be-48ba-96a6-e14c03ce5a7c');
         $offer = new Offer();
         $offer->setName('Verwijderd de familie zelf linten, kruisjes e.d. binnen 2 weken');
         $offer->setPrice(0);
@@ -3472,7 +3460,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('169c7c53-0e68-49ed-a071-a054dc081494');
         $offer = new Offer();
         $offer->setName('Zand & schepje');
         $offer->setPrice(0);
@@ -3520,7 +3508,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('616efe62-7414-49a0-8cb7-ad15ff598554');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <1 jaar algemeen graf');
         $offer->setPrice(124,6);
@@ -3553,7 +3541,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('ff3812aa-bb21-433b-8b87-f9694726ef8e');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <1 jaar particulier graf');
         $offer->setPrice(124,6);
@@ -3586,7 +3574,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('aca1b3e4-b9a9-4395-adb7-8ad80bf0d8bb');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <12 jaar algemeen graf');
         $offer->setPrice(377,75);
@@ -3619,7 +3607,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('51fdd207-02b2-4135-8160-275918bc3d6c');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot <12 jaar particulier graf');
         $offer->setPrice(377,75);
@@ -3652,7 +3640,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('fa3575f7-150b-4c38-9c52-cfbdb84c42cd');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot >12 jaar algemeen graf');
         $offer->setPrice(755,45);
@@ -3685,7 +3673,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('827506a6-b5fa-40bd-8ef5-ef203bee926e');
         $offer = new Offer();
         $offer->setName('Begraven stoffelijk overschot >12 jaar particulier graf');
         $offer->setPrice(755,45);
@@ -3718,7 +3706,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('774b52d1-af2f-48de-8a7a-c23241c61720');
         $offer = new Offer();
         $offer->setName('Kindergraf <12 jaar 20 jaar');
         $offer->setPrice(436,25);
@@ -3751,7 +3739,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('ac51b66c-7b43-48b0-aca6-39857ed2a617');
         $offer = new Offer();
         $offer->setName('Kindergraf <12 jaar 30 jaar');
         $offer->setPrice(655,65);
@@ -3784,7 +3772,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c3ffcefe-6a0b-4403-89c2-5b983f5c4f87');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 10 jaar');
         $offer->setPrice(825,2);
@@ -3817,7 +3805,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('2168686a-bab3-42f2-835f-3719106ca2fc');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 20 jaar');
         $offer->setPrice(1635);
@@ -3850,7 +3838,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('754da628-c3a8-4dcd-81ec-4bd5b018d381');
         $offer = new Offer();
         $offer->setName('Onderhoudsrechten 30 jaar');
         $offer->setPrice(2468,8);
@@ -3883,7 +3871,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('7f62de42-b08c-4eb8-8787-d1e453c1b4dc');
         $offer = new Offer();
         $offer->setName('Particulier graf bestaand 20 jaar');
         $offer->setPrice(873,85);
@@ -3916,7 +3904,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('e00ccd5f-0688-442b-95e7-a62204684d85');
         $offer = new Offer();
         $offer->setName('Particulier graf bestaand 30 jaar');
         $offer->setPrice(1311,4);
@@ -3949,7 +3937,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('30d106a3-93e9-4d39-a4f2-ce70b7f94b4b');
         $offer = new Offer();
         $offer->setName('Particulier graf nieuw 20 jaar');
         $offer->setPrice(873,85);
@@ -3982,7 +3970,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('caf63829-85d6-4183-8e0b-104d22b5e71b');
         $offer = new Offer();
         $offer->setName('Particulier graf nieuw 30 jaar');
         $offer->setPrice(1311,4);
@@ -4015,7 +4003,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('400046e6-3183-4578-aead-0b18fd986731');
         $offer = new Offer();
         $offer->setName('Urnengraf  20 jaar');
         $offer->setPrice(654,5);
@@ -4054,7 +4042,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('1769a761-b293-4e6e-900c-5590f2b37e73');
         $offer = new Offer();
         $offer->setName('Urnengraf  30 jaar');
         $offer->setPrice(983,5);
@@ -4087,7 +4075,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('c6500b93-e378-4df0-a3aa-fe776a0f0af4');
         $offer = new Offer();
         $offer->setName('Verlengen kindergraf 10 jaar');
         $offer->setPrice(218,15);
@@ -4120,7 +4108,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('22252caf-5ab3-4712-a16c-85986ecbaa76');
         $offer = new Offer();
         $offer->setName('Verlengen particulier grafrecht 10 jaar');
         $offer->setPrice(436,25);
@@ -4153,7 +4141,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('79cbad21-d5e1-467a-b468-6807f7a274bd');
         $offer = new Offer();
         $offer->setName('Verlengen urnengraf 10 jaar');
         $offer->setPrice(329,9);
@@ -4205,7 +4193,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('5ebf9168-8652-4d12-9634-9397698f6837');
         $offer = new Offer();
         $offer->setName('Afwijkende maten kist');
         $offer->setPrice(0);
@@ -4238,7 +4226,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('06b5738c-3fd0-40d7-8e9d-46de99d001b2');
         $offer = new Offer();
         $offer->setName('Draagbaar');
         $offer->setPrice(60,5);
@@ -4271,7 +4259,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('dd4de504-20d3-4188-8362-3b2c7bc484d2');
         $offer = new Offer();
         $offer->setName('Grafgroen');
         $offer->setPrice(108,9);
@@ -4304,7 +4292,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('4376191b-95e1-4ee2-9074-b96d0de509ce');
         $offer = new Offer();
         $offer->setName('Gebruik graflift');
         $offer->setPrice(82,85);
@@ -4337,7 +4325,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('f39d9370-7fa5-4e59-b7f8-e18880fd9cce');
         $offer = new Offer();
         $offer->setName('Klok luiden');
         $offer->setPrice(0);
@@ -4370,7 +4358,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('87c69950-a3af-4b69-8557-4101f7c4a191');
         $offer = new Offer();
         $offer->setName('Rijdende baar');
         $offer->setPrice(110,4);
@@ -4403,7 +4391,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('258e4659-3ad1-41bb-950c-83b02ce0965c');
         $offer = new Offer();
         $offer->setName('Touwen & balkjes');
         $offer->setPrice(0);
@@ -4436,7 +4424,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($group);
         $manager->flush();
 
-        $id = Uuid::fromString('');
+        $id = Uuid::fromString('5d5f1444-c973-497c-a85e-e73a2c3134be');
         $offer = new Offer();
         $offer->setName('Zelf afrollen steen bestaand graf');
         $offer->setPrice(0);
