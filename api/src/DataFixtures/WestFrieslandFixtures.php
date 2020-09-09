@@ -1844,7 +1844,6 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($offer);
         $manager->flush();
 
-
         $id = Uuid::fromString('08772c67-c5f7-485b-9edd-6ac49b345da6');
         $product = new Product();
         $product->setName('Particulier kindergraf  15 jaar');
@@ -3350,7 +3349,7 @@ class WestFrieslandFixtures extends Fixture
         $group->setName('Grafartikelen Medemblik');
         $group->setDescription('Een groep voor de grafartikelen van de gemeente Medemblik');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384'])); // Hoorn
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $group->setCatalogue($medemblik);
         $manager->persist($group);
         $group->setId($id);
