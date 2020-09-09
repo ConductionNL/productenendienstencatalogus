@@ -1441,10 +1441,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1473,10 +1476,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1506,10 +1512,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1539,10 +1548,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1571,10 +1583,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1604,10 +1619,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1637,10 +1655,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1670,10 +1691,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1703,10 +1727,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1736,10 +1763,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1769,10 +1799,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1801,10 +1834,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1834,10 +1870,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1867,10 +1906,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1900,10 +1942,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1933,10 +1978,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1967,10 +2015,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2000,10 +2051,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2033,10 +2087,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2066,18 +2123,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
         $manager->persist($offer);
         $manager->flush();
-        $manager->flush();
-        $product->setId($id);
-        $manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
+        $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
         $manager->flush();
 
         $id = Uuid::fromString('fe1c661d-ef25-4a7c-8440-96dbe7321d23');
@@ -2105,10 +2158,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2153,10 +2209,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2186,13 +2245,17 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
+        // tot hier offers bijgewerkt
 
         $id = Uuid::fromString('f3b54f7c-c641-41ea-8d25-8c6df96978c7');
         $product = new Product();
@@ -2219,10 +2282,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2252,10 +2318,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2285,10 +2354,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2318,10 +2390,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2351,10 +2426,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2384,10 +2462,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2432,10 +2513,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2465,10 +2549,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2498,10 +2585,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2531,10 +2621,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2564,10 +2657,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2597,10 +2693,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2646,10 +2745,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2679,10 +2781,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2712,10 +2817,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2759,13 +2867,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('84dd1cc8-9e10-438b-87bc-ad4bd80b068a');
         $product = new Product();
@@ -2792,10 +2902,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2825,13 +2938,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('0fee28df-6d93-4111-abb2-6e2fb30b2ff8');
         $product = new Product();
@@ -2858,13 +2973,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('1d1d9eee-e939-4407-8f9e-6ce187b58e13');
         $product = new Product();
@@ -2891,10 +3008,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2924,10 +3044,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2957,10 +3080,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2990,10 +3116,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3023,10 +3152,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3056,10 +3188,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3089,10 +3224,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3122,10 +3260,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3155,10 +3296,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3188,10 +3332,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3236,10 +3383,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3269,10 +3419,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3302,13 +3455,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('b77371e9-adcf-4dff-8a35-d5cdb3d5f1a4');
         $product = new Product();
@@ -3335,10 +3490,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3368,10 +3526,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3401,10 +3562,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3434,10 +3598,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3467,10 +3634,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3515,10 +3685,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3548,10 +3721,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3581,10 +3757,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3614,10 +3793,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3647,10 +3829,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3680,10 +3865,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3713,13 +3901,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('d9d90f9d-84e0-444b-9c02-7f3eaadfbee5');
         $product = new Product();
@@ -3746,10 +3936,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3779,10 +3972,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3812,10 +4008,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3845,10 +4044,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3878,10 +4080,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3911,10 +4116,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3944,10 +4152,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3977,10 +4188,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4010,18 +4224,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
         $manager->persist($offer);
         $manager->flush();
-        $manager->flush();
-        $product->setId($id);
-        $manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
+        $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
         $manager->flush();
 
         $id = Uuid::fromString('9fc308bb-68f5-420c-aa13-5e7eb892d694');
@@ -4049,13 +4259,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('45e0ff56-d133-4e6f-ae65-40133796c344');
         $product = new Product();
@@ -4082,10 +4294,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4115,10 +4330,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4148,10 +4366,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4200,10 +4421,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4233,10 +4457,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4266,10 +4493,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4299,10 +4529,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4332,10 +4565,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4365,10 +4601,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4398,10 +4637,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4431,12 +4673,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
     }
 }
