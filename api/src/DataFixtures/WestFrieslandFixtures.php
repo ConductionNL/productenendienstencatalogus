@@ -1441,10 +1441,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1473,10 +1476,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1506,10 +1512,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1539,10 +1548,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1571,10 +1583,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1604,10 +1619,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1637,10 +1655,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1670,10 +1691,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1703,10 +1727,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1736,10 +1763,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1769,10 +1799,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1801,13 +1834,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('08772c67-c5f7-485b-9edd-6ac49b345da6');
         $product = new Product();
@@ -1834,10 +1869,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1867,10 +1905,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1900,10 +1941,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -1933,187 +1977,198 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
-
-
-        $id = Uuid::fromString('aa7a8089-84bb-4244-ab07-9dee2049c026');
-        $product = new Product();
-        $product->setName('Particuliere urnennis of urnengraf 10 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($hoorn);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('5bfc2ebd-4be6-4865-919d-9e4cc6a3a7dc');
-        $offer = new Offer();
-        $offer->setName('Particuliere urnennis of urnengraf 10 jaar');
-        $offer->setPrice(793);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
 
-        $id = Uuid::fromString('f3384bf5-0aca-49c8-b81c-a69f561b08c4');
-        $product = new Product();
-        $product->setName('Particuliere urnennis of urnengraf 15 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($hoorn);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
 
-        $id = Uuid::fromString('45372a08-fa3a-4f1e-8fb2-cc3df2ece350');
-        $offer = new Offer();
-        $offer->setName('Particuliere urnennis of urnengraf 15 jaar');
-        $offer->setPrice(1169,5);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+        // $id = Uuid::fromString('aa7a8089-84bb-4244-ab07-9dee2049c026');
+        // $product = new Product();
+        // $product->setName('Particuliere urnennis of urnengraf 10 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($hoorn);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
-
-        $id = Uuid::fromString('cae5e495-7f6b-4c88-91e0-2acdad4b70e8');
-        $product = new Product();
-        $product->setName('Particuliere urnennis of urnengraf 20 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($hoorn);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('80a93f9c-6a4d-4092-afa9-325c7785cf7d');
-        $offer = new Offer();
-        $offer->setName('Particuliere urnennis of urnengraf 20 jaar');
-        $offer->setPrice(1546);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+        // $id = Uuid::fromString('5bfc2ebd-4be6-4865-919d-9e4cc6a3a7dc');
+        // $offer = new Offer();
+        // $offer->setName('Particuliere urnennis of urnengraf 10 jaar');
+        // $offer->setPrice(793);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
-        $id = Uuid::fromString('26f87465-f524-4ccb-af1b-9bf868f67e76');
-        $product = new Product();
-        $product->setName('Particuliere urnennis of urnengraf 25 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($hoorn);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('f3384bf5-0aca-49c8-b81c-a69f561b08c4');
+        // $product = new Product();
+        // $product->setName('Particuliere urnennis of urnengraf 15 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($hoorn);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
-        $id = Uuid::fromString('6d907b40-ff9d-43f6-ae99-689cb4af9eaf');
-        $offer = new Offer();
-        $offer->setName('Particuliere urnennis of urnengraf 25 jaar');
-        $offer->setPrice(1922);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $manager->flush();
-        $product->setId($id);
-        $manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $manager->flush();
-
-        $id = Uuid::fromString('fe1c661d-ef25-4a7c-8440-96dbe7321d23');
-        $product = new Product();
-        $product->setName('Particuliere urnennis of urnengraf 30 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($hoorn);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('9194af3a-f947-4187-9c9b-9ceb16760ae8');
-        $offer = new Offer();
-        $offer->setName('Particuliere urnennis of urnengraf 30 jaar');
-        $offer->setPrice(2299);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+        // $id = Uuid::fromString('45372a08-fa3a-4f1e-8fb2-cc3df2ece350');
+        // $offer = new Offer();
+        // $offer->setName('Particuliere urnennis of urnengraf 15 jaar');
+        // $offer->setPrice(1169,5);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
-        // Graf artikelen group gemeente Hoorn
+        // $id = Uuid::fromString('cae5e495-7f6b-4c88-91e0-2acdad4b70e8');
+        // $product = new Product();
+        // $product->setName('Particuliere urnennis of urnengraf 20 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($hoorn);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('80a93f9c-6a4d-4092-afa9-325c7785cf7d');
+        // $offer = new Offer();
+        // $offer->setName('Particuliere urnennis of urnengraf 20 jaar');
+        // $offer->setPrice(1546);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+
+        // $id = Uuid::fromString('26f87465-f524-4ccb-af1b-9bf868f67e76');
+        // $product = new Product();
+        // $product->setName('Particuliere urnennis of urnengraf 25 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($hoorn);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('6d907b40-ff9d-43f6-ae99-689cb4af9eaf');
+        // $offer = new Offer();
+        // $offer->setName('Particuliere urnennis of urnengraf 25 jaar');
+        // $offer->setPrice(1922);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('fe1c661d-ef25-4a7c-8440-96dbe7321d23');
+        // $product = new Product();
+        // $product->setName('Particuliere urnennis of urnengraf 30 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($hoorn);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('9194af3a-f947-4187-9c9b-9ceb16760ae8');
+        // $offer = new Offer();
+        // $offer->setName('Particuliere urnennis of urnengraf 30 jaar');
+        // $offer->setPrice(2299);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+
+        // Grafartikelen group gemeente Hoorn
         $id = Uuid::fromString('a61128bb-4b98-44b8-8262-48ebe123e550');
         $group = new Group();
         $group->setIcon('My Icon');
@@ -2153,10 +2208,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2186,13 +2244,17 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
+        // tot hier offers bijgewerkt
 
         $id = Uuid::fromString('f3b54f7c-c641-41ea-8d25-8c6df96978c7');
         $product = new Product();
@@ -2219,10 +2281,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2252,10 +2317,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2285,10 +2353,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2318,10 +2389,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2351,10 +2425,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2384,10 +2461,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'d736013f-ad6d-4885-b816-ce72ac3e1384']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2432,10 +2512,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2465,10 +2548,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2498,10 +2584,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2531,10 +2620,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2564,45 +2656,51 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
-
-        $id = Uuid::fromString('b9e860fa-953f-4970-b064-b4c4261329a3');
-        $product = new Product();
-        $product->setName('Urnengraf 20 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($koggenland);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('90e9471e-149d-4d6d-b2bb-8b448e129564');
-        $offer = new Offer();
-        $offer->setName('Urnengraf 20 jaar');
-        $offer->setPrice(814,5);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+
+
+        // $id = Uuid::fromString('b9e860fa-953f-4970-b064-b4c4261329a3');
+        // $product = new Product();
+        // $product->setName('Urnengraf 20 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($koggenland);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('90e9471e-149d-4d6d-b2bb-8b448e129564');
+        // $offer = new Offer();
+        // $offer->setName('Urnengraf 20 jaar');
+        // $offer->setPrice(814,5);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
         // Grafartikelen group gemeente Koggenland
@@ -2646,10 +2744,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2679,10 +2780,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2712,10 +2816,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'f050292c-973d-46ab-97ae-9d8830a59d15']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2759,13 +2866,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('84dd1cc8-9e10-438b-87bc-ad4bd80b068a');
         $product = new Product();
@@ -2792,10 +2901,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2825,13 +2937,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('0fee28df-6d93-4111-abb2-6e2fb30b2ff8');
         $product = new Product();
@@ -2858,13 +2972,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('1d1d9eee-e939-4407-8f9e-6ce187b58e13');
         $product = new Product();
@@ -2891,10 +3007,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2924,10 +3043,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2957,10 +3079,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -2990,10 +3115,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3023,10 +3151,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3056,144 +3187,159 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
-
-        $id = Uuid::fromString('76c57d0b-d161-4ac5-80c4-cfed2ebbcf02');
-        $product = new Product();
-        $product->setName('Urnengraf 10 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($medemblik);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('a7fa5932-4f47-4821-915d-80dc5f39321b');
-        $offer = new Offer();
-        $offer->setName('Urnengraf 10 jaar');
-        $offer->setPrice(514,52);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
 
-        $id = Uuid::fromString('f3db6929-d2a7-4edd-855b-cdf883f88125');
-        $product = new Product();
-        $product->setName('Urnengraf 20 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($medemblik);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('76c57d0b-d161-4ac5-80c4-cfed2ebbcf02');
+        // $product = new Product();
+        // $product->setName('Urnengraf 10 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($medemblik);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
-        $id = Uuid::fromString('661ad4b2-d795-47bd-8084-8506bb7351c2');
-        $offer = new Offer();
-        $offer->setName('Urnengraf 20 jaar');
-        $offer->setPrice(897,27);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-
-
-        $id = Uuid::fromString('c60a85a3-4c0f-46df-845b-f4f37a970298');
-        $product = new Product();
-        $product->setName('Urnennis 10 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($medemblik);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('9f81edef-089f-45a9-88b6-4651154ca09c');
-        $offer = new Offer();
-        $offer->setName('Urnennis 10 jaar');
-        $offer->setPrice(530,42);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+        // $id = Uuid::fromString('a7fa5932-4f47-4821-915d-80dc5f39321b');
+        // $offer = new Offer();
+        // $offer->setName('Urnengraf 10 jaar');
+        // $offer->setPrice(514,52);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
-        $id = Uuid::fromString('9a6ac934-ae25-4140-b7ab-100f3cc23a2a');
-        $product = new Product();
-        $product->setName('Urnennis 20 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($medemblik);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('f3db6929-d2a7-4edd-855b-cdf883f88125');
+        // $product = new Product();
+        // $product->setName('Urnengraf 20 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($medemblik);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
-        $id = Uuid::fromString('ac610563-d854-44f7-b28c-7f5361d1e630');
-        $offer = new Offer();
-        $offer->setName('Urnennis 20 jaar');
-        $offer->setPrice(925,67);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+        // $id = Uuid::fromString('661ad4b2-d795-47bd-8084-8506bb7351c2');
+        // $offer = new Offer();
+        // $offer->setName('Urnengraf 20 jaar');
+        // $offer->setPrice(897,27);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+
+        // $id = Uuid::fromString('c60a85a3-4c0f-46df-845b-f4f37a970298');
+        // $product = new Product();
+        // $product->setName('Urnennis 10 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($medemblik);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('9f81edef-089f-45a9-88b6-4651154ca09c');
+        // $offer = new Offer();
+        // $offer->setName('Urnennis 10 jaar');
+        // $offer->setPrice(530,42);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+
+        // $id = Uuid::fromString('9a6ac934-ae25-4140-b7ab-100f3cc23a2a');
+        // $product = new Product();
+        // $product->setName('Urnennis 20 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($medemblik);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('ac610563-d854-44f7-b28c-7f5361d1e630');
+        // $offer = new Offer();
+        // $offer->setName('Urnennis 20 jaar');
+        // $offer->setPrice(925,67);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
         //Grafartikelen Medemblik
@@ -3236,10 +3382,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3269,10 +3418,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3302,13 +3454,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('b77371e9-adcf-4dff-8a35-d5cdb3d5f1a4');
         $product = new Product();
@@ -3335,10 +3489,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3368,10 +3525,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3401,10 +3561,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3434,10 +3597,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3467,10 +3633,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'429e66ef-4411-4ddb-8b83-c637b37e88b5']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3515,10 +3684,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3548,10 +3720,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3581,10 +3756,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3614,10 +3792,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3647,10 +3828,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3680,10 +3864,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3713,13 +3900,15 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
         $id = Uuid::fromString('d9d90f9d-84e0-444b-9c02-7f3eaadfbee5');
         $product = new Product();
@@ -3746,31 +3935,34 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
 
-        $id = Uuid::fromString('0afc4ba0-8d7a-4cce-8e13-1dbd82385ecb');
-        $product = new Product();
-        $product->setName('Onderhoudsrechten 10 jaar');
-        $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('0afc4ba0-8d7a-4cce-8e13-1dbd82385ecb');
+        // $product = new Product();
+        // $product->setName('Onderhoudsrechten 10 jaar');
+        // $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
         $id = Uuid::fromString('c3ffcefe-6a0b-4403-89c2-5b983f5c4f87');
         $offer = new Offer();
@@ -3779,31 +3971,34 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
 
-        $id = Uuid::fromString('32a240fe-7878-4f39-b074-8e8d493ba4c4');
-        $product = new Product();
-        $product->setName('Onderhoudsrechten 20 jaar');
-        $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('32a240fe-7878-4f39-b074-8e8d493ba4c4');
+        // $product = new Product();
+        // $product->setName('Onderhoudsrechten 20 jaar');
+        // $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
         $id = Uuid::fromString('2168686a-bab3-42f2-835f-3719106ca2fc');
         $offer = new Offer();
@@ -3812,31 +4007,34 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
 
 
-        $id = Uuid::fromString('2efd849f-f6e8-470f-a76e-7c03954d127f');
-        $product = new Product();
-        $product->setName('Onderhoudsrechten 30 jaar');
-        $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
+        // $id = Uuid::fromString('2efd849f-f6e8-470f-a76e-7c03954d127f');
+        // $product = new Product();
+        // $product->setName('Onderhoudsrechten 30 jaar');
+        // $product->setDescription('T.b.v. (urnen)graf, algemeen graf en een kindergraf');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
 
         $id = Uuid::fromString('754da628-c3a8-4dcd-81ec-4bd5b018d381');
         $offer = new Offer();
@@ -3845,10 +4043,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3878,10 +4079,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3911,10 +4115,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3944,10 +4151,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -3977,85 +4187,86 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
-
-        $id = Uuid::fromString('13120bee-b3a8-4f63-b8b6-54710659073f');
-        $product = new Product();
-        $product->setName('Urnengraf  20 jaar');
-        $product->setDescription('aardgraf');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('400046e6-3183-4578-aead-0b18fd986731');
-        $offer = new Offer();
-        $offer->setName('Urnengraf  20 jaar');
-        $offer->setPrice(654,5);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $manager->flush();
-        $product->setId($id);
-        $manager->flush();
-        $manager->persist($offer);
-        $product->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $manager->flush();
-
-        $id = Uuid::fromString('9fc308bb-68f5-420c-aa13-5e7eb892d694');
-        $product = new Product();
-        $product->setName('Urnengraf  30 jaar');
-        $product->setDescription('aardgraf');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('1769a761-b293-4e6e-900c-5590f2b37e73');
-        $offer = new Offer();
-        $offer->setName('Urnengraf  30 jaar');
-        $offer->setPrice(983,5);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
-        $manager->persist($offer);
-        $manager->flush();
-        $offer->setId($id);
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
+
+        // $id = Uuid::fromString('13120bee-b3a8-4f63-b8b6-54710659073f');
+        // $product = new Product();
+        // $product->setName('Urnengraf  20 jaar');
+        // $product->setDescription('aardgraf');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('400046e6-3183-4578-aead-0b18fd986731');
+        // $offer = new Offer();
+        // $offer->setName('Urnengraf  20 jaar');
+        // $offer->setPrice(654,5);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('9fc308bb-68f5-420c-aa13-5e7eb892d694');
+        // $product = new Product();
+        // $product->setName('Urnengraf  30 jaar');
+        // $product->setDescription('aardgraf');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('1769a761-b293-4e6e-900c-5590f2b37e73');
+        // $offer = new Offer();
+        // $offer->setName('Urnengraf  30 jaar');
+        // $offer->setPrice(983,5);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
         $id = Uuid::fromString('45e0ff56-d133-4e6f-ae65-40133796c344');
         $product = new Product();
@@ -4082,10 +4293,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4115,45 +4329,51 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
-
-        $id = Uuid::fromString('9699098d-fbca-4118-a0c1-43ceb5eeb5e0');
-        $product = new Product();
-        $product->setName('Verlengen urnengraf 10 jaar');
-        $product->setDescription('');
-        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $product->setType('simple');
-        $product->setRequiresAppointment('false');
-        $product->setCatalogue($opmeer);
-        $product->setAudience('public');
-        $manager->persist($product);
-        $product->setId($id);
-        $manager->persist($product);
-        $manager->flush();
-        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
-        $group->addProduct($product);
-        $manager->persist($group);
-        $manager->flush();
-
-        $id = Uuid::fromString('79cbad21-d5e1-467a-b468-6807f7a274bd');
-        $offer = new Offer();
-        $offer->setName('Verlengen urnengraf 10 jaar');
-        $offer->setPrice(329,9);
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
-        $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
+
+
+        // $id = Uuid::fromString('9699098d-fbca-4118-a0c1-43ceb5eeb5e0');
+        // $product = new Product();
+        // $product->setName('Verlengen urnengraf 10 jaar');
+        // $product->setDescription('');
+        // $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $product->setType('simple');
+        // $product->setRequiresAppointment('false');
+        // $product->setCatalogue($opmeer);
+        // $product->setAudience('public');
+        // $manager->persist($product);
+        // $product->setId($id);
+        // $manager->persist($product);
+        // $manager->flush();
+        // $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        // $group->addProduct($product);
+        // $manager->persist($group);
+        // $manager->flush();
+
+        // $id = Uuid::fromString('79cbad21-d5e1-467a-b468-6807f7a274bd');
+        // $offer = new Offer();
+        // $offer->setName('Verlengen urnengraf 10 jaar');
+        // $offer->setPrice(329,9);
+        // $offer->setPriceCurrency('EUR');
+        // $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
+        // $offer->setAudience('public');
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer->setId($id);
+        // $manager->persist($offer);
+        // $manager->flush();
+        // $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        // $offer->addProduct($product);
+        // $manager->persist($offer);
+        // $manager->flush();
 
 
         //Grafartikelen group gemeente Opmeer
@@ -4200,10 +4420,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4233,10 +4456,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4266,10 +4492,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4299,10 +4528,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4332,10 +4564,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4365,10 +4600,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4398,10 +4636,13 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
 
@@ -4431,12 +4672,14 @@ class WestFrieslandFixtures extends Fixture
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'16fd1092-c4d3-4011-8998-0e15e13239cf']));
         $offer->setAudience('public');
-        $offer->addProduct($product);$manager->flush();
         $manager->persist($offer);
         $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
-
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
     }
 }
