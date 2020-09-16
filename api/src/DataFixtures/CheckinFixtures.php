@@ -63,10 +63,32 @@ class CheckinFixtures extends Fixture
         $product->setType('subscription');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($catalogueCheckin);
-        $product->createOffer('35.00', 'EUR', 'Normaal abbonnement');
-        $product->createOffer('30.00', 'EUR', 'Branche lid abbonnement');
         $product->addGroup($groupCheckin);
         $manager->persist($product);
+
+        $offer = new Offer();
+        $offer->setName('Normaal abbonement');
+        $offer->setPriceCurrency('EUR');
+        $offer->setPrice('35.00');
+        $offer->setOfferedBy($product->getSourceOrganization());
+        $offer->setAudience('public');
+        $offer->setRecurrence('P1M');
+        $offer->setNotice('P1M');
+        $offer->addProduct($product);
+
+        $product->addOffer($offer);
+
+        $offer = new Offer();
+        $offer->setName('Branche lid abbonement');
+        $offer->setPriceCurrency('EUR');
+        $offer->setPrice('30.00');
+        $offer->setOfferedBy($product->getSourceOrganization());
+        $offer->setAudience('public');
+        $offer->setRecurrence('P1M');
+        $offer->setNotice('P1M');
+        $offer->addProduct($product);
+
+        $product->addOffer($offer);
 
         $manager->flush();
     }

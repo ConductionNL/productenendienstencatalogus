@@ -748,7 +748,7 @@ class Product
     {
         if (!$this->offers->contains($offer)) {
             $this->offers[] = $offer;
-            $offer->setProduct($this);
+            $offer->addProduct($this);
         }
 
         return $this;
@@ -759,8 +759,8 @@ class Product
         if ($this->offers->contains($offer)) {
             $this->offers->removeElement($offer);
             // set the owning side to null (unless already changed)
-            if ($offer->getProduct() === $this) {
-                $offer->setProduct(null);
+            if ($offer->getProducts() === $this) {
+                $offer->getProducts(null);
             }
         }
 
@@ -945,9 +945,9 @@ class Product
         $offer->setOfferedBy($this->getSourceOrganization());
         $offer->setAudience('public');
 
-        if($this->getType() == "subscription"){
-            $offer->setRecurrence("P1M");
-            $offer->setNotice("P1M");
+        if ($this->getType() == 'subscription') {
+            $offer->setRecurrence('P1M');
+            $offer->setNotice('P1M');
         }
 
         $offer->addProduct($this);
