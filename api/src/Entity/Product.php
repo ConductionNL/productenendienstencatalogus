@@ -945,6 +945,12 @@ class Product
         $offer->setPriceCurrency($priceCurrency);
         $offer->setOfferedBy($this->getSourceOrganization());
         $offer->setAudience('public');
+
+        if($this->getType() == "subscription"){
+            $offer->setRecurrence("P1M");
+            $offer->setNotice("P1M");
+        }
+
         $offer->addProduct($this);
 
         return $this;

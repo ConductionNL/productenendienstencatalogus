@@ -243,6 +243,28 @@ class Offer
      */
     private $audience;
 
+    /**
+     * @var string The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $recurrence;
+
+    /**
+     * @var string The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $notice;
+
     public function __construct()
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
@@ -471,6 +493,30 @@ class Offer
     public function setAudience(string $audience): self
     {
         $this->audience = $audience;
+
+        return $this;
+    }
+
+    public function getRecurrence(): ?string
+    {
+        return $this->recurrence;
+    }
+
+    public function setRecurrence(string $recurrence): self
+    {
+        $this->recurrence = $recurrence;
+
+        return $this;
+    }
+
+    public function getNotice(): ?string
+    {
+        return $this->notice;
+    }
+
+    public function setNotice(string $notice): self
+    {
+        $this->notice = $notice;
 
         return $this;
     }
