@@ -17,6 +17,7 @@ use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
 
 /**
  * An entity representing an offer.
@@ -60,6 +61,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
+ * @ApiFilter(ExistsFilter::class, properties={"availabilityStarts", "availabilityEnds", "recurrence", "notice"})
  */
 class Offer
 {
