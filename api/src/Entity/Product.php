@@ -17,8 +17,6 @@ use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Entity\Offer;
-
 
 /**
  * An entity representing a product.
@@ -947,9 +945,9 @@ class Product
         $offer->setOfferedBy($this->getSourceOrganization());
         $offer->setAudience('public');
 
-        if($this->getType() == "subscription"){
-            $offer->setRecurrence("P1M");
-            $offer->setNotice("P1M");
+        if ($this->getType() == 'subscription') {
+            $offer->setRecurrence('P1M');
+            $offer->setNotice('P1M');
         }
 
         $offer->addProduct($this);
