@@ -12,7 +12,7 @@ info:
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
     - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
+    This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
     
 paths:
   /audit_trails:
@@ -5139,6 +5139,44 @@ paths:
             type: string
         -
           name: 'products.groups.id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: products.groups.name
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: products.groups.sourceOrganization
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'products.groups.sourceOrganization[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: products.name
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'products.name[]'
           in: query
           required: false
           schema:
@@ -10952,6 +10990,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        processType:
+          description: 'The optional proccces for ordering this product'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         availabilityEnds:
           description: 'the date this offer ends'
           externalDocs:
@@ -11030,6 +11074,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        processType:
+          description: 'The optional proccces for ordering this product'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         availabilityEnds:
           description: 'the date this offer ends'
           externalDocs:
@@ -11102,6 +11152,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        processType:
+          description: 'The optional proccces for ordering this product'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         availabilityEnds:
           description: 'the date this offer ends'
           externalDocs:
@@ -11189,6 +11245,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        processType:
+          description: 'The optional proccces for ordering this product'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         availabilityEnds:
           description: 'the date this offer ends'
           externalDocs:
@@ -11260,6 +11322,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        procces:
+          description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         groups:
           description: 'The product groups that this product is a part of'
           type: array
@@ -11334,8 +11402,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-read'
+        preDuration:
+          description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        postDuration:
+          description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
         dateCreated:
@@ -11387,6 +11463,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        procces:
+          description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         groups:
           description: 'The product groups that this product is a part of'
           type: array
@@ -11444,8 +11526,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue-write'
+        preDuration:
+          description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        postDuration:
+          description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
       required:
@@ -11503,6 +11593,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        procces:
+          description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         groups:
           description: 'The product groups that this product is a part of'
           type: array
@@ -11577,8 +11673,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-read'
+        preDuration:
+          description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        postDuration:
+          description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
         dateCreated:
@@ -11639,6 +11743,12 @@ components:
           externalDocs:
             url: 'http://schema.org/url'
           type: string
+        procces:
+          description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         groups:
           description: 'The product groups that this product is a part of'
           type: array
@@ -11696,8 +11806,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PropertyValue:jsonld-write'
+        preDuration:
+          description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
         duration:
           description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        postDuration:
+          description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
       required:
@@ -12358,15 +12476,21 @@ definitions:
         example: '(http://example.org/example/1)'
         format: url
         maxLength: 255
+      processType:
+        description: 'The optional proccces for ordering this product'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-07-03'
+        example: '2020-09-11'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-07-03'
+        example: '2020-09-11'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12418,15 +12542,21 @@ definitions:
         example: '(http://example.org/example/1)'
         format: url
         maxLength: 255
+      processType:
+        description: 'The optional proccces for ordering this product'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-07-03'
+        example: '2020-09-11'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-07-03'
+        example: '2020-09-11'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12484,6 +12614,11 @@ definitions:
         type: string
         example: '002851234'
         format: url
+      procces:
+        description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+        type: string
+        example: '002851234'
+        format: url
       price:
         description: 'The price of this product'
         type: string
@@ -12523,8 +12658,16 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      preDuration:
+        description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       duration:
         description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      postDuration:
+        description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
       dateCreated:
@@ -12590,6 +12733,11 @@ definitions:
         type: string
         example: '002851234'
         format: url
+      procces:
+        description: 'The PTC Url of the procces started by this product e.a. aquire passport'
+        type: string
+        example: '002851234'
+        format: url
       price:
         description: 'The price of this product'
         type: string
@@ -12620,8 +12768,16 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      preDuration:
+        description: 'The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       duration:
         description: 'The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      postDuration:
+        description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
       groups:
@@ -12903,12 +13059,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-07-03 09:03:39'
+        example: '2020-09-11 05:35:27'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-07-03 09:03:39'
+        example: '2020-09-11 05:35:27'
     required: []
   AuditTrail-write:
     properties:
@@ -12956,12 +13112,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-07-03 09:03:39'
+        example: '2020-09-11 05:35:27'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-07-03 09:03:39'
+        example: '2020-09-11 05:35:27'
     required: []
   ChangeLog-write:
     properties:

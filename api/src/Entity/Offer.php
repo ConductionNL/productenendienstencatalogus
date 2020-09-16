@@ -58,7 +58,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  */
 class Offer
@@ -147,6 +147,21 @@ class Offer
     private $offeredBy;
 
     /**
+     * @var string The optional proccces for ordering this product
+     *
+     * @example(http://example.org/example/1)
+     *
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read","write"})
+     */
+    private $processType;
+
+    /**
      * @var DateTime the date this offer ends
      *
      * @example 20191231
@@ -228,6 +243,28 @@ class Offer
      */
     private $audience;
 
+    /**
+     * @var string The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $recurrence;
+
+    /**
+     * @var string The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $notice;
+
     public function __construct()
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
@@ -302,6 +339,18 @@ class Offer
     public function setOfferedBy(string $offeredBy): self
     {
         $this->offeredBy = $offeredBy;
+
+        return $this;
+    }
+
+    public function getProcessType(): ?string
+    {
+        return $this->processType;
+    }
+
+    public function setProcessType(string $processType): self
+    {
+        $this->processType = $processType;
 
         return $this;
     }
@@ -444,6 +493,30 @@ class Offer
     public function setAudience(string $audience): self
     {
         $this->audience = $audience;
+
+        return $this;
+    }
+
+    public function getRecurrence(): ?string
+    {
+        return $this->recurrence;
+    }
+
+    public function setRecurrence(string $recurrence): self
+    {
+        $this->recurrence = $recurrence;
+
+        return $this;
+    }
+
+    public function getNotice(): ?string
+    {
+        return $this->notice;
+    }
+
+    public function setNotice(string $notice): self
+    {
+        $this->notice = $notice;
 
         return $this;
     }

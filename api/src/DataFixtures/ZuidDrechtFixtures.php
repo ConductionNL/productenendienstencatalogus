@@ -47,7 +47,7 @@ class ZuidDrechtFixtures extends Fixture
         $groupBallie = new Group();
         $groupBallie->setIcon('My Icon');
         $groupBallie->setName('Ballie producten');
-        $groupBallie->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
+        $groupBallie->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Zuid-Drecht');
         $groupBallie->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $groupBallie->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupBallie->setCatalogue($catalogue);
@@ -61,7 +61,7 @@ class ZuidDrechtFixtures extends Fixture
         $id = Uuid::fromString('b2e220b6-9f5c-45b4-84ec-8727123df185');
         $groupId->setIcon('My Icon');
         $groupId->setName('Identietis Bewijzen');
-        $groupId->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
+        $groupId->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Zuid-Drecht');
         $groupId->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $groupId->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupId->setCatalogue($catalogue);
@@ -75,7 +75,7 @@ class ZuidDrechtFixtures extends Fixture
         $id = Uuid::fromString('bbc03703-27b5-442a-9b20-57dfff95be9b');
         $groupDiensten->setIcon('My Icon');
         $groupDiensten->setName('Diensten');
-        $groupDiensten->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Hoorn');
+        $groupDiensten->setDescription('Een groep voor de grafsoorten van de begraafplaats Zuiderveld in gemeente Zuid-Drecht');
         $groupDiensten->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $groupDiensten->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid Drecht
         $groupDiensten->setCatalogue($catalogue);
@@ -368,6 +368,289 @@ class ZuidDrechtFixtures extends Fixture
         $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offer->addProduct($product);
         $manager->persist($offer);
+
+        // Grafsoort product Strooiveld
+        $id = Uuid::fromString('0982ee23-8a3b-4163-9888-b2d0bfbd1b0d');
+        $strooiveldProduct = new Product();
+        $strooiveldProduct->setName('Strooiveld');
+        $strooiveldProduct->setDescription('Een Product voor grafsoort strooiveld');
+        $strooiveldProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $strooiveldProduct->setType('simple');
+        $strooiveldProduct->setRequiresAppointment('false');
+        $strooiveldProduct->setCatalogue($catalogue);
+        $strooiveldProduct->setAudience('public');
+        $manager->persist($strooiveldProduct);
+        $strooiveldProduct->setId($id);
+        $manager->persist($strooiveldProduct);
+        $manager->flush();
+        $strooiveldProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Strooiveld
+        $id = Uuid::fromString('957a1486-db9a-4658-9d30-8695d4000654');
+        $strooiveldOffer = new Offer();
+        $strooiveldOffer->setName('Strooiveld');
+        $strooiveldOffer->setDescription('Een Offer voor grafsoort strooiveld');
+        $strooiveldOffer->setPrice('99.99');
+        $strooiveldOffer->setPriceCurrency('EUR');
+        $strooiveldOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $strooiveldOffer->setAudience('public');
+        $manager->persist($strooiveldOffer);
+        $strooiveldOffer->setId($id);
+        $manager->persist($strooiveldOffer);
+        $manager->flush();
+        $strooiveldOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $strooiveldOffer->addProduct($strooiveldProduct);
+        $manager->persist($strooiveldOffer);
+
+        // Grafsoort product Babygraf
+        $id = Uuid::fromString('48a49e07-25bd-4c5e-94cb-adda07e3a3a8');
+        $babygrafProduct = new Product();
+        $babygrafProduct->setName('Babygraf');
+        $babygrafProduct->setDescription('Een Product voor grafsoort babygraf');
+        $babygrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $babygrafProduct->setType('simple');
+        $babygrafProduct->setRequiresAppointment('false');
+        $babygrafProduct->setCatalogue($catalogue);
+        $babygrafProduct->setAudience('public');
+        $manager->persist($babygrafProduct);
+        $babygrafProduct->setId($id);
+        $manager->persist($babygrafProduct);
+        $manager->flush();
+        $babygrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Babygraf
+        $id = Uuid::fromString('093b3bfc-544e-45f9-8e42-adc072d2c901');
+        $babygrafOffer = new Offer();
+        $babygrafOffer->setName('Babygraf');
+        $babygrafOffer->setDescription('Een Offer voor grafsoort babygraf');
+        $babygrafOffer->setPrice('99.99');
+        $babygrafOffer->setPriceCurrency('EUR');
+        $babygrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $babygrafOffer->setAudience('public');
+        $manager->persist($babygrafOffer);
+        $babygrafOffer->setId($id);
+        $manager->persist($babygrafOffer);
+        $manager->flush();
+        $babygrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $babygrafOffer->addProduct($babygrafProduct);
+        $manager->persist($babygrafOffer);
+
+        // Grafsoort product Oorlogsgraf
+        $id = Uuid::fromString('8f2d1432-34c1-448d-872c-07218cf65095');
+        $oorlogsgrafProduct = new Product();
+        $oorlogsgrafProduct->setName('Oorlogsgraf');
+        $oorlogsgrafProduct->setDescription('Een Product voor grafsoort oorlogsgraf');
+        $oorlogsgrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $oorlogsgrafProduct->setType('simple');
+        $oorlogsgrafProduct->setRequiresAppointment('false');
+        $oorlogsgrafProduct->setCatalogue($catalogue);
+        $oorlogsgrafProduct->setAudience('public');
+        $manager->persist($oorlogsgrafProduct);
+        $oorlogsgrafProduct->setId($id);
+        $manager->persist($oorlogsgrafProduct);
+        $manager->flush();
+        $oorlogsgrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Oorlogsgraf
+        $id = Uuid::fromString('71b132e2-31c4-4f41-8718-7233e8d5e967');
+        $oorlogsgrafOffer = new Offer();
+        $oorlogsgrafOffer->setName('Oorlogsgraf');
+        $oorlogsgrafOffer->setDescription('Een Offer voor grafsoort oorlogsgraf');
+        $oorlogsgrafOffer->setPrice('99.99');
+        $oorlogsgrafOffer->setPriceCurrency('EUR');
+        $oorlogsgrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $oorlogsgrafOffer->setAudience('public');
+        $manager->persist($oorlogsgrafOffer);
+        $oorlogsgrafOffer->setId($id);
+        $manager->persist($oorlogsgrafOffer);
+        $manager->flush();
+        $oorlogsgrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $oorlogsgrafOffer->addProduct($oorlogsgrafProduct);
+        $manager->persist($oorlogsgrafOffer);
+
+        // Grafsoort product Cultuur historisch graf
+        $id = Uuid::fromString('20ddd583-20a3-42a1-ac28-88eae306735c');
+        $cultuurHistorischGrafProduct = new Product();
+        $cultuurHistorischGrafProduct->setName('Cultuur historisch graf');
+        $cultuurHistorischGrafProduct->setDescription('Een Product voor grafsoort cultuur historisch graf');
+        $cultuurHistorischGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $cultuurHistorischGrafProduct->setType('simple');
+        $cultuurHistorischGrafProduct->setRequiresAppointment('false');
+        $cultuurHistorischGrafProduct->setCatalogue($catalogue);
+        $cultuurHistorischGrafProduct->setAudience('public');
+        $manager->persist($cultuurHistorischGrafProduct);
+        $cultuurHistorischGrafProduct->setId($id);
+        $manager->persist($cultuurHistorischGrafProduct);
+        $manager->flush();
+        $cultuurHistorischGrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Cultuur historisch graf
+        $id = Uuid::fromString('0963c2c2-3877-40c7-a330-83c54ee06026');
+        $cultuurHistorischGrafOffer = new Offer();
+        $cultuurHistorischGrafOffer->setName('Cultuur historisch graf');
+        $cultuurHistorischGrafOffer->setDescription('Een Offer voor grafsoort cultuur historisch graf');
+        $cultuurHistorischGrafOffer->setPrice('99.99');
+        $cultuurHistorischGrafOffer->setPriceCurrency('EUR');
+        $cultuurHistorischGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $cultuurHistorischGrafOffer->setAudience('public');
+        $manager->persist($cultuurHistorischGrafOffer);
+        $cultuurHistorischGrafOffer->setId($id);
+        $manager->persist($cultuurHistorischGrafOffer);
+        $manager->flush();
+        $cultuurHistorischGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $cultuurHistorischGrafOffer->addProduct($cultuurHistorischGrafProduct);
+        $manager->persist($cultuurHistorischGrafOffer);
+
+        // Grafsoort product Monument
+        $id = Uuid::fromString('7e6ef9bd-ea6d-4cd9-9f16-8344ca939581');
+        $monumentProduct = new Product();
+        $monumentProduct->setName('Monument');
+        $monumentProduct->setDescription('Een Product voor grafsoort monument');
+        $monumentProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $monumentProduct->setType('simple');
+        $monumentProduct->setRequiresAppointment('false');
+        $monumentProduct->setCatalogue($catalogue);
+        $monumentProduct->setAudience('public');
+        $manager->persist($monumentProduct);
+        $monumentProduct->setId($id);
+        $manager->persist($monumentProduct);
+        $manager->flush();
+        $monumentProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Monument
+        $id = Uuid::fromString('44e723a9-2f22-4f19-9ea2-5c6af1cd6515');
+        $monumentOffer = new Offer();
+        $monumentOffer->setName('Monument');
+        $monumentOffer->setDescription('Een Offer voor grafsoort monument');
+        $monumentOffer->setPrice('99.99');
+        $monumentOffer->setPriceCurrency('EUR');
+        $monumentOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $monumentOffer->setAudience('public');
+        $manager->persist($monumentOffer);
+        $monumentOffer->setId($id);
+        $manager->persist($monumentOffer);
+        $manager->flush();
+        $monumentOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $monumentOffer->addProduct($monumentProduct);
+        $manager->persist($monumentOffer);
+
+        // Grafsoort product Familiegraf
+        $id = Uuid::fromString('fe9da0ec-a6f6-42f1-b316-e51181583020');
+        $familieGrafProduct = new Product();
+        $familieGrafProduct->setName('Familiegraf');
+        $familieGrafProduct->setDescription('Een Product voor grafsoort familiegraf');
+        $familieGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $familieGrafProduct->setType('simple');
+        $familieGrafProduct->setRequiresAppointment('false');
+        $familieGrafProduct->setCatalogue($catalogue);
+        $familieGrafProduct->setAudience('public');
+        $manager->persist($familieGrafProduct);
+        $familieGrafProduct->setId($id);
+        $manager->persist($familieGrafProduct);
+        $manager->flush();
+        $familieGrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Familiegraf
+        $id = Uuid::fromString('09d90a5e-6e12-4dac-a904-72a19f824dcb');
+        $familieGrafOffer = new Offer();
+        $familieGrafOffer->setName('Familiegraf');
+        $familieGrafOffer->setDescription('Een Offer voor grafsoort familiegraf');
+        $familieGrafOffer->setPrice('99.99');
+        $familieGrafOffer->setPriceCurrency('EUR');
+        $familieGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $familieGrafOffer->setAudience('public');
+        $manager->persist($familieGrafOffer);
+        $familieGrafOffer->setId($id);
+        $manager->persist($familieGrafOffer);
+        $manager->flush();
+        $familieGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $familieGrafOffer->addProduct($familieGrafProduct);
+        $manager->persist($familieGrafOffer);
+
+        // Grafsoort product Oorlogsgraf
+        $id = Uuid::fromString('4a2c8ab1-9d08-4581-a6e4-da569c675093');
+        $oorlogsGrafProduct = new Product();
+        $oorlogsGrafProduct->setName('Oorlogsgraf');
+        $oorlogsGrafProduct->setDescription('Een Product voor grafsoort oorlogsgraf');
+        $oorlogsGrafProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $oorlogsGrafProduct->setType('simple');
+        $oorlogsGrafProduct->setRequiresAppointment('false');
+        $oorlogsGrafProduct->setCatalogue($catalogue);
+        $oorlogsGrafProduct->setAudience('public');
+        $manager->persist($oorlogsGrafProduct);
+        $oorlogsGrafProduct->setId($id);
+        $manager->persist($oorlogsGrafProduct);
+        $manager->flush();
+        $oorlogsGrafProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Oorlogsgraf
+        $id = Uuid::fromString('fc0f7701-b4f7-46c7-b604-ce285eba059f');
+        $oorlogsGrafOffer = new Offer();
+        $oorlogsGrafOffer->setName('Oorlogsgraf');
+        $oorlogsGrafOffer->setDescription('Een Offer voor grafsoort oorlogsgraf');
+        $oorlogsGrafOffer->setPrice('99.99');
+        $oorlogsGrafOffer->setPriceCurrency('EUR');
+        $oorlogsGrafOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $oorlogsGrafOffer->setAudience('public');
+        $manager->persist($oorlogsGrafOffer);
+        $oorlogsGrafOffer->setId($id);
+        $manager->persist($oorlogsGrafOffer);
+        $manager->flush();
+        $oorlogsGrafOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $oorlogsGrafOffer->addProduct($oorlogsGrafProduct);
+        $manager->persist($oorlogsGrafOffer);
+
+        // Grafsoort product Gedenkteken
+        $id = Uuid::fromString('28488fdf-a9ca-418d-b3e6-913a3f921cd2');
+        $gedenktekenProduct = new Product();
+        $gedenktekenProduct->setName('Gedenkteken');
+        $gedenktekenProduct->setDescription('Een Product voor grafsoort gedenkteken');
+        $gedenktekenProduct->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $gedenktekenProduct->setType('simple');
+        $gedenktekenProduct->setRequiresAppointment('false');
+        $gedenktekenProduct->setCatalogue($catalogue);
+        $gedenktekenProduct->setAudience('public');
+        $manager->persist($gedenktekenProduct);
+        $gedenktekenProduct->setId($id);
+        $manager->persist($gedenktekenProduct);
+        $manager->flush();
+        $gedenktekenProduct = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+
+        // Grafsoort offer Gedenkteken
+        $id = Uuid::fromString('bb420d67-38e7-429c-9897-e328e9b3fbcf');
+        $gedenktekenOffer = new Offer();
+        $gedenktekenOffer->setName('Gedenkteken');
+        $gedenktekenOffer->setDescription('Een Offer voor grafsoort gedenkteken');
+        $gedenktekenOffer->setPrice('99.99');
+        $gedenktekenOffer->setPriceCurrency('EUR');
+        $gedenktekenOffer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // West Friesland
+        $gedenktekenOffer->setAudience('public');
+        $manager->persist($gedenktekenOffer);
+        $gedenktekenOffer->setId($id);
+        $manager->persist($gedenktekenOffer);
+        $manager->flush();
+        $gedenktekenOffer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $gedenktekenOffer->addProduct($gedenktekenProduct);
+        $manager->persist($gedenktekenOffer);
+
+        // Grafsoorten group gemeente Zuid-Drecht
+        $id = Uuid::fromString('995f0088-ebab-4540-9aea-b2e954fea8b2');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten Zuid-Drecht');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente Zuid-Drecht');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); // Zuid-Drecht
+        $group->setCatalogue($catalogue);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $group->addProduct($familieGrafProduct);
+        $group->addProduct($oorlogsGrafProduct);
+        $group->addProduct($gedenktekenProduct);
+        $manager->persist($group);
 
         $manager->flush();
     }
