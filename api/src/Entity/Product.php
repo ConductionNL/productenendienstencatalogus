@@ -176,10 +176,9 @@ class Product
      * @example 002851234
      *
      * @Gedmo\Versioned
-     * @Assert\NotNull
      * @Assert\Url
      * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $procces;
 
