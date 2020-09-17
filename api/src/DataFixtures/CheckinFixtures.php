@@ -63,42 +63,32 @@ class CheckinFixtures extends Fixture
         $product->setType('subscription');
         $product->setRequiresAppointment('false');
         $product->setCatalogue($catalogueCheckin);
-        $product->createOffer('35.00', 'EUR', 'Normaal abbonnement');
-        $product->createOffer('30.00', 'EUR', 'KHN lid abbonnement');
         $product->addGroup($groupCheckin);
         $manager->persist($product);
 
-        $id = Uuid::fromString('eb491ee9-ad8c-456d-92b2-c297a6a2b3e5');
         $offer = new Offer();
-        $offer->setName('Normaal abbonnement');
-        $offer->setDescription('Een normaal abbonnement');
+        $offer->setName('Normaal abbonement');
+        $offer->setPriceCurrency('EUR');
         $offer->setPrice('35.00');
-        $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setOfferedBy($product->getSourceOrganization());
         $offer->setAudience('public');
-        $manager->persist($offer);
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->setRecurrence('P1M');
+        $offer->setNotice('P1M');
         $offer->addProduct($product);
-        $manager->persist($offer);
 
-        $id = Uuid::fromString('2a3cc560-f36d-4cbd-937f-8504d0e5b486');
+        $product->addOffer($offer);
+
         $offer = new Offer();
-        $offer->setName('KHN lid abbonnement');
-        $offer->setDescription('Een abbonnement voor KHN leden');
-        $offer->setPrice('30.00');
+        $offer->setName('Branche lid abbonement');
         $offer->setPriceCurrency('EUR');
-        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'4d1eded3-fbdf-438f-9536-8747dd8ab591'])); //Zuid drecht
+        $offer->setPrice('30.00');
+        $offer->setOfferedBy($product->getSourceOrganization());
         $offer->setAudience('public');
-        $manager->persist($offer);
-        $offer->setId($id);
-        $manager->persist($offer);
-        $manager->flush();
-        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->setRecurrence('P1M');
+        $offer->setNotice('P1M');
         $offer->addProduct($product);
-        $manager->persist($offer);
+
+        $product->addOffer($offer);
 
         $manager->flush();
     }

@@ -171,6 +171,18 @@ class Product
     private $sourceOrganization;
 
     /**
+     * @var string The PTC Url of the procces started by this product e.a. aquire passport
+     *
+     * @example 002851234
+     *
+     * @Gedmo\Versioned
+     * @Assert\Url
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $procces;
+
+    /**
      * @var ArrayCollection The product groups that this product is a part of
      *
      *
@@ -371,6 +383,17 @@ class Product
     private $additionalProperties;
 
     /**
+     * @var string The pre duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $preDuration;
+
+    /**
      * @var string The duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      *
      * @example PT10M
@@ -380,6 +403,17 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $duration;
+
+    /**
+     * @var string The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $postDuration;
 
     /**
      * @var Datetime The moment this resource was created
@@ -557,6 +591,18 @@ class Product
         return $this;
     }
 
+    public function getProcces(): ?string
+    {
+        return $this->procces;
+    }
+
+    public function setProcces(string $procces): self
+    {
+        $this->procces = $procces;
+
+        return $this;
+    }
+
     public function getTaxPercentage(): ?int
     {
         return $this->taxPercentage;
@@ -702,7 +748,7 @@ class Product
     {
         if (!$this->offers->contains($offer)) {
             $this->offers[] = $offer;
-            $offer->setProduct($this);
+            $offer->addProduct($this);
         }
 
         return $this;
@@ -713,8 +759,8 @@ class Product
         if ($this->offers->contains($offer)) {
             $this->offers->removeElement($offer);
             // set the owning side to null (unless already changed)
-            if ($offer->getProduct() === $this) {
-                $offer->setProduct(null);
+            if ($offer->getProducts() === $this) {
+                $offer->getProducts(null);
             }
         }
 
@@ -845,6 +891,18 @@ class Product
         return $this;
     }
 
+    public function getPreDuration(): ?string
+    {
+        return $this->preDuration;
+    }
+
+    public function setPreDuration(?string $preDuration): self
+    {
+        $this->preDuration = $preDuration;
+
+        return $this;
+    }
+
     public function getDuration(): ?string
     {
         return $this->duration;
@@ -853,6 +911,18 @@ class Product
     public function setDuration(?string $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getPostDuration(): ?string
+    {
+        return $this->postDuration;
+    }
+
+    public function setPostDuration(?string $postDuration): self
+    {
+        $this->postDuration = $postDuration;
 
         return $this;
     }
@@ -874,6 +944,12 @@ class Product
         $offer->setPriceCurrency($priceCurrency);
         $offer->setOfferedBy($this->getSourceOrganization());
         $offer->setAudience('public');
+
+        if ($this->getType() == 'subscription') {
+            $offer->setRecurrence('P1M');
+            $offer->setNotice('P1M');
+        }
+
         $offer->addProduct($this);
 
         return $this;
