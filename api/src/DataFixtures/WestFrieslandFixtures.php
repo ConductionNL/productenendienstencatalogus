@@ -706,7 +706,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -741,7 +740,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -776,7 +774,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -785,7 +782,7 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($offer);
         $manager->flush();
 
-        $id = Uuid::fromString('68c98b92-a6dc-4ee6-ab4e-ab18d995bf6b');
+        $id = Uuid::fromString('e87b525c-90ca-4659-a253-db65180c7003');
         $product = new Product();
         $product->setName('Particulier kindergraf 10 jaar');
         $product->setDescription('');
@@ -811,7 +808,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -846,7 +842,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -881,7 +876,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -910,13 +904,12 @@ class WestFrieslandFixtures extends Fixture
 
         $id = Uuid::fromString('e181a3df-8bf8-4c77-9309-4d8802384948');
         $offer = new Offer();
-        $product->setName('Algemeen graf 10 jaar');
+        $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(408.80);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -967,7 +960,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1002,7 +994,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1037,7 +1028,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1072,7 +1062,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1124,7 +1113,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1159,7 +1147,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1194,7 +1181,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1229,7 +1215,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1264,7 +1249,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1299,7 +1283,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1334,7 +1317,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1369,7 +1351,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1404,7 +1385,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1433,13 +1413,12 @@ class WestFrieslandFixtures extends Fixture
 
         $id = Uuid::fromString('059ed0c1-0623-4f8c-8aaa-265801fb7d16');
         $offer = new Offer();
-        $product->setName('Algemeen graf 10 jaar');
+        $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(671);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1491,7 +1470,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1526,7 +1504,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1561,7 +1538,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1596,7 +1572,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1631,7 +1606,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1666,7 +1640,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1717,7 +1690,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1752,7 +1724,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1787,7 +1758,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1822,7 +1792,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1857,7 +1826,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1892,7 +1860,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1921,13 +1888,12 @@ class WestFrieslandFixtures extends Fixture
 
         $id = Uuid::fromString('1d713ba3-bd4a-4caf-845d-b8bb2355bd2d');
         $offer = new Offer();
-        $product->setName('Algemeen graf 10 jaar');
+        $offer->setName('Algemeen graf 10 jaar');
         $offer->setPrice(728);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -1956,13 +1922,12 @@ class WestFrieslandFixtures extends Fixture
 
         $id = Uuid::fromString('51da857d-8cab-4813-a949-699eed2b2f38');
         $offer = new Offer();
-        $product->setName('Algemeen graf 20 jaar');
+        $offer->setName('Algemeen graf 20 jaar');
         $offer->setPrice(1456);
         $offer->setPriceCurrency('EUR');
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2013,7 +1978,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2048,7 +2012,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2083,7 +2046,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2118,7 +2080,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2153,7 +2114,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
@@ -2188,7 +2148,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
         $offer->setAudience('public');
         $manager->persist($offer);
-        $manager->flush();
         $offer->setId($id);
         $manager->persist($offer);
         $manager->flush();
