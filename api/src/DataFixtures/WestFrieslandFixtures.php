@@ -95,7 +95,6 @@ class WestFrieslandFixtures extends Fixture
 
         $manager->flush();
 
-
         // Grafsoorten group gemeente SED Stede-broec
         $id = Uuid::fromString('58298393-2682-4412-9fca-a03170592610');
         $group = new Group();
@@ -502,7 +501,6 @@ class WestFrieslandFixtures extends Fixture
         $manager->persist($offer);
         $manager->flush();
 
-
         // Grafsoorten group gemeente SED Enkhuizen
         $id = Uuid::fromString('aae5c7cd-42db-40ca-ad90-5eb41915884f');
         $group = new Group();
@@ -858,7 +856,6 @@ class WestFrieslandFixtures extends Fixture
         $offer->addProduct($product);
         $manager->persist($offer);
         $manager->flush();
-
 
         // Grafartikelen group gemeente SED Enkhuizen
         $id = Uuid::fromString('a3e3c3b2-a6c3-4bad-a069-06fc39b6230a');
