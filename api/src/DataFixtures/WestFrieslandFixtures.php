@@ -661,25 +661,1543 @@ class WestFrieslandFixtures extends Fixture
         $gedenktekenOffer->addProduct($gedenktekenProduct);
         $manager->persist($gedenktekenOffer);
 
-        // Grafsoorten group gemeente SED
+
+
+        */
+        // Grafsoorten group gemeente SED Stede-broec
         $id = Uuid::fromString('58298393-2682-4412-9fca-a03170592610');
         $group = new Group();
         $group->setIcon('My Icon');
-        $group->setName('Grafsoorten SED');
-        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED');
+        $group->setName('Grafsoorten SED Stede-broec');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Stede-broec');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
-        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
         $group->setCatalogue($sed);
         $manager->persist($group);
         $group->setId($id);
         $manager->persist($group);
         $manager->flush();
         $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
-        $group->addProduct($algemeenGrafProduct);
-        $group->addProduct($urngrafProduct);
-        $group->addProduct($huurgrafProduct);
-        $group->addProduct($particulierGrafProduct);
         $manager->persist($group);
+
+        $id = Uuid::fromString('e55debfa-997e-4814-8dc6-07709dab7c9b');
+        $product = new Product();
+        $product->setName('Particulier graf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('7d3c0310-2eb6-4ee6-a5fc-5c2419e03f2f');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 10 jaar');
+        $offer->setPrice(544.10);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('13292a0d-cb14-4af9-a155-ffc8aa4c38bc');
+        $product = new Product();
+        $product->setName('Particulier graf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('11149b32-a0bd-4e91-94be-23ad8b7337c5');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 20 jaar');
+        $offer->setPrice(1087.95);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('7aa04c6a-11e5-42ae-b3ec-7bd214a0e4ae');
+        $product = new Product();
+        $product->setName('Particulier graf 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('68f6ee8c-8e11-4586-abfb-8166d3f4b1d4');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 40 jaar');
+        $offer->setPrice(2175.90);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('68c98b92-a6dc-4ee6-ab4e-ab18d995bf6b');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('81ee4212-85f2-4e2e-ad65-9c734eab9c19');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 10 jaar');
+        $offer->setPrice(207.85);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('f50700a0-70d0-48d4-944e-672b5a59ca72');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('3a6f1f80-d3fa-4c4a-ac5c-d6c36a36ff83');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 20 jaar');
+        $offer->setPrice(415.75);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('f24be31c-e90a-4dfa-8360-0f7b6c3eadf7');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('756d45a1-2e4c-4e70-b527-6c34e9675806');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 40 jaar');
+        $offer->setPrice(831.50);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('71c5a15d-ebc6-45e9-8a46-51039bcbbfa3');
+        $product = new Product();
+        $product->setName('Algemeen graf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('e181a3df-8bf8-4c77-9309-4d8802384948');
+        $offer = new Offer();
+        $product->setName('Algemeen graf 10 jaar');
+        $offer->setPrice(408.80);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        // Grafartikelen group gemeente SED Stede-Broec
+        $id = Uuid::fromString('f747ce71-42b9-43ec-8f83-095296535b5a');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED Stede-Broec');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Stede-Broec');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $manager->persist($group);
+
+        $id = Uuid::fromString('ca72c291-03f2-402b-8de0-27599be22fcc');
+        $product = new Product();
+        $product->setName('Gebruik graflift');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('f7424cb0-e1b9-4646-8071-d337dcd3645e');
+        $offer = new Offer();
+        $offer->setName('Gebruik graflift');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('4eb45bb5-5c8a-4c8a-babe-e203155cb86c');
+        $product = new Product();
+        $product->setName('Kist dalen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('8c99d51c-058c-4b49-80bf-6dacdeb640c7');
+        $offer = new Offer();
+        $offer->setName('Kist dalen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('806fbb14-fb44-4a35-ad66-d5df2118a41b');
+        $product = new Product();
+        $product->setName('Kist dalen i.a.v. familie');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($medemblik);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('88a44dd8-5321-42c7-8a0f-e6f49db28f0d');
+        $offer = new Offer();
+        $offer->setName('Kist dalen i.a.v. familie');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('2d53f3bb-82ef-4e9e-b3d7-1f147708da83');
+        $product = new Product();
+        $product->setName('Gebruik touwen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($hoorn);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('46af643f-1e07-4a82-8cc8-707791f197b5');
+        $offer = new Offer();
+        $offer->setName('Gebruik touwen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+
+        // Grafsoorten group gemeente SED Enkhuizen
+        $id = Uuid::fromString('aae5c7cd-42db-40ca-ad90-5eb41915884f');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED Enkhuizen');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Enkhuizen');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $manager->persist($group);
+
+        $id = Uuid::fromString('3958eaca-5034-4c31-ac85-c3cae840f581');
+        $product = new Product();
+        $product->setName('Particulier graf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('802e07cb-dd79-4d08-9341-87939cf76df0');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 10 jaar');
+        $offer->setPrice(1232);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('8efd3851-cac7-4c04-8054-17a222e82b2d');
+        $product = new Product();
+        $product->setName('Particulier graf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('43e48eb7-650e-42c2-a23f-2be4e8869b87');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 20 jaar');
+        $offer->setPrice(1893);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('f785bea0-cfae-4e37-a864-a6aea8dd0bd6');
+        $product = new Product();
+        $product->setName('Particulier graf 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('ee329c4f-ed80-498d-b2e3-9d75f40a5c7e');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 40 jaar');
+        $offer->setPrice(2908);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('539c024e-e1f3-41b0-b96d-5a370ddb52e6');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('c2692e5a-4782-4620-8040-d393ba0b9fb9');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 10 jaar');
+        $offer->setPrice(502);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('e5a96dfa-d8e0-4f40-8968-c45477ac48b7');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('6f927321-2772-4076-b0ac-2763ade62141');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 20 jaar');
+        $offer->setPrice(734);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('dc754764-d63a-412a-a349-11b9a8da1bd7');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('8bd23a3b-864f-4e80-b9a3-221a713645e0');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 40 jaar');
+        $offer->setPrice(1072);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('22cefe02-33e8-46e0-917c-1717ec84f07e');
+        $product = new Product();
+        $product->setName('Grafkelder 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('197763f7-b667-49fb-802a-770484d68b67');
+        $offer = new Offer();
+        $offer->setName('Grafkelder 10 jaar');
+        $offer->setPrice(502);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('9be46de0-4072-49c0-a07d-5a301dd62b49');
+        $product = new Product();
+        $product->setName('Grafkelder 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('77396c17-955e-4332-8bfc-481c3f1058e5');
+        $offer = new Offer();
+        $offer->setName('Grafkelder 20 jaar');
+        $offer->setPrice(734);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('7dbcc4e8-5129-4433-baab-97f767364d41');
+        $product = new Product();
+        $product->setName('Grafkelder 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('7ba9b1a7-c006-47cf-afdc-ba7bdf51a1f0');
+        $offer = new Offer();
+        $offer->setName('Grafkelder 40 jaar');
+        $offer->setPrice(1072);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('b9685d27-80db-4e09-8b64-ac0d1cb113a2');
+        $product = new Product();
+        $product->setName('Algemeen graf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('059ed0c1-0623-4f8c-8aaa-265801fb7d16');
+        $offer = new Offer();
+        $product->setName('Algemeen graf 10 jaar');
+        $offer->setPrice(671);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+
+        // Grafartikelen group gemeente SED Enkhuizen
+        $id = Uuid::fromString('a3e3c3b2-a6c3-4bad-a069-06fc39b6230a');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED Enkhuizen');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Enkhuizen');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $manager->persist($group);
+
+        $id = Uuid::fromString('37163579-601a-483a-9863-bfd85d685da7');
+        $product = new Product();
+        $product->setName('Gebruik graflift');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('9d92e5d6-17e7-4820-94e6-0581565cb21f');
+        $offer = new Offer();
+        $offer->setName('Gebruik graflift');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('85795f20-3022-4970-93b4-7156eb65b56e');
+        $product = new Product();
+        $product->setName('Kist dalen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('bfa8a475-432a-4f6a-bfd1-766949cbb932');
+        $offer = new Offer();
+        $offer->setName('Kist dalen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('69ca8bba-096e-4f38-ba8d-9b98eb0fca2d');
+        $product = new Product();
+        $product->setName('Kist dalen i.a.v. familie');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('b9c53afb-0fb2-4ea1-af07-c39bec98a2e0');
+        $offer = new Offer();
+        $offer->setName('Kist dalen i.a.v. familie');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('c1781feb-eee2-4440-a39a-cc32052307e7');
+        $product = new Product();
+        $product->setName('Gebruik touwen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('405dc9c0-7751-4a5c-b81f-37d5de763df7');
+        $offer = new Offer();
+        $offer->setName('Gebruik touwen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('56e10775-e789-472c-8d5c-da0219d5105a');
+        $product = new Product();
+        $product->setName('Rijdende baar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('3e1980f2-699d-4dfd-bb2a-cfd3a41c2b25');
+        $offer = new Offer();
+        $offer->setName('Rijdende baar');
+        $offer->setPrice(27);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('4df3d3de-34bf-4e66-97ec-9a9c813fc67f');
+        $product = new Product();
+        $product->setName('Geluidsinstallatie');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('b0d51bf9-3fe4-4df9-ad02-f88464fe4281');
+        $offer = new Offer();
+        $offer->setName('Geluidsinstallatie');
+        $offer->setPrice(27);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        // Grafsoorten group gemeente SED Drechterland
+        $id = Uuid::fromString('15c63626-6977-4954-b8a7-8c042dce5243');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED Drechterland');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Drechterland');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $manager->persist($group);
+
+        $id = Uuid::fromString('5ee8763e-11d7-4fc4-93fb-92438499c663');
+        $product = new Product();
+        $product->setName('Particulier graf 1-2 grafruimtes 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('5ee8763e-11d7-4fc4-93fb-92438499c663');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 1-2 grafruimtes 10 jaar');
+        $offer->setPrice(790);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('f3428929-9b32-4907-9839-5ccff2a5220d');
+        $product = new Product();
+        $product->setName('Particulier graf 1-2 grafruimtes 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('310235e4-8abd-4c68-b541-258199f23a55');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 1-2 grafruimtes 20 jaar');
+        $offer->setPrice(1580.50);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('cedbb8fc-844d-499d-8f76-6775eaca92ad');
+        $product = new Product();
+        $product->setName('Particulier graf 1-2 grafruimtes 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('0e606738-9dde-4a84-bcb6-d3176df4afbe');
+        $offer = new Offer();
+        $offer->setName('Particulier graf 1-2 grafruimtes 40 jaar');
+        $offer->setPrice(3160.50);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('68c98b92-a6dc-4ee6-ab4e-ab18d995bf6b');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('3586c263-d33c-4d29-8445-29423e51a5e9');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 10 jaar');
+        $offer->setPrice(364);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('bad98d55-3a13-4119-9887-f9b064d5c491');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('bf751d17-b090-4357-8f1d-f0a2ceed7064');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 20 jaar');
+        $offer->setPrice(728);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('aca11b5e-3506-4f57-8442-bb1b6da4d0fa');
+        $product = new Product();
+        $product->setName('Particulier kindergraf 40 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('ac8bb726-87a5-4238-a5eb-29e6379e7eb8');
+        $offer = new Offer();
+        $offer->setName('Particulier kindergraf 40 jaar');
+        $offer->setPrice(1456);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('99bd81d9-6ac0-47b7-83df-112721e4d30e');
+        $product = new Product();
+        $product->setName('Algemeen graf 10 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('1d713ba3-bd4a-4caf-845d-b8bb2355bd2d');
+        $offer = new Offer();
+        $product->setName('Algemeen graf 10 jaar');
+        $offer->setPrice(728);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('8f65bc0b-520d-4ad8-ad13-08aece90cd93');
+        $product = new Product();
+        $product->setName('Algemeen graf 20 jaar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('51da857d-8cab-4813-a949-699eed2b2f38');
+        $offer = new Offer();
+        $product->setName('Algemeen graf 20 jaar');
+        $offer->setPrice(1456);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        // Grafartikelen group gemeente SED Drechterland
+        $id = Uuid::fromString('2faaaa02-2f76-480a-b883-593f7d205737');
+        $group = new Group();
+        $group->setIcon('My Icon');
+        $group->setName('Grafsoorten SED Drechterland');
+        $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Drechterland');
+        $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
+        $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $group->setCatalogue($sed);
+        $manager->persist($group);
+        $group->setId($id);
+        $manager->persist($group);
+        $manager->flush();
+        $group = $manager->getRepository('App:Group')->findOneBy(['id'=> $id]);
+        $manager->persist($group);
+
+        $id = Uuid::fromString('539c9b2f-a665-4d1b-af81-f3c8ed55a62f');
+        $product = new Product();
+        $product->setName('Gebruik graflift');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('678d647c-673e-482c-b04c-1f95723ffeca');
+        $offer = new Offer();
+        $offer->setName('Gebruik graflift');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('4aa0e3f1-5edd-4f93-9798-5f1b7c1e016d');
+        $product = new Product();
+        $product->setName('Kist dalen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('1b9382c8-7e5b-494c-9c98-5b995b3412e6');
+        $offer = new Offer();
+        $offer->setName('Kist dalen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('8e17e1ea-973d-4ca1-9c4c-79e5b0d8c63a');
+        $product = new Product();
+        $product->setName('Kist dalen i.a.v. familie');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('effb6c76-07ab-4de9-bf99-4d24b5493f7c');
+        $offer = new Offer();
+        $offer->setName('Kist dalen i.a.v. familie');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('2b345e55-65f7-4360-800e-d9a2084afc7a');
+        $product = new Product();
+        $product->setName('Gebruik touwen');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('19d873a5-f6c6-46f1-83ec-5a42967dd580');
+        $offer = new Offer();
+        $offer->setName('Gebruik touwen');
+        $offer->setPrice(0);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('20bebe2a-8daf-4254-9854-3a64ae02a13a');
+        $product = new Product();
+        $product->setName('Rijdende baar');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('a259fe07-cd91-4e90-8d90-2aa7d82e199a');
+        $offer = new Offer();
+        $offer->setName('Rijdende baar');
+        $offer->setPrice(10.50);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        $id = Uuid::fromString('a39731db-1517-4227-90b7-70ba052edaf4');
+        $product = new Product();
+        $product->setName('Geluidsinstallatie');
+        $product->setDescription('');
+        $product->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $product->setType('simple');
+        $product->setRequiresAppointment('false');
+        $product->setCatalogue($sed);
+        $product->setAudience('public');
+        $manager->persist($product);
+        $product->setId($id);
+        $manager->persist($product);
+        $manager->flush();
+        $product = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $group->addProduct($product);
+        $manager->persist($group);
+        $manager->flush();
+
+        $id = Uuid::fromString('bb309450-512a-4ce7-bdf6-ea5377916b7a');
+        $offer = new Offer();
+        $offer->setName('Geluidsinstallatie');
+        $offer->setPrice(10.50);
+        $offer->setPriceCurrency('EUR');
+        $offer->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
+        $offer->setAudience('public');
+        $manager->persist($offer);
+        $manager->flush();
+        $offer->setId($id);
+        $manager->persist($offer);
+        $manager->flush();
+        $offer = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offer->addProduct($product);
+        $manager->persist($offer);
+        $manager->flush();
+
+        /*
 
         // Grafsoorten group gemeente Hoorn
         $id = Uuid::fromString('17c09fb9-a3a1-4fc9-9617-5ebcf73e06cc');
