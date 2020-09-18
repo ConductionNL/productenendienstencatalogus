@@ -354,7 +354,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('f747ce71-42b9-43ec-8f83-095296535b5a');
         $group = new Group();
         $group->setIcon('My Icon');
-        $group->setName('Grafsoorten SED Stede-Broec');
+        $group->setName('Grafartikelen SED Stede-Broec');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Stede-Broec');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'a5567d87-ca05-45e9-a888-184494a3c79c'])); // SED Stede-Broec
@@ -864,7 +864,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('a3e3c3b2-a6c3-4bad-a069-06fc39b6230a');
         $group = new Group();
         $group->setIcon('My Icon');
-        $group->setName('Grafsoorten SED Enkhuizen');
+        $group->setName('Grafartikelen SED Enkhuizen');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Enkhuizen');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7033eeb4-5c77-4d88-9f40-303b538f176f'])); // SED Enkhuizen
@@ -1372,7 +1372,7 @@ class WestFrieslandFixtures extends Fixture
         $id = Uuid::fromString('2faaaa02-2f76-480a-b883-593f7d205737');
         $group = new Group();
         $group->setIcon('My Icon');
-        $group->setName('Grafsoorten SED Drechterland');
+        $group->setName('Grafartikelen SED Drechterland');
         $group->setDescription('Een groep voor de grafsoorten van de gemeente SED Drechterland');
         $group->setLogo('https://www.my-organization.com/Diversenlogo.png');
         $group->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'e7d5368d-4d95-454d-9c0e-d4466889e2bd'])); // SED Drechterland
