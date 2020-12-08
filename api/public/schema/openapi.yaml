@@ -1,18 +1,18 @@
 openapi: 3.0.2
 info:
   title: 'Producten en Diensten Catalogus'
-  version: V.0.1
+  version: V1.0
   description: |
     API Details
     - Component: Producten en Diensten Catalogus
     - Reference: pdc
     - Enviroment: dev
-    - Version: V.0.1
+    - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
+    - Datamodel: [postman](schema/pdc.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
-    This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
+    'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
 paths:
   /audit_trails:
@@ -5282,6 +5282,30 @@ paths:
           schema:
             type: string
         -
+          name: 'exists[availabilityStarts]'
+          in: query
+          required: false
+          schema:
+            type: boolean
+        -
+          name: 'exists[availabilityEnds]'
+          in: query
+          required: false
+          schema:
+            type: boolean
+        -
+          name: 'exists[recurrence]'
+          in: query
+          required: false
+          schema:
+            type: boolean
+        -
+          name: 'exists[notice]'
+          in: query
+          required: false
+          schema:
+            type: boolean
+        -
           name: page
           in: query
           required: false
@@ -10128,18 +10152,23 @@ components:
         route:
           description: 'The moment this request was created'
           type: string
+          nullable: true
         endpoint:
           description: 'The endpoint that the request was made to'
           type: string
+          nullable: true
         method:
           description: 'The method that was used'
           type: string
+          nullable: true
         accept:
           description: 'The contentType that was reqousted'
           type: string
+          nullable: true
         contentType:
           description: 'The contentType that was suplieds'
           type: string
+          nullable: true
         content:
           description: 'The moment this request was created'
           type: string
@@ -10147,6 +10176,7 @@ components:
         ip:
           description: 'The moment this request was created'
           type: string
+          nullable: true
         session:
           description: 'The moment this request was created'
           type: string
@@ -10258,18 +10288,23 @@ components:
         route:
           description: 'The moment this request was created'
           type: string
+          nullable: true
         endpoint:
           description: 'The endpoint that the request was made to'
           type: string
+          nullable: true
         method:
           description: 'The method that was used'
           type: string
+          nullable: true
         accept:
           description: 'The contentType that was reqousted'
           type: string
+          nullable: true
         contentType:
           description: 'The contentType that was suplieds'
           type: string
+          nullable: true
         content:
           description: 'The moment this request was created'
           type: string
@@ -10277,6 +10312,7 @@ components:
         ip:
           description: 'The moment this request was created'
           type: string
+          nullable: true
         session:
           description: 'The moment this request was created'
           type: string
@@ -11038,6 +11074,14 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        recurrence:
+          description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        notice:
+          description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
       required:
         - name
         - price
@@ -11112,6 +11156,14 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        recurrence:
+          description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        notice:
+          description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
     'Offer:jsonld-read':
       type: object
       description: 'An entity representing an offer.'
@@ -11200,6 +11252,14 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        recurrence:
+          description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        notice:
+          description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
       required:
         - name
         - price
@@ -11283,6 +11343,14 @@ components:
         audience:
           description: 'The audience this product is intended for'
           type: string
+        recurrence:
+          description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        notice:
+          description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
     Product-read:
       type: object
       description: 'An entity representing a product.'
@@ -12485,12 +12553,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-09-11'
+        example: '2020-12-01'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-09-11'
+        example: '2020-12-01'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12501,6 +12569,14 @@ definitions:
       audience:
         description: 'The audience this product is intended for'
         type: string
+      recurrence:
+        description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      notice:
+        description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       taxes:
         description: 'The taxes that affect this offer'
         type: \ArrayCollection
@@ -12551,16 +12627,24 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-09-11'
+        example: '2020-12-01'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-09-11'
+        example: '2020-12-01'
         format: date
       audience:
         description: 'The audience this product is intended for'
         type: string
+      recurrence:
+        description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      notice:
+        description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
       taxes:
         description: 'The taxes that affect this offer'
         type: \ArrayCollection
@@ -13059,12 +13143,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-09-11 05:35:27'
+        example: '2020-12-01 12:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-09-11 05:35:27'
+        example: '2020-12-01 12:43:49'
     required: []
   AuditTrail-write:
     properties:
@@ -13112,12 +13196,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-09-11 05:35:27'
+        example: '2020-12-01 12:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-09-11 05:35:27'
+        example: '2020-12-01 12:43:49'
     required: []
   ChangeLog-write:
     properties:
