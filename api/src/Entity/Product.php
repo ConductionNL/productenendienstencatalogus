@@ -291,8 +291,7 @@ class Product
      *
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products",cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull
+     * @ORM\JoinColumn(nullable=true)
      * @Groups({"read","write"})
      */
     private $catalogue;
