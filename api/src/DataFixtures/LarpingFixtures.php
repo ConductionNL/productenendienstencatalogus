@@ -9,6 +9,7 @@ use App\Entity\Product;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class LarpingFixtures extends Fixture
@@ -83,6 +84,7 @@ class LarpingFixtures extends Fixture
         $manager->persist($offerELM2);
 
         // Product
+        $id = Uuid::fromString('c3ed3d66-920b-411f-8b37-36fcdf90245f');
         $productELM1 = new Product();
         $productELM1->setName('Evenementlidmaatschap Moots 1');
         $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7b863976-0fc3-4f49-a4f7-0bf7d2f2f535']));
@@ -90,10 +92,16 @@ class LarpingFixtures extends Fixture
         $productELM1->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
         $productELM1->setType('subscription');
         $productELM1->setSku('Eventlid-moots1-2020');
-        $productELM1->setCatalogue($catalogue);
-        $productELM1->addGroup($groupSubs);
         $productELM1->setRequiresAppointment(false);
         $manager->persist($productELM1);
+        $productELM1->setId($id);
+        $manager->persist($productELM1);
+        $manager->flush();
+        $productELM1 = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $productELM1->setCatalogue($catalogue);
+        $productELM1->addGroup($groupSubs);
+        $manager->persist($productELM1);
+        $manager->flush();
 
         // Offer
         $offerELM1 = new Offer();
