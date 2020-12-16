@@ -10,7 +10,7 @@ info:
     - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
+    - Datamodel: [postman](schema/pdc.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
     'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
@@ -13700,12 +13700,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-09-25'
+        example: '2020-12-01'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-09-25'
+        example: '2020-12-01'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -13774,12 +13774,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-09-25'
+        example: '2020-12-01'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-09-25'
+        example: '2020-12-01'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -14290,12 +14290,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-09-25 12:04:27'
+        example: '2020-12-01 12:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-09-25 12:04:27'
+        example: '2020-12-01 12:43:49'
     required: []
   AuditTrail-write:
     properties:
@@ -14343,12 +14343,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-09-25 12:04:27'
+        example: '2020-12-01 12:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-09-25 12:04:27'
+        example: '2020-12-01 12:43:49'
     required: []
   ChangeLog-write:
     properties:
@@ -14486,15 +14486,15 @@ securityDefinitions:
     authorizationUrl: 'http://petstore.swagger.io/api/oauth/dialog'
     flow: implicit
     scopes:
-      read: 'read right to the LoginLog resource'
-      write: 'write right to the LoginLog resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
   JWT-Token:
     type: apiKey
     in: header
     name: Authorization
     scopes:
-      read: 'read right to the LoginLog resource'
-      write: 'write right to the LoginLog resource'
+      read: 'read right to the ChangeLog resource'
+      write: 'write right to the ChangeLog resource'
 host: irc.zaakonline.nl
 servers:
   -

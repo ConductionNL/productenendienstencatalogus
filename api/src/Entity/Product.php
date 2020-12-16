@@ -58,7 +58,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
- * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"sourceOrganization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -291,8 +291,7 @@ class Product
      *
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products",cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull
+     * @ORM\JoinColumn(nullable=true)
      * @Groups({"read","write"})
      */
     private $catalogue;

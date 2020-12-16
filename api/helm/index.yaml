@@ -3,16 +3,50 @@ entries:
   pdc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-09-25T12:03:58.220844285Z"
+    created: "2020-12-01T12:55:35.8591229Z"
     description: '&#039;This component provides a products and services catalogue
       that can be used by a order component in order to provide the products in the
       orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)&#039;'
-    digest: 8b4b6ff780cf24abe0339c34b2c6e21e8a449a9f5d1de413cdccf041defef1a1
+    digest: 0d55766bbb7141f24eb6b8c1f8cec93d64c72f1a92b3fcad8d1f62230c0a8582
     home: pdc.zuid-drecht.nl
     icon: pdc.zuid-drecht.nl
     name: pdc
     urls:
     - pdc-0.1.0.tgz
     version: 0.1.0
-generated: "2020-09-25T12:03:58.216376385Z"
+  postgresql:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 11.10.0
+    created: "2020-12-01T12:55:35.872089Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.x.x
+    description: Chart for PostgreSQL, an object-relational database management system
+      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
+    digest: eebe8f456cf98d5927a35666d1d899174dc4d3e09f26788033f761527bc90749
+    home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/bitnami-docker-postgresql
+    - https://www.postgresql.org/
+    urls:
+    - charts/postgresql-10.1.1.tgz
+    version: 10.1.1
+generated: "2020-12-01T12:55:35.8446436Z"
