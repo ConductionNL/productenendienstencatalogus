@@ -1,31 +1,18 @@
 apiVersion: v1
 entries:
-  pc:
-  - apiVersion: v1
-    appVersion: V.0.1
-    created: "2020-09-18T11:26:25.756385772Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: a3ebf537582710b118b706a276db61fec8e25b642f3e8f3d1bb239ac1131f064
-    home: pc.zaakonline.nl
-    icon: pc.zaakonline.nl
-    name: pc
-    urls:
-    - pc-0.1.0.tgz
-    version: 0.1.0
   pdc:
   - apiVersion: v1
-    appVersion: V.0.1
-    created: "2020-09-18T11:26:25.766400172Z"
+    appVersion: V1.0
+    created: "2020-09-25T12:03:58.220844285Z"
     description: '&#039;This component provides a products and services catalogue
       that can be used by a order component in order to provide the products in the
       orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)&#039;'
-    digest: dceb7a11d15521c7af2a4603939272e9b4ba30dc7722e8fedf9816924de499e6
+    digest: 8b4b6ff780cf24abe0339c34b2c6e21e8a449a9f5d1de413cdccf041defef1a1
     home: pdc.zuid-drecht.nl
     icon: pdc.zuid-drecht.nl
     name: pdc
     urls:
     - pdc-0.1.0.tgz
     version: 0.1.0
-generated: "2020-09-18T11:26:25.744139172Z"
+generated: "2020-09-25T12:03:58.216376385Z"
