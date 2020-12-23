@@ -11438,11 +11438,6 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        groupedProducts:
-          description: 'If the product type is a **set** this contains the products that are part of that set'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product-read'
         catalogue:
           description: 'The Catalogue that this product belongs to'
           nullable: true
@@ -11511,6 +11506,14 @@ components:
           type: string
           format: date-time
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
       required:
         - name
         - sourceOrganization
@@ -11582,11 +11585,6 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        sets:
-          description: 'The sets thats this product is a part of'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product-write'
         catalogue:
           description: 'The Catalogue that this product belongs to'
           nullable: true
@@ -11627,6 +11625,14 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
       required:
         - name
         - sourceOrganization
@@ -11713,11 +11719,6 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        groupedProducts:
-          description: 'If the product type is a **set** this contains the products that are part of that set'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product:jsonld-read'
         catalogue:
           description: 'The Catalogue that this product belongs to'
           nullable: true
@@ -11786,6 +11787,14 @@ components:
           type: string
           format: date-time
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
       required:
         - name
         - sourceOrganization
@@ -11866,11 +11875,6 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        sets:
-          description: 'The sets thats this product is a part of'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product:jsonld-write'
         catalogue:
           description: 'The Catalogue that this product belongs to'
           nullable: true
@@ -11911,6 +11915,14 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
       required:
         - name
         - sourceOrganization
@@ -12577,12 +12589,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-16'
+        example: '2020-12-23'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-16'
+        example: '2020-12-23'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12651,12 +12663,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-16'
+        example: '2020-12-23'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-16'
+        example: '2020-12-23'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12790,9 +12802,6 @@ definitions:
       variations:
         description: 'The different variations that are available of this product'
         type: \ArrayCollection
-      groupedProducts:
-        description: 'If the product type is a **set** this contains the products that are part of that set'
-        type: \ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
         type: \Catalogue
@@ -12802,6 +12811,8 @@ definitions:
       additionalProperties:
         description: 'The additional properties this product has'
         type: \ArrayCollection
+      prerequisiteProducts: []
+      productsThatAreDependent: []
     required:
       - name
       - sourceOrganization
@@ -12893,9 +12904,6 @@ definitions:
       parent:
         description: 'The product that this product is a variation of'
         type: \Product
-      sets:
-        description: 'The sets thats this product is a part of'
-        type: \ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
         type: \Catalogue
@@ -12905,6 +12913,8 @@ definitions:
       additionalProperties:
         description: 'The additional properties this product has'
         type: \ArrayCollection
+      prerequisiteProducts: []
+      productsThatAreDependent: []
     required:
       - name
       - sourceOrganization
@@ -13165,12 +13175,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-16 16:29:42'
+        example: '2020-12-23 15:23:11'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-16 16:29:42'
+        example: '2020-12-23 15:23:11'
     required: []
   AuditTrail-write:
     properties:
@@ -13218,12 +13228,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-16 16:29:42'
+        example: '2020-12-23 15:23:11'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-16 16:29:42'
+        example: '2020-12-23 15:23:11'
     required: []
   ChangeLog-write:
     properties:
