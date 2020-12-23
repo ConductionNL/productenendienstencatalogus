@@ -85,12 +85,45 @@ class LarpingFixtures extends Fixture
 
         // Product
         $id = Uuid::fromString('c3ed3d66-920b-411f-8b37-36fcdf90245f');
-        $productELM1 = new Product();
-        $productELM1->setName('Evenementlidmaatschap Moots 1');
-        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7b863976-0fc3-4f49-a4f7-0bf7d2f2f535']));
+        $productlidmaatschap = new Product();
+        $productlidmaatschap->setName('Evenementlidmaatschap');
+        $productlidmaatschap->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
         //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
-        $productELM1->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
-        $productELM1->setType('subscription');
+        $productlidmaatschap->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
+        $productlidmaatschap->setType('subscription');
+        $productlidmaatschap->setSku('Eventlid-moots1-2020');
+        $productlidmaatschap->setRequiresAppointment(false);
+        $manager->persist($productlidmaatschap);
+        $productlidmaatschap->setId($id);
+        $manager->persist($productlidmaatschap);
+        $manager->flush();
+        $productlidmaatschap = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+        $productlidmaatschap->setCatalogue($catalogue);
+        $productlidmaatschap->addGroup($groupSubs);
+        $manager->persist($productlidmaatschap);
+        $manager->flush();
+
+        // Offer
+        $offerELM1 = new Offer();
+        $offerELM1->setName('Evenementlidmaatschap jaarlijks');
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setDescription('Evenementlidmaatschap Moots 1 2020');
+        $offerELM1->setPrice(500);
+        $offerELM1->setPriceCurrency('EUR');
+        $offerELM1->setAudience('internal');
+        $offerELM1->setRecurrence('P1Y');
+        $offerELM1->setNotice('P1M');
+        $offerELM1->addProduct($productlidmaatschap);
+        $manager->persist($offerELM1);
+
+        // Product
+        $id = Uuid::fromString('893e5c2f-4c89-438c-aa62-c0bd4636e858');
+        $productELM1 = new Product();
+        $productELM1->setName('Ticket Moots 1');
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELM1->setDescription('Met dit product heb je entree van Vortex Adventures tot het Moots 1 2020 event');
+        $productELM1->setType('ticket');
         $productELM1->setSku('Eventlid-moots1-2020');
         $productELM1->setRequiresAppointment(false);
         $manager->persist($productELM1);
@@ -100,15 +133,16 @@ class LarpingFixtures extends Fixture
         $productELM1 = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
         $productELM1->setCatalogue($catalogue);
         $productELM1->addGroup($groupSubs);
+        $productELM1->addPrerequisiteProduct($productlidmaatschap);
         $manager->persist($productELM1);
         $manager->flush();
 
         // Offer
         $offerELM1 = new Offer();
-        $offerELM1->setName('Offer Eventlid Moots 1 2020');
-        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'7b863976-0fc3-4f49-a4f7-0bf7d2f2f535']));
-        $offerELM1->setDescription('Evenementlidmaatschap Moots 1 2020');
-        $offerELM1->setPrice(500);
+        $offerELM1->setName('Ticket Moots 1 2020');
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setDescription('Ticket Moots 1');
+        $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
         $offerELM1->setAudience('internal');
         $offerELM1->addProduct($productELM1);
@@ -185,7 +219,7 @@ class LarpingFixtures extends Fixture
         $productJL->setAudience('public');
         $productJL->setCatalogue($catalogue);
         $productJL->addGroup($groupSubs);
-        $productJL->addSet($productJP2020);
+//        $productJL->addSet($productJP2020);
         $productJL->setRequiresAppointment(false);
         $manager->persist($productJL);
 
@@ -210,7 +244,7 @@ class LarpingFixtures extends Fixture
         $productM12020->setSku('Moots1-2020');
         $productM12020->setCatalogue($catalogue);
         $productM12020->addGroup($groupEvent);
-        $productM12020->addSet($productJP2020);
+//        $productM12020->addSet($productJP2020);
         $productM12020->setRequiresAppointment(false);
         $manager->persist($productM12020);
 
@@ -345,7 +379,7 @@ class LarpingFixtures extends Fixture
         $productM22020->setSku('Moots2-2020');
         $productM22020->setCatalogue($catalogue);
         $productM22020->addGroup($groupEvent);
-        $productM22020->addSet($productJP2020);
+//        $productM22020->addSet($productJP2020);
         $productM22020->setRequiresAppointment(false);
         $manager->persist($productM22020);
 
@@ -480,7 +514,7 @@ class LarpingFixtures extends Fixture
         $productS2020->setSku('summoning-2020');
         $productS2020->setCatalogue($catalogue);
         $productS2020->addGroup($groupEvent);
-        $productS2020->addSet($productJP2020);
+//        $productS2020->addSet($productJP2020);
         $productS2020->setRequiresAppointment(false);
         $manager->persist($productS2020);
 
