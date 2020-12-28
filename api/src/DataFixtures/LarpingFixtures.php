@@ -650,6 +650,5 @@ class LarpingFixtures extends Fixture
 //        $offerSH->setAudience('internal');
 //        $offerSH->addProduct($productS2020);
 //        $manager->persist($offerSH);
-
     }
 }
