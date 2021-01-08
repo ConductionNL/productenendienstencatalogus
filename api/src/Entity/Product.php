@@ -310,7 +310,7 @@ class Product
     /**
      * @var string The uri referring to the calendar of this product.
      *
-     * @example http://example.org/calendar/calendar
+     * @example http://example.org/arc/calendar
      *
      * @Gedmo\Versioned
      * @Assert\Url
@@ -321,6 +321,36 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $calendar;
+
+    /**
+     * @var string The uri referring to the event of this product (if type is ticket).
+     *
+     * @example http://example.org/arc/event
+     *
+     * @Gedmo\Versioned
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $event;
+
+    /**
+     * @var string The uri referring to the user of this product (if type subscribtion).
+     *
+     * @example http://example.org/uc/group
+     *
+     * @Gedmo\Versioned
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $group;
 
     /**
      * @var bool If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms
@@ -789,7 +819,31 @@ class Product
 
     public function setCalendar(?string $calendar): self
     {
-        $this->calendar = $calendar;
+        $this->event = event;
+
+        return $this;
+    }
+
+    public function getEvent(): ?string
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?string $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function getGroup(): ?string
+    {
+        return $this->group;
+    }
+
+    public function setGroup(?string $group): self
+    {
+        $this->group = $group;
 
         return $this;
     }
