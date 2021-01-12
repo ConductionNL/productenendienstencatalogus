@@ -144,7 +144,7 @@ class LarpingFixtures extends Fixture
         $offerELM1->setDescription('Ticket Moots 1');
         $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
-        $offerELM1->setAudience('internal');
+        $offerELM1->setAudience('personal');
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
