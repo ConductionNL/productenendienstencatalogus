@@ -290,9 +290,9 @@ class Product
      * @var Catalogue The Catalogue that this product belongs to
      *
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products",cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"read","write"})
+     * @Groups({"read", "write"})
      */
     private $catalogue;
 
@@ -350,7 +350,7 @@ class Product
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $group;
+    private $userGroup;
 
     /**
      * @var bool If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms
@@ -836,14 +836,14 @@ class Product
         return $this;
     }
 
-    public function getGroup(): ?string
+    public function getUserGroup(): ?string
     {
-        return $this->group;
+        return $this->userGroup;
     }
 
-    public function setGroup(?string $group): self
+    public function setUserGroup(?string $userGroup): self
     {
-        $this->group = $group;
+        $this->userGroup = $userGroup;
 
         return $this;
     }
