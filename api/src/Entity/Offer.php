@@ -253,7 +253,7 @@ class Offer
      * @var string The audience this product is intended for
      *
      * @Groups({"read","write"})
-     * @Assert\Choice({"public", "internal"})
+     * @Assert\Choice({"public", "internal", "personal"})
      * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */

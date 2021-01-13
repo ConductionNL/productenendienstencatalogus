@@ -11455,6 +11455,18 @@ components:
             url: 'http://schema.org/url'
           type: string
           nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
@@ -11602,6 +11614,18 @@ components:
             url: 'http://schema.org/url'
           type: string
           nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
         requiresAppointment:
           description: 'If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms'
           type: boolean
@@ -11732,6 +11756,18 @@ components:
             $ref: '#/components/schemas/Offer:jsonld-read'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -11888,6 +11924,18 @@ components:
             $ref: '#/components/schemas/Offer:jsonld-write'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -12589,12 +12637,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-23'
+        example: '2021-01-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-23'
+        example: '2021-01-12'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12663,12 +12711,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-23'
+        example: '2021-01-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-23'
+        example: '2021-01-12'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12759,7 +12807,19 @@ definitions:
       calendar:
         description: 'The uri referring to the calendar of this product.'
         type: string
-        example: 'http://example.org/calendar/calendar'
+        example: 'http://example.org/arc/calendar'
+        format: url
+        maxLength: 255
+      event:
+        description: 'The uri referring to the event of this product (if type is ticket).'
+        type: string
+        example: 'http://example.org/arc/event'
+        format: url
+        maxLength: 255
+      userGroup:
+        description: 'The uri referring to the user of this product (if type subscribtion).'
+        type: string
+        example: 'http://example.org/uc/group'
         format: url
         maxLength: 255
       requiresAppointment:
@@ -12876,7 +12936,19 @@ definitions:
       calendar:
         description: 'The uri referring to the calendar of this product.'
         type: string
-        example: 'http://example.org/calendar/calendar'
+        example: 'http://example.org/arc/calendar'
+        format: url
+        maxLength: 255
+      event:
+        description: 'The uri referring to the event of this product (if type is ticket).'
+        type: string
+        example: 'http://example.org/arc/event'
+        format: url
+        maxLength: 255
+      userGroup:
+        description: 'The uri referring to the user of this product (if type subscribtion).'
+        type: string
+        example: 'http://example.org/uc/group'
         format: url
         maxLength: 255
       requiresAppointment:
@@ -13175,12 +13247,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-23 15:23:11'
+        example: '2021-01-12 13:38:01'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-23 15:23:11'
+        example: '2021-01-12 13:38:01'
     required: []
   AuditTrail-write:
     properties:
@@ -13228,12 +13300,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-23 15:23:11'
+        example: '2021-01-12 13:38:01'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-23 15:23:11'
+        example: '2021-01-12 13:38:01'
     required: []
   ChangeLog-write:
     properties:

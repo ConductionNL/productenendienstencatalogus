@@ -87,7 +87,7 @@ class LarpingFixtures extends Fixture
         $id = Uuid::fromString('c3ed3d66-920b-411f-8b37-36fcdf90245f');
         $productlidmaatschap = new Product();
         $productlidmaatschap->setName('Evenementlidmaatschap');
-        $productlidmaatschap->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $productlidmaatschap->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productlidmaatschap->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
         $productlidmaatschap->setType('subscription');
@@ -106,7 +106,7 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerELM1 = new Offer();
         $offerELM1->setName('Evenementlidmaatschap jaarlijks');
-        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         $offerELM1->setDescription('Evenementlidmaatschap Moots 1 2020');
         $offerELM1->setPrice(500);
         $offerELM1->setPriceCurrency('EUR');
@@ -120,7 +120,7 @@ class LarpingFixtures extends Fixture
         $id = Uuid::fromString('893e5c2f-4c89-438c-aa62-c0bd4636e858');
         $productELM1 = new Product();
         $productELM1->setName('Ticket Moots 1');
-        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productELM1->setDescription('Met dit product heb je entree van Vortex Adventures tot het Moots 1 2020 event');
         $productELM1->setType('ticket');
@@ -144,7 +144,7 @@ class LarpingFixtures extends Fixture
         $offerELM1->setDescription('Ticket Moots 1');
         $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
-        $offerELM1->setAudience('internal');
+        $offerELM1->setAudience('personal');
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
