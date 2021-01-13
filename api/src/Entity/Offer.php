@@ -59,7 +59,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *     "price": "exact",
+ *     "priceCurrency": "exact",
+ *     "offeredBy": "ipartial",
+ *     "audience": "exact",
+ *     "products.id": "ipartial",
+ *     "products.groups.id": "ipartial",
+ *     "products.groups.name": "ipartial",
+ *     "products.groups.sourceOrganization": "ipartial",
+ *     "products.name": "ipartial",
+ *     "products.type": "ipartial",
+ *     "products.event": "ipartial"
+ * })
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  * @ApiFilter(ExistsFilter::class, properties={"availabilityStarts", "availabilityEnds", "recurrence", "notice"})
  */

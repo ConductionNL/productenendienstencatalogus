@@ -59,13 +59,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={
- *     "sourceOrganization": "exact",
+ *     "sourceOrganization": "ipartial",
  *     "groups.id": "exact",
  *     "type": "exact",
  *     "sku": "exact",
- *     "name": "partial",
- *     "description": "partial",
- *     "id": "exact"})
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *      "id": "exact"}
+ *     )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
