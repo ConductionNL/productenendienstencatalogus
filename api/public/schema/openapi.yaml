@@ -12,7 +12,7 @@ info:
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
     - Datamodel: [postman](schema/pdc.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
-    'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
+    This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
     
 paths:
   /audit_trails:
@@ -6199,6 +6199,22 @@ paths:
               - asc
               - desc
         -
+          name: sourceOrganization
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'sourceOrganization[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: groups.id
           in: query
           required: false
@@ -11422,14 +11438,12 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        groupedProducts:
-          description: 'If the product type is a **set** this contains the products that are part of that set'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product-read'
         catalogue:
           description: 'The Catalogue that this product belongs to'
-          $ref: '#/components/schemas/Catalogue-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Catalogue-read'
         offers:
           description: 'The offers that refer to this product'
           type: array
@@ -11437,6 +11451,18 @@ components:
             $ref: '#/components/schemas/Offer-read'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -11492,11 +11518,18 @@ components:
           type: string
           format: date-time
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-read'
       required:
         - name
         - sourceOrganization
         - type
-        - catalogue
         - requiresAppointment
         - audience
     Product-write:
@@ -11564,14 +11597,12 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        sets:
-          description: 'The sets thats this product is a part of'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product-write'
         catalogue:
           description: 'The Catalogue that this product belongs to'
-          $ref: '#/components/schemas/Catalogue-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Catalogue-write'
         offers:
           description: 'The offers that refer to this product'
           type: array
@@ -11579,6 +11610,18 @@ components:
             $ref: '#/components/schemas/Offer-write'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -11606,11 +11649,18 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product-write'
       required:
         - name
         - sourceOrganization
         - type
-        - catalogue
         - requiresAppointment
         - audience
     'Product:jsonld-read':
@@ -11693,14 +11743,12 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        groupedProducts:
-          description: 'If the product type is a **set** this contains the products that are part of that set'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product:jsonld-read'
         catalogue:
           description: 'The Catalogue that this product belongs to'
-          $ref: '#/components/schemas/Catalogue:jsonld-read'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Catalogue:jsonld-read'
         offers:
           description: 'The offers that refer to this product'
           type: array
@@ -11708,6 +11756,18 @@ components:
             $ref: '#/components/schemas/Offer:jsonld-read'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -11763,11 +11823,18 @@ components:
           type: string
           format: date-time
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-read'
       required:
         - name
         - sourceOrganization
         - type
-        - catalogue
         - requiresAppointment
         - audience
     'Product:jsonld-write':
@@ -11844,14 +11911,12 @@ components:
         type:
           description: 'The type of this product. **simple**, **set**, **virtual**, **external**, **ticket**, **variable**, **subscription**, **person**, **location**, **service**'
           type: string
-        sets:
-          description: 'The sets thats this product is a part of'
-          type: array
-          items:
-            $ref: '#/components/schemas/Product:jsonld-write'
         catalogue:
           description: 'The Catalogue that this product belongs to'
-          $ref: '#/components/schemas/Catalogue:jsonld-write'
+          nullable: true
+          anyOf:
+            -
+              $ref: '#/components/schemas/Catalogue:jsonld-write'
         offers:
           description: 'The offers that refer to this product'
           type: array
@@ -11859,6 +11924,18 @@ components:
             $ref: '#/components/schemas/Offer:jsonld-write'
         calendar:
           description: 'The uri referring to the calendar of this product.'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        event:
+          description: 'The uri referring to the event of this product (if type is ticket).'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        userGroup:
+          description: 'The uri referring to the user of this product (if type subscribtion).'
           externalDocs:
             url: 'http://schema.org/url'
           type: string
@@ -11886,11 +11963,18 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        prerequisiteProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
+        productsThatAreDependent:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product:jsonld-write'
       required:
         - name
         - sourceOrganization
         - type
-        - catalogue
         - requiresAppointment
         - audience
     PropertyValue-read:
@@ -12553,12 +12637,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-01'
+        example: '2021-01-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-01'
+        example: '2021-01-12'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12627,12 +12711,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2020-12-01'
+        example: '2021-01-12'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2020-12-01'
+        example: '2021-01-12'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12723,7 +12807,19 @@ definitions:
       calendar:
         description: 'The uri referring to the calendar of this product.'
         type: string
-        example: 'http://example.org/calendar/calendar'
+        example: 'http://example.org/arc/calendar'
+        format: url
+        maxLength: 255
+      event:
+        description: 'The uri referring to the event of this product (if type is ticket).'
+        type: string
+        example: 'http://example.org/arc/event'
+        format: url
+        maxLength: 255
+      userGroup:
+        description: 'The uri referring to the user of this product (if type subscribtion).'
+        type: string
+        example: 'http://example.org/uc/group'
         format: url
         maxLength: 255
       requiresAppointment:
@@ -12766,9 +12862,6 @@ definitions:
       variations:
         description: 'The different variations that are available of this product'
         type: \ArrayCollection
-      groupedProducts:
-        description: 'If the product type is a **set** this contains the products that are part of that set'
-        type: \ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
         type: \Catalogue
@@ -12778,12 +12871,13 @@ definitions:
       additionalProperties:
         description: 'The additional properties this product has'
         type: \ArrayCollection
+      prerequisiteProducts: []
+      productsThatAreDependent: []
     required:
       - name
       - sourceOrganization
       - requiresAppointment
       - audience
-      - catalogue
   Product-write:
     properties:
       sku:
@@ -12842,7 +12936,19 @@ definitions:
       calendar:
         description: 'The uri referring to the calendar of this product.'
         type: string
-        example: 'http://example.org/calendar/calendar'
+        example: 'http://example.org/arc/calendar'
+        format: url
+        maxLength: 255
+      event:
+        description: 'The uri referring to the event of this product (if type is ticket).'
+        type: string
+        example: 'http://example.org/arc/event'
+        format: url
+        maxLength: 255
+      userGroup:
+        description: 'The uri referring to the user of this product (if type subscribtion).'
+        type: string
+        example: 'http://example.org/uc/group'
         format: url
         maxLength: 255
       requiresAppointment:
@@ -12870,9 +12976,6 @@ definitions:
       parent:
         description: 'The product that this product is a variation of'
         type: \Product
-      sets:
-        description: 'The sets thats this product is a part of'
-        type: \ArrayCollection
       catalogue:
         description: 'The Catalogue that this product belongs to'
         type: \Catalogue
@@ -12882,12 +12985,13 @@ definitions:
       additionalProperties:
         description: 'The additional properties this product has'
         type: \ArrayCollection
+      prerequisiteProducts: []
+      productsThatAreDependent: []
     required:
       - name
       - sourceOrganization
       - requiresAppointment
       - audience
-      - catalogue
   PropertyValue-read:
     properties:
       id:
@@ -13143,12 +13247,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-01 12:43:49'
+        example: '2021-01-12 13:38:01'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-01 12:43:49'
+        example: '2021-01-12 13:38:01'
     required: []
   AuditTrail-write:
     properties:
@@ -13196,12 +13300,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-12-01 12:43:49'
+        example: '2021-01-12 13:38:01'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-12-01 12:43:49'
+        example: '2021-01-12 13:38:01'
     required: []
   ChangeLog-write:
     properties:
