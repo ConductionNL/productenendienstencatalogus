@@ -148,9 +148,9 @@ class LarpingFixtures extends Fixture
         $offerELM1->setAudience('personal');
         $offerELM1->setOptions([
             [
-                'name' => 'Tent 4 persoons',
-                'price' => -50
-            ]
+                'name'  => 'Tent 4 persoons',
+                'price' => -50,
+            ],
         ]);
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
