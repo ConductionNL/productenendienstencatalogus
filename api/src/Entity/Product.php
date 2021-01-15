@@ -484,6 +484,13 @@ class Product
      */
     private $productsThatAreDependent;
 
+    /**
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $options = [];
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -1082,6 +1089,18 @@ class Product
             $this->productsThatAreDependent->removeElement($productsThatAreDependent);
             $productsThatAreDependent->removePrerequisiteProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?array $options): self
+    {
+        $this->options = $options;
 
         return $this;
     }
