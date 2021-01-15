@@ -281,6 +281,13 @@ class Offer
      */
     private $notice;
 
+    /**
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $options = [];
+
     public function __construct()
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
@@ -533,6 +540,18 @@ class Offer
     public function setNotice(string $notice): self
     {
         $this->notice = $notice;
+
+        return $this;
+    }
+
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?array $options): self
+    {
+        $this->options = $options;
 
         return $this;
     }
