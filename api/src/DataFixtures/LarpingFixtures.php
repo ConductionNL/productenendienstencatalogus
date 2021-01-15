@@ -128,9 +128,9 @@ class LarpingFixtures extends Fixture
         $productELM1->setRequiresAppointment(false);
         $productELM1->setOptions([
             [
-                'name' => 'Tent 4 persoons',
-                'price' => -50
-            ]
+                'name'  => 'Tent 4 persoons',
+                'price' => -50,
+            ],
         ]);
         $manager->persist($productELM1);
         $productELM1->setId($id);
