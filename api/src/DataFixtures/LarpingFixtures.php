@@ -126,6 +126,7 @@ class LarpingFixtures extends Fixture
         $productELM1->setType('ticket');
         $productELM1->setSku('Eventlid-moots1-2020');
         $productELM1->setRequiresAppointment(false);
+        $productELM1->setEvent($this->commonGroundService->cleanUrl(['component' => 'arc', 'type' => 'events', 'id' => 'ae31eadb-0635-4190-b1c0-ac783afbc25c']));
         $manager->persist($productELM1);
         $productELM1->setId($id);
         $manager->persist($productELM1);
@@ -144,7 +145,6 @@ class LarpingFixtures extends Fixture
         $offerELM1->setDescription('Ticket Moots 1');
         $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
-        $offerELM1->setAudience('personal');
         $offerELM1->setAudience('personal');
         $offerELM1->setOptions([
             [
