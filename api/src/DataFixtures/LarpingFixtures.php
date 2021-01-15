@@ -126,12 +126,6 @@ class LarpingFixtures extends Fixture
         $productELM1->setType('ticket');
         $productELM1->setSku('Eventlid-moots1-2020');
         $productELM1->setRequiresAppointment(false);
-        $productELM1->setOptions([
-            [
-                'name' => 'Tent 4 persoons',
-                'price' => -50
-            ]
-        ]);
         $manager->persist($productELM1);
         $productELM1->setId($id);
         $manager->persist($productELM1);
@@ -152,6 +146,12 @@ class LarpingFixtures extends Fixture
         $offerELM1->setPriceCurrency('EUR');
         $offerELM1->setAudience('personal');
         $offerELM1->setAudience('personal');
+        $offerELM1->setOptions([
+            [
+                'name' => 'Tent 4 persoons',
+                'price' => -50
+            ]
+        ]);
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
