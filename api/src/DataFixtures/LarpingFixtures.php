@@ -141,7 +141,7 @@ class LarpingFixtures extends Fixture
         // Offer
         $offerELM1 = new Offer();
         $offerELM1->setName('Ticket Moots 1 2020');
-        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         $offerELM1->setDescription('Ticket Moots 1');
         $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
