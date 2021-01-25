@@ -155,6 +155,48 @@ class LarpingFixtures extends Fixture
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
+
+        // Product
+        $id = Uuid::fromString('364523a6-458f-45f3-a9de-7d10b9e928a7');
+        $productELM1 = new Product();
+        $productELM1->setName('Test Subscription');
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
+        //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELM1->setDescription('Met dit product heb je een test subscription van Vortex Adventures');
+        $productELM1->setType('subscription');
+        $productELM1->setSku('Eventlid-moots1-2020');
+        $productELM1->setRequiresAppointment(false);
+        $productELM1->setEvent($this->commonGroundService->cleanUrl(['component' => 'arc', 'type' => 'events', 'id' => '81052670-582e-401d-ad2b-77ac60cf9d73']));
+        $manager->persist($productELM1);
+        $productELM1->setId($id);
+        $manager->persist($productELM1);
+        $manager->flush();
+        $productELM1 = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+//        $productELM1->setCatalogue($catalogue);
+//        $productELM1->addGroup($groupSubs);
+        $productELM1->addPrerequisiteProduct($productlidmaatschap);
+        $manager->persist($productELM1);
+        $manager->flush();
+
+        // Offer
+        $offerELM1 = new Offer();
+        $offerELM1->setName('Test Subscription');
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
+        $offerELM1->setDescription('Test Subscription');
+        $offerELM1->setPrice(30);
+        $offerELM1->setPriceCurrency('EUR');
+        $offerELM1->setAudience('personal');
+        $offerELM1->setOptions([
+            [
+                'name'  => 'Price reduction',
+                'price' => -4,
+            ],
+        ]);
+        $offerELM1->setRecurrence('P1M');
+        $offerELM1->setNotice('P1M');
+        $offerELM1->addProduct($productELM1);
+        $manager->persist($offerELM1);
+        $manager->flush();
 //
 //        // Product
 //        $productELS = new Product();
