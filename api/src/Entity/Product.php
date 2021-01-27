@@ -61,6 +61,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiFilter(SearchFilter::class, properties={
  *     "sourceOrganization": "ipartial",
  *     "groups.id": "exact",
+ *     "event": "exact",
  *     "type": "exact",
  *     "sku": "exact",
  *     "name": "ipartial",
