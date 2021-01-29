@@ -3,12 +3,12 @@ entries:
   pdc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-01-15T13:44:41.5187795Z"
+    created: "2021-01-29T09:47:55.5425954Z"
     description: This component provides a products and services catalogue that can
       be used by a order component in order to provide the products in the orders
       with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
-    digest: 868a11576da9b7d0290d7b1ebdbcca57c44b87b9642352cabb8ebbf499aab4af
+    digest: a94a850e5c505aaec7971b9d091c3fc923cf0041fdd6c32adc9bce3e7be27e1a
     home: pdc.zuid-drecht.nl
     icon: pdc.zuid-drecht.nl
     name: pdc
@@ -20,7 +20,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-01-15T13:44:41.536444Z"
+    created: "2021-01-29T09:47:55.5544521Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -49,4 +49,4 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2021-01-15T13:44:41.4461745Z"
+generated: "2021-01-29T09:47:55.4712886Z"

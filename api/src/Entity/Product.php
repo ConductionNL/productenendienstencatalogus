@@ -312,7 +312,7 @@ class Product
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @Assert\Valid
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade={"persist"})
      */
     private $offers;
 
