@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use DateTime;
@@ -58,8 +59,23 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *     "price": "exact",
+ *     "priceCurrency": "exact",
+ *     "offeredBy": "ipartial",
+ *     "audience": "exact",
+ *     "products.id": "ipartial",
+ *     "products.groups.id": "ipartial",
+ *     "products.groups.name": "ipartial",
+ *     "products.groups.sourceOrganization": "ipartial",
+ *     "products.name": "ipartial",
+ *     "products.type": "ipartial",
+ *     "products.event": "ipartial"
+ * })
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
+ * @ApiFilter(ExistsFilter::class, properties={"availabilityStarts", "availabilityEnds", "recurrence", "notice"})
  */
 class Offer
 {
@@ -237,11 +253,40 @@ class Offer
      * @var string The audience this product is intended for
      *
      * @Groups({"read","write"})
-     * @Assert\Choice({"public", "internal"})
+     * @Assert\Choice({"public", "internal", "personal"})
      * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */
     private $audience;
+
+    /**
+     * @var string The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $recurrence;
+
+    /**
+     * @var string The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+     *
+     * @example PT10M
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $notice;
+
+    /**
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $options = [];
 
     public function __construct()
     {
@@ -471,6 +516,42 @@ class Offer
     public function setAudience(string $audience): self
     {
         $this->audience = $audience;
+
+        return $this;
+    }
+
+    public function getRecurrence(): ?string
+    {
+        return $this->recurrence;
+    }
+
+    public function setRecurrence(string $recurrence): self
+    {
+        $this->recurrence = $recurrence;
+
+        return $this;
+    }
+
+    public function getNotice(): ?string
+    {
+        return $this->notice;
+    }
+
+    public function setNotice(string $notice): self
+    {
+        $this->notice = $notice;
+
+        return $this;
+    }
+
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?array $options): self
+    {
+        $this->options = $options;
 
         return $this;
     }
