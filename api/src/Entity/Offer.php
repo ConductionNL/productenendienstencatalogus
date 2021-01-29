@@ -292,6 +292,7 @@ class Offer
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->taxes = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -424,7 +425,7 @@ class Offer
     {
         if ($this->taxes->contains($tax)) {
             $this->taxes->removeElement($tax);
-            $gtax->removeProduct($this);
+            $tax->removeProduct($this);
         }
 
         return $this;
