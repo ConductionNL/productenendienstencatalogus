@@ -104,6 +104,7 @@ class LarpingFixtures extends Fixture
         $manager->flush();
 
         // Offer
+        $id = Uuid::fromString('43a69a6e-b1ce-4fc7-92d5-004be1f19022');
         $offerELM1 = new Offer();
         $offerELM1->setName('Evenementlidmaatschap jaarlijks');
         $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
@@ -113,8 +114,14 @@ class LarpingFixtures extends Fixture
         $offerELM1->setAudience('internal');
         $offerELM1->setRecurrence('P1Y');
         $offerELM1->setNotice('P1M');
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offerELM1->addProduct($productlidmaatschap);
         $manager->persist($offerELM1);
+        $manager->flush();
 
         // Product
         $id = Uuid::fromString('893e5c2f-4c89-438c-aa62-c0bd4636e858');
@@ -139,6 +146,7 @@ class LarpingFixtures extends Fixture
         $manager->flush();
 
         // Offer
+        $id = Uuid::fromString('dbd09cf0-784f-4254-9d3e-9e3af0d7862a');
         $offerELM1 = new Offer();
         $offerELM1->setName('Ticket Moots 1 2020');
         $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
@@ -152,6 +160,11 @@ class LarpingFixtures extends Fixture
                 'price' => -50,
             ],
         ]);
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
@@ -179,6 +192,7 @@ class LarpingFixtures extends Fixture
         $manager->flush();
 
         // Offer
+        $id = Uuid::fromString('d6b945bc-0295-492c-9350-d83f06924944');
         $offerELM1 = new Offer();
         $offerELM1->setName('Test Subscription');
         $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
@@ -194,6 +208,11 @@ class LarpingFixtures extends Fixture
         ]);
         $offerELM1->setRecurrence('P1M');
         $offerELM1->setNotice('P1M');
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
