@@ -58,7 +58,16 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
- * @ApiFilter(SearchFilter::class, properties={"sourceOgranization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "sourceOrganization": "ipartial",
+ *     "groups.id": "exact",
+ *     "event": "exact",
+ *     "type": "exact",
+ *     "sku": "exact",
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *      "id": "exact"}
+ *     )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -268,32 +277,31 @@ class Product
      */
     private $type;
 
-    /**
-     * @var ArrayCollection If the product type is a **set** this contains the products that are part of that set
-     *
-     * @MaxDepth(1)
-     * @Groups({"read"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="sets")
-     */
-    private $groupedProducts;
-
-    /**
-     * @var ArrayCollection The sets thats this product is a part of
-     *
-     * @MaxDepth(1)
-     * @Groups({"write"})
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="groupedProducts")
-     */
-    private $sets;
+//    /**
+//     * @var ArrayCollection If the product type is a **set** this contains the products that are part of that set
+//     *
+//     * @MaxDepth(1)
+//     * @Groups({"read"})
+//     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="sets")
+//     */
+//    private $groupedProducts;
+//
+//    /**
+//     * @var ArrayCollection The sets thats this product is a part of
+//     *
+//     * @MaxDepth(1)
+//     * @Groups({"write"})
+//     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="groupedProducts")
+//     */
+//    private $sets;
 
     /**
      * @var Catalogue The Catalogue that this product belongs to
      *
      * @MaxDepth(1)
-     * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products",cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull
-     * @Groups({"read","write"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Groups({"read", "write"})
      */
     private $catalogue;
 
@@ -304,14 +312,14 @@ class Product
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @Assert\Valid
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade={"persist"})
      */
     private $offers;
 
     /**
      * @var string The uri referring to the calendar of this product.
      *
-     * @example http://example.org/calendar/calendar
+     * @example http://example.org/arc/calendar
      *
      * @Gedmo\Versioned
      * @Assert\Url
@@ -322,6 +330,36 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $calendar;
+
+    /**
+     * @var string The uri referring to the event of this product (if type is ticket).
+     *
+     * @example http://example.org/arc/event
+     *
+     * @Gedmo\Versioned
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $event;
+
+    /**
+     * @var string The uri referring to the user of this product (if type subscribtion).
+     *
+     * @example http://example.org/uc/group
+     *
+     * @Gedmo\Versioned
+     * @Assert\Url
+     * @Assert\Length(
+     *     max = 255
+     * )
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $userGroup;
 
     /**
      * @var bool If the product requires a physical appointment, for example to request travel documents or for the booking of hotel rooms
@@ -433,6 +471,20 @@ class Product
      */
     private $dateModified;
 
+    /**
+     * @Groups({"read","write"})
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="productsThatAreDependent")
+     * @MaxDepth(1)
+     */
+    private $prerequisiteProducts;
+
+    /**
+     * @Groups({"read","write"})
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="prerequisiteProducts")
+     * @MaxDepth(1)
+     */
+    private $productsThatAreDependent;
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -441,6 +493,8 @@ class Product
         $this->sets = new ArrayCollection();
         $this->offers = new ArrayCollection();
         $this->additionalProperties = new ArrayCollection();
+        $this->prerequisiteProducts = new ArrayCollection();
+        $this->productsThatAreDependent = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -670,59 +724,59 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|self[]
-     */
-    public function getGroupedProducts(): Collection
-    {
-        return $this->groupedProducts;
-    }
-
-    public function addGroupedProduct(self $groupedProduct): self
-    {
-        if (!$this->groupedProducts->contains($groupedProduct)) {
-            $this->groupedProducts[] = $groupedProduct;
-        }
-
-        return $this;
-    }
-
-    public function removeGroupedProduct(self $groupedProduct): self
-    {
-        if ($this->groupedProducts->contains($groupedProduct)) {
-            $this->groupedProducts->removeElement($groupedProduct);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|self[]
-     */
-    public function getSets(): Collection
-    {
-        return $this->sets;
-    }
-
-    public function addSet(self $set): self
-    {
-        if (!$this->sets->contains($set)) {
-            $this->sets[] = $set;
-            $set->addGroupedProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSet(self $set): self
-    {
-        if ($this->sets->contains($set)) {
-            $this->sets->removeElement($set);
-            $set->removeGroupedProduct($this);
-        }
-
-        return $this;
-    }
+//    /**
+//     * @return Collection|self[]
+//     */
+//    public function getGroupedProducts(): Collection
+//    {
+//        return $this->groupedProducts;
+//    }
+//
+//    public function addGroupedProduct(self $groupedProduct): self
+//    {
+//        if (!$this->groupedProducts->contains($groupedProduct)) {
+//            $this->groupedProducts[] = $groupedProduct;
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeGroupedProduct(self $groupedProduct): self
+//    {
+//        if ($this->groupedProducts->contains($groupedProduct)) {
+//            $this->groupedProducts->removeElement($groupedProduct);
+//        }
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * @return Collection|self[]
+//     */
+//    public function getSets(): Collection
+//    {
+//        return $this->sets;
+//    }
+//
+//    public function addSet(self $set): self
+//    {
+//        if (!$this->sets->contains($set)) {
+//            $this->sets[] = $set;
+//            $set->addGroupedProduct($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeSet(self $set): self
+//    {
+//        if ($this->sets->contains($set)) {
+//            $this->sets->removeElement($set);
+//            $set->removeGroupedProduct($this);
+//        }
+//
+//        return $this;
+//    }
 
     public function getCatalogue(): ?Catalogue
     {
@@ -774,7 +828,31 @@ class Product
 
     public function setCalendar(?string $calendar): self
     {
-        $this->calendar = $calendar;
+        $this->event = event;
+
+        return $this;
+    }
+
+    public function getEvent(): ?string
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?string $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function getUserGroup(): ?string
+    {
+        return $this->userGroup;
+    }
+
+    public function setUserGroup(?string $userGroup): self
+    {
+        $this->userGroup = $userGroup;
 
         return $this;
     }
@@ -951,6 +1029,60 @@ class Product
         }
 
         $offer->addProduct($this);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getPrerequisiteProducts(): Collection
+    {
+        return $this->prerequisiteProducts;
+    }
+
+    public function addPrerequisiteProduct(self $prerequisiteProduct): self
+    {
+        if (!$this->prerequisiteProducts->contains($prerequisiteProduct)) {
+            $this->prerequisiteProducts[] = $prerequisiteProduct;
+        }
+
+        return $this;
+    }
+
+    public function removePrerequisiteProduct(self $prerequisiteProduct): self
+    {
+        if ($this->prerequisiteProducts->contains($prerequisiteProduct)) {
+            $this->prerequisiteProducts->removeElement($prerequisiteProduct);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getProductsThatAreDependent(): Collection
+    {
+        return $this->productsThatAreDependent;
+    }
+
+    public function addProductsThatAreDependent(self $productsThatAreDependent): self
+    {
+        if (!$this->productsThatAreDependent->contains($productsThatAreDependent)) {
+            $this->productsThatAreDependent[] = $productsThatAreDependent;
+            $productsThatAreDependent->addPrerequisiteProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductsThatAreDependent(self $productsThatAreDependent): self
+    {
+        if ($this->productsThatAreDependent->contains($productsThatAreDependent)) {
+            $this->productsThatAreDependent->removeElement($productsThatAreDependent);
+            $productsThatAreDependent->removePrerequisiteProduct($this);
+        }
 
         return $this;
     }
