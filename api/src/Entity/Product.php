@@ -485,6 +485,15 @@ class Product
      */
     private $productsThatAreDependent;
 
+    /**
+     * @var array The features of this product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $features = [];
+
     public function __construct()
     {
         $this->groups = new ArrayCollection();
@@ -1083,6 +1092,18 @@ class Product
             $this->productsThatAreDependent->removeElement($productsThatAreDependent);
             $productsThatAreDependent->removePrerequisiteProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getFeatures(): ?array
+    {
+        return $this->features;
+    }
+
+    public function setFeatures(?array $features): self
+    {
+        $this->features = $features;
 
         return $this;
     }
