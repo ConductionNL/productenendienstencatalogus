@@ -87,7 +87,7 @@ class LarpingFixtures extends Fixture
         $id = Uuid::fromString('c3ed3d66-920b-411f-8b37-36fcdf90245f');
         $productlidmaatschap = new Product();
         $productlidmaatschap->setName('Evenementlidmaatschap');
-        $productlidmaatschap->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $productlidmaatschap->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productlidmaatschap->setDescription('Met dit product word je lid van Vortex Adventures voor alleen het Moots 1 2020 event');
         $productlidmaatschap->setType('subscription');
@@ -104,28 +104,36 @@ class LarpingFixtures extends Fixture
         $manager->flush();
 
         // Offer
+        $id = Uuid::fromString('43a69a6e-b1ce-4fc7-92d5-004be1f19022');
         $offerELM1 = new Offer();
         $offerELM1->setName('Evenementlidmaatschap jaarlijks');
-        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         $offerELM1->setDescription('Evenementlidmaatschap Moots 1 2020');
         $offerELM1->setPrice(500);
         $offerELM1->setPriceCurrency('EUR');
         $offerELM1->setAudience('internal');
         $offerELM1->setRecurrence('P1Y');
         $offerELM1->setNotice('P1M');
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offerELM1->addProduct($productlidmaatschap);
         $manager->persist($offerELM1);
+        $manager->flush();
 
         // Product
         $id = Uuid::fromString('893e5c2f-4c89-438c-aa62-c0bd4636e858');
         $productELM1 = new Product();
         $productELM1->setName('Ticket Moots 1');
-        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
         $productELM1->setDescription('Met dit product heb je entree van Vortex Adventures tot het Moots 1 2020 event');
         $productELM1->setType('ticket');
         $productELM1->setSku('Eventlid-moots1-2020');
         $productELM1->setRequiresAppointment(false);
+        $productELM1->setEvent($this->commonGroundService->cleanUrl(['component' => 'arc', 'type' => 'events', 'id' => 'ae31eadb-0635-4190-b1c0-ac783afbc25c']));
         $manager->persist($productELM1);
         $productELM1->setId($id);
         $manager->persist($productELM1);
@@ -138,13 +146,73 @@ class LarpingFixtures extends Fixture
         $manager->flush();
 
         // Offer
+        $id = Uuid::fromString('dbd09cf0-784f-4254-9d3e-9e3af0d7862a');
         $offerELM1 = new Offer();
         $offerELM1->setName('Ticket Moots 1 2020');
-        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'6677d727-a57f-4405-8da0-4f53b20094ca']));
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
         $offerELM1->setDescription('Ticket Moots 1');
         $offerELM1->setPrice(100);
         $offerELM1->setPriceCurrency('EUR');
-        $offerELM1->setAudience('internal');
+        $offerELM1->setAudience('personal');
+        $offerELM1->setOptions([
+            [
+                'name'  => 'Tent 4 persoons',
+                'price' => -50,
+            ],
+        ]);
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
+        $offerELM1->addProduct($productELM1);
+        $manager->persist($offerELM1);
+        $manager->flush();
+
+        // Product
+        $id = Uuid::fromString('364523a6-458f-45f3-a9de-7d10b9e928a7');
+        $productELM1 = new Product();
+        $productELM1->setName('Test Subscription');
+        $productELM1->setSourceOrganization($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
+        //$productELM1->setSourceOrganization('https://wrc.larping.eu/organizations/0972a00f-1893-4e9b-ac13-0e43f225eca5');
+        $productELM1->setDescription('Met dit product heb je een test subscription van Vortex Adventures');
+        $productELM1->setType('subscription');
+        $productELM1->setSku('Eventlid-moots1-2020');
+        $productELM1->setRequiresAppointment(false);
+        $productELM1->setEvent($this->commonGroundService->cleanUrl(['component' => 'arc', 'type' => 'events', 'id' => '81052670-582e-401d-ad2b-77ac60cf9d73']));
+        $manager->persist($productELM1);
+        $productELM1->setId($id);
+        $manager->persist($productELM1);
+        $manager->flush();
+        $productELM1 = $manager->getRepository('App:Product')->findOneBy(['id'=> $id]);
+//        $productELM1->setCatalogue($catalogue);
+//        $productELM1->addGroup($groupSubs);
+        $productELM1->addPrerequisiteProduct($productlidmaatschap);
+        $manager->persist($productELM1);
+        $manager->flush();
+
+        // Offer
+        $id = Uuid::fromString('d6b945bc-0295-492c-9350-d83f06924944');
+        $offerELM1 = new Offer();
+        $offerELM1->setName('Test Subscription');
+        $offerELM1->setOfferedBy($this->commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>'51eb5628-3b37-497b-a57f-6b039ec776e5']));
+        $offerELM1->setDescription('Test Subscription');
+        $offerELM1->setPrice(30);
+        $offerELM1->setPriceCurrency('EUR');
+        $offerELM1->setAudience('personal');
+        $offerELM1->setOptions([
+            [
+                'name'  => 'Price reduction',
+                'price' => -4,
+            ],
+        ]);
+        $offerELM1->setRecurrence('P1M');
+        $offerELM1->setNotice('P1M');
+        $manager->persist($offerELM1);
+        $offerELM1->setId($id);
+        $manager->persist($offerELM1);
+        $manager->flush();
+        $offerELM1 = $manager->getRepository('App:Offer')->findOneBy(['id'=> $id]);
         $offerELM1->addProduct($productELM1);
         $manager->persist($offerELM1);
         $manager->flush();
