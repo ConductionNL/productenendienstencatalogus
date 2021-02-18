@@ -1,16 +1,16 @@
 openapi: 3.0.2
 info:
-  title: 'Producten en Diensten Catalogus'
+  title: ''
   version: V1.0
   description: |
     API Details
-    - Component: Producten en Diensten Catalogus
-    - Reference: pdc
+    - Component: 
+    - Reference: productenendienstencatalogus
     - Enviroment: dev
     - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](schema/pdc.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
+    - Docker Image: [online]() 
+    - Datamodel: [postman](schema/productenendienstencatalogus.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
     This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
     
@@ -11514,6 +11514,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product-read'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11645,6 +11651,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product-write'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11819,6 +11831,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-read'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11959,6 +11977,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-write'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -12650,6 +12674,9 @@ definitions:
       dateModified:
         description: 'The moment this resource last Modified'
         type: \Datetime
+      features:
+        description: 'The features of this product'
+        type: array
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -12764,6 +12791,9 @@ definitions:
         description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
+      features:
+        description: 'The features of this product'
+        type: array
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -12826,12 +12856,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-01-29'
+        example: '2021-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-01-29'
+        example: '2021-02-18'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12901,12 +12931,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-01-29'
+        example: '2021-02-18'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-01-29'
+        example: '2021-02-18'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -13171,12 +13201,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-01-29 10:21:04'
+        example: '2021-02-18 07:39:55'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-01-29 10:21:04'
+        example: '2021-02-18 07:39:55'
     required: []
   ChangeLog-write:
     properties:
@@ -13290,12 +13320,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-01-29 10:21:04'
+        example: '2021-02-18 07:39:55'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-01-29 10:21:04'
+        example: '2021-02-18 07:39:55'
     required: []
   AuditTrail-write:
     properties:
@@ -13385,7 +13415,7 @@ host: irc.zaakonline.nl
 servers:
   -
     name: zuid-drecht.nl
-    url: pdc.dev.zuid-drecht.nl
+    url: productenendienstencatalogus.dev.zuid-drecht.nl
 externalDocs:
   -
     description: 'OAS Documentatie'

@@ -3,15 +3,28 @@ entries:
   pdc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-01-07T15:08:51.844365Z"
+    created: "2021-02-18T07:39:06.9008132Z"
     description: This component provides a products and services catalogue that can
       be used by a order component in order to provide the products in the orders
       with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
-    digest: bd0ee6ec92a705aa23918a1ecc384600e6bff27ad152bf6d500a326112742b09
+    digest: 8b9956461ecae8ac620b2dee63855de65096d44fe4c5fcf7caad804e8aefeea3
     home: pdc.zuid-drecht.nl
     icon: pdc.zuid-drecht.nl
+    keywords:
+    - commonground
+    - haven
+    - nlx
+    - component
+    maintainers:
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
     name: pdc
+    sources:
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
     urls:
     - pdc-0.1.0.tgz
     version: 0.1.0
@@ -20,7 +33,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-01-07T15:08:51.872216Z"
+    created: "2021-02-18T07:39:06.9136451Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -49,4 +62,4 @@ entries:
     urls:
     - charts/postgresql-10.1.1.tgz
     version: 10.1.1
-generated: "2021-01-07T15:08:51.7424452Z"
+generated: "2021-02-18T07:39:06.8615885Z"

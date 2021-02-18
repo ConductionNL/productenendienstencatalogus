@@ -1,8 +1,8 @@
-# Producten en Diensten Catalogus
+# pdc
 
 Description
 ----
-The products and services catalogue is developed to store a Product with their price Offer inside a not specifically required Catalogue administrated by a Supplier. This component is most times used in combination with our order registration component and our payment component. We based this component on schema.org ‘s Product, Offer and Seller. We also took some inspiration from the Dutch’s government products and services catalogue.
+This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
 
 Additional Information
 ----
@@ -30,7 +30,7 @@ As a haven compliant commonground component this component is installable on kub
 ```CLI
 $ helm install [name] ./api/helm --kubeconfig kubeconfig.yaml --namespace [name] --set settings.env=prod,settings.debug=0,settings.cache=1
 ```
-For an in depth installation guide you can refer to the [installation guide](INSTALLATION.md), it also contains a short tutorial on getting your cluster ready to expose your installation to the world
+For an in depth installation guide you can refer to the [installation guide](/api/helm) contained with the helm files, it also contains a short tutorial on getting your cluster ready to expose your installation to the world
 
 Standards
 ----
@@ -49,12 +49,16 @@ This component adheres to international, national and local standards (in that o
 - [NLX](https://docs.nlx.io/understanding-the-basics/introduction)
 - [Standard for Public Code](https://standard.publiccode.net/), see the [compliancy scan](publiccode.md) for further information.
 
+This component is based on the following [schema.org](https://schema.org) sources:
+- [Address](https://schema.org/PostalAddress)
+- [Person](https://schema.org/Person)
+
 Developers toolkit and technical information
 ----
 You can find the data model, OAS documentation and other helpfull developers material like a  postman collection under api/public/schema, development support is provided trough the [samenorganiseren slack channel](https://join.slack.com/t/samenorganiseren/shared_invite/zt-dex1d7sk-wy11sKYWCF0qQYjJHSMW5Q).
 
 Couple of quick tips when you start developing
-- If you haven't the component locally read the Installation part for setting up your local environment.
+- If you not yet have setup the component locally read the Tutorial for setting up your local environment.
 - You can find the other components on [Github](https://github.com/ConductionNL).
 - Take a look at the [commonground componenten catalogus](https://componentencatalogus.commonground.nl/componenten?) to prevent development collitions.
 - Use [Commongroun.conduction.nl](https://commonground.conduction.nl/) for easy deployment of test environments to deploy your development to.
@@ -70,9 +74,6 @@ But most imporantly, welcome! We strife to keep an active community at [commongr
 
 Credits
 ----
-
 Information about the authors of this component can be found [here](AUTHORS.md)
-
-
 
 Copyright © [Utrecht](https://www.utrecht.nl/) 2019
