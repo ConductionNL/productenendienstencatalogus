@@ -11,8 +11,8 @@ settings:
   repro: https://github.com/ConductionNL/productenendienstencatalogus
   demo: pc.zaakonline.nl
   domain: zuid-drecht.nl
-  subdomain: pdc
-  subpath: pdc
+  subdomain: productenendienstencatalogus
+  subpath: productenendienstencatalogus
   subpathRouting: true
   env: dev
   web: false
