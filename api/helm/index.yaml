@@ -5,7 +5,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-02-19T15:42:14.8485442Z"
+    created: "2021-02-24T18:44:11.5463707Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -37,12 +37,12 @@ entries:
   productenendienstencatalogus:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-02-19T15:42:14.8306429Z"
+    created: "2021-02-24T18:44:11.4948083Z"
     description: This component provides a products and services catalogue that can
       be used by a order component in order to provide the products in the orders
       with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
       and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
-    digest: d5eabf61db989bfdafd4b71772c68dcedfaa2c6ce8ba4df431f06331699daaca
+    digest: de241f4c10c580a1d9d50b65f119cfc06a6cf0eeb431cad28827cfc83f9efad4
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -62,4 +62,4 @@ entries:
     urls:
     - productenendienstencatalogus-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-19T15:42:14.8045884Z"
+generated: "2021-02-24T18:44:11.436061Z"
