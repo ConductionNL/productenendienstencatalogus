@@ -7,6 +7,7 @@ settings:
   projectName: productenendienstencatalogus
   name: productenendienstencatalogus
   version: V1.0
+  majorVersion: v1
   description: 'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'
   repro: https://github.com/ConductionNL/productenendienstencatalogus
   demo: pc.zaakonline.nl
@@ -19,6 +20,7 @@ settings:
   debug: 1
   cache: false
   type: component
+  id: 
   replicaCount: 1
   corsAllowOrigin: ['*']
   trustedHosts: '^.+$'
@@ -49,6 +51,19 @@ php:
   env: prod
   secret: ""
   replicaCount: 2
+
+redis:
+  cluster:
+    enabled: false
+  enabled: false
+  redisPort: 6379
+  usePassword: false
+
+commonground:
+  eherkenning:
+    location: https://zuid-drecht.nl/eherkenning
+  digispoof:
+    location: https://zuid-drecht.nl/digispoof
 
 nginx:
   repository: docker.io/conduction/protocomponent-nginx
