@@ -11005,6 +11005,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11102,6 +11110,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11193,6 +11209,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11299,6 +11323,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -12634,6 +12666,14 @@ definitions:
         description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
         type: string
         example: EUR
+      quantity:
+        description: 'The quantity of this product'
+        type: int
+        example: '102'
+      maxQuantity:
+        description: 'The maximum quantity of this product'
+        type: int
+        example: '200'
       offeredBy:
         description: 'The uri for the organisation that offers this offer'
         type: string
@@ -12649,12 +12689,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-01'
+        example: '2021-03-11'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-01'
+        example: '2021-03-11'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12709,6 +12749,14 @@ definitions:
         description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
         type: string
         example: EUR
+      quantity:
+        description: 'The quantity of this product'
+        type: int
+        example: '102'
+      maxQuantity:
+        description: 'The maximum quantity of this product'
+        type: int
+        example: '200'
       offeredBy:
         description: 'The uri for the organisation that offers this offer'
         type: string
@@ -12724,12 +12772,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-01'
+        example: '2021-03-11'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-01'
+        example: '2021-03-11'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -13267,12 +13315,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-01 22:02:41'
+        example: '2021-03-11 11:39:02'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-01 22:02:41'
+        example: '2021-03-11 11:39:02'
     required: []
   AuditTrail-write:
     properties:
@@ -13320,12 +13368,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-01 22:02:41'
+        example: '2021-03-11 11:39:02'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-01 22:02:41'
+        example: '2021-03-11 11:39:02'
     required: []
   ChangeLog-write:
     properties:
