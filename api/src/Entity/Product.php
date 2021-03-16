@@ -58,7 +58,16 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
- * @ApiFilter(SearchFilter::class, properties={"sourceOrganization": "exact","groups.id": "exact","type": "exact","sku": "exact","name": "partial","description": "partial", "id": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "sourceOrganization": "ipartial",
+ *     "groups.id": "exact",
+ *     "event": "exact",
+ *     "type": "exact",
+ *     "sku": "exact",
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *      "id": "exact"}
+ *     )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -303,7 +312,7 @@ class Product
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @Assert\Valid
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade={"persist"})
      */
     private $offers;
 
@@ -475,6 +484,15 @@ class Product
      * @MaxDepth(1)
      */
     private $productsThatAreDependent;
+
+    /**
+     * @var array The features of this product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $features = [];
 
     public function __construct()
     {
@@ -1074,6 +1092,18 @@ class Product
             $this->productsThatAreDependent->removeElement($productsThatAreDependent);
             $productsThatAreDependent->removePrerequisiteProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getFeatures(): ?array
+    {
+        return $this->features;
+    }
+
+    public function setFeatures(?array $features): self
+    {
+        $this->features = $features;
 
         return $this;
     }

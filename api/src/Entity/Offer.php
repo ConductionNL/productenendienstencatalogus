@@ -59,7 +59,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @Gedmo\Loggable(logEntryClass="Conduction\CommonGroundBundle\Entity\ChangeLog")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified","availabilityEnds","availabilityStarts"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","price": "exact","priceCurrency": "exact","offeredBy": "exact","audience": "exact", "products.id": "exact","products.groups.id": "exact", "products.groups.name": "partial", "products.groups.sourceOrganization": "exact", "products.name": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "name": "ipartial",
+ *     "description": "ipartial",
+ *     "price": "exact",
+ *     "priceCurrency": "exact",
+ *     "offeredBy": "ipartial",
+ *     "audience": "exact",
+ *     "products.id": "ipartial",
+ *     "products.groups.id": "ipartial",
+ *     "products.groups.name": "ipartial",
+ *     "products.groups.sourceOrganization": "ipartial",
+ *     "products.name": "ipartial",
+ *     "products.type": "ipartial",
+ *     "products.event": "ipartial"
+ * })
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified","availabilityEnds","availabilityStarts"})
  * @ApiFilter(ExistsFilter::class, properties={"availabilityStarts", "availabilityEnds", "recurrence", "notice"})
  */
@@ -131,6 +145,28 @@ class Offer
      * @ORM\Column(type="string")
      */
     private $priceCurrency = 'EUR';
+
+    /**
+     * @var integer The quantity of this product
+     *
+     * @example 102
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantity;
+
+    /**
+     * @var integer The maximum quantity of this product
+     *
+     * @example 200
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $maxQuantity;
 
     /**
      * @var string The uri for the organisation that offers this offer
@@ -267,10 +303,18 @@ class Offer
      */
     private $notice;
 
+    /**
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $options = [];
+
     public function __construct()
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->taxes = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -330,6 +374,37 @@ class Offer
     {
         $this->priceCurrency = $priceCurrency;
 
+        return $this;
+    }
+
+    public function getMaxQuantity(): ?int
+    {
+        return $this->maxQuantity;
+    }
+
+    public function setMaxQuantity(int $maxQuantity): self
+    {
+        if ($this->getQuantity() != null && $this->getQuantity() > $maxQuantity) {
+            $this->setQuantity($maxQuantity);
+        }
+
+        $this->maxQuantity = $maxQuantity;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        if ($this->getMaxQuantity() != null && $quantity > $this->getMaxQuantity()) {
+            $this->quantity = $this->getMaxQuantity();
+        } else {
+            $this->quantity = $quantity;
+        }
         return $this;
     }
 
@@ -403,7 +478,7 @@ class Offer
     {
         if ($this->taxes->contains($tax)) {
             $this->taxes->removeElement($tax);
-            $gtax->removeProduct($this);
+            $tax->removeProduct($this);
         }
 
         return $this;
@@ -519,6 +594,18 @@ class Offer
     public function setNotice(string $notice): self
     {
         $this->notice = $notice;
+
+        return $this;
+    }
+
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?array $options): self
+    {
+        $this->options = $options;
 
         return $this;
     }
