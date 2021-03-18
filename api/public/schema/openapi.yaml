@@ -6167,6 +6167,22 @@ paths:
           schema:
             type: string
         -
+          name: userGroup
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'userGroup[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: groups.id
           in: query
           required: false
@@ -12689,12 +12705,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-11'
+        example: '2021-03-16'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-11'
+        example: '2021-03-16'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12772,12 +12788,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-11'
+        example: '2021-03-16'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-11'
+        example: '2021-03-16'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -13315,12 +13331,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-11 11:39:02'
+        example: '2021-03-16 15:24:22'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-11 11:39:02'
+        example: '2021-03-16 15:24:22'
     required: []
   AuditTrail-write:
     properties:
@@ -13368,12 +13384,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-11 11:39:02'
+        example: '2021-03-16 15:24:22'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-11 11:39:02'
+        example: '2021-03-16 15:24:22'
     required: []
   ChangeLog-write:
     properties:
