@@ -147,6 +147,28 @@ class Offer
     private $priceCurrency = 'EUR';
 
     /**
+     * @var integer The quantity of this product
+     *
+     * @example 102
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantity;
+
+    /**
+     * @var integer The maximum quantity of this product
+     *
+     * @example 200
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $maxQuantity;
+
+    /**
      * @var string The uri for the organisation that offers this offer
      *
      * @example(http://example.org/example/1)
@@ -352,6 +374,37 @@ class Offer
     {
         $this->priceCurrency = $priceCurrency;
 
+        return $this;
+    }
+
+    public function getMaxQuantity(): ?int
+    {
+        return $this->maxQuantity;
+    }
+
+    public function setMaxQuantity(int $maxQuantity): self
+    {
+        if ($this->getQuantity() != null && $this->getQuantity() > $maxQuantity) {
+            $this->setQuantity($maxQuantity);
+        }
+
+        $this->maxQuantity = $maxQuantity;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        if ($this->getMaxQuantity() != null && $quantity > $this->getMaxQuantity()) {
+            $this->quantity = $this->getMaxQuantity();
+        } else {
+            $this->quantity = $quantity;
+        }
         return $this;
     }
 

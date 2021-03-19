@@ -60,6 +60,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={
  *     "sourceOrganization": "ipartial",
+ *     "userGroup": "exact",
  *     "groups.id": "exact",
  *     "event": "exact",
  *     "type": "exact",
