@@ -456,7 +456,7 @@ class Product
     private $postDuration;
 
     /**
-     * @var url of the resource this product is related to
+     * @var string url of the resource this product is related to
      *
      * @example https://test.com/product
      *
