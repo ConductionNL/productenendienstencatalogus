@@ -68,8 +68,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "name": "ipartial",
  *     "resource": "exact",
  *     "description": "ipartial",
- *      "id": "exact"}
- *     )
+ *     "id": "exact",
+ *     "catalogue.id": "exact"
+ *     }
+ * )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
