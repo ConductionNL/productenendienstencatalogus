@@ -11,9 +11,8 @@ info:
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online]() 
     - Datamodel: [postman](schema/productenendienstencatalogus.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
-    
+
     This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
-    
 paths:
   /audit_trails:
     get:
@@ -6253,6 +6252,22 @@ paths:
           schema:
             type: string
         -
+          name: resource
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'resource[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: description
           in: query
           required: false
@@ -6266,6 +6281,22 @@ paths:
             type: string
         -
           name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: catalogue.id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'catalogue.id[]'
           in: query
           required: false
           schema:
@@ -11544,6 +11575,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         dateCreated:
           description: 'The moment this resource was created'
           type: string
@@ -11689,6 +11724,10 @@ components:
           nullable: true
         postDuration:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
           type: string
           nullable: true
         prerequisiteProducts:
@@ -11861,6 +11900,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         dateCreated:
           description: 'The moment this resource was created'
           type: string
@@ -12015,6 +12058,10 @@ components:
           nullable: true
         postDuration:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+          type: string
+          nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
           type: string
           nullable: true
         prerequisiteProducts:
@@ -12705,12 +12752,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-16'
+        example: '2021-06-24'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-16'
+        example: '2021-06-24'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12788,12 +12835,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-03-16'
+        example: '2021-06-24'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-03-16'
+        example: '2021-06-24'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12928,6 +12975,10 @@ definitions:
         description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
+      resource:
+        description: 'url of the resource this product is related to'
+        type: string
+        example: 'https://test.com/product'
       dateCreated:
         description: 'The moment this resource was created'
         type: \Datetime
@@ -13051,6 +13102,10 @@ definitions:
         description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
+      resource:
+        description: 'url of the resource this product is related to'
+        type: string
+        example: 'https://test.com/product'
       features:
         description: 'The features of this product'
         type: array
@@ -13331,12 +13386,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-16 15:24:22'
+        example: '2021-06-24 10:27:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-16 15:24:22'
+        example: '2021-06-24 10:27:18'
     required: []
   AuditTrail-write:
     properties:
@@ -13384,12 +13439,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-03-16 15:24:22'
+        example: '2021-06-24 10:27:18'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-03-16 15:24:22'
+        example: '2021-06-24 10:27:18'
     required: []
   ChangeLog-write:
     properties:
@@ -13402,63 +13457,63 @@ definitions:
 tags:
   -
     name: Catalogue
-    description: |
+    description: |-
       An entity representing a product catalogue.
-      
+
       This entity represents a product catalogue that contains all products that can be ordered in a single point.
   -
     name: CustomerType
-    description: |
+    description: |-
       An entity representing a type of customer.
-      
+
       This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
   -
     name: Group
-    description: |
+    description: |-
       An entity representing a product group.
-      
+
       This entity represents a product group to differ between various product types.
   -
     name: Offer
-    description: |
+    description: |-
       An entity representing an offer.
-      
+
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
   -
     name: Product
-    description: |
+    description: |-
       An entity representing a product.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: PropertyValue
-    description: |
+    description: |-
       An entity representing a product property.
-      
+
       This entity represents a product property that can be used to filter products.
   -
     name: Supplier
-    description: |
+    description: |-
       An entity representing a supplier of products.
-      
+
       This entity represents a supplier that delivers products to the seller. For example: if we are a municipality we sell passports to our inhabitants, but these passports are made by the ministry of internal affairs.
   -
     name: Tax
-    description: |
+    description: |-
       An entity representing an tax.
-      
+
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
   -
     name: AuditTrail
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: ChangeLog
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
 securityDefinitions:
   JWT-Oauth:
