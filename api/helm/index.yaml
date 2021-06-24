@@ -5,7 +5,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-03-16T15:15:13.0328599Z"
+    created: "2021-06-24T09:52:52.6171735Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -37,12 +37,20 @@ entries:
   productenendienstencatalogus:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-03-16T15:15:13.0112713Z"
-    description: This component provides a products and services catalogue that can
-      be used by a order component in order to provide the products in the orders
-      with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
-      and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
-    digest: 5823f6c1343e7e6bad38d421c6b32dedf8afc47255b946a10ae6e896fd9768e8
+    created: "2021-06-24T09:52:52.604617Z"
+    description: De Producten en Diensten Catalogus heeft als doel het geheel aan
+      af te nemen producten en/of diensten in kaart te brengen. Hierbij wordt uitgegaan
+      van afname door klanten vanuit een organisatie, maar er is geen technische beperking
+      om het ook als inkoopsysteem te gebruiken. Naast producten en diensten kent
+      het component ook ondersteuning voor het maken van productgroepen, beschrijvende
+      teksten, afbeeldingen, belastingen en andere zaken die specifiek gerelateerd
+      zijn aan webshop concepten. Hierbij wordt (vanuit internationale normen) een
+      onderscheid gemaakt tussen het product en het aanbieden van het product (offer)
+      waarbij het mogelijk is om een aanbod te koppelen aan geldigheid of doelgroepen.
+      Met andere woorden het is mogelijk om een product op bepaalde momenten goedkoper
+      of juist duurder aan te bieden (trouwen in het weekend) of goedkoper aan te
+      bieden voor bepaalde doelgroepen (korting op evenementen vergunningen voor buurtcomités).
+    digest: aa104fc967f53bde733b91b8e896f9c5326bb6627abd183837ee05e30f0b7172
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -62,4 +70,4 @@ entries:
     urls:
     - productenendienstencatalogus-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-16T15:15:12.9707926Z"
+generated: "2021-06-24T09:52:52.5955932Z"
