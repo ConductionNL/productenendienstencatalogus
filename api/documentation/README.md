@@ -1,10 +1,7 @@
-
 # productenendienstencatalogus
 
 Description
 ----
-
-
 This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
 
 Additional Information
@@ -79,3 +76,4 @@ Credits
 ----
 Information about the authors of this component can be found [here](AUTHORS.md)
 
+Copyright © [Utrecht](https://www.utrecht.nl/) 2019
