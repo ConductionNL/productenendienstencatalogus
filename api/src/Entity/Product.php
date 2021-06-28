@@ -66,9 +66,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "type": "exact",
  *     "sku": "exact",
  *     "name": "ipartial",
+ *     "resource": "exact",
  *     "description": "ipartial",
- *      "id": "exact"}
- *     )
+ *     "id": "exact",
+ *     "catalogue.id": "exact"
+ *     }
+ * )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -455,6 +458,17 @@ class Product
     private $postDuration;
 
     /**
+     * @var string url of the resource this product is related to
+     *
+     * @example https://test.com/product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resource;
+
+    /**
      * @var Datetime The moment this resource was created
      *
      * @Groups({"read"})
@@ -639,6 +653,18 @@ class Product
     public function setMovie(?string $movie): self
     {
         $this->movie = $movie;
+
+        return $this;
+    }
+
+    public function getResource(): ?string
+    {
+        return $this->resource;
+    }
+
+    public function setResource(?string $resource): self
+    {
+        $this->resource = $resource;
 
         return $this;
     }
