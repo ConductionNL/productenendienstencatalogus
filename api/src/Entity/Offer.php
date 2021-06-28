@@ -147,6 +147,28 @@ class Offer
     private $priceCurrency = 'EUR';
 
     /**
+     * @var int The quantity of this product
+     *
+     * @example 102
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantity;
+
+    /**
+     * @var int The maximum quantity of this product
+     *
+     * @example 200
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $maxQuantity;
+
+    /**
      * @var string The uri for the organisation that offers this offer
      *
      * @example(http://example.org/example/1)
@@ -292,6 +314,7 @@ class Offer
     {
         $this->eligibleCustomerTypes = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->taxes = new ArrayCollection();
     }
 
     public function getId(): Uuid
@@ -350,6 +373,38 @@ class Offer
     public function setPriceCurrency(string $priceCurrency): self
     {
         $this->priceCurrency = $priceCurrency;
+
+        return $this;
+    }
+
+    public function getMaxQuantity(): ?int
+    {
+        return $this->maxQuantity;
+    }
+
+    public function setMaxQuantity(int $maxQuantity): self
+    {
+        if ($this->getQuantity() != null && $this->getQuantity() > $maxQuantity) {
+            $this->setQuantity($maxQuantity);
+        }
+
+        $this->maxQuantity = $maxQuantity;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        if ($this->getMaxQuantity() != null && $quantity > $this->getMaxQuantity()) {
+            $this->quantity = $this->getMaxQuantity();
+        } else {
+            $this->quantity = $quantity;
+        }
 
         return $this;
     }
@@ -424,7 +479,7 @@ class Offer
     {
         if ($this->taxes->contains($tax)) {
             $this->taxes->removeElement($tax);
-            $gtax->removeProduct($this);
+            $tax->removeProduct($this);
         }
 
         return $this;

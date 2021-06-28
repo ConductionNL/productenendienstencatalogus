@@ -60,14 +60,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiFilter(OrderFilter::class, properties={"type","sku"})
  * @ApiFilter(SearchFilter::class, properties={
  *     "sourceOrganization": "ipartial",
+ *     "userGroup": "exact",
  *     "groups.id": "exact",
  *     "event": "exact",
  *     "type": "exact",
  *     "sku": "exact",
  *     "name": "ipartial",
+ *     "resource": "exact",
  *     "description": "ipartial",
- *      "id": "exact"}
- *     )
+ *     "id": "exact",
+ *     "catalogue.id": "exact"
+ *     }
+ * )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -312,7 +316,7 @@ class Product
      * @MaxDepth(1)
      * @Groups({"read", "write"})
      * @Assert\Valid
-     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade="persist")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Offer", mappedBy="products", orphanRemoval=true, cascade={"persist"})
      */
     private $offers;
 
@@ -454,6 +458,17 @@ class Product
     private $postDuration;
 
     /**
+     * @var string url of the resource this product is related to
+     *
+     * @example https://test.com/product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resource;
+
+    /**
      * @var Datetime The moment this resource was created
      *
      * @Groups({"read"})
@@ -484,6 +499,15 @@ class Product
      * @MaxDepth(1)
      */
     private $productsThatAreDependent;
+
+    /**
+     * @var array The features of this product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $features = [];
 
     public function __construct()
     {
@@ -629,6 +653,18 @@ class Product
     public function setMovie(?string $movie): self
     {
         $this->movie = $movie;
+
+        return $this;
+    }
+
+    public function getResource(): ?string
+    {
+        return $this->resource;
+    }
+
+    public function setResource(?string $resource): self
+    {
+        $this->resource = $resource;
 
         return $this;
     }
@@ -1083,6 +1119,18 @@ class Product
             $this->productsThatAreDependent->removeElement($productsThatAreDependent);
             $productsThatAreDependent->removePrerequisiteProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getFeatures(): ?array
+    {
+        return $this->features;
+    }
+
+    public function setFeatures(?array $features): self
+    {
+        $this->features = $features;
 
         return $this;
     }

@@ -1,52 +1,66 @@
 apiVersion: v1
 entries:
+  pc:
+  - apiVersion: v1
+    appVersion: V.0.1
+    created: "2020-09-18T11:26:25.756385772Z"
+    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
+      interface beschikbaar.&#039;'
+    digest: a3ebf537582710b118b706a276db61fec8e25b642f3e8f3d1bb239ac1131f064
+    home: pc.zaakonline.nl
+    icon: pc.zaakonline.nl
+    name: pc
+    urls:
+    - pc-0.1.0.tgz
+    version: 0.1.0
   pdc:
   - apiVersion: v1
-    appVersion: V1.0
-    created: "2021-01-15T13:44:41.5187795Z"
-    description: This component provides a products and services catalogue that can
-      be used by a order component in order to provide the products in the orders
-      with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
-      and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
-    digest: 868a11576da9b7d0290d7b1ebdbcca57c44b87b9642352cabb8ebbf499aab4af
+    appVersion: V.0.1
+    created: "2020-09-18T11:26:25.766400172Z"
+    description: '&#039;This component provides a products and services catalogue
+      that can be used by a order component in order to provide the products in the
+      orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
+      and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)&#039;'
+    digest: dceb7a11d15521c7af2a4603939272e9b4ba30dc7722e8fedf9816924de499e6
     home: pdc.zuid-drecht.nl
     icon: pdc.zuid-drecht.nl
     name: pdc
     urls:
-    - pdc-0.1.0.tgz
-    version: 0.1.0
-  postgresql:
-  - annotations:
-      category: Database
-    apiVersion: v2
-    appVersion: 11.10.0
-    created: "2021-01-15T13:44:41.536444Z"
-    dependencies:
-    - name: common
-      repository: https://charts.bitnami.com/bitnami
-      version: 1.x.x
-    description: Chart for PostgreSQL, an object-relational database management system
-      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
-    digest: eebe8f456cf98d5927a35666d1d899174dc4d3e09f26788033f761527bc90749
-    home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
-    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
+    - productenendienstencatalogus-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v1
+    appVersion: V1.0
+    created: "2021-06-24T11:14:07.6792132Z"
+    description: De Producten en Diensten Catalogus heeft als doel het geheel aan
+      af te nemen producten en/of diensten in kaart te brengen. Hierbij wordt uitgegaan
+      van afname door klanten vanuit een organisatie, maar er is geen technische beperking
+      om het ook als inkoopsysteem te gebruiken. Naast producten en diensten kent
+      het component ook ondersteuning voor het maken van productgroepen, beschrijvende
+      teksten, afbeeldingen, belastingen en andere zaken die specifiek gerelateerd
+      zijn aan webshop concepten. Hierbij wordt (vanuit internationale normen) een
+      onderscheid gemaakt tussen het product en het aanbieden van het product (offer)
+      waarbij het mogelijk is om een aanbod te koppelen aan geldigheid of doelgroepen.
+      Met andere woorden het is mogelijk om een product op bepaalde momenten goedkoper
+      of juist duurder aan te bieden (trouwen in het weekend) of goedkoper aan te
+      bieden voor bepaalde doelgroepen (korting op evenementen vergunningen voor buurtcomités).
+    digest: 306b159fd9e20c5c001edb6fd907c408c013b9320a9509854991249b244c7963
+    home: https://www.conduction.nl
+    icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
-    - postgresql
-    - postgres
-    - database
-    - sql
-    - replication
-    - cluster
+    - commonground
+    - haven
+    - nlx
+    - component
     maintainers:
-    - email: containers@bitnami.com
-      name: Bitnami
-    - email: cedric@desaintmartin.fr
-      name: desaintmartin
-    name: postgresql
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
+    name: productenendienstencatalogus
     sources:
-    - https://github.com/bitnami/bitnami-docker-postgresql
-    - https://www.postgresql.org/
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
     urls:
-    - charts/postgresql-10.1.1.tgz
-    version: 10.1.1
-generated: "2021-01-15T13:44:41.4461745Z"
+    - productenendienstencatalogus-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-09-18T11:26:25.744139172Z"

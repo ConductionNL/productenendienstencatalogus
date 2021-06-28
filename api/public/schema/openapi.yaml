@@ -1,18 +1,18 @@
 openapi: 3.0.2
 info:
-  title: 'Producten en Diensten Catalogus'
+  title: ''
   version: V1.0
   description: |
     API Details
-    - Component: Producten en Diensten Catalogus
-    - Reference: pdc
+    - Component: 
+    - Reference: productenendienstencatalogus
     - Enviroment: dev
     - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/productenendienstencatalogus) / [zip](https://github.com/ConductionNL/productenendienstencatalogus/archive/master.zip)
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pdc-php) 
-    - Datamodel: [postman](schema/pdc.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
+    - Datamodel: [postman](/schema/pdc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)         
+    'This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)'         
     
 paths:
   /audit_trails:
@@ -6167,6 +6167,22 @@ paths:
           schema:
             type: string
         -
+          name: userGroup
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'userGroup[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: groups.id
           in: query
           required: false
@@ -6174,6 +6190,22 @@ paths:
             type: string
         -
           name: 'groups.id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: event
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'event[]'
           in: query
           required: false
           schema:
@@ -6221,6 +6253,22 @@ paths:
           schema:
             type: string
         -
+          name: resource
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'resource[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
           name: description
           in: query
           required: false
@@ -6234,6 +6282,22 @@ paths:
             type: string
         -
           name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: catalogue.id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'catalogue.id[]'
           in: query
           required: false
           schema:
@@ -10989,6 +11053,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11050,11 +11122,6 @@ components:
           description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
-        options:
-          type: array
-          items:
-            type: string
-          nullable: true
       required:
         - name
         - price
@@ -11086,6 +11153,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11137,11 +11212,6 @@ components:
           description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
-        options:
-          type: array
-          items:
-            type: string
-          nullable: true
     'Offer:jsonld-read':
       type: object
       description: 'An entity representing an offer.'
@@ -11177,6 +11247,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11238,11 +11316,6 @@ components:
           description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
-        options:
-          type: array
-          items:
-            type: string
-          nullable: true
       required:
         - name
         - price
@@ -11283,6 +11356,14 @@ components:
           externalDocs:
             url: 'http://schema.org/priceCurrency'
           type: string
+        quantity:
+          description: 'The quantity of this product'
+          type: integer
+          nullable: true
+        maxQuantity:
+          description: 'The maximum quantity of this product'
+          type: integer
+          nullable: true
         offeredBy:
           description: 'The uri for the organisation that offers this offer'
           externalDocs:
@@ -11333,11 +11414,6 @@ components:
         notice:
           description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
-          nullable: true
-        options:
-          type: array
-          items:
-            type: string
           nullable: true
     Product-read:
       type: object
@@ -11480,6 +11556,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         dateCreated:
           description: 'The moment this resource was created'
           type: string
@@ -11498,6 +11578,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product-read'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11621,6 +11707,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         prerequisiteProducts:
           type: array
           items:
@@ -11629,6 +11719,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product-write'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11785,6 +11881,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         dateCreated:
           description: 'The moment this resource was created'
           type: string
@@ -11803,6 +11903,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-read'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -11935,6 +12041,10 @@ components:
           description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
           type: string
           nullable: true
+        resource:
+          description: 'url of the resource this product is related to'
+          type: string
+          nullable: true
         prerequisiteProducts:
           type: array
           items:
@@ -11943,6 +12053,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product:jsonld-write'
+        features:
+          description: 'The features of this product'
+          type: array
+          items:
+            type: string
+          nullable: true
       required:
         - name
         - sourceOrganization
@@ -12432,6 +12548,53 @@ definitions:
     required:
       - name
       - sourceOrganization
+  CustomerType-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        description: 'The name of this CustomerType'
+        type: string
+        example: 'My CustomerType'
+        maxLength: 255
+      description:
+        description: 'The description for this CustomerType'
+        type: string
+        example: 'this is the best customertype ever'
+        maxLength: 2550
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      offers:
+        description: 'The offers that this CustomerType is eligible for'
+        type: \ArrayCollection
+    required:
+      - name
+      - description
+  CustomerType-write:
+    properties:
+      name:
+        description: 'The name of this CustomerType'
+        type: string
+        example: 'My CustomerType'
+        maxLength: 255
+      description:
+        description: 'The description for this CustomerType'
+        type: string
+        example: 'this is the best customertype ever'
+        maxLength: 2550
+      offers:
+        description: 'The offers that this CustomerType is eligible for'
+        type: \ArrayCollection
+    required:
+      - name
+      - description
   Group-read:
     properties:
       id:
@@ -12522,6 +12685,153 @@ definitions:
       - name
       - sourceOrganization
       - catalogue
+  Offer-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        description: 'The name of this offer'
+        type: string
+        example: 'my offer'
+        maxLength: 255
+      description:
+        description: 'An short description of this offer'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this product'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      offeredBy:
+        description: 'The uri for the organisation that offers this offer'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      processType:
+        description: 'The optional proccces for ordering this product'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      availabilityEnds:
+        description: 'the date this offer ends'
+        type: string
+        example: '2020-09-16'
+        format: date
+      availabilityStarts:
+        description: 'the date this offer has started'
+        type: string
+        example: '2020-09-16'
+        format: date
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
+      recurrence:
+        description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      notice:
+        description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      taxes:
+        description: 'The taxes that affect this offer'
+        type: \ArrayCollection
+      eligibleCustomerTypes:
+        description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
+      - offeredBy
+      - audience
+      - products
+  Offer-write:
+    properties:
+      name:
+        description: 'The name of this offer'
+        type: string
+        example: 'my offer'
+        maxLength: 255
+      description:
+        description: 'An short description of this offer'
+        type: string
+        example: 'This is the best product ever'
+        maxLength: 2550
+      price:
+        description: 'The price of this product'
+        type: string
+        example: '50.00'
+      priceCurrency:
+        description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
+        type: string
+        example: EUR
+      offeredBy:
+        description: 'The uri for the organisation that offers this offer'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      processType:
+        description: 'The optional proccces for ordering this product'
+        type: string
+        example: '(http://example.org/example/1)'
+        format: url
+        maxLength: 255
+      availabilityEnds:
+        description: 'the date this offer ends'
+        type: string
+        example: '2020-09-16'
+        format: date
+      availabilityStarts:
+        description: 'the date this offer has started'
+        type: string
+        example: '2020-09-16'
+        format: date
+      audience:
+        description: 'The audience this product is intended for'
+        type: string
+      recurrence:
+        description: 'The of this offer, only used in combination with subscribtion type products, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      notice:
+        description: 'The the notice period requered to end an subscribtion, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
+        type: string
+        example: PT10M
+      taxes:
+        description: 'The taxes that affect this offer'
+        type: \ArrayCollection
+      eligibleCustomerTypes:
+        description: 'The customer types that are eligible for this offer'
+        type: \ArrayCollection
+      products:
+        description: 'The products related to this offer'
+        type: \ArrayCollection
+    required:
+      - name
+      - price
+      - offeredBy
+      - audience
+      - products
   Product-read:
     properties:
       id:
@@ -12628,12 +12938,19 @@ definitions:
         description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
+      resource:
+        description: 'url of the resource this product is related to'
+        type: string
+        example: 'https://test.com/product'
       dateCreated:
         description: 'The moment this resource was created'
         type: \Datetime
       dateModified:
         description: 'The moment this resource last Modified'
         type: \Datetime
+      features:
+        description: 'The features of this product'
+        type: array
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -12748,6 +13065,13 @@ definitions:
         description: 'The post duration of this product, entered according to the [ISO 8601-standard](https://en.wikipedia.org/wiki/ISO_8601#Durations)'
         type: string
         example: PT10M
+      resource:
+        description: 'url of the resource this product is related to'
+        type: string
+        example: 'https://test.com/product'
+      features:
+        description: 'The features of this product'
+        type: array
       groups:
         description: 'The product groups that this product is a part of'
         type: \ArrayCollection
@@ -12795,6 +13119,14 @@ definitions:
         description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
         type: string
         example: EUR
+      quantity:
+        description: 'The quantity of this product'
+        type: int
+        example: '102'
+      maxQuantity:
+        description: 'The maximum quantity of this product'
+        type: int
+        example: '200'
       offeredBy:
         description: 'The uri for the organisation that offers this offer'
         type: string
@@ -12810,12 +13142,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-01-15'
+        example: '2021-06-24'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-01-15'
+        example: '2021-06-24'
         format: date
       dateCreated:
         description: 'The moment this request was created'
@@ -12870,6 +13202,14 @@ definitions:
         description: 'The currency of this product in an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format'
         type: string
         example: EUR
+      quantity:
+        description: 'The quantity of this product'
+        type: int
+        example: '102'
+      maxQuantity:
+        description: 'The maximum quantity of this product'
+        type: int
+        example: '200'
       offeredBy:
         description: 'The uri for the organisation that offers this offer'
         type: string
@@ -12885,12 +13225,12 @@ definitions:
       availabilityEnds:
         description: 'the date this offer ends'
         type: string
-        example: '2021-01-15'
+        example: '2021-06-24'
         format: date
       availabilityStarts:
         description: 'the date this offer has started'
         type: string
-        example: '2021-01-15'
+        example: '2021-06-24'
         format: date
       audience:
         description: 'The audience this product is intended for'
@@ -12919,6 +13259,223 @@ definitions:
       - offeredBy
       - audience
       - products
+  Supplier-read:
+    properties:
+      id:
+        description: 'The Uuid identifier of this supplier'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        description: 'The name of this Supplier'
+        type: string
+        example: 'My RequestType'
+        maxLength: 255
+      kvk:
+        description: 'The number under which the supplier is registered at the chamber of commerce'
+        type: string
+        example: '30280353'
+        maxLength: 255
+      logo:
+        description: 'The logo for this supplier'
+        type: string
+        example: 'https://www.my-organization.com/logo.png'
+        format: url
+        maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+    required:
+      - name
+      - kvk
+  Supplier-write:
+    properties:
+      name:
+        description: 'The name of this Supplier'
+        type: string
+        example: 'My RequestType'
+        maxLength: 255
+      kvk:
+        description: 'The number under which the supplier is registered at the chamber of commerce'
+        type: string
+        example: '30280353'
+        maxLength: 255
+      logo:
+        description: 'The logo for this supplier'
+        type: string
+        example: 'https://www.my-organization.com/logo.png'
+        format: url
+        maxLength: 255
+    required:
+      - name
+      - kvk
+  PropertyValue-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        maxLength: 255
+      description: []
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      products: []
+    required:
+      - name
+  PropertyValue-write:
+    properties:
+      name:
+        maxLength: 255
+      description: []
+      products: []
+    required:
+      - name
+  Group-read:
+    properties:
+      id:
+        description: 'The Uuid identifier of this group'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      icon:
+        description: 'The icon of this property'
+        type: string
+        example: 'My Property'
+        maxLength: 255
+        minLength: 15
+      name:
+        description: 'The name of this product group'
+        type: string
+        example: 'My Group'
+        maxLength: 255
+      description:
+        description: 'An short description of this product group'
+        type: string
+        example: 'This is the best group ever'
+        maxLength: 2550
+      logo:
+        description: 'The logo for this component'
+        type: string
+        example: 'https://www.my-organization.com/logo.png'
+        format: url
+        maxLength: 255
+      sourceOrganization:
+        description: 'The WRC url of the organization that owns this group'
+        type: string
+        example: '002851234'
+        format: url
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      products:
+        description: 'The groups that are a part of this product group'
+        type: \ArrayCollection
+      catalogue:
+        description: 'The Catalogue that this product group belongs to'
+        type: \Catalogue
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
+    required:
+      - name
+      - sourceOrganization
+      - catalogue
+  Group-write:
+    properties:
+      icon:
+        description: 'The icon of this property'
+        type: string
+        example: 'My Property'
+        maxLength: 255
+        minLength: 15
+      name:
+        description: 'The name of this product group'
+        type: string
+        example: 'My Group'
+        maxLength: 255
+      sourceOrganization:
+        description: 'The WRC url of the organization that owns this group'
+        type: string
+        example: '002851234'
+        format: url
+      products:
+        description: 'The groups that are a part of this product group'
+        type: \ArrayCollection
+      catalogue:
+        description: 'The Catalogue that this product group belongs to'
+        type: \Catalogue
+      children:
+        description: 'The children of this group'
+        type: '\ArrayCollection|\Group[]'
+      parent:
+        description: 'the parent of this group'
+        type: \Group
+    required:
+      - name
+      - sourceOrganization
+      - catalogue
+  CustomerType-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      name:
+        description: 'The name of this CustomerType'
+        type: string
+        example: 'My CustomerType'
+        maxLength: 255
+      description:
+        description: 'The description for this CustomerType'
+        type: string
+        example: 'this is the best customertype ever'
+        maxLength: 2550
+      dateCreated:
+        description: 'The moment this request was created'
+        type: \Datetime
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: \Datetime
+      offers:
+        description: 'The offers that this CustomerType is eligible for'
+        type: \ArrayCollection
+    required:
+      - name
+      - description
+  CustomerType-write:
+    properties:
+      name:
+        description: 'The name of this CustomerType'
+        type: string
+        example: 'My CustomerType'
+        maxLength: 255
+      description:
+        description: 'The description for this CustomerType'
+        type: string
+        example: 'this is the best customertype ever'
+        maxLength: 2550
+      offers:
+        description: 'The offers that this CustomerType is eligible for'
+        type: \ArrayCollection
+    required:
+      - name
+      - description
   Tax-read:
     properties:
       id:
@@ -12990,7 +13547,7 @@ definitions:
     required:
       - name
       - price
-  CustomerType-read:
+  Catalogue-read:
     properties:
       id:
         description: 'The UUID identifier of this object'
@@ -12998,125 +13555,64 @@ definitions:
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
       name:
-        description: 'The name of this CustomerType'
+        description: 'The name of this Catalogue'
         type: string
-        example: 'My CustomerType'
+        example: 'My Catalogue'
         maxLength: 255
       description:
-        description: 'The description for this CustomerType'
+        description: 'An short description of this Catalogue'
         type: string
-        example: 'this is the best customertype ever'
+        example: 'This is the best catalogue ever'
         maxLength: 2550
-      dateCreated:
-        description: 'The moment this request was created'
-        type: \Datetime
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: \Datetime
-      offers:
-        description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
-    required:
-      - name
-      - description
-  CustomerType-write:
-    properties:
-      name:
-        description: 'The name of this CustomerType'
-        type: string
-        example: 'My CustomerType'
-        maxLength: 255
-      description:
-        description: 'The description for this CustomerType'
-        type: string
-        example: 'this is the best customertype ever'
-        maxLength: 2550
-      offers:
-        description: 'The offers that this CustomerType is eligible for'
-        type: \ArrayCollection
-    required:
-      - name
-      - description
-  PropertyValue-read:
-    properties:
-      id:
-        description: 'The UUID identifier of this object'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        maxLength: 255
-      description: []
-      dateCreated:
-        description: 'The moment this request was created'
-        type: \Datetime
-      dateModified:
-        description: 'The moment this request last Modified'
-        type: \Datetime
-      products: []
-    required:
-      - name
-  PropertyValue-write:
-    properties:
-      name:
-        maxLength: 255
-      description: []
-      products: []
-    required:
-      - name
-  Supplier-read:
-    properties:
-      id:
-        description: 'The Uuid identifier of this supplier'
-        type: string
-        example: e2984465-190a-4562-829e-a8cca81aa35d
-        format: uuid
-      name:
-        description: 'The name of this Supplier'
-        type: string
-        example: 'My RequestType'
-        maxLength: 255
-      kvk:
-        description: 'The number under which the supplier is registered at the chamber of commerce'
-        type: string
-        example: '30280353'
-        maxLength: 255
       logo:
-        description: 'The logo for this supplier'
+        description: 'The logo for this component'
         type: string
         example: 'https://www.my-organization.com/logo.png'
         format: url
         maxLength: 255
+      sourceOrganization:
+        description: 'The WRC url of the organization that provides this catalogue'
+        type: string
+        example: '002851234'
+        format: url
       dateCreated:
         description: 'The moment this request was created'
         type: \Datetime
       dateModified:
         description: 'The moment this request last Modified'
         type: \Datetime
+      groups:
+        description: 'The groups that are a part of this catalogue'
+        type: \ArrayCollection
     required:
       - name
-      - kvk
-  Supplier-write:
+      - sourceOrganization
+  Catalogue-write:
     properties:
       name:
-        description: 'The name of this Supplier'
+        description: 'The name of this Catalogue'
         type: string
-        example: 'My RequestType'
+        example: 'My Catalogue'
         maxLength: 255
-      kvk:
-        description: 'The number under which the supplier is registered at the chamber of commerce'
+      description:
+        description: 'An short description of this Catalogue'
         type: string
-        example: '30280353'
-        maxLength: 255
+        example: 'This is the best catalogue ever'
+        maxLength: 2550
       logo:
-        description: 'The logo for this supplier'
+        description: 'The logo for this component'
         type: string
         example: 'https://www.my-organization.com/logo.png'
         format: url
         maxLength: 255
+      sourceOrganization:
+        description: 'The WRC url of the organization that provides this catalogue'
+        type: string
+        example: '002851234'
+        format: url
     required:
       - name
-      - kvk
+      - sourceOrganization
   ChangeLog-read:
     properties:
       id:
@@ -13155,12 +13651,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-01-15 13:45:44'
+        example: '2021-06-24 11:14:43'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-01-15 13:45:44'
+        example: '2021-06-24 11:14:43'
     required: []
   ChangeLog-write:
     properties:
@@ -13274,12 +13770,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-01-15 13:45:44'
+        example: '2020-09-16 11:26:19'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-01-15 13:45:44'
+        example: '2020-09-16 11:26:19'
     required: []
   AuditTrail-write:
     properties:
@@ -13289,66 +13785,119 @@ definitions:
         example: 'This log line looks suspicius'
         maxLength: 2555
     required: []
+  ChangeLog-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+      action:
+        description: ''
+        type: string
+      objectId:
+        description: ''
+        type: string
+      objectClass:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: int
+      data:
+        description: ''
+        type: array
+      username:
+        description: ''
+        type: string
+      session:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2020-09-16 11:26:19'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2020-09-16 11:26:19'
+    required: []
+  ChangeLog-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+    required: []
 tags:
   -
-    name: Catalogue
-    description: |
-      An entity representing a product catalogue.
-      
-      This entity represents a product catalogue that contains all products that can be ordered in a single point.
-  -
-    name: Group
-    description: |
-      An entity representing a product group.
-      
-      This entity represents a product group to differ between various product types.
-  -
     name: Product
-    description: |
+    description: |-
       An entity representing a product.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: Offer
-    description: |
+    description: |-
       An entity representing an offer.
-      
+
       This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
-  -
-    name: Tax
-    description: |
-      An entity representing an tax.
-      
-      This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
-  -
-    name: CustomerType
-    description: |
-      An entity representing a type of customer.
-      
-      This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
-  -
-    name: PropertyValue
-    description: |
-      An entity representing a product property.
-      
-      This entity represents a product property that can be used to filter products.
   -
     name: Supplier
-    description: |
+    description: |-
       An entity representing a supplier of products.
-      
+
       This entity represents a supplier that delivers products to the seller. For example: if we are a municipality we sell passports to our inhabitants, but these passports are made by the ministry of internal affairs.
   -
+    name: PropertyValue
+    description: |-
+      An entity representing a product property.
+
+      This entity represents a product property that can be used to filter products.
+  -
+    name: Group
+    description: |-
+      An entity representing a product group.
+
+      This entity represents a product group to differ between various product types.
+  -
+    name: CustomerType
+    description: |-
+      An entity representing a type of customer.
+
+      This entity represents a type of customer that can order offers in the OrderRegistratieComponent. This entity is linked from offer with the variable eligibleCustomerType.
+  -
+    name: Tax
+    description: |-
+      An entity representing an tax.
+
+      This entity represents an offer that bridges products to the OrderRegistratieComponent to be able to change prices without invalidating past orders.
+  -
+    name: Catalogue
+    description: |-
+      An entity representing a product catalogue.
+
+      This entity represents a product catalogue that contains all products that can be ordered in a single point.
+  -
     name: ChangeLog
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
   -
     name: AuditTrail
-    description: |
+    description: |-
       An resource representing a log line.
-      
+
       This entity represents a product that can be ordered via the OrderRegistratieComponent.
 securityDefinitions:
   JWT-Oauth:
@@ -13369,7 +13918,7 @@ host: irc.zaakonline.nl
 servers:
   -
     name: zuid-drecht.nl
-    url: pdc.dev.zuid-drecht.nl
+    url: productenendienstencatalogus.dev.zuid-drecht.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
