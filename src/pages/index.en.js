@@ -22,8 +22,8 @@ import authorizationImage from '../images/undraw_two_factor_authentication_namy.
 
 const IndexPage = ({location}) => (
   <Layout>
-    <SEO title="Proto component commonground"/>
-    <Background backgroundColor="#4376FC">
+    <SEO title="Producten en diensten catalogus"/>
+    <Background backgroundColor="#CC0000">
       <Container>
         <Navigation as="nav" location={location}/>
         <Section>
@@ -31,7 +31,7 @@ const IndexPage = ({location}) => (
         </Section>
       </Container>
     </Background>
-    <Background backgroundColor="#F4F5F9">
+    <Background backgroundColor="#2A5587">
       <Container>
         <Logos/>
       </Container>
@@ -80,7 +80,7 @@ const IndexPage = ({location}) => (
       <Section>
         <Flex>
           <Box width={3 / 5}>
-            <h2>Who</h2>
+            <h2>Wie</h2>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
               rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
               explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
@@ -96,7 +96,7 @@ const IndexPage = ({location}) => (
       </Section>
     </Container>
 
-    <Background backgroundColor="#F4F5F9">
+    <Background backgroundColor="#2A5587">
       <Container>
         <Section>
           <Heading align="center" fontSize="2rem">Roadmap</Heading>
@@ -110,7 +110,7 @@ const IndexPage = ({location}) => (
           <Timeline.Content>
             <Span fontSize="0.9rem">Juni 2021</Span>
             <Heading as="h3" fontSize="1.5rem">Kick-off</Heading>
-            <p>Lancering van Demodam</p>
+            <p>Lancering van PDC</p>
           </Timeline.Content>
         </Timeline.ContainerGreen>
         <Timeline.ContainerGreen align="right">
