@@ -62,7 +62,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "sourceOrganization": "ipartial",
  *     "userGroup": "exact",
  *     "groups.id": "exact",
- *     "groups.sourceOrganization": "exact",
+ *     "groups.sourceOrganization": "ipartial",
  *     "groups.name": "exact",
  *     "event": "exact",
  *     "type": "exact",
