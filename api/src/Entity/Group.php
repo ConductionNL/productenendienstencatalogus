@@ -281,6 +281,7 @@ class Group
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
+            $product->addGroup($this);
         }
 
         return $this;
@@ -290,6 +291,7 @@ class Group
     {
         if ($this->products->contains($product)) {
             $this->products->removeElement($product);
+            $product->removeGroup($this);
         }
 
         return $this;
