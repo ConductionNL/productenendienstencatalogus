@@ -5,13 +5,12 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-07-06T11:04:02.6478687+02:00"
+    created: "2021-07-06T20:23:47.6653448+02:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
       version: 1.x.x
-    description: Chart for PostgreSQL, an object-relational database management system
-      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
+    description: Chart for PostgreSQL, an object-relational database management system (ORDBMS) with an emphasis on extensibility and on standards-compliance.
     digest: eebe8f456cf98d5927a35666d1d899174dc4d3e09f26788033f761527bc90749
     home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
     icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
@@ -39,7 +38,7 @@ entries:
       artifacthub.io/containsSecurityUpdates: "true"
     apiVersion: v2
     appVersion: V1.0
-    created: "2021-07-06T11:04:02.6448691+02:00"
+    created: "2021-07-06T20:23:47.6613451+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -49,10 +48,7 @@ entries:
       name: redis
       repository: https://charts.bitnami.com/bitnami
       version: 12.7.7
-    description: This component provides a products and services catalogue that can
-      be used by a order component in order to provide the products in the orders
-      with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md)
-      and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
+    description: This component provides a products and services catalogue that can be used by a order component in order to provide the products in the orders with better details. The design considerations are given in [DESIGN.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN.md) and [DESIGN-PDC.md](https://github.com/ConductionNL/productenendienstencatalogus/blob/master/DESIGN-PDC.md)
     digest: 902020f971eb7ed2828d477036634fc55b8bfe4f92da1b73a75fa8a88cc687d5
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
@@ -75,19 +71,8 @@ entries:
     version: 1.0.0
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-07-06T11:04:02.6368572+02:00"
-    description: De Producten en Diensten Catalogus heeft als doel het geheel aan
-      af te nemen producten en/of diensten in kaart te brengen. Hierbij wordt uitgegaan
-      van afname door klanten vanuit een organisatie, maar er is geen technische beperking
-      om het ook als inkoopsysteem te gebruiken. Naast producten en diensten kent
-      het component ook ondersteuning voor het maken van productgroepen, beschrijvende
-      teksten, afbeeldingen, belastingen en andere zaken die specifiek gerelateerd
-      zijn aan webshop concepten. Hierbij wordt (vanuit internationale normen) een
-      onderscheid gemaakt tussen het product en het aanbieden van het product (offer)
-      waarbij het mogelijk is om een aanbod te koppelen aan geldigheid of doelgroepen.
-      Met andere woorden het is mogelijk om een product op bepaalde momenten goedkoper
-      of juist duurder aan te bieden (trouwen in het weekend) of goedkoper aan te
-      bieden voor bepaalde doelgroepen (korting op evenementen vergunningen voor buurtcomités).
+    created: "2021-07-06T20:23:47.6523436+02:00"
+    description: De Producten en Diensten Catalogus heeft als doel het geheel aan af te nemen producten en/of diensten in kaart te brengen. Hierbij wordt uitgegaan van afname door klanten vanuit een organisatie, maar er is geen technische beperking om het ook als inkoopsysteem te gebruiken. Naast producten en diensten kent het component ook ondersteuning voor het maken van productgroepen, beschrijvende teksten, afbeeldingen, belastingen en andere zaken die specifiek gerelateerd zijn aan webshop concepten. Hierbij wordt (vanuit internationale normen) een onderscheid gemaakt tussen het product en het aanbieden van het product (offer) waarbij het mogelijk is om een aanbod te koppelen aan geldigheid of doelgroepen. Met andere woorden het is mogelijk om een product op bepaalde momenten goedkoper of juist duurder aan te bieden (trouwen in het weekend) of goedkoper aan te bieden voor bepaalde doelgroepen (korting op evenementen vergunningen voor buurtcomités).
     digest: 306b159fd9e20c5c001edb6fd907c408c013b9320a9509854991249b244c7963
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
@@ -113,16 +98,14 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.0.11
-    created: "2021-07-06T11:04:02.6545122+02:00"
+    created: "2021-07-06T20:23:47.6693412+02:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
       tags:
       - bitnami-common
       version: 1.x.x
-    description: Open source, advanced key-value store. It is often referred to as
-      a data structure server since keys can contain strings, hashes, lists, sets
-      and sorted sets.
+    description: Open source, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
     digest: 2d70861d16fc410ed6d6c818b97f7b0d519031147e5c7b42c5691d4c38742c44
     home: https://github.com/bitnami/charts/tree/master/bitnami/redis
     icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
@@ -142,4 +125,4 @@ entries:
     urls:
     - charts/redis-12.7.7.tgz
     version: 12.7.7
-generated: "2021-07-06T11:04:02.5991491+02:00"
+generated: "2021-07-06T20:23:47.6473474+02:00"
