@@ -202,7 +202,7 @@ class Product
      *
      *
      * @MaxDepth(1)
-     * @Groups({"read", "write"})
+     * @Groups({"write"})
      * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="products")
      */
     private $groups;
@@ -307,7 +307,7 @@ class Product
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"read", "write"})
+     * @Groups({"write"})
      */
     private $catalogue;
 
