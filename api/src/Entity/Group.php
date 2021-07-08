@@ -58,7 +58,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="productorservicegroup")
  *
  * @ApiFilter(OrderFilter::class, properties={"name","dateCreated","dateModified"})
- * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","icon": "exact","logo": "exact","sourceOrganization": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","description": "partial","icon": "exact","logo": "exact","sourceOrganization": "ipartial"})
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Group
@@ -281,6 +281,7 @@ class Group
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
+            $product->addGroup($this);
         }
 
         return $this;
@@ -290,6 +291,7 @@ class Group
     {
         if ($this->products->contains($product)) {
             $this->products->removeElement($product);
+            $product->removeGroup($this);
         }
 
         return $this;

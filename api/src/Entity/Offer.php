@@ -147,7 +147,7 @@ class Offer
     private $priceCurrency = 'EUR';
 
     /**
-     * @var integer The quantity of this product
+     * @var int The quantity of this product
      *
      * @example 102
      *
@@ -158,7 +158,7 @@ class Offer
     private $quantity;
 
     /**
-     * @var integer The maximum quantity of this product
+     * @var int The maximum quantity of this product
      *
      * @example 200
      *
@@ -405,6 +405,7 @@ class Offer
         } else {
             $this->quantity = $quantity;
         }
+
         return $this;
     }
 

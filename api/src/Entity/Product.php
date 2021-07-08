@@ -62,13 +62,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "sourceOrganization": "ipartial",
  *     "userGroup": "exact",
  *     "groups.id": "exact",
+ *     "groups.sourceOrganization": "ipartial",
+ *     "groups.name": "exact",
  *     "event": "exact",
  *     "type": "exact",
  *     "sku": "exact",
  *     "name": "ipartial",
+ *     "resource": "exact",
  *     "description": "ipartial",
- *      "id": "exact"}
- *     )
+ *     "id": "exact",
+ *     "catalogue.id": "exact"
+ *     }
+ * )
  * @ApiFilter(DateFilter::class, properties={"dateCreated","dateModified" })
  */
 class Product
@@ -197,7 +202,7 @@ class Product
      *
      *
      * @MaxDepth(1)
-     * @Groups({"read", "write"})
+     * @Groups({"write"})
      * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="products")
      */
     private $groups;
@@ -302,7 +307,7 @@ class Product
      * @MaxDepth(1)
      * @ORM\ManyToOne(targetEntity="App\Entity\Catalogue", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
-     * @Groups({"read", "write"})
+     * @Groups({"write"})
      */
     private $catalogue;
 
@@ -453,6 +458,17 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postDuration;
+
+    /**
+     * @var string url of the resource this product is related to
+     *
+     * @example https://test.com/product
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resource;
 
     /**
      * @var Datetime The moment this resource was created
@@ -639,6 +655,18 @@ class Product
     public function setMovie(?string $movie): self
     {
         $this->movie = $movie;
+
+        return $this;
+    }
+
+    public function getResource(): ?string
+    {
+        return $this->resource;
+    }
+
+    public function setResource(?string $resource): self
+    {
+        $this->resource = $resource;
 
         return $this;
     }
